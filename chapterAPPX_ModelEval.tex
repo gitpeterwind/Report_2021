@@ -1,0 +1,80 @@
+% do this here for safety!!!
+\setcounter{page}{1}
+
+%Leave this here in order to start the whole on an odd-numbered page
+\cleardoublepage
+\chapter[2019 Model Evaluation]{Model Evaluation}
+\label{ch:appx_modeleval}
+
+\old{TODO}
+
+%The purpose of this appendix is to make readers of this report better
+%aware of our web resources (evaluation report/supplementary material)
+%\vspace{30pt}
+
+The EMEP MSC-W model is regularly evaluated against various kinds of measurements, including ground-based, airborne and satellite measurements. As the main application of the EMEP MSC-W model within the LRTAP Convention is to assess the status of air quality on regional scales and to quantify long-range transboundary air pollution, the focus of the evaluation performed for the EMEP status reports is on the EMEP measurement sites.
+
+Only parts of this evaluation are included in the printed version of the EMEP status report. A more comprehensive collection of maps, graphs and statistical analyses, including a more detailed discussion of model performance, are freely available as supplementary material from the MSC-W report page on the EMEP website:\\ \url{https://emep.int/mscw/mscw_publications.html}
+
+This year, the evaluation report is found under the link 'Supplementary material to EMEP Status Report 1/2020'. It contains a comprehensive evaluation of the EMEP MSC-W model for air concentrations and depositions in 2018. The report is divided into three chapters, dealing with pollutants responsible for eutrophication and acidification \citep{WEB2020:SN}, ground level ozone and nitrogen dioxide
+\citep{WEB2020:O3}, and particulate matter \citep{WEB2020:PM}, respectively.\\
+
+The agreement between model and measurements in 2018 is visualized as:
+\begin{itemize}
+\item scatter plots for the EMEP MSC-W model domain;
+\item time series for individual EMEP stations;
+\item horizontal maps combining model results and EMEP measurement data.
+\end{itemize}
+
+Tables summarize common statistical measures of model score, such as bias, root mean square error, temporal and spatial correlations and the index of agreement (see Chapter \ref{ch:Intro}).
+
+This type of model evaluation is performed on an annual basis and can be downloaded from the same web page also for previous years.\\
+
+\vspace{1cm}
+
+A major effort this year has been put into the development of a web
+interface that presents a detailed evaluation against measurements from
+the European Environment Agency's (EEA) Air Quality e-Reporting Database:\\
+\url{https://aerocom-evaluation.met.no/main.php?project=emep}\\
+On that page the user can select the classification of measurement data
+(rural, urban, non-traffic, or all stations) and view a large number of
+statistical parameters (bias, correlation, root mean square error, etc.).
+
+The web interface displays the co-located observational and model data sets
+and contains:
+\begin{itemize}
+
+\item daily and monthly time series for each station, or averaged per
+  country (or the whole area covered by the model and the measurement network);
+\item seasonal- and annual-mean diurnal variation for each of the seven days of the week;
+\item statistics and scatter plots calculated for each station and country;
+\item an overall evaluation of the results using statistics calculated for
+  each country or the whole area covered by the model and the measurement network.
+\end{itemize}
+In all cases the statistics are calculated using monthly resolution
+by default. Daily statistics are available by adding \&stats=daily to the
+site URL given above.
+
+Evaluation is made for the following chemical species and indicators:
+NO$_{2}$, O$_{3}$, PM$_{2.5}$ and PM$_{10}$, and O$_{3}$max (maximum daily
+ozone).
+Different types of visualization (bar charts, line charts, tables,
+etc.) are available for viewing and for download. The measurement data
+have been retrieved from the validated {\em E1a} stream of EEA and further
+harmonized and quality controlled by the GHOST tool (Globally Harmonised
+Observational Surface Treatment) developed at the Barcelona Supercomputing
+Center (BSC).
+
+For supplemental evaluation of Elemental Carbon (EC), the modelled
+absorption coefficient (mainly due to EC) is compared to surface \textit{in-situ}
+observations of the aerosol light absorption coefficient, accessed through
+the Global Atmospheric Watch - WDCA database EBAS
+(\url{http://ebas.nilu.no/}). More details about this can be found in Chapter~\ref{ch:EC}.
+
+%\cleardoublepage
+
+\bibliographystyle{copernicus}         % change bibliography-name after each
+\renewcommand\bibname{References}      % bibliographystyle command!
+\addcontentsline{toc}{section}{References}
+\bibliography{Refs,EMEP_Reports}
+

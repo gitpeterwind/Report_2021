@@ -1,0 +1,79 @@
+\chapter{GIT/Overleaf usage}
+
+Working on this report is possible both from the web-interface overleaf \url{https://www.overleaf.com/project/60a757ed669ccc0941bbed2e} and as git repository from: \url{https://git.overleaf.com/60a757ed669ccc0941bbed2e}
+
+If you have problems accessing/writing to git or overleaf, contact \href{mailto:Heiko.Klein@met.no}{Heiko.Klein@met.no}
+
+
+The report has the same structure in overleaf/git as always: the master file is report.tex, and all chapters/appendixes etc are introduced with include. report.tex has now been updated with the expected chapters, please write directly in the 'chapter file' you are supposed to write (do not invent new chapter files). Check report.tex for the name of the 'chapter files' (e.g. chapterDownscaling.tex for Bruce and Qing).
+
+\section{Report usage from overleaf}
+
+Login to overleaf. Make the change you want. Press Ctrl-s or 'Recompile' regularly to check that you do not introduce bugs. Your changes are regularly saved and automatically committed to the master version.
+
+This way of working is mostly very convenient, as there is a continuous check for conflicts etc, and your changes are automatically committed. But for larger changes (lots of figures etc) you might want to use git (see next section). 
+
+When commenting in and out chapters in report.tex, for instance for compiling only your own chapter(s), be aware that if people work at the same time they might change the chapters in report.tex.
+
+
+
+\section{Report usage via git+overleaf}
+When working with git (see below), you work on your local version, and that you should push once a day (or once a week) to overleaf. The one doing the push needs to fetch the latest version before the push works (described under git-usage). 
+
+Make sure you have a password set on overleaf. If you don't know your password (e.g. because you login with google), reset the password. 
+
+
+Download the report once (this is the same as in the web address):
+\begin{verbatim}
+git clone https://git.overleaf.com/60a757ed669ccc0941bbed2e Report\_2021
+# enter username/password
+cd Report_2021
+\end{verbatim}
+
+You should cache/store your credentials to avoid typing them all the time (this will store your username/password for git in memory or on disk next time you type them):
+\begin{verbatim}
+    # temporary store, retyping required after 15min, secure
+    git config credential.helper cache
+    # or long-term storage in cleartext on your disk
+    git config credential.helper store
+\end{verbatim}
+
+All further work will be done in the directory Report\_2020. Remember that with git, you are working with at least 3 versions, a working-copy (where you make your changes), a local repository (add/status/commit) and the original repository on overleaf (pull/push).
+
+To get the latest version of the report, run from within above directory:
+\begin{verbatim}
+    git pull
+\end{verbatim}
+
+To create a local version of your changes, add and commit them to your local repository (here we assume you have changed the files file1.tex and file2.tex):
+
+\begin{verbatim}
+    git add file1.tex file2.tex
+    git commit -m 'changed a bit'
+\end{verbatim}
+
+Check regularly if you haven't forgotten to add any files to your local repository:
+\begin{verbatim}
+    git status
+\end{verbatim}
+
+Make your local repository available to everybody else. (Ensure you are working on the latest version. And if conflicts, you should fix them and prepare a new version). Make this when nobody else is working on the report, otherwise, there will be changes all the time between pull and push.
+\begin{verbatim}
+    git pull # accept merging changes
+    git push
+\end{verbatim}
+
+More information on using git and overleaf can be found here: 
+\url{https://confluence.desy.de/download/attachments/97009435/overleaf_git_howto.pdf?version=1&modificationDate=1550237113964&api=v2}.
+
+\section{About Refs.bib}
+The Refs.bib file is 8MB, while overleaf has a max size of 2MB,
+after that the web editor does not work anymore.
+
+You can then preferably use git (or, it is possible to download the file, edit it and send up again, but then you have to remember 'replace modus', and be very careful not to overwrite changes by other)
+
+Or, you can have your own chapter.bib, f.e. XXXchapter.bib, file where you only put in your own refs and then use:
+
+\begin{verbatim}
+\bibliography{Refs,XXXchapter}
+\end{verbatim}
