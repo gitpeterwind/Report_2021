@@ -7,9 +7,23 @@
 
 \section{\label{sec:Trends_introduction}Introduction and background}
 
+Colocation: To be done
+
+We use the same methodology as described by \cite{aas2019global, mortier2020} to derive the trends at the individual stations. The significance of the trends is tested with the Mann-Kendall test \citep{hamed1998modified}. The related p-value is used to determine if the trend is significant or not within a confidence interval of 95\%. The slope is calculated with the Theil-Sen estimator which is less sensitive to outliers than standard least-squares methods \citep{sen1968estimates}. At least least 7 valid yearly regional averages (50\% of time coverage) are required in the regional time series for the computation of a slope.
+
+An uncertainty is provided for each trend by combining the error of the slope calculation itself to the error of the residuals:
+
+\begin{equation}
+ Uncertainty = \sqrt{{\left (\frac{\Delta m}{y(2000)}\right )}^{2} + {\left ( \frac{m \cdot \Delta r}{y(2000)^2}\right )}^{2} }
+\end{equation}
+
+where $\Delta m$ is the Theil-Sen estimator 95\% confidence interval, $y(2000)$ is the value of the regression line at the year 2000, $m$ is the value of the Theil-Sen slope and $\Delta r$ is the averaged error on the residuals computed based on the difference between the linear trend and the yearly mean values of the regional time series.
+
+In order to allow for consistent comparisons, the trend is provided as a relative trend (\%/yr) with respect to the first year of the time period (2000).
+
 \clearpage
 \bibliographystyle{copernicus}         % change bibliography-name after each
 \renewcommand\bibname{References}      % bibliographystyle command!
 \addcontentsline{toc}{section}{References}
-\bibliography{Refs,EMEP_Reports,uEMEP}
+\bibliography{trends}
 
