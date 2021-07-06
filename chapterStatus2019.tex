@@ -78,36 +78,36 @@ All the data are available from the EBAS database (\url{http://ebas.nilu.no/}) a
 There were 68 sites measuring either PM$_{10}$ or PM$_{2.5}$ mass. 44 of these sites measured both size fractions, as recommended in the EMEP Monitoring strategy \citep{MonStrat2019}. The stations measuring EMEP level 2 variables are shown in Figure~\ref{fig:levell2-sites} in Chapter \ref{sec:Compliance-with-monitoring}, along with a discussion on compliance with the monitoring obligations and the development of the programme during the last decade.
 
 \section{Setup for EMEP MSC-W model runs}
-\label{Mod_2018}
+\label{Mod_2019}
 
-The EMEP MSC-W model version rv4.35 has been used for the 2018
+The EMEP MSC-W model version rv4.35 has been used for the 2019
 runs. The horizontal resolution is \resZO, with 20 vertical layers
 (the lowest with a height of approximately 50 meters).
 %as discussed in chapter~\ref{ch:ModelUpdates}.
 
- Meteorology, emissions, boundary conditions and forest fires for 2018 have been
+ Meteorology, emissions, boundary conditions and forest fires for 2019 have been
  used as input. Meteorological data have been
  derived from ECMWF-IFS(cy40r1) simulations (see Section~\ref{sec:meteo}). The
  land-based emissions have been derived from the 2020 official data
  submissions to UNECE CLRTAP \citep{CEIP2020}, as documented in
- Chapter \ref{ch:emis2018}. In the Base run for pollution assessments and the source-receptor runs included in this report, the officially submitted \PM[10] and \PM[2.5] emissions from residential combustion (GNFR sector C) were substituted by an emission data set provided by TNO for 2017 (the so-called \textit{Ref2} scenario used in the Copernicus Atmosphere Monitoring Service contract CAMS71). The data set by TNO represents the best-to-date available estimate of residential combustion emissions of PM, accounting for condensable organics in a consistent way. This run is henceforth referred to as~\textbf{EMEPwRef2C}. To study the effect of condensable organics, another model run was performed using official emission data as prepared by CEIP, without any replacement (henceforth called~\textbf{EMEP}), and the results are presented in this year's country reports \citep{Klein:2020} and discussed in Chapter~\ref{ch:Condensables}.
+ Chapter \ref{ch:emis2019}. In the Base run for pollution assessments and the source-receptor runs included in this report, the officially submitted \PM[10] and \PM[2.5] emissions from residential combustion (GNFR sector C) were substituted by an emission data set provided by TNO for 2017 (the so-called \textit{Ref2} scenario used in the Copernicus Atmosphere Monitoring Service contract CAMS71). The data set by TNO represents the best-to-date available estimate of residential combustion emissions of PM, accounting for condensable organics in a consistent way. \textcolor{blue}{OLD: This run is henceforth referred to as~\textbf{EMEPwRef2C}. To study the effect of condensable organics, another model run was performed using official emission data as prepared by CEIP, without any replacement (henceforth called~\textbf{EMEP}), and the results are presented in this year's country reports \citep{Klein:2020} and discussed in Chapter~\ref{ch:Condensables}. }
  
  Emissions from international shipping
  within the EMEP domain are derived from the CAMS global shipping
  emissions \citep{CAMSemis2019}, developed by the Finnish
  Meteorological Institute (FMI). The forest fires emissions are taken from
  The Fire INventory from NCAR (FINN) \citep{FINNIGAN1990}, version 5.
- For more details on the emissions for the 2018 model runs see Chapters
- \ref{ch:emis2018} and \ref{chap:TNO}, and Appendix \ref{ch:appx_emis_2018}.
+ For more details on the emissions for the 2019 model runs see Chapters
+ \ref{ch:emis2019} \textcolor{blue}{OLD: and \ref{chap:TNO},} and Appendix \ref{ch:appx_emis_2019}.
 
- Preliminary simulations for 2019 have been performed with the same
+ \textcolor{blue}{WE ARE NOT RUNNING 2020, are we? OLD: Preliminary simulations for 20219 have been performed with the same
  EMEP MSC-W model version rv4.35, driven by 2019 meteorological
  input (derived from ECMWF-IFS cy46r1), using 2019 forest fire emissions (FINN)
  and else the same emissions as in the 2018 run. Climatological
  means were used for boundary conditions. No evaluation of the 2019
  results have been made as EMEP observational data for 2019 are not yet
  available. The model data for 2019 can be downloaded from the EMEP
- webpage (\url{http://www.emep.int}).
+ webpage (\url{http://www.emep.int}). }
 
  %Trend runs with the EMEP MSC-W model have been performed for the
  %period of 2000--2016, using meteorological data and emissions for the
@@ -186,20 +186,20 @@ A more detailed comparison between model and measurements for ozone for the year
 
 Maps of annual mean concentrations of \PM[10] and \PM[2.5] in 2019,
 calculated by the EMEP MSC-W model, are presented in
-Figure~\ref{fig:PMin2018}. The figures also show annual mean \PM[10]
+Figure~\ref{fig:PMin2019}. The figures also show annual mean \PM[10]
 and \PM[2.5] concentrations observed at the EMEP monitoring network,
-represented by colour triangles overlaying the contours of the
+which are represented by colour triangles overlaying the contours of the
 modelled concentration fields.
 
 \begin{figure}[H]
-%  \centering{\includegraphics[clip=,angle=90,height=6cm,viewport=175 67 448 754]{FIGS_PM/Mean_in_2019_PM10_EMEP01_ALL.pdf}}\\
+  \centering{\includegraphics[clip=,angle=90,height=6cm,viewport=175 67 448 754]{FIGS_PM/Mean_in_2019_PM10_EMEP01_ALL.pdf}}\\
   \vspace{0.5cm}
-%  \centering{\includegraphics[clip=,angle=90,height=6cm,viewport=175 67 448 754]{FIGS_PM/Mean_in_2019_PM25_EMEP01_ALL.pdf}}
+  \centering{\includegraphics[clip=,angle=90,height=6cm,viewport=175 67 448 754]{FIGS_PM/Mean_in_2019_PM25_EMEP01_ALL.pdf}}
 \caption{Annual mean concentrations of \PM[10] and \PM[2.5] in 2019:
   calculated with the EMEP MSC-W model (colour contours) and observed
   at EMEP monitoring network sites (colour triangles). \textit{Note:
     Observations include hourly, daily and weekly data.}}
-\label{fig:PMin2018}
+\label{fig:PMin2019}
 \end{figure}
 
 
@@ -208,27 +208,26 @@ regarding the geographical distribution of the annual mean levels of
 \PM[10] and \PM[2.5], showing their general increase over land from
 north to south. The concentrations are below 2-5 \ug in Northern
 Europe, increasing to 5-15 \ug in the mid-latitudes and further south,
-with \PM[2.5] levels being somewhat lower than those of
-\PM[10]. Figure~\ref{fig:PMin2018} displays fairly homogeneous levels
-of regional background PM over most of Central and Western Europe,
-with somewhat elevated \PM[10] levels of 15-20 \ug in the Po Valley and
-the Benelux. The observations also show elevated \PM[10] concentrations in Poland, Czechia and Hungary, while
-the model calculates high PM for the regions east of the Caspian Sea
-(parts of Kazakhstan, Uzbekistan, Turkmenistan) and over the southern
-Mediterranean, with annual mean concentrations in excess of 50
-\ug. As explained in earlier EMEP reports, these high PM
-concentrations are due to windblown dust from the arid soils and
-deserts of Central Asia, though the accurateness of the calculated
-values still cannot be verified due to the lack of
-observations in these regions.
+\PM[2.5] levels being somewhat lower than those of
+\PM[10]. Figure~\ref{fig:PMin2019} displays fairly homogeneous modelled levels of regional background PM over most of Central and Western Europe,
+with \PM[10] in excess of 20 \ug in the Po Valley and on Cyprus. The observations also show \PM[10] concentrations above 20 \ug in Slovakia. \PM[2.5] concentrations are below 10 \ug over most of EMEP domain (except the south/southeast most regions), or otherwise between 10 and 15 \ug in  parts of Benelux, Poland, Hungary and some of Balkan countries). The only site with observed annual mean \PM[10] above 15 \ug (namely 16.3 \ug) was Hungarian K-Puszta. Furthermore, the model calculates high PM for the regions east of the Caspian Sea (parts of Kazakhstan, Uzbekistan, Turkmenistan) and over the southern Mediterranean, with annual mean concentrations in excess of 50 \ug. These high PM concentrations are due to windblown dust from the arid soils and deserts of Central Asia, though the accurateness of the calculated values still cannot be verified due to the lack of observations in these regions.
 
 There is good agreement between the modelled and observed
 distributions of annual mean \PM[10] and \PM[2.5], with correlation
-coefficients of 0.66 and 0.81, respectively. Overall, the model
-underestimates the observed annual mean of \PM[10] by 22\% and
-\PM[2.5] by 14\%. A comprehensive model evaluation is provided in~\cite{WEB2020:PM}.
+coefficients of 0.65 and 0.7, respectively. Overall, the model
+underestimates the observed annual mean of \PM[10] by 17\% and
+\PM[2.5] by 16\%. \textcolor{blue}{Refer to AeroVal....A comprehensive model evaluation is provided in~\cite{WEB2020:PM}.}
 
-In terms of meteorological conditions, the year 2018 was relatively warm across the EMEP area (except for Asian parts of Russia and Kazakhstan), particularly in Central Europe  (Figure~\ref{fig:2018-avMET}). The spring and summer were also notably warm in Fennoscandia, the Baltic countries and Eastern Europe. Mild winter conditions would mean less need for residential heating, resulting in lower emissions from this sector. Moreover, stagnant air conditions (with temperature inversion, low wind speed and thin mixing layer), causing elevated pollution levels, are less frequent in warm winters. In spring/summer time, higher temperatures would enhance evaporation of semi-volatile inorganic and organic aerosols (SIA and SOA), though the more efficient oxidation contributes to secondary aerosol formation. Furthermore, in Northern and Central Europe, the Baltic region and European Russia, the year 2018 was dry compared to the 2000-2017 average, especially in the spring and summer, which contributed to the photochemistry and secondary aerosol formation. On the other hand, it was a relatively wet year in Western and Southern Europe (Figure~\ref{fig:2018-avMET}) and also in parts of Central, Northern and Eastern Europe in the winter~\citep{CAMS2019}, so that the pollutants were more efficiently removed from the air in those regions.  
+In terms of meteorological conditions, the year 2018 was relatively warm across the EMEP area (Figure~\ref{fig:metyear-avMET}), in particular in the cold half of the year (Figure~\ref{fig:temp-avMET}). Mild winter conditions would mean less need for residential heating, resulting in lower emissions from this sector. Moreover, stagnant air conditions (with temperature inversion, low wind speed and thin mixing layer), typically causing elevated pollution levels, are less frequent in warm winters. Also, the spring/summer period was relatively warm (except from Russia, Kazakhstan, Finland, most of Sweden, Spain and Portugal). During those months, the higher temperatures would enhance evaporation of semi-volatile inorganic and organic aerosols (SIA and SOA), though the more efficient oxidation contributes to secondary aerosol formation.
+
+On the annual basis, the year 2019 was relatively dry over most of Europe (except in the south and parts of Scandinavia), in EECCA countries, and most of Russia (except from the northern regions), as shown in Figure~\ref{fig:metyear-avMET}. However, the amount of precipitation was also relatively large in the cold half-year in Denmark, France, the UK and parts of Germany (Figure~\ref{fig:prec-avMET}). As documented in ~\citep{CAMS2020}, the most prominent feature
+of precipitation in 2019 was the wet end of the year in western and southern Europe. The month of
+November was particularly extreme, both in terms of the total rainfall amounts and the number of
+days with heavy rainfall.
+
+
+ 
+Furthermore, in Northern and Central Europe, the Baltic region and European Russia, the year 2018 was dry compared to the 2000-2017 average, especially in the spring and summer, which contributed to the photochemistry and secondary aerosol formation. On the other hand, it was a relatively wet year in Western and Southern Europe (Figure~\ref{fig:2018-avMET}) and also in parts of Central, Northern and Eastern Europe in the winter~\citep{CAMS2019}, so that the pollutants were more efficiently removed from the air in those regions.  
 
 %\begin{figure}[H]
 %  \centering{\includegraphics[clip=,angle=90,height=3cm,viewport=175 67 448 754]{FIGS_PM/RelAnomaly_PM10_2018_vs_2000-2017.pdf}}
@@ -271,16 +270,16 @@ of PM levels occurring in rural and, to some extend, in urban background
 areas.
 
 
-Model results and EMEP observational data show that the annual mean \PM[10] concentrations were below the EU limit value of 40 \ug for all of Europe in 2018 (Figure~\ref{fig:PMin2018}). The model calculates annual mean \PM[10] above the WHO recommended AQG of 20 \ug
+Model results and EMEP observational data show that the annual mean \PM[10] concentrations were below the EU limit value of 40 \ug for all of Europe in 2018 (Figure~\ref{fig:PMin2019}). The model calculates annual mean \PM[10] above the WHO recommended AQG of 20 \ug
 in only small regions in the Po Valley and western Turkey. The highest
 observed annual mean \PM[10] concentrations, exceeding the AQG of 20 \ug, were registered in Slovakia (SK0007) with 26 \ug, Greece (GR0001, but only 53\% data coverage) with 25 \ug, in Cyprus (CY0002) with 24 \ug, in Czechia (CZ0003) with 23 \ug, the Netherlands (NL0010R) with 21 \ug and Hungary (HU0002) with 20 \ug. Further, the observations and model results show that annual mean \PM[2.5] concentrations (Figure~\ref{fig:PMin2018}) in 2018 were below the EU limit value of 25 \ug (except in the Po Valley according to the model). However, there were observed cases of exceedance of the WHO AQG value of 10 \ug by annual mean \PM[2.5] at seventeen sites, with the highest values in Hungary (HU0003 with 16 \ug and HU0002 with
 15.5 \ug) and in Austria (AT0002) and Czechia (CZ0003) both with 14.5 \ug.
 
 
 \begin{figure}[ht]
-  \centering{\includegraphics[clip=,angle=90,height=6cm,viewport=180 67 440 754]{FIGS_PM/ExcDays_PM10_ModObs_EMEP01_2019.pdf}}\\
+  \centering{\includegraphics[clip=,angle=90,height=5.9cm,viewport=180 67 440 754]{FIGS_PM/ExcDays_PM10_ModObs_EMEP01_2019.pdf}}\\
   \vspace{0.5cm}
-  \centering{\includegraphics[clip=,angle=90,height=6cm,viewport=180 67 440 754]{FIGS_PM/ExcDays_PM25_ModObs_EMEP01_2019.pdf}}
+  \centering{\includegraphics[clip=,angle=90,height=5.9cm,viewport=180 67 440 754]{FIGS_PM/ExcDays_PM25_ModObs_EMEP01_2019.pdf}}
 \caption{Calculated (with 0.1\degrees resolution) and observed (triangles) number of days with
   exceedances in 2019: \PM[10] exceeding 50 \ug (upper) and \PM[2.5]
   exceeding 25 \ug (lower panel). \textit{Note: The EU Directive requires no
