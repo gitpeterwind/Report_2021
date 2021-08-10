@@ -3,16 +3,16 @@
 
 %% authors? added all names seen in Log.changes
 
-{\bf{David Simpson, Robert Bergstr\"om, Svetlana Tsyro and Peter Wind}}
+{\bf{David Simpson, Qing Mu, Svetlana Tsyro and Peter Wind}}
 \vspace{30pt}
 
 \old{TODO}
 
 This chapter summarises the changes made to the EMEP MSC-W  model
-since \citet{R2019:ModDev}, and along with changes discussed in
-\citet{R2013:ModDev,R2014:ModDev,R2015:ModDev,R2016:ModDev,R2017:ModDev,R2019:ModDev},
+since \citet{R2020:ModDev}, and along with changes discussed in
+\citet{R2013:ModDev,R2014:ModDev,R2015:ModDev,R2016:ModDev,R2017:ModDev,R2019:ModDev,R2020:ModDev},
 updates the standard description given in \citet{Simpson_et_al:EMEP}. The
-model version used for reporting this year is denoted rv4.35, which has
+model version used for reporting this year is denoted rv4.42, which has
 had some minor updates in the basic model since rv4.33 as documented
 in  \citet{R2019:ModDev}, major updates in the `Local Fraction'
 methodology, and also in the emissions underlying some of the model runs. Table~\ref{tab:Updates} summarises
@@ -43,12 +43,33 @@ Extends Table S1 of \citealt{Simpson_et_al:EMEP}}
 \hline
 Version & Update                                        & Ref$^{(a)}$   \\
 \hline
+rv4.42  & Changed default Kz scheme &  This report        \\
+        & Updated emissions from CAMS81 project: DMS, soil NO;
+% 21st May 2021:
+rv4.41  & Updated emissions from CAMS81 project: DMS, soil NO; % 16/5
+          Modified various params concerning sea-salt and wet-radius calculations; % 16/5
+   fracPM25 modified;    &   "    \\
+          Revised global monthly factor;  % 16/5
+% 13/5
+rv4.40  & Shipping emissions now spread as 20\% below 20m, 80\% between 20-0m;  
+          New CAMS81-based aircraft emissions; % 29-30/4
+          New CAMS81-based DMS emissions; % 29/4
+%SKIP BUG fix on aircraft emissions  27/4
+% 21/4
+rv4.39 &
+  GNFR-CAMS is now the default emissions system - see Sect.~\ref{ssec:gnfr};  % 21/4
+          Uses global time-zone map;   % 19/3
+          Revised global monthly factor?? or rv4.41?;  % 19/3
+          New default Kz method introduced (Sect.~\ref{ssec:PBL});
+          NWP model rh2m now used in place of earlier sub-grid calculation; % 9/2
+          Upgrade of local fractions methodology;  % 7/11/2020
+% 23/10/2021:
         &                                               & \\
 rv4.35  & Various updates, including heavy   
           refactoring of local-fraction code, bug-fixes in MARS module,
           and updates in chemical mechanisms, default PM and NMVOC speciation and
-          GenChem systems     & This report      \\
-rv4.34  & Public domain (Feb. 2020); EmChem19a, EmChem19p      & This report      \\
+          GenChem systems     & R2020            \\
+rv4.34  & Public domain (Feb. 2020); EmChem19a, EmChem19p      & R2020            \\
 rv4.33  & Public domain (June 2019);
          EmChem19, PAR bug-fix, EQSAM4clim    & R2019            \\
 rv4.32  & Used for EMEP course, April 2019    &    \\
@@ -129,31 +150,20 @@ Notes: (a) R2018 refers to EMEP Status report 1/2018, etc.
 
 \begin{itemize}
 
+\item Introduced new soil-NO and DMS emissions, from CAMS-81 project 
+
+\item Modified sea-salt and wet-radius calculations - Svetlana, Dave
+
 \item
-Local Fractions: the Local Fractions method allows to track a large number of primary
-emission sources effectively. The details of the methodology are described
-in ~\cite{wind-2020}. The method has been generalized and can be used
-to track emissions from a list of countries.
+Updated Local Fractions calculations: 
+\COMMENT{PETER}
+
+\item  fracPM25 stuff - Dave
 
 \item
 The EMEP model's chemical pre-processing system and associated
 box-model (GenChem, boxChem) have been released as open-source.
 See Sect.~\ref{sec:GChem}.
-
-\item
-Chemical mechanisms: the three chemical mechanisms introduced
-in \citet{R2019:ModDev}, EmChem19, CRI v2.2-emep, and CB6r2 have
-been updated for greater compatability and debugged, and are now
-denoted EmChem19a, CRIv2R5Em, CB6r2Em and EmChem19X \citep[see][in
-preparation]{BergstromEmChem2020}.  Additionally, EmChem19p, which is
-just EmChem19a plus code for four pollen species, has been introduced
-to the open-source code.  See Sect.~\ref{sec:Chems}.
-
-\item
-A 19-sector emission system, GNFR\_CAMS, was introduced to take care of
-emissions provided by TNO as part of CAMS. This extended emissions system
-enables for example four road traffic sectors, F1--F4, with e.g. F1
- representing exhaust emissions from gasoline vehicles.
 
 \item
 Emissions speciation. New default and country-specific emission
@@ -166,133 +176,49 @@ fix minor bugs.
 
 \end{itemize}
 
-\section{Local Fraction}
+\section{New emission inputs}
+\label{sec:updateEmis}
+
+From CAMS81...
+
+\subsection{New basis for emission sectors: GNFR\_CAMS}
+\label{ssec:gnfr}
+
+%21/4 2021: Heavy refactoring of the sectors setups.
+GNFR_CAMS is now the default normally. Although the "SECTOR_NAME" is removed
+from code, since it is open to really mix sectors if one wants (i.e. without
+necessarily mapping sectors to either SNAP or GNFR).
+One can easily add new sectors through config_emep.nml, see documentation.
+
+The EmisHeights.txt file is removed, now included in the code. It can also be
+set in config_emep.nml, see documentation.
+
+
+\subsection{Soil NO emissions}
+\label{ssec:soilNO}
+
+\COMMENT{DAVE to COMPLETE}
+
+\subsection{DMS emissions}
+\label{ssec:DMS}
+
+\COMMENT{MICHAEL to COMPLETE}
+
+\subsection{Aircraft emissions}
+\label{ssec:Aircraft}
+
+\COMMENT{MICHAEL to COMPLETE}
+
+\section{Revised PBL paramterisations}
+\label{ssec:PBL}
+
+\COMMENT{PETER to UPDATE}
+
+\section{Local Fractions}
 \label{sec:LFrac}
 
-The implementation of the method has been streamlined and generalized. New
-features include tracking of pollutants over the entire domain
-(the position of the source is then defined in a coarser resolution),
-tracking of pollutants by country of origin, tracking of single species,
-tracking of reduced nitrogen, tracking of sulfates and dry deposition. The
-development of secondary pollutants is still at an experimental stage.
+\COMMENT{PETER to UPDATE}
 
-The method is efficient and the cost of tracking pollutants from 100
-countries in a single run is negligible (less than 5\% additional
-runtime).
-
-This new approach allows to compute an entire SR matrix
-for primary components (and with some preliminary
-implementation of groups such as reduced N). 
-%
-%PW answer: the method is potentially more general. For now reduced N
-%is for example implemented, (as explained above), and not considered
-%as primary. The simple red N equilibrium chemistry is fully taken into
-%account. For SOx, only some chemistry is taken into account. I do not
-%want to be to detailed, as we do not present result for those, and it
-%is under development} in a single
-%
-The interpretation of the contributions is slightly different than
-the results obtained by traditional scenario runs. The Local Fraction
-approach is essentially a tracking mechanism, and therefore only the first
-order effects of the change of emissions will be reflected. For primary
-particulate matter the differences between the two approaches are small.
-
-It should be noted that primary particulate matter will have an influence
-on SOA through gas/particle partitioning impacts \citep{Bergstrom2012},
-and also on gas-particle reaction rates which are dependent on aerosol
-surface area \citep{Stadtler2018} and thereby on the total particulate
-matter concentrations. These secondary effects are not included in the
-Local Fraction method.
-
-Another more subtle difference, is the effect on advection. In a
-scenario run, the concentrations of air pollutants will change. The
-4th order Bott's scheme \citep{Bott1989a} uses those concentrations
-to tune the advection parameters; the parameters are changed in a way
-that tend to keep the pollutants together (in order to reduce numerical
-diffusion). This spurious effect is not present in the Local Fraction
-method.
-
-%\COMMENT{TABLE NUMBERS NEED FINAL CHECK. HARD CODED!!  (PW checked 14 Aug) \bigskip}
-
-\begin{figure}%[ht!]
-\centering
-\includegraphics*[width=0.9\linewidth]{FIGS_MOD/PPM_EMERwRef2C_LF_bruteforce_C2C.png}\\
-\includegraphics*[width=0.9\linewidth]{FIGS_MOD/PPM_EMERwRef2C_LF_bruteforce_IMPORT2C.png}\\
-
-\caption{Country to country contribution (C2C) and import from all other countries (IMPORT2C) for PPM$_{2.5}$ using the brute force methodology and the local fraction methodology (LF), both with EMEPwRef2C emissions, see chapter~\ref{ch:emis2018}.Units: ngm$^{-3}$
-\label{fig:LF_SR}
-}
-\end{figure}
-
-Table~\ref{ch:appx_sr2018}.8 shows the blame matrix for PM$_{fine}$
-obtained by taking the differences of the result of a base run and a
-scenario with 15\% reduction of primary PM$_{fine}$ emissions for one
-country at a time.  Table~\ref{ch:appx_sr2018}.16.3 shows the corresponding
-numbers obtained using the Local Fraction method, i.e. obtained in
-a single run.  Table~\ref{ch:appx_sr2018}.16.2, similar to 
-Table~\ref{ch:appx_sr2018}.8, but shows the blame matrix for {\sl primary}
-PM$_{fine}$ from a scenario run.  Differences between 
-Table~\ref{ch:appx_sr2018}.16.2 and Table~\ref{ch:appx_sr2018}.16.3 are due to the
-``advection scheme effect''. Figure~\ref{fig:LF_SR} compares the results for each country. The differences are small, but the scenario
-runs slightly overestimate the contributions of countries to itself (order of magnitude 2-7\% differences).
-
-\section{Chemical mechanisms -- EmChem19a and EmChem19X}
-\label{sec:Chems}
-
-The EmChem19a scheme \citep{BergstromEmChem2020} is a small update of
-the EmChem19 scheme introduced in \citet{R2019:ModDev}. 
-EmChem19a is slightly simplified compared to EmChem19, including 
-four fewer advected species and one less peroxy radical species. These 
-simplifications were based on results from box model simulation tests at 
-varying conditions and include the following:
-
-\begin{itemize}
-\item
-Simplified C5DICAROOH + OH chemistry leading to the removal of C5134CO2OH
-and C54CO from the scheme.
-
-\item
-Replacing PRRO2H by ACETOL.
-
-\item
-Replacing methyl vinyl ketone (MVK) by the model species MACR in the
-simple monoterpene (APINENE) chemistry. This was made to be consistent
-with the isoprene chemistry, which already uses this simplification
-in EmChem19.
-
-\end{itemize}
-
-In addition, the following updates were made in EmChem19a:
-\begin{itemize}
-\item
-A bug in the wet deposition parameters for the gas phase fraction of
-volatility basis set (VBS) species, that was introduced in EmChem19,
-was corrected.
-
-\item
-Wet deposition of peroxy acetic acid (\ce{CH3CO3H}) was added in EmChem19a.
-
-\item
-The reaction rates for $\alpha$-pinene$+$OH and $\alpha$-pinene$+$\ce{O3} were 
-updated to the latest IUPAC recommendations.
-
-\end{itemize}
-
-A much larger version of EmChem --- denoted EmChem19X --- has also
-been introduced.  The EmChem19X has a more detailed description of
-aromatic chemistry and extended isoprene and monoterpene chemistries
-(including MVK as a separate species). It also includes more organic
-nitrates (including four additional peroxy acyl nitrates and a number of
-nitrate containing peroxy radicals) and a number of other additions. The
-EmChem19X is mainly intended for use in research projects and not for
-the regular EMEP source-receptor modelling.
-
-A manuscript including a detailed description of the new chemical schemes
-(EmChem19a, EmChem19X, CRIv2R5Em, CB6r2Em), and evaluation of European
-and global scale EMEP model results against ambient measurements,
-and comparison to the GenChem version of the Master Chemical Mechanism
-(MCMv3.3Em) in box model simulations, is currently being prepared for
-submission \citep{BergstromEmChem2020}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{GenChem}
