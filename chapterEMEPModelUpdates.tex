@@ -3,21 +3,24 @@
 
 %% authors? added all names seen in Log.changes
 
-{\bf{David Simpson, Qing Mu, Svetlana Tsyro and Peter Wind}}
+{\bf{David Simpson, Michael Gauss, Qing Mu, Svetlana Tsyro and Peter Wind}}
 \vspace{30pt}
 
-\old{TODO}
+%\old{TODO}
+\COMMENT{STARTED Aug 2021. Needs to be filled in by authors}
 
 This chapter summarises the changes made to the EMEP MSC-W  model
 since \citet{R2020:ModDev}, and along with changes discussed in
-\citet{R2013:ModDev,R2014:ModDev,R2015:ModDev,R2016:ModDev,R2017:ModDev,R2019:ModDev,R2020:ModDev},
+\citet{R2013:ModDev,R2015:ModDev,R2016:ModDev,R2017:ModDev,R2019:ModDev,R2020:ModDev} and
+\citet{R2014:ModDev},
 updates the standard description given in \citet{Simpson_et_al:EMEP}. The
 model version used for reporting this year is denoted rv4.42, which has
-had some minor updates in the basic model since rv4.33 as documented
-in  \citet{R2019:ModDev}, major updates in the `Local Fraction'
-methodology, and also in the emissions underlying some of the model runs. Table~\ref{tab:Updates} summarises
+had some major updates (especially with regard to emissions) compared to
+the rv4.35 reported in \citet{R2020:ModDev}.
+Table~\ref{tab:Updates} summarises
 the changes made in the EMEP model since the version documented in
-\citet{Simpson_et_al:EMEP}, and Tables~\ref{tab:EMEPrun}--\ref{tab:EMEPwRef2C_oldVOC} compare the impacts of some of these changes.
+\citet{Simpson_et_al:EMEP}, and these changes are discussed in
+more detail in Sects.~\ref{sec:updateOverview}-\ref{sec:updateOther}.
 
 %Versions:
 %
@@ -31,12 +34,15 @@ the changes made in the EMEP model since the version documented in
 %  rv4.15 released 8/9/2017
 
 \section{Overview of changes} 
+\label{sec:updateOverview}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}
 \begin{footnotesize}
 \caption{Summary of major EMEP MSC-W model versions from 2012--2020.
-Extends Table S1 of \citealt{Simpson_et_al:EMEP}}
+Extends Table S1 of \citealt{Simpson_et_al:EMEP}
+  COMMENT: Note - recent changes and tags are a little confused. Dave will fix.
+}
 \label{tab:Updates}
 \centering
 \begin{tabular}{lp{11cm}l}
@@ -44,16 +50,18 @@ Extends Table S1 of \citealt{Simpson_et_al:EMEP}}
 Version & Update                                        & Ref$^{(a)}$   \\
 \hline
 rv4.42  & Changed default Kz scheme &  This report        \\
-        & Updated emissions from CAMS81 project: DMS, soil NO;
+        & Updated eissions from CAMS81 project: DMS, soil NO;  &  This report        \\
 % 21st May 2021:
 rv4.41  & Updated emissions from CAMS81 project: DMS, soil NO; % 16/5
           Modified various params concerning sea-salt and wet-radius calculations; % 16/5
-   fracPM25 modified;    &   "    \\
+   fracPM25 modified;
           Revised global monthly factor;  % 16/5
+        & \\
 % 13/5
-rv4.40  & Shipping emissions now spread as 20\% below 20m, 80\% between 20-0m;  
+rv4.40  & Shipping emissions now spread as 20\% below 20m, 80\% between 20-90m;  
           New CAMS81-based aircraft emissions; % 29-30/4
           New CAMS81-based DMS emissions; % 29/4
+        & \\
 %SKIP BUG fix on aircraft emissions  27/4
 % 21/4
 rv4.39 &
@@ -63,8 +71,8 @@ rv4.39 &
           New default Kz method introduced (Sect.~\ref{ssec:PBL});
           NWP model rh2m now used in place of earlier sub-grid calculation; % 9/2
           Upgrade of local fractions methodology;  % 7/11/2020
+        & \\
 % 23/10/2021:
-        &                                               & \\
 rv4.35  & Various updates, including heavy   
           refactoring of local-fraction code, bug-fixes in MARS module,
           and updates in chemical mechanisms, default PM and NMVOC speciation and
@@ -150,25 +158,25 @@ Notes: (a) R2018 refers to EMEP Status report 1/2018, etc.
 
 \begin{itemize}
 
-\item Introduced new soil-NO and DMS emissions, from CAMS-81 project 
+\item Introduced new soil-NO, DMS and aircraft emissions, from CAMS-81 project
+(Sect.~\ref{sec:updateEmis}).  -- Dave, Michael
 
-\item Modified sea-salt and wet-radius calculations - Svetlana, Dave
+\item Revised methods for verrtical diffusion (Kz) \QUERY{and Hmix?} (Sect.~\ref{sec:updateKz}). -- Qing
 
-\item
-Updated Local Fractions calculations: 
-\COMMENT{PETER}
-
-\item  fracPM25 stuff - Dave
+\item Modified fine/coarse split of sea-salt (Sect.~\ref{ssec:updateSS}).  -- Svetlana
 
 \item
-The EMEP model's chemical pre-processing system and associated
-box-model (GenChem, boxChem) have been released as open-source.
-See Sect.~\ref{sec:GChem}.
+Updated Local Fractions calculations (Sect.~\ref{sec:updateLF}). -- Peter
+
+\item  fracPM25 stuff (Sect.~\ref{sec:updateOther}). -- Dave
+\item revised wet-radius calculations (Sect.~\ref{sec:updateOther}). --Dave
+
+%\item The EMEP model's chemical pre-processing system and associated box-model (GenChem, boxChem) have been released as open-source.  See Sect.~\ref{sec:GChem}.
 
 \item
 Emissions speciation. New default and country-specific emission
 speciations for NMVOC and \pmfine have been implemented.  See
-Sect.~\ref{sec:emissplits}.
+Sect.~\ref{ssec:emissplits}.
 
 \item
 Numerous small changes to make the code more flexible and/or to
@@ -176,6 +184,10 @@ fix minor bugs.
 
 \end{itemize}
 
+In addition to these changes, articles on GenChem (EMEP's chemical pre-processing system)  and
+the local-scale extension \COMMENT{Phrasing?} have now been published \citep{Simpson:GenChem,Denby:2020}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{New emission inputs}
 \label{sec:updateEmis}
 
@@ -184,14 +196,61 @@ From CAMS81...
 \subsection{New basis for emission sectors: GNFR\_CAMS}
 \label{ssec:gnfr}
 
-%21/4 2021: Heavy refactoring of the sectors setups.
-GNFR_CAMS is now the default normally. Although the "SECTOR_NAME" is removed
-from code, since it is open to really mix sectors if one wants (i.e. without
-necessarily mapping sectors to either SNAP or GNFR).
-One can easily add new sectors through config_emep.nml, see documentation.
+\COMMENT{Text/Table from gmdPaper}
+ 
+Gridded anthropogenic emissions from CEIP
+were previously categorized into 11
+SNAP sectors, but for many years now EMEP emission reporting has been conducted and prepared for
+modelling using the 13-sector
+GNFR system\footnote{
+GNFR=Gridding nomenclature for reporting/UNECE nomenclature for reporting of emissions to air,
+e.g. \citealt{CEIP2020:GNFR}}.
+In 2020 a 19-sector emission system (`GNFR\_CAMS') was implemented in the EMEP model, to take care of
+emissions provided by TNO as part of the Copernicus CAMS project \citep{Kuenen2021}. This extended emissions system
+enables for example four road traffic sectors, F1--F4, with e.g. F1
+ representing exhaust emissions from gasoline vehicles.
+Such emission sectors are characterised in the model by
+release heights, timefactors and species-splits (e.g. NOx to NO and
+\ce{NO2}, or NMVOC to individual VOC surrogates) for each sector.
 
-The EmisHeights.txt file is removed, now included in the code. It can also be
-set in config_emep.nml, see documentation.
+able~\ref{tab:GNFRsectors} summarises the new GNFR\_CAMS sectors,
+and the mapping indices used.
+\COMMENT{Add index explanation in SI table?}
+
+
+\begin{table}
+\caption{The `GNFR\_CAMS' 19-sector system, and mapping indices for release heights, timefactors and species-splits,
+ which is now
+ default in EMEP model. \label{tab:GNFRsectors}
+}
+\begin{tabular}{lrrrrlc}
+\hline
+code & Number  & \multicolumn{3}{c}{Index}      & sector & SNAP \\ \cline{3-5}
+     &         & timefac  & height & emissplit  &        & equivalent \\
+\hline
+A &      01 &   1 &  1 &   1 &  Public Power  &  1 \\
+B &      02 &   3 &  3 &   2 &  Industry  & 3, 4 \\
+C &      03 &   2 &  2 &   3 &  Other Stationary Combustion & 2 \\
+D &      04 &   4 &  4 &   4 &  Fugitive & ??  \\
+E &      05 &   6 &  2 &   5 &  Solvents & 6 \\
+F &      06 &   7 &  2 &   6 &  Road Transport & 7 \\
+G &      07 &   8 &  2 &   7 &  Shipping & 8  \\
+H &      08 &   8 &  7 &   8 &  Aviation & 8  \\
+I &      09 &   8 &  2 &   9 &  Offroad & 8  \\
+J &     10 &   9 &  6 &  10 &  Waste & ? \\
+K &     11 &  10 &  2 &  11 &  Agri - Livestock & 10 \\
+L &     12 &  10 &  2 &  12 &  Agri - Other & 10 \\
+M &     13 &   5 &  5 &  13 &  Other & 11 \\
+A1 &    14 &   1 &  1 &   1 &  PublicPower - Point & 1 \\
+A2 &    15 &   1 &  3 &   1 &  PublicPower - Area & 1 \\
+F1 &    16 &   7 &  2 &  16 &  Road Transport - Exhaust Gasoline & 7  \\
+F2 &    17 &   7 &  2 &  17 &  Road Transport - Exhaust Diesel& 7   \\
+F3 &    18 &   7 &  2 &  18 &  Road Transport - Exhaust LPGgas & 7  \\
+F4 &    19 &   7 &  2 &  19 &  Road Transport - NonExhaust Other& 7   \\
+\hline
+\end{tabular}
+\end{table}
+
 
 
 \subsection{Soil NO emissions}
@@ -209,49 +268,25 @@ set in config_emep.nml, see documentation.
 
 \COMMENT{MICHAEL to COMPLETE}
 
-\section{Revised PBL paramterisations}
-\label{ssec:PBL}
 
-\COMMENT{PETER to UPDATE}
+\subsection{Revised fine/coarse splits of sea-salt emissions}
+\label{ssec:updateSS}
 
-\section{Local Fractions}
-\label{sec:LFrac}
-
-\COMMENT{PETER to UPDATE}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{GenChem}
-\label{sec:GChem}.
-
-The EMEP model's chemical pre-processor, GenChem \citep{Simpson:GenChem}
-includes the chemical pre-processor (GenChem.py), and a simple box-model
-(boxChem). GenChem provides scripts and input files for converting
-chemical equations into differential form for use in atmospheric chemical
-transport models (CTMs) and/or the boxChem system.  Although GenChem is
-primarily intended for users of the EMEP MSC-W CTM and related systems,
-boxChem can be run as a stand-alone chemical solver, enabling for example
-easy testing of chemical mechanisms against each other.
-
-
-The code needed to run the GenChem  system is released as open-source
-code under the GNU license, (\url{https://github.com/metno/genchem}),
-with the user-guide provided at \url{https://genchem.readthedocs.io}.
-\citet{Simpson:GenChem} presents an outline of the usage of the
-GenChem system, explaining input and output files, and along with
-\citet{BergstromEmChem2020} presents some examples of usage.
+\COMMENT{SVETLANA to COMPLETE}
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Emission speciation}
-\label{sec:emissplits}.
+\subsection{Emission speciation}
+\label{ssec:emissplits}.
 
-
+\COMMENT{OLD:}
 
 The emissions speciation of NMVOC and primary PM (PPM) were updated
 for the EmChem19a scheme to reflect recent data available from
-the latest TNO/CAMS inventories (see chap.~\ref{chap:TNO}, also
+the latest TNO/CAMS inventories (see chap.~\ref{chap:TNO} 
+\COMMENT{Dave will sort out cross-refs}
+, also
 \citealt{CAMSemis2019}).  For NMVOC the main changes have been:
 
 \begin{enumerate}
@@ -284,322 +319,35 @@ that Ref1 data are appropriate for modelling with officially submitted
 emissions, and Ref2 data appropriate for modelling when Ref2 emissions
 are used (e.g. for the \textbf{EMEPwRef2C} simulations discussed in
 Chapters~\ref{ch:chapterStatus}--\ref{ch:Condensables}).
+\COMMENT{Dave will sort out text later}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Emission inputs}
-\label{sec:EmisInp}
+\section{Revised PBL paramterisations}
+\label{sec:updateKz}
 
-The main change in emissions treatment has not been in the model code itself,
-but in the use of the Ref2 inventory as described in chapters~\ref{ch:TNOref2} and \ref{ch:Condensables}.
+\COMMENT{QING to UPDATE}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Local Fractions}
+\label{sec:updateLF}
 
+\COMMENT{PETER to UPDATE}
 
-\section{Documentation of model performance}
-\label{sec:ModelPerf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Other?}
+\label{sec:updateOther}
 
-%=== rv4_34os for 2017
-\begin{table}\small
-\centering
-\begin{center}
-\caption{Evaluation statistics for the model version used in this Report (rv4\_35), run with 2017 emissions and meteorology (same setup as in Report 1/2019), against observations in 2017. Annual
-  averages over all EMEP sites with measurements.  N$_{stat}$= number
-  of stations, wd=wet deposition, cp= concentration in precipitation,
-  Corr. = spatial correlation coefficient, RMSE = root mean square
-  error, IOA = index of agreement. The requirement for data completeness is 75 and 25\% days with measurements for air concentrations and wet depositions/concentrations respectively.}
-\label{tab:eval2017}
-\begin{tabular}{c|ccccccc}
-\hline\hline
-Component  & N$_{stat}$ &Obs. & Mod. &Bias (\%) & RMSE & Corr.& IOA\\
-\hline
-%NO2_in_Air ugN/m3
-\chem{NO_2} (\ugN)
-  & 67 & 1.77 & 1.52 & -14 & 0.81 & 0.84 & 0.91\\%done2020
-%SO2_in_Air ugS/m3
-\chem{SO_2} (\ugS)
-  & 59 & 0.41 & 0.33 & -19 & 0.66 & 0.57 & 0.63\\%done2020
-%Sulphate_in_Air ugS/m3
-\chem{SO_4^{2-}}, sea salt corrected (\ugS) % OBS CHOOSE CORRECT UNIT!!!!
-  & 29 & 0.36 & 0.21 & -40 & 0.23 & 0.76 & 0.74\\%done2020
-%Sulphate_in_Air ugS/m3
-\chem{SO_4^{2-}}, including sea salt (\ugS) % OBS CHOOSE CORRECT UNIT!!!!
-  & 34 & 0.46 & 0.29 & -36 & 0.25 & 0.77 & 0.72\\%done2020
-%NO3-_in_Air ugN/m3
-\chem{NO_3^-} (\ugN) % OBS CHOOSE CORRECT UNIT!!!!
-  & 26 & 0.26 & 0.28 &  9  & 0.12 & 0.81 & 0.89\\%done2020
-%HNO3_in_Air ugN/m3
-\chem{HNO_3} (\ugN)
-  & 17 & 0.12 & 0.10 & -17 & 0.08 & 0.54 & 0.68\\%done2020
-%Sum_of_HNO3,_NO3-_in_air ugN/m3
-\chem{NO_3^-}+\chem{HNO_3} (\ugN)
-  & 37 & 0.42 & 0.42 &  -1 & 0.09 & 0.91 & 0.95\\%done2020
-%Ammonia_in_Air ugN/m3
-\chem{NH_3} (\ugN)
-  & 22 & 0.53 & 0.65 &  24 & 0.38 & 0.84 & 0.89\\%done2020
-%NH4+_in_Air ugN/m3
-\chem{NH_4^+} (\ugN)
-  & 26 & 0.45 & 0.38 & -16 & 0.25 & 0.67 & 0.81\\%done2020
-%NH3+NH4+_in_Air ugN/m3
-\chem{NH_3}+\chem{NH_4^+} (\ugN)
-  & 33 & 1.13 & 1.70 &  51 & 2.41 & 0.48 & 0.41\\%done2020
-%SO4_wet_dep. mgS/m2 
-\chem{SO_4^{2-}} wd (\mgSm)
-  & 52 & 9116  & 6658  & -27 & 100 & 0.63 & 0.75\\%done2020
-%SO4_conc._in_precip. mgS/l (unit error removed in 2018)
-\chem{SO_4^{2-}} cp (\mgSl)
-  & 52 & 0.25 & 0.16 & -35 & 0.17 & 0.66 & 0.68\\%done2020
-%Ammonium_wet_dep. mgN/m2 (unit error removed in 2018)
-\chem{NH_4^+} wd (\mgNm)
-  & 51 & 12646 & 15004 &  19 & 164 & 0.70 & 0.81\\%done2020
-%Ammonium_conc._in_precip. mgN/l 
-\chem{NH_4^+} cp (\mgNl)
-  & 51 & 0.35 & 0.39 &  13 & 0.21 & 0.57 & 0.73 \\%done2020
-%Nitrate_wet_dep. mgN/m2 (unit error removed in 2018)
-\chem{NO_3^-} wd (\mgNm)
-  & 53 & 10394 & 10401 &  0 & 87 & 0.79 & 0.89\\%done2020
-%Nitrate_conc._in_precip. mgN/l 
-\chem{NO_3^-} cp (\mgNl)
-  & 43 & 0.30 & 0.27 & -12 & 0.24 & 0.46 & 0.58\\%done2020
-Ozone daily max (ppb) 
-  & 115 & 40.37 & 40.72 &  1 & 3.10 & 0.80 & 0.86\\%done2020
-Ozone daily mean (ppb) 
-  & 115 & 31.40 & 33.84 &  8 & 4.85 & 0.69 & 0.73\\%done2020
-%PM10 ug/m3
-\PM[10] (\ug)
-  &  30 & 12.73 & 10.76 & -15 & 3.54 & 0.74 & 0.81\\%done2020
-%PM25 ug/m3
-\PM[2.5] (\ug)
-  &  25 &  7.45 &  6.47 & -13 & 2.36 & 0.76 & 0.84\\%done2020
-\hline\hline
-\end{tabular}
-\end{center}
-\end{table}
+fracMPM25 - Dave
+revised wet-radius calculations --Dave
 
-In Tables~\ref{tab:eval2017}-\ref{tab:EMEPwRef2C_iiasaPM} the changes in the model performance due to the model version and emission input updates, described in \ref{Mod_2018} and in Section \ref{sec:emissplits}, are documented. Table \ref{tab:eval2017} provides the comparison statistics for model version rv4\_35 run for the year 2017 (using the same setup - emissions and meteorology - as in EMEP Status Report 1/2019) with EMEP observations in 2017. Comparison with the evaluation results of rv4\_33 model version for 2017, reported in 2019 (\citep{WEB2020:SN}, \citep{WEB2020:O3}, and \citep{WEB2020:PM}), shows that the differences due to the model version update are only minor. The main effects are due to bug correction in the MARS thermodynamic equilibrium module, which caused small (within few percent) changes in nitrogen and ammonium components. The largest effect (6-7\% higher concentrations in rv4\_35 run) is seen for PM and is due to the changes in ammonium nitrate and coarse nitrate.
-
-Furthermore, Tables \ref{tab:EMEPrun}, \ref{tab:EMEPwRef2C_oldVOC} and \ref{tab:EMEPwRef2C_iiasaPM} show the evaluation statistics of model results against EMEP 2018 observations for a series of model test runs for 2018: EMEP run (with officially submitted emissions), EMEPwRef2C run using old speciation for NMVOCs and EMEPwRef2C run using old speciation for PM emissions. The emission input updates appear to effect only limited number of components, and most of the changes in performance statistics are negligibly small. These statistics can be compared with the evaluation of the EMEPwRef2C run for 2018  (Appendix \ref{ch:appx_modeleval}), reported in 'Supplementary material to EMEP Status Report 1/2020' (\citet{WEB2020:SN}, \citet{WEB2020:O3}, and \citet{WEB2020:PM}).
+Something on pollen perhaps? -- Alvaro??
 
 
-\begin{table}\small
-\centering
-\begin{center}
-\caption{As Table \ref{tab:eval2017}, but for EMEP run (with officially reported emissions) for 2018 against EMEP observations in 2018.}
-\label{tab:EMEPrun}
-\begin{tabular}{c|ccccccc}
-\hline\hline
-Component  & N$_{stat}$ &Obs. & Mod. &Bias (\%) & RMSE & Corr.& IOA\\
-\hline
-%NO2_in_Air ugN/m3
-\chem{NO_2} (\ugN)
-  & 73 & 1.71 & 1.50 & -13 & 0.68 & 0.87 & 0.92\\%done2020
-%SO2_in_Air ugS/m3
-\chem{SO_2} (\ugS)
-  & 57 & 0.30 & 0.26 & -13 & 0.21 & 0.63 & 0.78\\%done2020
-%Sulphate_in_Air ugS/m3
-\chem{SO_4^{2-}}, sea salt corrected (\ugS) % OBS CHOOSE CORRECT UNIT!!!!
-  & 24 & 0.38 & 0.21 & -44 & 0.24 & 0.87 & 0.69\\%done2020
-%Sulphate_in_Air ugS/m3
-\chem{SO_4^{2-}}, including sea salt (\ugS) % OBS CHOOSE CORRECT UNIT!!!!
-  & 32 & 0.48 & 0.29 & -39 & 0.24 & 0.87 & 0.71\\%done2020
-%NO3-_in_Air ugN/m3
-\chem{NO_3^-} (\ugN) % OBS CHOOSE CORRECT UNIT!!!!
-  & 25 & 0.27 & 0.31 &  14 & 0.12 & 0.78 & 0.87\\%done2020
-%HNO3_in_Air ugN/m3
-\chem{HNO_3} (\ugN)
-  & 17 & 0.12 & 0.10 & -18 & 0.08 & 0.54 & 0.68\\%done2020
-%Sum_of_HNO3,_NO3-_in_air ugN/m3
-\chem{NO_3^-}+\chem{HNO_3} (\ugN)
-  & 34 & 0.42 & 0.42 &   0 & 0.08 & 0.94 & 0.97\\%done2020
-%Ammonia_in_Air ugN/m3
-\chem{NH_3} (\ugN)
-  & 20 & 0.64 & 0.68 &   7 & 0.29 & 0.91 & 0.95\\%done2020
-%NH4+_in_Air ugN/m3
-\chem{NH_4^+} (\ugN)
-  & 26 & 0.50 & 0.42 & -16 & 0.20 & 0.78 & 0.86\\%done2020
-%NH3+NH4+_in_Air ugN/m3
-\chem{NH_3}+\chem{NH_4^+} (\ugN)
-  & 31 & 1.28 & 1.59 &  24 & 1.47 & 0.70 & 0.69\\%done2020
-%SO4_wet_dep. mgS/m2 (unit error removed in 2018)
-\chem{SO_4^{2-}} wd (\mgSm)
-  & 43 &  9587 & 6149 & -36 & 253 & 0.76 & 0.61\\%done2020
-%SO4_conc._in_precip. mgS/l (unit error removed in 2018)
-\chem{SO_4^{2-}} cp (\mgSl)
-  & 43 & 0.30 & 0.19 & -38 & 0.27 & 0.60 & 0.55\\%done2020
-%Ammonium_wet_dep. mgN/m2 (unit error removed in 2018)
-\chem{NH_4^+} wd (\mgNm)
-  & 42 & 11065 & 11623 &  5 & 185 & 0.62 & 0.78\\%done2020
-%Ammonium_conc._in_precip. mgN/l (unit error removed in 2018)
-\chem{NH_4^+} cp (\mgNl)
-  & 42 & 0.38 & 0.38 &  0 & 0.20 & 0.62 & 0.78\\%done2020
-%Nitrate_wet_dep. mgN/m2 (unit error removed in 2018)
-\chem{NO_3^-} wd (\mgNm)
-  & 43 &  9003 &  8342 & -7 & 156 & 0.58 & 0.73\\%done2020
-%Nitrate_conc._in_precip. mgN/l (unit error removed in 2018)
-\chem{NO_3^-} cp (\mgNl)
-  & 43 & 0.30 & 0.26 & -12 & 0.24 & 0.46 & 0.58\\%done2020
-Ozone daily max (ppb) 
-  & 117 & 42.60 & 41.51 & -3 & 3.00 & 0.82 & 0.85\\%done2020
-Ozone daily mean (ppb) 
-  & 117 & 33.00 & 34.41 &  4 & 4.15 & 0.72 & 0.76\\%done2020
-%PM10 ug/m3
-\PM[10] (\ug)
-  &  31 &  14.09 &  10.49 & -26 & 4.65 & 0.68 & 0.69\\%done2020
-%PM25 ug/m3
-\PM[2.5] (\ug)
-  &  26 &   8.28 &   6.66 & -20 & 2.84 & 0.76 & 0.82\\%done2020
-\hline\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-
-\begin{table}\small
-\centering
-\begin{center}
-\caption{As Table \ref{tab:EMEPrun}, but for EMEPwRef2C run with old NMVOC speciation}
-\label{tab:EMEPwRef2C_oldVOC}
-\begin{tabular}{c|ccccccc}
-\hline\hline
-Component  & N$_{stat}$ &Obs. & Mod. &Bias (\%) & RMSE & Corr.& IOA\\
-\hline
-%NO2_in_Air ugN/m3
-\chem{NO_2} (\ugN)
-  & 73 & 1.71 & 1.49 & -13 & 0.68 & 0.87 & 0.92\\%done2020
-%SO2_in_Air ugS/m3
-\chem{SO_2} (\ugS)
-  & 57 & 0.30 & 0.26 & -13 & 0.21 & 0.63 & 0.78\\%done2020
-%Sulphate_in_Air ugS/m3
-\chem{SO_4^{2-}}, sea salt corrected (\ugS) % OBS CHOOSE CORRECT UNIT!!!!
-  & 24 & 0.38 & 0.21 & -44 & 0.24 & 0.87 & 0.69\\%done2020
-%Sulphate_in_Air ugS/m3
-\chem{SO_4^{2-}}, including sea salt (\ugS) % OBS CHOOSE CORRECT UNIT!!!!
-  & 32 & 0.48 & 0.29 & -39 & 0.24 & 0.87 & 0.71\\%done2020
-%NO3-_in_Air ugN/m3
-\chem{NO_3^-} (\ugN) % OBS CHOOSE CORRECT UNIT!!!!
-  & 25 & 0.27 & 0.31 &  14 & 0.12 & 0.78 & 0.87\\%done2020
-%HNO3_in_Air ugN/m3
-\chem{HNO_3} (\ugN)
-  & 17 & 0.12 & 0.10 & -17 & 0.08 & 0.54 & 0.68\\%done2020
-%Sum_of_HNO3,_NO3-_in_air ugN/m3
-\chem{NO_3^-}+\chem{HNO_3} (\ugN)
-  & 34 & 0.42 & 0.43 &   1 & 0.08 & 0.94 & 0.97\\%done2020
-%Ammonia_in_Air ugN/m3
-\chem{NH_3} (\ugN)
-  & 20 & 0.64 & 0.68 &   7 & 0.29 & 0.91 & 0.95\\%done2020
-%NH4+_in_Air ugN/m3
-\chem{NH_4^+} (\ugN)
-  & 26 & 0.50 & 0.42 & -16 & 0.20 & 0.78 & 0.86\\%done2020
-%NH3+NH4+_in_Air ugN/m3
-\chem{NH_3}+\chem{NH_4^+} (\ugN)
-  & 31 & 1.28 & 1.59 &  24 & 1.47 & 0.70 & 0.69\\%done2020
-%SO4_wet_dep. mgS/m2 (unit error removed in 2018)
-\chem{SO_4^{2-}} wd (\mgSm)
-  & 43 &  9587 & 6151 & -36 & 253 & 0.76 & 0.61\\%done2020
-%SO4_conc._in_precip. mgS/l (unit error removed in 2018)
-\chem{SO_4^{2-}} cp (\mgSl)
-  & 43 & 0.30 & 0.19 & -38 & 0.27 & 0.60 & 0.55\\%done2020
-%Ammonium_wet_dep. mgN/m2 (unit error removed in 2018)
-\chem{NH_4^+} wd (\mgNm)
-  & 42 & 11065 & 11624 &  5 & 185 & 0.62 & 0.78\\%done2020
-%Ammonium_conc._in_precip. mgN/l (unit error removed in 2018)
-\chem{NH_4^+} cp (\mgNl)
-  & 42 & 0.38 & 0.38 &  0 & 0.20 & 0.62 & 0.78\\%done2020
-%Nitrate_wet_dep. mgN/m2 (unit error removed in 2018)
-\chem{NO_3^-} wd (\mgNm)
-  & 43 &  9003 &  8363 & -7 & 156 & 0.58 & 0.73\\%done2020
-%Nitrate_conc._in_precip. mgN/l (unit error removed in 2018)
-\chem{NO_3^-} cp (\mgNl)
-  & 43 & 0.30 & 0.27 & -12 & 0.24 & 0.46 & 0.58\\%done2020
-Ozone daily max (ppb) 
-  & 117 & 42.60 & 41.57 & -2 & 3.00 & 0.82 & 0.85\\%done2020
-Ozone daily mean (ppb) 
-  & 117 & 33.00 & 34.47 &  4 & 4.19 & 0.72 & 0.76\\%done2020
-%PM10 ug/m3
-\PM[10] (\ug)
-  &  31 &  14.09 &  10.45 & -26 & 4.68 & 0.68 & 0.69\\%done2020
-%PM25 ug/m3
-\PM[2.5] (\ug)
-  &  26 &   8.28 &   6.62 & -20 & 2.86 & 0.76 & 0.82\\%done2020
-\hline\hline
-\end{tabular}
-\end{center}
-\end{table}
-
-
-\begin{table}\small
-\centering
-\begin{center}
-\caption{As Table \ref{tab:EMEPrun}, but for EMEPwRef2C run with old PM speciation}
-\label{tab:EMEPwRef2C_iiasaPM}
-\begin{tabular}{c|ccccccc}
-\hline\hline
-Component  & N$_{stat}$ &Obs. & Mod. &Bias (\%) & RMSE & Corr.& IOA\\
-\hline
-%NO2_in_Air ugN/m3
-\chem{NO_2} (\ugN)
-  & 73 & 1.71 & 1.50 & -12 & 0.68 & 0.87 & 0.92\\%done2020
-%SO2_in_Air ugS/m3
-\chem{SO_2} (\ugS)
-  & 57 & 0.30 & 0.26 & -13 & 0.21 & 0.63 & 0.78\\%done2020
-%Sulphate_in_Air ugS/m3
-\chem{SO_4^{2-}}, sea salt corrected (\ugS) % OBS CHOOSE CORRECT UNIT!!!!
-  & 24 & 0.38 & 0.21 & -44 & 0.24 & 0.87 & 0.69\\%done2020
-%Sulphate_in_Air ugS/m3
-\chem{SO_4^{2-}}, including sea salt (\ugS) % OBS CHOOSE CORRECT UNIT!!!!
-  & 32 & 0.48 & 0.29 & -39 & 0.24 & 0.87 & 0.71\\%done2020
-%NO3-_in_Air ugN/m3
-\chem{NO_3^-} (\ugN) % OBS CHOOSE CORRECT UNIT!!!!
-  & 25 & 0.27 & 0.31 &  13 & 0.12 & 0.78 & 0.87\\%done2020
-%HNO3_in_Air ugN/m3
-\chem{HNO_3} (\ugN)
-  & 17 & 0.12 & 0.10 & -18 & 0.08 & 0.54 & 0.68\\%done2020
-%Sum_of_HNO3,_NO3-_in_air ugN/m3
-\chem{NO_3^-}+\chem{HNO_3} (\ugN)
-  & 34 & 0.42 & 0.42 &   0 & 0.08 & 0.94 & 0.97\\%done2020
-%Ammonia_in_Air ugN/m3
-\chem{NH_3} (\ugN)
-  & 20 & 0.64 & 0.68 &   7 & 0.29 & 0.91 & 0.95\\%done2020
-%NH4+_in_Air ugN/m3
-\chem{NH_4^+} (\ugN)
-  & 26 & 0.50 & 0.42 & -16 & 0.20 & 0.78 & 0.86\\%done2020
-%NH3+NH4+_in_Air ugN/m3
-\chem{NH_3}+\chem{NH_4^+} (\ugN)
-  & 31 & 1.28 & 1.59 &  24 & 1.47 & 0.70 & 0.69\\%done2020
-%SO4_wet_dep. mgS/m2 (unit error removed in 2018)
-\chem{SO_4^{2-}} wd (\mgSm)
-  & 43 &  9587 & 6149 & -36 & 253 & 0.76 & 0.61\\%done2020
-%SO4_conc._in_precip. mgS/l (unit error removed in 2018)
-\chem{SO_4^{2-}} cp (\mgSl)
-  & 43 & 0.30 & 0.19 & -38 & 0.27 & 0.60 & 0.55\\%done2020
-%Ammonium_wet_dep. mgN/m2 (unit error removed in 2018)
-\chem{NH_4^+} wd (\mgNm)
-  & 42 & 11065 & 11622 &  5 & 185 & 0.62 & 0.78\\%done2020
-%Ammonium_conc._in_precip. mgN/l (unit error removed in 2018)
-\chem{NH_4^+} cp (\mgNl)
-  & 42 & 0.38 & 0.38 &  0 & 0.20 & 0.62 & 0.78\\%done2020
-%Nitrate_wet_dep. mgN/m2 (unit error removed in 2018)
-\chem{NO_3^-} wd (\mgNm)
-  & 43 &  9003 &  8339 & -7 & 156 & 0.58 & 0.73\\%done2020
-%Nitrate_conc._in_precip. mgN/l (unit error removed in 2018)
-\chem{NO_3^-} cp (\mgNl)
-  & 43 & 0.30 & 0.26 & -12 & 0.24 & 0.46 & 0.58\\%done2020
-Ozone daily max (ppb) 
-  & 117 & 42.60 & 41.52 & -3 & 3.03 & 0.82 & 0.85\\%done2020
-Ozone daily mean (ppb) 
-  & 117 & 33.00 & 34.36 &  4 & 4.14 & 0.72 & 0.76\\%done2020
-\PM[10] (\ug)
-  &  31 &  14.09 &  10.43 & -26 & 4.69 & 0.68 & 0.69\\%done2020
-%PM25 ug/m3
-\PM[2.5] (\ug)
-  &  26 &   8.28 &   6.61 & -20 & 2.88 & 0.76 & 0.81\\%done2020
-\hline\hline
-\end{tabular}
-\end{center}
-\end{table}
 
 \clearpage
 \bibliographystyle{copernicus}         % change bibliography-name after each
 \renewcommand\bibname{References}      % bibliographystyle command!
 \addcontentsline{toc}{section}{References}
 \bibliography{Refs,EMEP_Reports,uEMEP}
-%\bibliography{myRefs,EMEP_Reports}
