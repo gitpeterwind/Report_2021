@@ -50,10 +50,10 @@ Extends Table S1 of \citealt{Simpson_et_al:EMEP}
 Version & Update                                        & Ref$^{(a)}$   \\
 \hline
 rv4.42  & Changed default Kz scheme &  This report        \\
-        & Updated eissions from CAMS81 project: DMS, soil NO;  &  This report        \\
+        & Updated emissions from CAMS81 project: DMS, soil NO;  &  This report        \\
 % 21st May 2021:
 rv4.41  & Updated emissions from CAMS81 project: DMS, soil NO; % 16/5
-          Modified various params concerning sea-salt and wet-radius calculations; % 16/5
+          Modified various parameters concerning sea-salt and wet-radius calculations; % 16/5
    fracPM25 modified;
           Revised global monthly factor;  % 16/5
         & \\
@@ -161,12 +161,12 @@ Notes: (a) R2018 refers to EMEP Status report 1/2018, etc.
 \item Introduced new soil-NO, DMS and aircraft emissions, from CAMS-81 project
 (Sect.~\ref{sec:updateEmis}).  -- Dave, Michael
 
-\item Revised methods for verrtical diffusion (Kz) \QUERY{and Hmix?} (Sect.~\ref{sec:updateKz}). -- Qing
+\item Revised methods for vertical diffusion (Kz) \QUERY{and Hmix?} (Sect.~\ref{sec:updateKz}). -- Qing
 
-\item Modified fine/coarse split of sea-salt (Sect.~\ref{ssec:updateSS}).  -- Svetlana
+\item Modified fine/coarse split of sea-salt (Sect.~\ref{ssec:updateSS}).
 
 \item
-Updated Local Fractions calculations (Sect.~\ref{sec:updateLF}). -- Peter
+Updated Local Fractions capabilities (Sect.~\ref{sec:updateLF}). -- Peter
 
 \item  fracPM25 stuff (Sect.~\ref{sec:updateOther}). -- Dave
 \item revised wet-radius calculations (Sect.~\ref{sec:updateOther}). --Dave
@@ -272,6 +272,12 @@ F4 &    19 &   7 &  2 &  19 &  Road Transport - NonExhaust Other& 7   \\
 \subsection{Revised fine/coarse splits of sea-salt emissions}
 \label{ssec:updateSS}
 
+The split of sea salt between the fine and coarse fractions have been revised based on the results of comparison of modelled \chem{Na+} in \PM[2.5] and \PM[10] with EMEP observations. Namely, the fraction of sea salt emitted in \PM[2.5] fraction has been slightly increased (while the total sea salt emissions in \PM[10] remain unchanged). 
+
+More specifically, sea salt is emitted in seven size bins up to 10 \um in diameter, from which the smallest four bins were previously assigned to the \PM[2.5] fraction and the remaining three bins comprised coarse sea salt. Now, the fifth bin is split 50/50 \% between the \PM[2.5] and \PM[2.5-10] fractions.  
+
+
+This modification has a minor effect on formation of coarse \noiii as the surface area of coarse sea salt has slightly decreased.
 \COMMENT{SVETLANA to COMPLETE}
 
 
@@ -324,7 +330,7 @@ Chapters~\ref{ch:chapterStatus}--\ref{ch:Condensables}).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Revised PBL paramterisations}
+\section{Revised PBL parametrisations}
 \label{sec:updateKz}
 
 \COMMENT{QING to UPDATE}
@@ -332,6 +338,11 @@ Chapters~\ref{ch:chapterStatus}--\ref{ch:Condensables}).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Local Fractions}
 \label{sec:updateLF}
+The range of applications of the Local Fractions has been extended. 
+
+The sources can be defined by either a list of countries or group of countries, as small squares surrounding the receptor grid (with user defined square sizes), or as regions defined as "masks" given in a NetCDF file.
+
+Wet and dry deposition (separately) per source country can now be computed.
 
 \COMMENT{PETER to UPDATE}
 
