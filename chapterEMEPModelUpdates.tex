@@ -323,22 +323,19 @@ in other cases not. In the EMEP model this ....
 
 A new method to calculate biogenic emissions of dimethyl sulphide (DMS) has been added to the EMEP model. It is based on the climatology of sea surface DMS concentrations published by \citet{Lana2011} and the meteorological data driving the EMEP model, and it has been used for this year's status run. 
 
-Using the sea surface DMS concentrations from \citet{Lana2011}, the fluxes of DMS from the water into the atmosphere are calculated online based on .
-
- and
-calculates the Schmidt number ($Sc$) from the sea surface temperature ($SST$, given in \textdegree C) as
-\\
-calculates $Sc$ with the formula of \citet{Wanninkhof2014} and $K_{w}$ :
+At each location and timestep, the model calculates the Schmidt number ($Sc$) from the sea surface temperature ($SST$, given in \textdegree C) with the formula of \citet{Wanninkhof2014}:
 \\
 \\
 $Sc=2855.7 -177.63\  SST + 6.0438\  SST^2 - 0.11645\  SST^3 + 0.00094743\ SST^4$ 
-
-The transfer velocity $K_{w}$ (given in cm hour$^{-1}$) is calculated with the formula of \citet{Nightingale2000}, depending on the 10-meter wind speed $u_{10}$ (given in \ms):
 \\
-$K_w=(0.222\  u_{10}^2 +0.333\ u_{10}) \sqrt{\frac{600}{Sc}} $\\
-
-
-Following \citet{Tarrason:1995} we assume that 66\% of the DMS in air is converted into \ce{SO2}; the DMS emission is thus implemented in the model as an \ce{SO2} flux as:
+\\
+The transfer velocity $K_{w}$ (given in cm hour$^{-1}$) is then calculated with the formula of \citet{Nightingale2000}, from the Schmidt number and the 10-meter wind speed $u_{10}$ (given in \ms):
+\\
+\\
+$K_w=(0.222\  u_{10}^2 +0.333\ u_{10}) \sqrt{\frac{600}{Sc}} $
+\\
+\\
+Following \citet{Leon} we assume that 66\% of the DMS in air is converted into \ce{SO2}. The DMS emission is thus implemented in the model as an \ce{SO2} flux as:
 
 \begin{verbatim}
 flux(SO2)=0.66*O_DMS*Kw/3600*0.01*GRAV*roa/p*AVOG  
