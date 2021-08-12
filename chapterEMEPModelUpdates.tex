@@ -321,17 +321,15 @@ in other cases not. In the EMEP model this ....
 \subsection{DMS emissions}
 \label{ssec:DMS}
 
-\COMMENT{MICHAEL to COMPLETE}
+A new option to calculate biogenic emissions of dimethyl sulphide (DMS) has been added to the EMEP model. It is based on the climatology of sea surface DMS concentrations published by \citet{Lana2011} and the meteorological data driving the EMEP model, and it has been used for this year's status run. 
 
-A new method to calculate biogenic emissions of dimethyl sulphide (DMS) has been added to the EMEP model. It is based on the climatology of sea surface DMS concentrations published by \citet{Lana2011} and the meteorological data driving the EMEP model, and it has been used for this year's status run. 
-
-At each location and timestep, the model calculates the Schmidt number ($Sc$) from the sea surface temperature ($SST$, given in \textdegree C) with the formula of \citet{Wanninkhof2014}:
+At each location and timestep, the model calculates the Schmidt number ($Sc$) from the sea surface temperature ($SST$, given in \textdegree C) with the 4th-degree formula of \citet{Wanninkhof2014}:
 \\
 \\
 $Sc=2855.7 -177.63\  SST + 6.0438\  SST^2 - 0.11645\  SST^3 + 0.00094743\ SST^4$ 
 \\
 \\
-The transfer velocity $K_{w}$ (given in cm hour$^{-1}$) is then calculated with the formula of \citet{Nightingale2000}, from the Schmidt number and the 10-meter wind speed $u_{10}$ (given in m~s$^{-1}$):
+The transfer velocity $K_{w}$ (given in cm hour$^{-1}$) is then calculated  from the Schmidt number and the 10-meter wind speed $u_{10}$ (given in m~s$^{-1}$) with the formula of \citet{Nightingale2000}:
 \\
 \\
 $K_w=(0.222\  u_{10}^2 +0.333\ u_{10}) \sqrt{\frac{600}{Sc}} $
@@ -349,18 +347,17 @@ $roa$ is the ambient density of air (kg m$^{-3}$),
 $p$ is ambient air pressure
 and $AVOG$ is Avogradro's number (6.023e+23 mol$^{-1}$).
 
+The options to calculate the Schmidt number and transfer velocity, and also to use the older climatology of \citet{Kettle1999}, are still available in the EMEP model.
+
 \subsection{Aircraft emissions}
 \label{ssec:Aircraft}
 
-\COMMENT{MICHAEL to COMPLETE}
+ LTO (landing/take-off) emission data are, as before, taken from CEIP, i.e. based on aircraft emissions officially reported by countries for up to 3000 feet above the surface. However, the high distribution in the EMEP model has been slightly revised. We assume that, in approximation, half of the LTO emissions (from CEIP) occur below 50 meters above the surface, while the other half is evenly distributed over the height range between 50 meters and about 3000 feet.
+ Furthermore, aircraft emissions at higher altitudes than 3000 feet are now based on a new dataset (CAMS-GLOB-AIR, \citet{GranierCAMS2019}), given separately for all years from 2000 to 2019, with monthly variation and a spatial resolution of 0.5$^\circ$\,$\times$\,0.5$^\circ$\,$\times$\,610\,m. This dataset has been provided through the Copernicus Atmosphere Monitoring Service and can be downloaded from the Atmosphere Data Store of ECMWF (\url{https://ads.atmosphere.copernicus.eu/}).
 
-LTO (landing/take-off) emission data are, as before, taken from CEIP, i.e. based on aircraft emissions officially reported by countries for up to 3000 feet above the surface. However, aircraft emissions at higher altitudes are now based on the new CAMS-GLOB-AIR dataset (\citet{GranierCAMS2019}), given separately for all years from 2000 to 2019, with monthly variation and a spatial resolution of 0.5$^\circ$\,$\times$\,0.5$^\circ$\,$\times$\,610\,m. These data have been provided through the Copernicus Atmosphere Monitoring Service and can be downloaded from the Atmosphere Data Store of ECMWF (\url{https://ads.atmosphere.copernicus.eu/}).
+In the EMEP model, CAMS-GLOB-AIR emissions between 0 and 610m (2000 ft) above the surface are not used, and half of the CAMS-GLOB-AIR emissions between 610 and 1220m are evenly distributed over the model layers corresponding to that height range. The assumption behind this approch is that emissions up to 3000 feet should already be fully included in the CEIP (LTO) emissions. Above 1220m (4000ft), CAMS-GLOB-AIR emissions are used in full, and interpolated to the relevant model grid during model runtime.
 
-We assume that, in approximation, half of the LTO emissions (from CEIP) occur below 50 meters above the surface, while the other half is evenly distributed over the height range between 50 meters and about 3000 feet.
-
-In the EMEP model, CAMS-GLOB-AIR emissions between 0 and 610m (2000 ft) above the surface are not used, and half of the CAMS-GLOB-AIR emissions between 610 and 1220m are evenly distributed over the model layers corresponding to that height range. The assumption is that emissions up to 3000 feet should already be fully included in the CEIP (LTO) emissions. Above 1220m (4000ft), CAMS-GLOB-AIR emissions are used in full, and interpolated to the relevant model grid during model runtime.
-
-The option of using the old QUANTIFY data (website \url{www.pa.op.dlr.de/quantify}) instead of CAMS-GLOB-AIR is still available.
+The option of using the old QUANTIFY data (\url{www.pa.op.dlr.de/quantify}) instead of CAMS-GLOB-AIR for non-LTO emissions is still available in the EMEP model.
 
 \subsection{Revised fine/coarse splits of sea-salt emissions}
 \label{ssec:updateSS}
