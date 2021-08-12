@@ -279,33 +279,35 @@ of reactive nitrogen (hereafter \Ndep), and a pulse factor, \Fp. For this work w
   \label{eqn:Fs}
 \end{equation}
 
-where the flux terms have units \ngN. The calculations of \Fb, \Ff, \Fd and \Fp are detailed in \citep{SimpsonDarras2021}.
+where the flux terms have units \ngN. The calculations of \Fb, \Ff, \Fd and \Fp are detailed in
+ \citet{SimpsonDarras2021}.
 
 An important issue arose during the construction ....
+% from  gmdSI from /home/davids/Documents/ARTICLES/2021/GmdSoilNO
+% CHECK also gmdSI from /home/davids/Work/EU_Projects/CAMS/CAMS81/D81_3_3_1_jun2021
 Within the LRTAP Convention,
 most countries mainly report NOx emissions due to agricultural activities
 using the EMEP/EEA Emissions Inventory Guidebook
 \citep{Guidebook2019:3D}. The Guidebook provides methods for calculating
 soil-NO data from fertilizer and other inputs.
 
-Table~\ref{tab:GB2019} presents the main sources for which
+
+\citet{SimpsonDarras2021} present the main sources for which
  soil NO emissions ares covered by the Guidebook, and
-Table~\ref{tab:Res2015} presents the nationally
-submitted emissions following this system (data
-provided by Sabine Schindlbacher, EMEP CEIP, 2021).
-It can be seen that for the vast majority of countries
+compare the nationally
+submitted emissions following this system with the CAMS estimates.
+It is shown that for the vast majority of countries
 the main emission categories are 3Da1,3Da2a-c,and
-3Da3. These are all roughly equivalent to
+3Da3 in NFR, which together are roughly equivalent to
 the `Fert' emissions from CAMS-GLOB-SOIL.
 
 When using EMEP emissions derived from
 officially reported data (with soil NO emissions as given in GNFR L),
-for example in EMEP MSC-W reporting runs, retain the
-official GNFR L data, but
- but add biome, N-dep and pulse emissions from CAMS-GLOB-SOIL.
+for example in EMEP MSC-W reporting runs,
+\citet{SimpsonDarras2021} recommended to retain the
+official GNFR L data, but but add biome, N-dep and pulse emissions from CAMS-GLOB-SOIL.
 
-
-\citet{SimpsonDarras:2021} discuss these double-counting issues for
+\citet{SimpsonDarras:2021} also give recommendations for
 ECLIPSE v5 and v6 inventories, and for CAMS-GLOB and CAMS-REG. In
 some cases the CAMS-GLOB-SOIL \Nfert emissions should be used, but
 in other cases not. In the EMEP model this ....
@@ -329,13 +331,13 @@ At each location and timestep, the model calculates the Schmidt number ($Sc$) fr
 $Sc=2855.7 -177.63\  SST + 6.0438\  SST^2 - 0.11645\  SST^3 + 0.00094743\ SST^4$ 
 \\
 \\
-The transfer velocity $K_{w}$ (given in cm hour$^{-1}$) is then calculated with the formula of \citet{Nightingale2000}, from the Schmidt number and the 10-meter wind speed $u_{10}$ (given in \ms):
+The transfer velocity $K_{w}$ (given in cm hour$^{-1}$) is then calculated with the formula of \citet{Nightingale2000}, from the Schmidt number and the 10-meter wind speed $u_{10}$ (given in m~s$^{-1}$):
 \\
 \\
 $K_w=(0.222\  u_{10}^2 +0.333\ u_{10}) \sqrt{\frac{600}{Sc}} $
 \\
 \\
-Following \citet{Leon} we assume that 66\% of the DMS in air is converted into \ce{SO2}. The DMS emission is thus implemented in the model as an \ce{SO2} flux as:
+Following \citet{Leonor:DMS2} we assume that 66\% of the DMS in air is converted into \ce{SO2}. The DMS emission is thus implemented in the model as an \ce{SO2} flux as:
 
 \begin{verbatim}
 flux(SO2)=0.66*O_DMS*Kw/3600*0.01*GRAV*roa/p*AVOG  
