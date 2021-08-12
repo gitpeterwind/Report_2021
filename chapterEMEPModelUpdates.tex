@@ -277,7 +277,7 @@ The transfer velocity $K_{w}$ (given in cm hour$^{-1}$) is then calculated with 
 $K_w=(0.222\  u_{10}^2 +0.333\ u_{10}) \sqrt{\frac{600}{Sc}} $
 \\
 \\
-Following \citet{Leon} we assume that 66\% of the DMS in air is converted into \ce{SO2}. The DMS emission is thus implemented in the model as an \ce{SO2} flux as:
+Following \citet{Leonor:DMS2} we assume that 66\% of the DMS in air is converted into \ce{SO2}. The DMS emission is thus implemented in the model as an \ce{SO2} flux as:
 
 \begin{verbatim}
 flux(SO2)=0.66*O_DMS*Kw/3600*0.01*GRAV*roa/p*AVOG  
