@@ -258,6 +258,32 @@ F4 &    19 &   7 &  2 &  19 &  Road Transport - NonExhaust Other& 7   \\
 
 \COMMENT{DAVE to COMPLETE}
 
+The EMEP model now makes uses of a new global dataset for soil NO emissions. This dataset, described in detail in \citep{SimpsonDarras2021}, 
+provides gridded monthly data and the corresponding 3-hourly weight factors
+at \ResEq{0.5} degrees horizontal resolution, over the period 2000-2018.  Emissions are provided as total values and also with separate data for soil
+NO emissions from background biome values, and  those induced by fertilizers/manure, pulsing effects, and atmospheric
+deposition, so that users can include, exclude or modify each component if wanted.
+
+The basic methodology
+merges methods from \citet{YiengerLevy:1995}
+(hereafter YL95, c.f. Tab.~\ref{tab:Abbr}), with various updates to reflect recent literature
+\citep[especially][hereafter SL11]{SteinkampLawrence2011}, and some simplifications
+which reflect lack of  availability of some key data.
+In YL95 and SL11, background biome emission factors ($A_{biome}$)  were modified by estimates of locally available nitrogen ($N_{avail}$),
+which consists mainly of agricultural inputs of N (N from fertilizer, manure, hereafter \Nfert), or atmospheric deposition
+of reactive nitrogen (hereafter \Ndep), and a pulse factor, \Fp. For this work we prefer to calculate the contributions of
+\Nfert, \Ndep and \Fp separately, so we have:
+
+\begin{equation}
+  \Fs = \Fb  + \Ff + \Fd + \Fp
+  \label{eqn:Fs}
+\end{equation}
+
+where the flux terms have units \ngN. The calculations of \Fb, \Ff, \Fd and \Fp are detailed in \citep{SimpsonDarras2021}.
+
+An important issue arose during the construction .... TO BE CONTINUED!!!!
+
+
 \subsection{DMS emissions}
 \label{ssec:DMS}
 
@@ -361,4 +387,4 @@ Something on pollen perhaps? -- Alvaro??
 \bibliographystyle{copernicus}         % change bibliography-name after each
 \renewcommand\bibname{References}      % bibliographystyle command!
 \addcontentsline{toc}{section}{References}
-\bibliography{Refs,EMEP_Reports,uEMEP}
+\bibliography{Refs,EMEP_Reports,uEMEP,RefsUpdates}
