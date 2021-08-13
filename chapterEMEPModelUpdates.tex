@@ -159,14 +159,14 @@ Notes: (a) R2018 refers to EMEP Status report 1/2018, etc.
 \begin{itemize}
 
 \item Introduced new soil-NO, DMS and aircraft emissions, from CAMS-81 project
-(Sect.~\ref{sec:updateEmis}).  -- Dave, Michael
+(Sect.~\ref{sec:updateEmis}). 
 
 \item Revised methods for vertical diffusion (Kz) \QUERY{and Hmix?} (Sect.~\ref{sec:updateKz}). -- Qing
 
 \item Modified fine/coarse split of sea-salt (Sect.~\ref{ssec:updateSS}).
 
 \item
-Updated Local Fractions capabilities (Sect.~\ref{sec:updateLF}). -- Peter
+Updated Local Fractions capabilities (Sect.~\ref{sec:updateLF}).
 
 \item  fracPM25 stuff (Sect.~\ref{sec:updateOther}). -- Dave
 \item revised wet-radius calculations (Sect.~\ref{sec:updateOther}). --Dave
@@ -251,71 +251,107 @@ F4 &    19 &   7 &  2 &  19 &  Road Transport - NonExhaust Other& 7   \\
 \end{tabular}
 \end{table}
 
+\clearpage
 
 
 \subsection{Soil NO emissions}
 \label{ssec:soilNO}
 
-\COMMENT{DAVE to COMPLETE}
+The EMEP model now makes uses of a new global dataset for soil NO
+emissions. This dataset, described in detail in \citet{SimpsonDarras:2021},
+provides gridded monthly data and the corresponding 3-hourly
+weight factors at \ResEq{0.5} degrees horizontal resolution, over
+the period 2000-2018.  The basic methodology merges methods from
+\citet{YiengerLevy:1995}, with various updates to reflect recent
+literature \citep[especially][]{SteinkampLawrence2011}, and some
+simplifications which reflect lack of  availability of some key data.
 
-The EMEP model now makes uses of a new global dataset for soil NO emissions. This dataset, described in detail in \citep{SimpsonDarras2021}, 
-provides gridded monthly data and the corresponding 3-hourly weight factors
-at \ResEq{0.5} degrees horizontal resolution, over the period 2000-2018.  Emissions are provided as total values and also with separate data for soil
-NO emissions from background biome values, and  those induced by fertilizers/manure, pulsing effects, and atmospheric
-deposition, so that users can include, exclude or modify each component if wanted.
+%In YL95 and SL11, background biome emission factors ($A_{biome}$)  were modified by estimates of locally available nitrogen ($N_{avail}$),
+%which consists mainly of agricultural inputs of N (N from fertilizer, manure, hereafter \Nfert), or atmospheric deposition
+%of reactive nitrogen (hereafter \Ndep), and a pulse factor, \Fp. For this work we prefer to calculate the contributions of
+%\Nfert, \Ndep and \Fp separately, so we have:
 
-The basic methodology
-merges methods from \citet{YiengerLevy:1995}
-(hereafter YL95, c.f. Tab.~\ref{tab:Abbr}), with various updates to reflect recent literature
-\citep[especially][hereafter SL11]{SteinkampLawrence2011}, and some simplifications
-which reflect lack of  availability of some key data.
-In YL95 and SL11, background biome emission factors ($A_{biome}$)  were modified by estimates of locally available nitrogen ($N_{avail}$),
-which consists mainly of agricultural inputs of N (N from fertilizer, manure, hereafter \Nfert), or atmospheric deposition
-of reactive nitrogen (hereafter \Ndep), and a pulse factor, \Fp. For this work we prefer to calculate the contributions of
-\Nfert, \Ndep and \Fp separately, so we have:
+%Emissions are provided as total values and also with separate data for soil
+%NO emissions from background biome values, and  those induced by fertilizers/manure, pulsing effects, and atmospheric
+%deposition, so that users can include, exclude or modify each component if wanted.
 
+The CAMS-GLOB-SOIL v2.2 NOx inventory
+provides estimate of soil NO emissions from four categories:
+
+\begin{description}
+  \item[Biome] - a background emission rate for each landcover type, modified by temperature
+and soil moisture % (CRF?)
+  \item[Fert] - emissions resulting from applied fertilizer and manure inputs to soils. (We assume
+that  0.7\% of the N-inputs are re-emitted as NO.)
+  \item[Ndep] - emissions resulting from atmospheric N deposition (also 0.7\%)
+  \item[Pulsing] - emissions resulting from rain and/or soil moistire changes after
+    a dry period
+\end{description}
+
+In developing CAMS-GLOB-SOIL , we  expressed the total soil emission fluxes as the sum
+of these terms:
 \begin{equation}
   \Fs = \Fb  + \Ff + \Fd + \Fp
   \label{eqn:Fs}
 \end{equation}
 
-where the flux terms have units \ngN. The calculations of \Fb, \Ff, \Fd and \Fp are detailed in
- \citet{SimpsonDarras2021}.
+Given that the inventories to be discussed seem to include a
+component similar to our \Ff, we hereby introduce \Fn, such that:
+\begin{equation}
+  \Fs = \Fn  + \Ff
+  \label{eqn:Fn}
+\end{equation}
+Where \Fn then is the sum of the \Fb, \Fd, and \Fp terms, and where the
+flux terms have units \ngN. The calculations of \Fb, \Ff, \Fd and \Fp
+are detailed in \citet{SimpsonDarras:2021}.
+Figure~\ref{fig:SIemis} illustrates the contribution of these terms for
+the European region.
 
-An important issue arose during the construction ....
+\begin{figure}
+  \centering
+   %\includegraphics*[width=0.7*\textwidth]{\HFIGS/PlotRegionalTimeSeriesMonthly_EUR_YLnSMI_Mar2021.png}
+   \includegraphics*[width=10cm]{FIGS_UPDATES/PlotRegionalTimeSeriesMonthly_EUR_YLnSMI_Mar2021.png}
+  \parbox{10cm}{
+  \caption{CAMS-GLOB-SOIL: monthly above canopy NO emissions (\ngN)  calculated for the year 2010
+     for Europe.
+    \label{fig:SIemis}}
+  }
+\end{figure}
+
 % from  gmdSI from /home/davids/Documents/ARTICLES/2021/GmdSoilNO
 % CHECK also gmdSI from /home/davids/Work/EU_Projects/CAMS/CAMS81/D81_3_3_1_jun2021
-Within the LRTAP Convention,
+
+\subsubsection{Risk of double-counting?}
+
+An important issue arose during the construction  of this inventory - the risk of double-counting
+soil-NO emissions, since some anthropogenic  emission inventories include and 
+some exclude these.
+Indeed, within the LRTAP Convention,
 most countries mainly report NOx emissions due to agricultural activities
 using the EMEP/EEA Emissions Inventory Guidebook
 \citep{Guidebook2019:3D}. The Guidebook provides methods for calculating
 soil-NO data from fertilizer and other inputs.
-
-
-\citet{SimpsonDarras2021} present the main sources for which
- soil NO emissions ares covered by the Guidebook, and
+\citet{SimpsonDarras:2021} present the main sources for which
+ soil NO emissions areas covered by the Guidebook, and
 compare the nationally
 submitted emissions following this system with the CAMS estimates.
 It is shown that for the vast majority of countries
-the main emission categories are 3Da1,3Da2a-c,and
-3Da3 in NFR, which together are roughly equivalent to
+the main emission categories are NFR  3Da1,3Da2a-c,and
+3Da3, which together are roughly equivalent to
 the `Fert' emissions from CAMS-GLOB-SOIL.
 
 When using EMEP emissions derived from
 officially reported data (with soil NO emissions as given in GNFR L),
 for example in EMEP MSC-W reporting runs,
-\citet{SimpsonDarras2021} recommended to retain the
+\citet{SimpsonDarras:2021} recommended to retain the
 official GNFR L data, but but add biome, N-dep and pulse emissions from CAMS-GLOB-SOIL.
 
 \citet{SimpsonDarras:2021} also give recommendations for
 ECLIPSE v5 and v6 inventories, and for CAMS-GLOB and CAMS-REG. In
 some cases the CAMS-GLOB-SOIL \Nfert emissions should be used, but
-in other cases not. In the EMEP model this ....
-
-
-
- TO BE CONTINUED!!!!
-
+in other cases not. In the EMEP model this choice is governed
+by the config\_emep.nml variable \verb|USES%SOILNOX_METHOD |, which can
+be set to either `Total', or `NoFert'.
 
 
 \subsection{DMS emissions}
