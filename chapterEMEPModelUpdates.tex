@@ -12,13 +12,13 @@ This chapter summarises the changes made to the EMEP MSC-W  model
 since \citet{R2020:ModDev}, and along with changes discussed in
 \citet{R2013:ModDev,R2015:ModDev,R2016:ModDev,R2017:ModDev,R2019:ModDev,R2020:ModDev} and
 \citet{R2014:ModDev},
-updates the standard description given in \citet{Simpson_et_al:EMEP}. The
+updates the standard description given in \citet{Simpson:EMEP2012}. The
 model version used for reporting this year is denoted rv4.42, which has
 had some major updates (especially with regard to emissions) compared to
 the rv4.35 reported in \citet{R2020:ModDev}.
 Table~\ref{tab:Updates} summarises
 the changes made in the EMEP model since the version documented in
-\citet{Simpson_et_al:EMEP}, and these changes are discussed in
+\citet{Simpson:EMEP2012}, and these changes are discussed in
 more detail in Sects.~\ref{sec:updateOverview}-\ref{sec:updateOther}.
 
 %Versions:
@@ -39,7 +39,7 @@ more detail in Sects.~\ref{sec:updateOverview}-\ref{sec:updateOther}.
 \begin{table}
 \begin{footnotesize}
 \caption{Summary of major EMEP MSC-W model versions from 2012--2020.
-Extends Table S1 of \citealt{Simpson_et_al:EMEP}
+Extends Table S1 of \citealt{Simpson:EMEP2012}
   COMMENT: Note - recent changes and tags are a little confused. Dave will fix.
 }
 \label{tab:Updates}
@@ -143,8 +143,8 @@ rv4.3   & Fourth public domain (Mar. 2013)  %
        ; Advection algorithm changed  % & \\ % \citet{CLAPP98}    & \\
              & R2013\\ 
 %        &                                                &\\
-rv4.0   & Third public domain (Sep. 2012), as \citet{Simpson_et_al:EMEP}            & R2013\\ 
-%        & As documented in \citet{Simpson_et_al:EMEP}    & \\
+rv4.0   & Third public domain (Sep. 2012), as \citet{Simpson:EMEP2012}            & R2013\\ 
+%        & As documented in \citet{Simpson:EMEP2012}    & \\
 %v2011-06& Second public domain (Aug. 2011)                &\\ 
 %rv3     & First public domain (Sep. 2008)                &\\ 
         &                                                &\\
@@ -494,8 +494,8 @@ Wet and dry deposition (separately) per source country can now be computed.
 A number of smaller changes have been made:
 
 \begin{description}
-  \item[fracPM25] A fraction of coarse nitrate particulate mass has been allocated to the \PM[2.5] fraction in order to represent the fact that some of the particles from the coarse fraction have diameters of less than 2.5~\um. The value of this fraction was previously 27\% \citep{Simpson_et_al:EMEP}. In the latest version this fraction was reduced to 13\%, in order to better account for the differences between mass-median and aerodynamic diameters.
-  \item[IAM\_CROP] A new generic crop type has been introduced for integrated assessment modelling outputs. This is an updated version of the previously used IAM\_CR species \citep{Simpson_et_al:EMEP}, in which the phenology factor (\fphen) has been set to 1.0 across the ozone flux accumulation period. (The IAM\_CR parameters gave a reduction in \fphen towards the end of the period.)
+  \item[fracPM25] A fraction of coarse nitrate particulate mass has been allocated to the \PM[2.5] fraction in order to represent the fact that some of the particles from the coarse fraction have diameters of less than 2.5~\um. The value of this fraction was previously 27\% \citep{Simpson:EMEP2012}. In the latest version this fraction was reduced to 13\%, in order to better account for the differences between mass-median and aerodynamic diameters.
+  \item[IAM\_CROP] A new generic crop type has been introduced for integrated assessment modelling outputs. This is an updated version of the previously used IAM\_CR species \citep{Simpson:EMEP2012}, in which the phenology factor (\fphen) has been set to 1.0 across the ozone flux accumulation period. (The IAM\_CR parameters gave a reduction in \fphen towards the end of the period.)
 \end{description}
 
 
