@@ -7,7 +7,6 @@
 \vspace{30pt}
 
 %\old{TODO}
-\COMMENT{STARTED Aug 2021. Needs to be filled in by authors}
 
 This chapter summarises the changes made to the EMEP MSC-W  model
 since \citet{R2020:ModDev}, and along with changes discussed in
@@ -166,7 +165,7 @@ Notes: (a) R2018 refers to EMEP Status report 1/2018, etc.
 \item Modified fine/coarse split of sea-salt (Sect.~\ref{ssec:updateSS}).
 
 \item
-Updated Local Fractions capabilities (Sect.~\ref{sec:updateLF}).
+Upgraded Local Fractions capabilities (Sect.~\ref{sec:updateLF}).
 
 \item  fracPM25 stuff (Sect.~\ref{sec:updateOther}). -- Dave
 \item revised wet-radius calculations (Sect.~\ref{sec:updateOther}). --Dave
@@ -284,7 +283,7 @@ and soil moisture % (CRF?)
   \item[Fert] - emissions resulting from applied fertilizer and manure inputs to soils. (We assume
 that  0.7\% of the N-inputs are re-emitted as NO.)
   \item[Ndep] - emissions resulting from atmospheric N deposition (also 0.7\%)
-  \item[Pulsing] - emissions resulting from rain and/or soil moistire changes after
+  \item[Pulsing] - emissions resulting from rain and/or soil moisture changes after
     a dry period
 \end{description}
 
@@ -402,7 +401,7 @@ The option of using the old QUANTIFY data (\url{www.pa.op.dlr.de/quantify}) inst
 
 The split of sea salt between the fine and coarse fractions have been revised based on the results of comparison of modelled \chem{Na+} in \PM[2.5] and \PM[10] with EMEP observations. Namely, the fraction of sea salt emitted in \PM[2.5] fraction has been slightly increased (while the total sea salt emissions in \PM[10] remain unchanged). 
 
-More specifically, sea salt is emitted in seven size bins up to 10 \um in diameter, from which the smallest four bins were previously assigned to the \PM[2.5] fraction and the remaining three bins comprised coarse sea salt. Now, the fifth bin is split 50/50 \% between the \PM[2.5] and \PM[2.5-10] fractions.  
+More specifically, sea salt is emitted in seven size bins up to 10~\um in diameter, from which the smallest four bins were previously assigned to the \PM[2.5] fraction and the remaining three bins comprised coarse sea salt. Now, the fifth bin is split 50/50 \% between the \PM[2.5] and \PM[2.5-10] fractions.  
 
 
 This modification has a minor effect on formation of coarse \noiii as the surface area of coarse sea salt has slightly decreased.
@@ -461,26 +460,45 @@ Chapters~\ref{ch:chapterStatus}--\ref{ch:Condensables}).
 \section{Revised PBL parametrisations}
 \label{sec:updateKz}
 
-The new default calculation of eddy diffusivity coefficient Kz follows the method described in \citet{troenkz}.
+The new default calculation of eddy diffusivity coefficient \textit{Kz} (TROENKz) follows the method described in \citet{troenkz}. Unlike the old \textit{Kz} method (JericevicKz) which does not consider the stability within the boundary layer, this new \textit{Kz} method differentiates \textit{Kz} formulation in the stable and unstable boundary layer conditions. Therefore, the new method predicts reasonably well in cases of weak surface heat flux and transitions between stable and unstable cases \citep{troenkz}. However, we have not seen significant changes in modeled concentrations. The formulation of \textit{Kz} is given as below. In unstable boundary layer:
+  $$\mathit{phih} = (1 - 16 \times \min(z, \mathit{zsurf}) \times \mathit{invL})^{-\frac 1 2}$$ 
+while in stable boundary layer:
+  $$\mathit{phih} = 1 + 5 \times z \times \mathit{invL}$$
+and \textit{Kz} is given as:  
+  $$\mathit{Kz} = 0.4 \times \frac{\mathit{ustar}}{\mathit{phih}} \times z \times (1 - \frac z h)^2$$
+in which $z$ is the height from surface, $h$ is boundary layer depth, \textit{zsurf} is the height of surface layer which is assumed to be 10\% of the boundary layer depth $h$, \textit{invL} is the inverse of the characteristic length $L$, and \textit{ustar} is friction velocity. 
+
+The default calculation of PBL is updated to the HmixMethod JcRb\_t2m. Compared with the old HmixMethod JcRb, the new one uses temperature at 2 m instead of temperature at the middle of the lowest grid cell to formulate PBL in the stable conditions. For unstable conditions, the new formulation is the same as the JcRb method. The differences in concentrations are unnoticeable between the two methods, but this update is more accurate according to the original reference paper \citep{JcRb}.  
+
 
 \COMMENT{QING to UPDATE}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Local Fractions}
 \label{sec:updateLF}
+
+\COMMENT{PETER: can you add a line or two to explain what the Local Fractions method is, and to point to your paper?}
+
 The range of applications of the Local Fractions has been extended. 
 
 The sources can be defined by either a list of countries or group of countries, as small squares surrounding the receptor grid (with user defined square sizes), or as regions defined as "masks" given in a NetCDF file.
 
 Wet and dry deposition (separately) per source country can now be computed.
 
-\COMMENT{PETER to UPDATE}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Other?}
 \label{sec:updateOther}
 
-fracMPM25 - Dave
+A number of smaller changes have been made:
+
+\begin{description}
+  \item[fracPM25] A fraction of coarse nitrate particulate mass has been allocated to the \PM[2.5] fraction in order to represent the fact that some of the particles from the coarse fraction have diameters of less than 2.5~\um. The value of this fraction was previously 27\% \citep{Simpson_et_al:EMEP}. In the latest version this fraction was reduced to 13\%, in order to better account for the differences between mass-median and aerodynamic diameters.
+  \item[IAM\_CROP] A new generic crop type has been introduced for integrated assessment modelling outputs. This is an updated version of the previously used IAM\_CR species \citep{Simpson_et_al:EMEP}, in which the phenology factor (\fphen) has been set to 1.0 across the ozone flux accumulation period. (The IAM\_CR parameters gave a reduction in \fphen towards the end of the period.)
+\end{description}
+
+
 revised wet-radius calculations --Dave
 
 Something on pollen perhaps? -- Alvaro??
