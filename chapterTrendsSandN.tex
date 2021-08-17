@@ -31,7 +31,7 @@ used.
  
  OC/EC split
  NMVOC split
- 
+ Soil NOX?
 A revised set of emissions for all the years 2000-2019 have been used in the model calculations (including all the reported and re-reported data by summer 2021), see chapter \ref{ch:emis2019}.
 
 \section{\label{OBSTrends}{Observations}} NILU to write
@@ -78,7 +78,7 @@ The  greater decrease in \soii compared to secondary sulphate is due to a combin
 \begin{figure}
 	\centering
 	\includegraphics[width=0.74\paperwidth]{FIGS_TRENDS/sulfur_trends.png}
-	\caption{\label{fig:SOx_trends}Trends in sulfur components from 2010-2019 for EMEP observations and model. The solid line in the trend plots indicate the average annual mean concentrations for all the sites and the shaded area the 95 \% confidence interval. The box plot represent the 50,25,75 percentiles and the “whiskers” lie within the 1.5 inter-quartile ranges. In addition the mean concentration of the trends are indicated with black circles}
+	\caption{\label{fig:SOx_trends}Trends in sulfur components from 2010-2019 for EMEP observations and model. The solid line in the trend plots indicate the average annual mean concentrations for all the sites and the shaded area the 95 \% confidence interval. The box plot represent the 50,25,75 percentiles and the whiskers lie within the 1.5 inter-quartile ranges for the trends of all the sites, including those with not significant trends. In addition, the mean concentration of the trends are indicated with black circles}
 \end{figure}
 
 \begin{table}
@@ -153,11 +153,23 @@ Period & Seasons &           total & sign.(obs.) & sign.(mod.) &                
 
 
 
-From around 1990 onwards, the total emissions of NO$_x$ declined significantly in Europe, followed by declining nitrogen dioxide concentrations and total nitrate (nitric acid plus particulate nitrate) in air and reduced oxidized nitrogen wet deposition at EMEP background sites. From 2000-2019, the average reductions at long term EMEP background sites have been -1.2, -0.8, -1.6 and -1.2 \% yr$^{-1}$ for nitrogen dioxide concentrations, total nitrate, particulate nitrate and wet deposition of oxidized nitrogen, respectively (EMEP model results: -2.2, -2.1, -2.2, -2.0\% yr$^{-1}$), see Figure~\ref{fig:NOx_trends} and Tables~\ref{tab:no2_stat} to \ref{tab:hno3_stat}. Trends in nitric acid have also been calculated, but only 6 sites had data from 2000 onwards (with an average trend of -1.9 \% yr$^{-1}$ in the observations and -2.2\% yr$^{-1}$ in the model calculations). 
+From around 1990 onwards, the total emissions of NO$_x$ declined significantly in Europe, followed by declining nitrogen dioxide concentrations, total nitrate (nitric acid plus particulate nitrate) in air and oxidized nitrogen wet deposition at EMEP background sites. From 2000-2019, the average reductions at long term EMEP background sites have been on average -1.2\% yr$^{-1}$ for nitrogen dioxide concentrations at EMEP background sites (total -24\%). During the same period, NO$_x$ emissions within the western EMEP domain (EU27+UK+EFTA countries) decreased by around XXX. which is reflected in the EMEP/MSC-W model calculations (average of -2.2\% yr$^{-1}$, or in total -44\% ). 
+The agreement between the trends calculated from observations and from the model (and emissions) agree well for the last period (2010-2019), whilst the trend in the first period is substantially lower than model (and emissions). From Figure XX it can be seen that the agreement between observations and model calculations is very good until around 2008, but that in the years after 2009 the model (and emissions) is shifted down relative to the observations. Similar results have been found in REF Augustin/Sverres study for EEA sites versus emissions?
 
-Compared to obs: Both NO2 and wet deposition of oxidized nitrogen decrease much less than emissions....
 
-For NO2, the reductions are larger in the first period (2000-2010) than in the second period (2010-2019), and the reductions in the second period are in accordance with emissions/model (but not the first). Also for wet dep oxN, reductions are larger in the second period (both in model and obs....). 2005-2019: Very small reduction in wdep....(-0.31 \%)
+The trends in wet deposition of oxidized nitrogen reflects the long range transported oxidized nitrogen (NO2 that has been converted to nitric acid and particulate and then washed out by rain) and is less sensitive to local changes. Also the trends for wet deposition of nitrate are much lower in the observations than in the model (and emissions of NOx) for the 2000-2019 period. Whilst the average trend in observations are -1.2\% yr$^{-1}$ (Total of -24\%), the model calculates the trend at the same sites to be -2.0 \% yr$^{-1}$ \% (-40\%), close to the trends in emissions from the western EMEP domain (-4X\%). The difference between the trend in observations (and emissions?) are largest during the first period, similar to the results for NO$_2$.However, the model overestimates nitrate wet deposition somewhat up to around 2010, and are the shifted downward and are in very good agreement for the years after. 
+
+For particulate nitrate, nitric acid and their sum the results are more complex.The number of sites are few (especially for nitric acid, with only 6 sites), the coverage of Europe more scattered and the quality of the measurements are worse. 
+
+In broad terms, one would expect that the large SOx emissions reductions, followed by large SO4 reductions, would lead to more NH3 being available for nitrate aerosol formation (partly acting in the opposite direction to the NOx reductions, ad NO3 has a longer life time than HNO3). This assumption only holds if NH3 is limiting the nitrate formation, which is probably less true for later years as both SOx and NOX has been reduced a lot (ref Joffens paper about the efficiency of NH3 for nitrate formation). The modelled trends are all around -2\% per year for particulate nitrate, nitric acid and their sum - aligned with the results of NO2 and wet deposition of oxidized nitrogen and the emissions. The observations show a somewhat smaller negative trend..... BUT IS THIS ROBUST..? Wait for Wenches new numbers.
+%%%%%%%%%%%
+, -0.8, -1.6 and -1.2 \% yr$^{-1}$ for nitrogen dioxide concentrations, total nitrate, particulate nitrate and wet deposition of oxidized nitrogen, respectively (EMEP model results: -2.1, -2.2, -2.0\% yr$^{-1}$), see Figure~\ref{fig:NOx_trends} and Tables~\ref{tab:no2_stat} to \ref{tab:hno3_stat}. Trends in nitric acid have also been calculated, but only 6 sites had data from 2000 onwards (with an average trend of -1.9 \% yr$^{-1}$ in the observations and -2.2\% yr$^{-1}$ in the model calculations). 
+
+Compared to obs: Both NO2 obs and wet deposition of oxidized nitrogen decrease much less than emissions....
+
+For NO2, the reductions are larger in the first period (2000-2010) than in the second period (2010-2019), and the reductions in the second period are in accordance with emissions/model (but not the first). Also for wet dep oxN, reductions are larger in the second period (both in model and obs....). 2005-2019: Very small reduction in wdep....(-0.31 \%).
+
+For oxidized nitrogen wet deposition, the relative changes per year are twice as large in the model to that in observations in the second period (but also larger in the first period). Note however that the selection of sites are different in the two peiods.
 
 %GP REVIEW doc end
 
@@ -285,6 +297,14 @@ Period & Seasons &           total & sign.(obs.) & sign.(mod.) &                
 
 
 \section{\label{sec:Trends_reduced nitrogen }Trends in reduced nitrogen}
+Ammonia emissions from agricultural activities have been only slighly reduced for the western EMEP domain since 2000 (around XX\%) 10\%?. Meteovar og signifikans
+
+This is well reflected in the observed trends of the sum of ammonia and particulate ammonium (-0.9 \% yr$^{-1}$ (obs), -1.3\% yr$^{-1}$ (mod))as well as in the trend of wet deposition of reduced nitrogen (-0.07 \% yr$^{-1}$ (obs), -0.4\% yr$^{-1}$ (mod)). 
+
+*Signifikante trender
+*pNH4 versus NH3
+*Ulike perioder
+*Pnh4 VERSUS soX og NOx
 
 Figure~\ref{fig:Nred_trends} shows an overview of the annual and seasonal trends in reduced nitrogen compounds from 2000 to 2019.
 
@@ -444,10 +464,16 @@ Period & Seasons &           total & sign.(obs.) & sign.(mod.) &                
 \end{table}
 
 
-The annual series of \PM[10] and \PM[2.5] clearly show a general concentration decrease from 2000 to 2019. In general, the model reproduces quite well the year-to-year changes in \PM[10] and \PM[2.5], including enhanced PM levels due to meteorological conditions e.g. in 2003 (dry hot summer \citep{EMEP:PM2005}) and 2011 (dry year in Western/Central/Southern Europe \citep{EMEP:PM2013}).
+For the whole period, 41 and 21 sites with satisfactory data coverage have been included in the trend analysis respectively for \PM[10] and \PM[2.5]. The annual series of \PM[10] and \PM[2.5] clearly show a general concentration decrease from 2000 to 2019. In general, the model reproduces quite well observed year-to-year changes in \PM[10] and \PM[2.5], including enhanced PM levels due to meteorological conditions e.g. in 2003 (dry hot summer \citep{EMEP:PM2005}) and 2011 (dry year in Western/Central/Southern Europe \citep{EMEP:PM2013}).
 
-The average \PM[10] and \PM[2.5] trends derived from observational data and model simulations are negative for all considered periods, and there is quite good consistency between average observed and simulated changes in PM. %. The overall agreement is fairly good. 
-For the period 2000-2019, the observed absolute trends are -0.35 and -0.29 \ug $yr^{-1})$ for \PM[10] and \PM[2.5]; the modelled ones are somewhat smaller, i.e. -0.27 and -0.25 \ug $yr^{-1})$ respectively (partly due to model underestimation of PM concentration). For the whole period, 41 and 21 sites with satisfactory data coverage have been included in the trend analysis respectively for \PM[10] and \PM[2.5]. Relatively to the start year of 2000, the model simulated trends are -1.95 and -2.52 \% $yr^{-1})$ for \PM[10] and \PM[2.5], that is somewhat larger than observed -1.79 and -2.34 \% $yr^{-1})$, respectively. 
+The average \PM[10] and \PM[2.5] trends derived from observational data and model simulations are negative for all considered periods, and there is quite good correspondence between average observed and simulated changes in PM. %. The overall agreement is fairly good. 
+For the period 2000-2019, the observed absolute trends are -0.35 and -0.29 \ug $yr^{-1})$ for \PM[10] and \PM[2.5]; the modelled ones are somewhat smaller, i.e. -0.27 and -0.25 \ug $yr^{-1})$ respectively (partly due to model underestimation of PM concentration).  Relatively to the start year of 2000, the model simulated trends are -1.95 and -2.52 \% $yr^{-1})$ for \PM[10] and \PM[2.5], that is somewhat larger than observed -1.79 and -2.34 \% $yr^{-1})$, respectively. Significant trends have been derived from the observational data for 75 \% of sites for \PM[10] and 81 \% of sites for \PM[2.5]; the model simulates significant trends for more sites, namely 95 and 100 \% respectively.  
+
+Figure \ref{fig:pm_trends} reveals a considerably larger variation of observed trends between the sites in comparison to modelled trend values, \textcolor{blue}{with modelled median (and mean) trends lying within 25-75\% interquartile range (IQR) of the observed ones. Modelled mean and median trends are in general closer to each other than in the observational data, implying more sites-outliers.} 
+The model simulated the largest \PM[10] and \PM[2.5] trends, both absolute and relative, in 2000-2019 for the spring and summer seasons, whereas the observation results are less conclusive in this respect. However, both the observations and the model identify PM significant trends for more stations for the spring and summer seasons than for the winter-autumn. 
+
+
+For the period 2005-2019 (starting from the reference year of Gothenburg Protocol), more sites with data coverage were totally available for this \PM[10] and \PM[2.5] trend analysis, i.e. 58 and 38 respectively, but significant trends have been observed and modelled for a smaller fraction of the sites with respect to the 2000-2019 period \textcolor{blue}{(partly due to a shorter period length)}.
 
 
 

@@ -461,7 +461,7 @@ Chapters~\ref{ch:chapterStatus}--\ref{ch:Condensables}).
 \section{Revised PBL parametrisations}
 \label{sec:updateKz}
 
-The new default calculation of eddy diffusivity coefficient \textit{Kz} (`TROENKz') follows the method described in \citet{troenkz}. Unlike the old \textit{Kz} method (JericevicKz) which does not consider the stability within the boundary layer, this new \textit{Kz} method differentiates \textit{Kz} formulation in the stable and unstable boundary layer conditions. Therefore, the new method predicts reasonably well in cases of weak surface heat flux and transitions between stable and unstable cases \citep{troenkz}. However, we have not seen significant changes in modeled concentrations. The formulation of \textit{Kz} is given as below. In unstable boundary layer:
+The new default calculation of eddy diffusivity coefficient \textit{Kz} (`TROENKz') follows the method described in \citet{troenkz}. Unlike the old \textit{Kz} method (JericevicKz) which does not consider the stability within the boundary layer, this new \textit{Kz} method differentiates \textit{Kz} formulation in the stable and unstable boundary layer conditions. Therefore, the new method predicts reasonably well in cases of weak surface heat flux and transitions between stable and unstable cases \citep{troenkz}. However, we have not seen significant changes in modelled concentrations. The formulation of \textit{Kz} is given as below. In unstable boundary layer:
 \begin{equation}
     \phi_h = (1 - 16 \times \min(z, z_\mathit{surf}) \times \frac{1}{L})^{-\frac 1 2}
 \end{equation}
@@ -482,7 +482,7 @@ The default calculation of PBL is updated to the HmixMethod JcRb\_t2m. Compared 
 \section{Local Fractions}
 \label{sec:updateLF}
 
-ThThe Local Fractions method \citep{wind-2020} is a frameworks that allows to track thousands of sources in a single run at a low computational cost. It is fully implemented for primary particles, but also reduced Nitrogen can be treated. The tracking of other species is less accurate, but progress is being made to eventually include a correct description for all species.
+The Local Fractions method \citep{wind-2020} is a framework that allows to track thousands of sources in a single run at a low computational cost. It is fully implemented for primary particles, but also reduced nitrogen compounds can be treated. The tracking of other species is less accurate, but progress is being made to eventually include a correct description for all species.
 
 Since last year, the range of applications of the Local Fractions has been extended.
 
@@ -492,7 +492,7 @@ Wet and dry deposition (separately) per source country can now be also computed.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Other?}
+\section{Other}
 \label{sec:updateOther}
 
 A number of smaller changes have been made:
