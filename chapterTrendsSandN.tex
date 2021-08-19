@@ -18,21 +18,20 @@ In this chapter, we s
 \section{\label{EMEPmodelcalc}{Setup for EMEP MSC-W model calculations}}
 The EMEP MSC-W model version rv4.42 has been used for the all the model runs for years 2000 to 2019. The horizontal resolution is \resZO, with 20 vertical layers (the lowest with a height of approximately 50 meters).
  Meteorology, emissions, boundary conditions and forest fires for the respective years have been used as input. Meteorological data have been
- derived from ECMWF-IFS(cy40r1) simulations (see Section~\ref{sec:meteo}). 
+ derived from ECMWF-IFS(cy40r1) simulations for the years 2000 to 2018 and a ECMWF-IFS(cy46r1) simulation for 2019 (see Section~\ref{sec:meteo}). 
  The boundary conditions for the main gaseous and aerosol species were based on climatological observed values with prescribed trends in trans-Atlantic fluxes, while the Mace
 Head correction has been used for ozone. The boundary conditions for natural particles of
 sea salt and mineral dust were the same as in the status run, namely 5-year monthly average
 concentrations, derived from EMEP MSC-W global runs, kept invariable over the calculation
 period.
-Daily emissions from forest fires were from the Fire INventory from NCAR (FINN) for 2002-2016,
+Daily emissions from forest fires were from the Fire INventory from NCAR (FINN) for 2002-2019,
 whereas for 2000 and 2001 (unavailable from FINN), monthly averages over 2005-2015 were
 used.
  Volcanic emissions...?
  
- OC/EC split
- NMVOC split
- Soil NOX?
-A revised set of emissions for all the years 2000-2019 have been used in the model calculations (including all the reported and re-reported data by summer 2021), see chapter \ref{ch:emis2019}.
+The speciation of PM emissions into OC/EC emissions was based on ECLIPSE v6b emissions. These are given in 5-year intervals (2000, 2005, etc.); intermediate years were derived by linear interpolation. The VOC split (speciation of NMVOC emissions) was the same as in the status run and kept constant over the period.
+Soil NOX emissions were based on the new CAMS-GLOB-SOIL emission dataset.
+A revised set of emissions for all the years 2000-2019 has been used in the model calculations (including all the reported and re-reported data by June 2021), see chapter \ref{ch:emis2019}.
 
 \section{\label{OBSTrends}{Observations}} NILU to write
 
@@ -78,7 +77,7 @@ The  greater decrease in \soii compared to secondary sulphate is due to a combin
 \begin{figure}
 	\centering
 	\includegraphics[width=0.74\paperwidth]{FIGS_TRENDS/sulfur_trends.png}
-	\caption{\label{fig:SOx_trends}Trends in sulfur components from 2010-2019 for EMEP observations and model. The solid line in the trend plots indicate the average annual mean concentrations for all the sites and the shaded area the 95 \% confidence interval. The box plot represent the 50,25,75 percentiles and the whiskers lie within the 1.5 inter-quartile ranges for the trends of all the sites, including those with not significant trends. In addition, the mean concentration of the trends are indicated with black circles}
+	\caption{\label{fig:SOx_trends}Trends in sulfur components from 2010-2019 for EMEP observations and model. The solid line in the trend plots indicate the average annual mean concentrations for all the sites and the shaded area the 95 \% confidence interval. The box plot represent the 50,25,75 percentiles and the whiskers lie within the 1.5 inter-quartile ranges for the trends of all the sites, including those with not significant trends. In addition, the mean trends are indicated with black circles}
 \end{figure}
 
 \begin{table}
@@ -153,15 +152,18 @@ Period & Seasons &           total & sign.(obs.) & sign.(mod.) &                
 
 
 
-From around 1990 onwards, the total emissions of NO$_x$ declined significantly in Europe, followed by declining nitrogen dioxide concentrations, total nitrate (nitric acid plus particulate nitrate) in air and oxidized nitrogen wet deposition at EMEP background sites. From 2000-2019, the average reductions at long term EMEP background sites have been on average -1.2\% yr$^{-1}$ for nitrogen dioxide concentrations at EMEP background sites (total -24\%). During the same period, NO$_x$ emissions within the western EMEP domain (EU27+UK+EFTA countries) decreased by -48\%. which is reflected in the EMEP/MSC-W model calculations (average of -2.2\% yr$^{-1}$, or in total -44\% ). 
-The agreement between the trends calculated from observations and from the model (and emissions) agree well for the last period (2010-2019), whilst the trend in the first period is substantially lower than model (and emissions). From Figure XX it can be seen that the agreement between observations and model calculations is very good until around 2008, but that in the years after 2009 the model (and emissions) is shifted down relative to the observations. Similar results have been found in REF Augustin/Sverres study for EEA sites versus emissions?
+The last decades, the total emissions of NO$_x$ declined significantly in Europe, followed by declining nitrogen dioxide concentrations, total nitrate (nitric acid plus particulate nitrate) in air and oxidized nitrogen wet deposition at EMEP background sites. 
+
+*Something about NO2 being local
+From 2000-2019, the average reductions have been on average -1.2\% yr$^{-1}$ for nitrogen dioxide concentrations at EMEP background sites (total -25\%). During the same period, NO$_x$ emissions within the western EMEP domain (EU27+UK+EFTA countries), where the dominant part of the long term EMEP observations are situated, decreased by -48\%. EMEP/MSC-W model calculations follows the reported emission reductions closely (average of -2.2\% yr$^{-1}$, or in total -44\% ). 
+The agreement between the trends calculated from observations and from the model (and emissions) agree well for the last period (2010-2019), with trends around -2.3\% yr$^{-1}$, whilst the trend in the first period is substantially lower in the observations than in the model calculations (and emissions). From Figure~\ref{fig:NOx_trends} it can be seen that the agreement between observations and model calculations is excellent until around 2008, but that in the years after 2009 the model (and emissions) is shifted down relative to the observations. Similar results have been found in REF (Augustin/Sverres study for EEA sites versus emissions - can we refer to that?)
 
 
-The trends in wet deposition of oxidized nitrogen reflects the long range transported oxidized nitrogen (NO2 that has been converted to nitric acid and particulate and then washed out by rain) and is less sensitive to local changes. Also the trends for wet deposition of nitrate are much lower in the observations than in the model (and emissions of NOx) for the 2000-2019 period. Whilst the average trend in observations are -1.2\% yr$^{-1}$ (Total of -24\%), the model calculates the trend at the same sites to be -2.0 \% yr$^{-1}$ \% (-40\%), close to the trends in emissions from the western EMEP domain (-48\%). The difference between the trend in observations (and emissions?) are largest during the first period, similar to the results for NO$_2$.However, the model overestimates nitrate wet deposition somewhat up to around 2010, and are the shifted downward and are in very good agreement for the years after. 
+The trends in wet deposition of oxidized nitrogen reflects the long range transported oxidized nitrogen (NO$_x$ that has been converted to nitric acid and particulate nitrate and then washed out by rain) and is less sensitive to local changes. Also the trends for wet deposition of nitrate are lower in the observations than in the model calculations (and emissions of NOx) for the 2000-2019 period. Whilst the average trend in observations are -1.2\% yr$^{-1}$ (Total of -24\%), the model calculates the trend at the same sites to be -2.0 \% yr$^{-1}$ \% (-40\%), close to the trends in emissions from the western EMEP domain (-48\%). The difference between the trend in observations (and emissions?) are largest during the first period, similar to the results for NO$_2$. However, the model overestimates nitrate wet deposition somewhat up to around 2010, and are then shifted downward and in very good agreement with observations for the years after. 
 
 For particulate nitrate, nitric acid and their sum the results are more complex.The number of sites are few (especially for nitric acid, with only 6 sites), the coverage of Europe more scattered and the quality of the measurements are worse. 
 
-In broad terms, one would expect that the large SOx emissions reductions, followed by large SO4 reductions, would lead to more NH3 being available for nitrate aerosol formation (partly acting in the opposite direction to the NOx reductions, ad NO3 has a longer life time than HNO3). This assumption only holds if NH3 is limiting the nitrate formation, which is probably less true for later years as both SOx and NOX has been reduced a lot (ref Joffens paper about the efficiency of NH3 for nitrate formation). The modelled trends are all around -2\% per year for particulate nitrate, nitric acid and their sum - aligned with the results of NO2 and wet deposition of oxidized nitrogen and the emissions. The observations show a somewhat smaller negative trend..... BUT IS THIS ROBUST..? Wait for Wenches new numbers.
+In broad terms, one would expect that the large SOx emissions reductions, followed by large SO4 reductions, would lead to more NH3 being available for nitrate aerosol formation (partly acting in the opposite direction to the NOx reductions, as NO3 has a longer life time than HNO3). This assumption only holds if NH3 is limiting the nitrate formation, which is probably less true for later years as both SOx and NOX has been reduced a lot (ref Joffens paper about the efficiency of NH3 for nitrate formation). The modelled trends are all around -2\% per year for particulate nitrate, nitric acid and their sum - aligned with the results of NO2 and wet deposition of oxidized nitrogen and the emissions. The observations show a somewhat smaller negative trend of around -1.55\% yr$^{-1}$..... BUT IS THIS ROBUST..? Wait for Wenches new numbers.
 %%%%%%%%%%%
 , -0.8, -1.6 and -1.2 \% yr$^{-1}$ for nitrogen dioxide concentrations, total nitrate, particulate nitrate and wet deposition of oxidized nitrogen, respectively (EMEP model results: -2.1, -2.2, -2.0\% yr$^{-1}$), see Figure~\ref{fig:NOx_trends} and Tables~\ref{tab:no2_stat} to \ref{tab:hno3_stat}. Trends in nitric acid have also been calculated, but only 6 sites had data from 2000 onwards (with an average trend of -1.9 \% yr$^{-1}$ in the observations and -2.2\% yr$^{-1}$ in the model calculations). 
 
@@ -417,7 +419,7 @@ Figure~\ref{fig:pm_trends} shows an overview of the annual and seasonal observed
 \begin{figure}
 	\centering
 	\includegraphics[width=0.74\paperwidth]{FIGS_TRENDS/PM_trends.png}
-	\caption{\label{fig:pm_trends}Trends in \PM[10]  and \PM[2.5] from 2010-2019 for EMEP observations and model.}
+	\caption{\label{fig:pm_trends}Trends in \PM[10]  and \PM[2.5] from 2010-2019 for EMEP observations and model: left panels - annual timeseries (the solid line indicates the average annual mean trend for all sites, the shaded area shows the 95 \% confidence interval); middle and right panels - relative and absolute trends for all the sites, with both significant and not significant trends (the boxes represent the 50,25,75 percentiles, the whiskers lie within the 1.5 inter-quartile ranges, the mean trends are indicated with black circles}
 \end{figure}
 
 
