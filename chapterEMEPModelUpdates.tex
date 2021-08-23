@@ -37,132 +37,13 @@ more detail in Sects.~\ref{sec:updateOverview}-\ref{sec:updateOther}.
 \section{Overview of changes} 
 \label{sec:updateOverview}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{table}
-\begin{footnotesize}
-\caption{Summary of major EMEP MSC-W model versions from 2012--2020.
-Extends Table S1 of \citealt{Simpson:EMEP2012}
-  COMMENT: Note - recent changes and tags are a little confused. Dave will fix.
-}
-\label{tab:Updates}
-\centering
-\begin{tabular}{lp{11cm}l}
-\hline
-Version & Update                                        & Ref$^{(a)}$   \\
-\hline
-rv4.42  & Changed default Kz scheme &  This report        \\
-        & Updated emissions from CAMS81 project: DMS, soil NO;  &  This report        \\
-% 21st May 2021:
-rv4.41  & Updated emissions from CAMS81 project: DMS, soil NO; % 16/5
-          Modified various parameters concerning sea-salt and wet-radius calculations; % 16/5
-   fracPM25 modified;
-          Revised global monthly factor;  % 16/5
-        & \\
-% 13/5
-rv4.40  & Shipping emissions now spread as 20\% below 20m, 80\% between 20-90m;  
-          New CAMS81-based aircraft emissions; % 29-30/4
-          New CAMS81-based DMS emissions; % 29/4
-        & \\
-%SKIP BUG fix on aircraft emissions  27/4
-% 21/4
-rv4.39 &
-  GNFR-CAMS is now the default emissions system - see Sect.~\ref{ssec:gnfr};  % 21/4
-          Uses global time-zone map;   % 19/3
-          Revised global monthly factor?? or rv4.41?;  % 19/3
-          New default Kz method introduced (Sect.~\ref{ssec:PBL});
-          NWP model rh2m now used in place of earlier sub-grid calculation; % 9/2
-          Upgrade of local fractions methodology;  % 7/11/2020
-        & \\
-% 23/10/2021:
-rv4.35  & Various updates, including heavy   
-          refactoring of local-fraction code, bug-fixes in MARS module,
-          and updates in chemical mechanisms, default PM and NMVOC speciation and
-          GenChem systems     & R2020            \\
-rv4.34  & Public domain (Feb. 2020); EmChem19a, EmChem19p      & R2020            \\
-rv4.33  & Public domain (June 2019);
-         EmChem19, PAR bug-fix, EQSAM4clim    & R2019            \\
-rv4.32  & Used for EMEP course, April 2019    &    \\
-rv4.30  & Moved to new GenChem-based system  &   \\
-%        &                                    &        \\
-rv4.17a & Used for R2018. Small updates         & R2018      \\
-rv4.17  & Public domain (Feb. 2018);
-         Corrections in global land-cover/deserts; added
-          'LOTOS' option for European \ce{NH3} emissions; corrections
-          to snow cover & R2018 \\
-rv4.16  & New radiation scheme (Weiss\&Norman); Added dry and wet deposition for \ce{N2O5};
-         (Used for  \citealt{Stadtler2018,MillsGCB2018b}) & R2018   \\
-rv4.15  & EmChem16 scheme & R2017 \\
-%    Sect.\ref{sec:GNFR}--\ref{ss:Splits} & R2016  \\
-%
-rv4.14  & Updated chemical scheme & R2017       \\
-%% rv4.13 + CRI was used in McFiggans. Difficult to describe combo
-%        & \\
-rv4.12  & New  global land-cover and BVOC & R2017       \\
-%        & \\
-rv4.10  &  Public domain (Oct. 2016)                 
-         (Used for  \citealt{MillsGCB2018a}) &  R2016 \\
-%        & \\
-rv4.9   & Updates for GNFR sectors, DMS, sea-salt, dust, \ce{S_A} and  $\gamma$, \ce{N2O5} & \\ 
-rv4.8   &  Public domain (Oct. 2015); ShipNOx introduced.                          
-         Used for EMEP HTAP2 model calculations, see
-         special issue:
-         \url{www.atmos-chem-phys.net/special_issue390.html},
-          and \citet{Jonson_et_al:2017}.              & R2015\\
-rv4.7   & Used for reporting, summer 2015;
-         New calculations of aerosol surface area; 
-         New gas-aerosol uptake and \ce{N2O5} hydrolysis rates; 
-         Added 3-D calculations pf aerosol extinction and AODs;
-         Emissions - new flexible mechanisms for interpolation and merging sources;
-         Global - monthly emissions from ECLIPSE project;
-         Global -  LAI changes from LPJ-GUESS model;
-         WRF meteorology \citep{SkamarockKlemp2008} can now
-     be used directly in EMEP model. & R2015 \\
-%        &                                                &\\
-rv4.6   & Used for Euro-Delta SOA runs                   & R2015  \\
-%QUERY        & Bug-fix for ammonium deposition & \\
-       & Revised boundary condition treatments % & \\  % Vertical profiles
-       ; ISORROPIA capability added & \\
-%       &                                                &\\
-rv4.5  & Sixth open-source (Sep 2014);                    
-        Improved dust, sea-salt, SOA modelling          % &      \\
-       ; AOD and extinction coefficient calculations  updated %& \\
-       ; Data assimilation system added % & \\
-       ; Hybrid vertical coordinates replace earlier sigma % & \\
-       ; Flexibility of grid projection increased. & R2014\\
-%SKIP        & ?? Point sources, plume rise, data-assimilation\\
-%       &                                                &\\
-rv4.4   & Fifth open-source (Sep 2013) %
-       ; Improved dust and sea-salt modelling   %          &      \\
-       ; AOD and extinction coefficient calculations added %  &\\
-       ; gfortran compatibility improved            %      &      \\
-                  & R2014, R2013\\
-%       &                                                &\\
-rv4.3   & Fourth public domain (Mar. 2013)  %
-       ; Initial use of namelists           %            & \\
-       ; Smoothing of MARS results         %            & \\
-       ; Emergency module for volcanic ash and other events% & \\
-       ; Dust and road-dust options added as defaults % & \\
-       ; Advection algorithm changed  % & \\ % \citet{CLAPP98}    & \\
-             & R2013\\ 
-%        &                                                &\\
-rv4.0   & Third public domain (Sep. 2012), as \citet{Simpson:EMEP2012}            & R2013\\ 
-%        & As documented in \citet{Simpson:EMEP2012}    & \\
-%v2011-06& Second public domain (Aug. 2011)                &\\ 
-%rv3     & First public domain (Sep. 2008)                &\\ 
-        &                                                &\\
-\hline
-\end{tabular}
-Notes: (a) R2018 refers to EMEP Status report 1/2018, etc.
-\end{footnotesize}
-\end{table}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \begin{itemize}
+\item The default emissions system in the model was changed to a 19-sector system denoted GNFR-CAMS; -- see Sect.~\ref{ssec:gnfr}.  % c21/4
 
 \item Introduced new soil-NO, DMS and aircraft emissions, from CAMS-81 project
 (Sect.~\ref{sec:updateEmis}). 
-
-\item Revised methods for vertical diffusion (Kz) and Hmix (Sect.~\ref{sec:updateKz}).
 
 \item Modified fine/coarse split of sea-salt (Sect.~\ref{ssec:updateSS}).
 
@@ -172,7 +53,10 @@ speciations for \pmfine have been implemented.  See
 Sect.~\ref{ssec:emissplits}.
 
 \item
-New country-based mon
+New country-based monthly timefactors were produced for countries outside of Europe. See ect.~\ref{ssec:monthlyFacs}.
+
+\item Revised methods for vertical diffusion (Kz) and Hmix (Sect.~\ref{sec:updateKz}).
+
 \item
 Upgraded Local Fractions capabilities (Sect.~\ref{sec:updateLF}).
 
@@ -188,19 +72,16 @@ fix various bugs.
 
 \end{itemize}
 
-In addition to these changes, articles on GenChem (EMEP's chemical pre-processing system)  and
-the local-scale extension \COMMENT{Phrasing?} have now been published \citep{Simpson:GenChem,Denby:2020}
+In addition to these changes, articles on GenChem (EMEP's chemical pre-processing system)  and the fine-scale uEMEP system have now been published \citep{Simpson:GenChem,Denby:2020}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{New emission inputs}
+\section{Updates in Emission Systems}
 \label{sec:updateEmis}
-
-From CAMS81...
 
 \subsection{New basis for emission sectors: GNFR\_CAMS}
 \label{ssec:gnfr}
 
-\COMMENT{Text/Table from gmdPaper}
+%\COMMENT{Text/Table from gmdPaper}
  
 Gridded anthropogenic emissions from CEIP
 were previously categorized into 11
@@ -215,7 +96,9 @@ enables for example four road traffic sectors, F1--F4, with e.g. F1
  representing exhaust emissions from gasoline vehicles.
 Such emission sectors are characterised in the model by
 release heights, timefactors and species-splits (e.g. NOx to NO and
-\ce{NO2}, or NMVOC to individual VOC surrogates) for each sector.
+\ce{NO2}, or NMVOC to individual VOC surrogates) for each sector, with each
+characteristic defined by a mapping index. The user-guide gives more details about
+the usage of these indices, and potential to define own emission sectors.
 
 Table~\ref{tab:GNFRsectors} summarises the new GNFR\_CAMS sectors,
 and the mapping indices used.
@@ -417,7 +300,7 @@ This modification has a minor effect on formation of coarse \ce{NO3-} as the sur
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Emission speciation and `rnr' splits}
-\label{ssec:emissplits}.
+\label{ssec:emissplits}
 
 The emissions speciation of primary PM (PPM) were updated
 to reflect recent data available from
@@ -435,12 +318,21 @@ split the `rnr' (residential-non-residential) split, and have slighly
 modified the EmChem19a chemical mechanism to cope with the addition
 of `remPPM' from GNFR C.
 
+\subsection{Monthly timefactors for global modelling.}
+\label{ssec:monthlyFacs}
+
+New country-based monthly timefactors were produced for countries outside of Europe. These factors were derived by making country-average factors from global gridded SNAP-based data from the ECLIPSE v6b dataset. ECLIPSE factors only created for "robust" sectors (SNAP-1, 2, 3, 4, and 10), since other sectors showed either no monthly variation (e.g. traffic), or very sporadic events that are not expected to be representative for all years (e.g. shipping, or waste-burning). For SNAP-10 (agr) the NH3 data are from ECLIPSE `agr\_NH3', otherwise from `agr'.
+
+ For European countries the monthly factors are
+ 
+ %?? Hmmm.... possible bug with ECLIPSE setting and older monthlyfacs
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Revised PBL parametrisations}
 \label{sec:updateKz}
 
-The new default calculation of eddy diffusivity coefficient \textit{Kz} (`TROENKz') follows the method described in \citet{troenkz}. Unlike the old \textit{Kz} method (JericevicKz) which does not consider the stability within the boundary layer, this new \textit{Kz} method differentiates \textit{Kz} formulation in the stable and unstable boundary layer conditions. Therefore, the new method predicts reasonably well in cases of weak surface heat flux and transitions between stable and unstable cases \citep{troenkz}. However, we have not seen significant changes in modelled concentrations. The formulation of \textit{Kz} is given as below. In unstable boundary layer:
+The new default calculation of eddy diffusivity coefficient \textit{Kz} (`TROENKz') follows the method described in \citet{troenkz}. Unlike the old \textit{Kz} method (JericevicKz) which does not consider the stability within the boundary layer, this new \textit{Kz} method differentiates \textit{Kz} formulation in the stable and unstable boundary layer conditions. Therefore, the new method performs reasonably well in cases of weak surface heat flux and transitions between stable and unstable cases \citep{troenkz}. However, we have not seen significant changes in modelled concentrations. The formulation of \textit{Kz} is given as below. In unstable boundary layer:
 \begin{equation}
     \phi_h = (1 - 16 \times \min(z, z_\mathit{surf}) \times \frac{1}{L})^{-\frac 1 2}
 \end{equation}
@@ -480,12 +372,147 @@ A number of smaller changes have been made:
   \item[fracPM25] A fraction of coarse nitrate particulate mass has been allocated to the \PM[2.5] fraction in order to represent the fact that some of the particles from the coarse fraction have diameters of less than 2.5~\um. The value of this fraction was previously 27\% \citep{Simpson:EMEP2012}. In the latest version this fraction was reduced to 13\%, in order to better account for the differences between mass-median and aerodynamic diameters.
   \item[IAM\_CROP] A new generic crop type has been introduced for integrated assessment modelling outputs. This is an updated version of the previously used IAM\_CR species \citep{Simpson:EMEP2012}, in which the phenology factor (\fphen) has been set to 1.0 across the ozone flux accumulation period. (The IAM\_CR parameters gave a reduction in \fphen towards the end of the period.)
   \item[Pollen emissions] Although the effect of pollen on \PM[2.5] concentrations is negligible, it is an important allergen. Therefore, it has been included as part of the model forecast capabilities. Optional birch, olive, ragweed and grass pollen emissions based on \citet{Sofiev-2015,Sofiev-2017} here included on rv4.34, and later expanded to include alder and mugwort pollen emissions. 
+  \item[Timezones] A global map of time-zones was produced to enable more accurate calculations for global-scale modelling. The new system also estimates summer and winter times where appropriate. (The previous system used simple longitude methods to estimate local tinme, and had no accounting for summer/winter time.) 
+  \item[Shipping emissions] Shipping emissions now spread as 20\% below 20m, 80\% between 20-90m; 
+  \item[RH-2m]
+          NWP model rh2m now used in place of earlier sub-grid calculation; % 9/2
 \end{description}
 
 
 % revised wet-radius calculations --Dave
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}
+\begin{footnotesize}
+\caption{Summary of major EMEP MSC-W model versions from 2012--2020.
+Extends Table S1 of \citealt{Simpson:EMEP2012}
+  COMMENT: Note - recent changes and tags are a little confused. Dave will fix.
+}
+\label{tab:Updates}
+\centering
+\begin{tabular}{lp{11cm}l}
+\hline
+Version & Update                                        & Ref$^{(a)}$   \\
+\hline
+v4.42  &  19-sector emissions system (GNFR-CAMS) introduced; %  - see Sect.~\ref{ssec:gnfr};  % c21/4
+Emissions for soil NO, DMS, and aircraft updated using results from
+ CAMS81 project; % 16/5
+ Modified various parameters concerning fine/coarse fractions for sea-salt and nitrate; 
+ `rnr' emission split and EmChem19r introduced;
+           Revised global monthly emission factors produced (and use of global time.zone map);  % 16/5
+           Changed default Kz  and Hmix schemes (Sect.~\ref{sec:updateKz}); 
+         upgraded local fraction methods; cleaned up various config options. 
 
+
+        & This report \\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The changes were spread over several versions. Too hard to identify 
+% when the change was "final"
+%rv4.42  & Changed default Kz scheme; 
+%         upgraded local fraction methods; `rnr' emission split and EmChem19r %introduced; cleaned up various config options  &  This report        \\
+% 21st May 2021:
+%rv4.41  & Updated emissions from CAMS81 project: DMS, soil NO; % 16/5
+%          Modified various parameters concerning sea-salt and wet-radius %calculations; % 16/5
+%   fracPM25 modified;
+%          Revised global monthly emission factor;  % 16/5
+%        & \\
+% 13/5
+%rv4.40  & Shipping emissions now spread as 20\% below 20m, 80\% between 20-90m;  
+%          New CAMS81-based aircraft and DMS emissions introduced as options. % %29-30/4
+%                  & \\
+%SKIP BUG fix on aircraft emissions  27/4
+% 21/4
+%rv4.39 &
+% GNFR-CAMS is now the default emissions system - see Sect.~\ref{ssec:gnfr};  % c21/4
+%          Uses global time-zone map;   % 19/3
+%          Revised global monthly factor;  % 19/3 though updated in rv4.41
+%          New Kz method introduced (Sect.~\ref{ssec:PBL});
+%          NWP model rh2m now used in place of earlier sub-grid calculation; % 9/2
+%          Upgrade of local fractions methodology;  % 7/11/2020
+%        & \\
+% 23/10/2021:
+rv4.35  & Various updates, including heavy   
+          refactoring of local-fraction code, bug-fixes in MARS module,
+          and updates in chemical mechanisms, default PM and NMVOC speciation and
+          GenChem systems     & R2020            \\
+rv4.34  & Public domain (Feb. 2020); EmChem19a, EmChem19p      & R2020            \\
+rv4.33  & Public domain (June 2019);
+         EmChem19, PAR bug-fix, EQSAM4clim    & R2019            \\
+rv4.32  & Used for EMEP course, April 2019    &    \\
+rv4.30  & Moved to new GenChem-based system  &   \\
+%        &                                    &        \\
+rv4.17a & Used for R2018. Small updates         & R2018      \\
+rv4.17  & Public domain (Feb. 2018);
+         Corrections in global land-cover/deserts; added
+          'LOTOS' option for European \ce{NH3} emissions; corrections
+          to snow cover & R2018 \\
+rv4.16  & New radiation scheme (Weiss\&Norman); Added dry and wet deposition for \ce{N2O5};
+         (Used for  \citealt{Stadtler2018,MillsGCB2018b}) & R2018   \\
+rv4.15  & EmChem16 scheme & R2017 \\
+%    Sect.\ref{sec:GNFR}--\ref{ss:Splits} & R2016  \\
+%
+rv4.14  & Updated chemical scheme & R2017       \\
+%% rv4.13 + CRI was used in McFiggans. Difficult to describe combo
+%        & \\
+rv4.12  & New  global land-cover and BVOC & R2017       \\
+%        & \\
+rv4.10  &  Public domain (Oct. 2016)                 
+         (Used for  \citealt{MillsGCB2018a}) &  R2016 \\
+%        & \\
+rv4.9   & Updates for GNFR sectors, DMS, sea-salt, dust, \ce{S_A} and  $\gamma$, \ce{N2O5} & \\ 
+rv4.8   &  Public domain (Oct. 2015); ShipNOx introduced.                          
+         Used for EMEP HTAP2 model calculations, see
+         special issue:
+         \url{www.atmos-chem-phys.net/special_issue390.html},
+          and \citet{Jonson_et_al:2017}.              & R2015\\
+rv4.7   & Used for reporting, summer 2015;
+         New calculations of aerosol surface area; 
+         New gas-aerosol uptake and \ce{N2O5} hydrolysis rates; 
+         Added 3-D calculations pf aerosol extinction and AODs;
+         Emissions - new flexible mechanisms for interpolation and merging sources;
+         Global - monthly emissions from ECLIPSE project;
+         Global -  LAI changes from LPJ-GUESS model;
+         WRF meteorology \citep{SkamarockKlemp2008} can now
+     be used directly in EMEP model. & R2015 \\
+%        &                                                &\\
+rv4.6   & Used for Euro-Delta SOA runs                   & R2015  \\
+%QUERY        & Bug-fix for ammonium deposition & \\
+       & Revised boundary condition treatments % & \\  % Vertical profiles
+       ; ISORROPIA capability added & \\
+%       &                                                &\\
+rv4.5  & Sixth open-source (Sep 2014);                    
+        Improved dust, sea-salt, SOA modelling          % &      \\
+       ; AOD and extinction coefficient calculations  updated %& \\
+       ; Data assimilation system added % & \\
+       ; Hybrid vertical coordinates replace earlier sigma % & \\
+       ; Flexibility of grid projection increased. & R2014\\
+%SKIP        & ?? Point sources, plume rise, data-assimilation\\
+%       &                                                &\\
+rv4.4   & Fifth open-source (Sep 2013) %
+       ; Improved dust and sea-salt modelling   %          &      \\
+       ; AOD and extinction coefficient calculations added %  &\\
+       ; gfortran compatibility improved            %      &      \\
+                  & R2014, R2013\\
+%       &                                                &\\
+rv4.3   & Fourth public domain (Mar. 2013)  %
+       ; Initial use of namelists           %            & \\
+       ; Smoothing of MARS results         %            & \\
+       ; Emergency module for volcanic ash and other events% & \\
+       ; Dust and road-dust options added as defaults % & \\
+       ; Advection algorithm changed  % & \\ % \citet{CLAPP98}    & \\
+             & R2013\\ 
+%        &                                                &\\
+rv4.0   & Third public domain (Sep. 2012), as \citet{Simpson:EMEP2012}            & R2013\\ 
+%        & As documented in \citet{Simpson:EMEP2012}    & \\
+%v2011-06& Second public domain (Aug. 2011)                &\\ 
+%rv3     & First public domain (Sep. 2008)                &\\ 
+        &                                                &\\
+\hline
+\end{tabular}
+Notes: (a) R2018 refers to EMEP Status report 1/2018, etc.
+\end{footnotesize}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \clearpage
