@@ -39,8 +39,7 @@ Volcanic \sox emissions from passive degassing of Italian volcanoes (Etna,
 Stromboli and Vulcano) are those reported by
 Italy. \sox and PM emissions from volcanic eruptions of Icelandic volcanoes in the period 2000-2019 (Eyjafjallaj\"okull in 2010, Gr{\'{\i}}msv{\"{o}}tn in 2011  and  Bar\dh{}arbunga in 2014-2015) are reported by Iceland. 
  
-The speciation of PM emissions into OC/EC emissions was based on ECLIPSE v6b emissions. These are given in 5-year intervals (2000, 2005, etc.); intermediate years were derived by linear interpolation. However, all years after 2015 used the 2016 speciation of PM emissions.
-The VOC split (speciation of NMVOC emissions) was the same as in the status run and kept constant over the period.
+The speciation of PM emissions into emissions of EC, OM and `remPPM' (remaining PPM) components was based on ECLIPSE v6b emission data \footnote{\url{https://iiasa.ac.at/web/home/research/researchPrograms/air/ECLIPSEv6.html}}. These ECLIPSE emissions are given in 5-year intervals (2000, 2005, etc.); intermediate years were derived by linear interpolation. However, all years after 2015 used the 2016 speciation of PM emissions. The VOC speciation was based upon data fron various CAMS datasets as described in \cite{R2020:ModDev}, and NOx speciation into NO, \ce{NO2} and `shipNOx' was based upon \QUERY{Older IIASA? Who did this - what is source?}. For NOx and VOC the same (sector-based) speciations were used for all years.
 Soil NOX emissions were based on the new CAMS-GLOB-SOIL v2.2 NOx inventory \citet{SimpsonDarras:2021}. Soil-NOx emissions which are related to the use of fertilizer were not taken from the CAMS-GLOB-SOIL inventory, as these are already included in the EMEP (CEIP) emissions.
 A revised set of anthropogenic emissions for all the years 2000-2019 has been used in the model calculations (including all the reported and re-reported data by June 2021), see chapter \ref{ch:emis2019}.
 
@@ -194,18 +193,19 @@ In summary we find that oxidized nitrogen in air and precipitation has been decr
           &        & \multicolumn{3}{c}{Number of sites} & \multicolumn{4}{c}{Average change per year (\ug $yr^{-1})$} & \multicolumn{4}{c}{Relative change per year (\% $yr^{-1}$)} \\
 Period & Seasons &           total & sign.(obs.) & sign.(mod.) &                    obs. &          conf.interval &  mod. &          conf.interval &                     obs. &         conf.interval &  mod. &        conf.interval \\
 \midrule
-2000-2019 & all &              59 &          44 &          58 &                  -0.132 &    (-0.164, -0.1) & -0.191 &  (-0.237, -0.146) &                    -1.16 &   (-2.2, -0.12) & -2.24 &  (-2.42, -2.06) \\
-          & winter &              60 &          30 &          57 &                  -0.153 &  (-0.194, -0.112) & -0.256 &  (-0.304, -0.208) &                    -1.13 &  (-2.05, -0.21) & -2.37 &   (-2.55, -2.2) \\
-          & spring &              58 &          36 &          54 &                  -0.119 &  (-0.151, -0.087) & -0.158 &  (-0.202, -0.113) &                    -0.86 &   (-2.08, 0.37) & -2.03 &  (-2.23, -1.83) \\
-          & summer &              58 &          38 &          54 &                  -0.092 &  (-0.118, -0.067) & -0.134 &  (-0.177, -0.091) &                    -1.15 &  (-2.05, -0.25) & -1.88 &  (-2.13, -1.63) \\
-          & autumn &              58 &          40 &          57 &                  -0.150 &  (-0.187, -0.112) & -0.191 &  (-0.239, -0.143) &                    -1.12 &   (-2.41, 0.18) & -2.19 &  (-2.38, -2.01) \\
-2005-2019 & all &              63 &          48 &          62 &                  -0.161 &  (-0.196, -0.126) & -0.195 &  (-0.239, -0.151) &                    -1.84 &  (-2.55, -1.13) & -2.57 &  (-2.79, -2.35) \\
-2010-2019 & all &              66 &          35 &          49 &                  -0.182 &   (-0.225, -0.14) & -0.166 &  (-0.205, -0.127) &                    -2.61 &  (-3.34, -1.88) & -2.46 &  (-2.74, -2.18) \\
-2000-2010 & all &              63 &          11 &          40 &                  -0.094 &  (-0.143, -0.045) & -0.179 &  (-0.231, -0.128) &                    -1.01 &  (-1.76, -0.26) & -1.93 &   (-2.3, -1.56) \\
+2000-2019 & all &              60 &          45 &          59 &                  -0.131 &    (-0.162, -0.1) & -0.191 &  (-0.235, -0.147) &                    -1.18 &  (-2.21, -0.15) & -2.25 &  (-2.42, -2.07) \\
+          & autumn &              59 &          41 &          58 &                  -0.149 &  (-0.186, -0.112) & -0.189 &  (-0.236, -0.141) &                    -1.13 &   (-2.41, 0.15) & -2.19 &  (-2.37, -2.01) \\
+          & spring &              59 &          37 &          55 &                  -0.119 &   (-0.15, -0.088) & -0.158 &  (-0.201, -0.116) &                    -0.88 &   (-2.09, 0.32) & -2.07 &  (-2.26, -1.88) \\
+          & summer &              59 &          39 &          55 &                  -0.092 &  (-0.118, -0.067) & -0.132 &   (-0.174, -0.09) &                    -1.18 &  (-2.07, -0.29) & -1.88 &  (-2.12, -1.64) \\
+          & winter &              61 &          30 &          58 &                  -0.151 &  (-0.192, -0.111) & -0.256 &  (-0.303, -0.209) &                    -1.13 &  (-2.03, -0.22) & -2.36 &  (-2.54, -2.19) \\
+2005-2019 & all &              64 &          49 &          63 &                  -0.160 &  (-0.195, -0.125) & -0.194 &  (-0.237, -0.152) &                    -1.86 &  (-2.56, -1.16) & -2.58 &   (-2.8, -2.36) \\
+2010-2019 & all &              66 &          36 &          52 &                  -0.184 &  (-0.226, -0.142) & -0.174 &  (-0.212, -0.135) &                    -2.65 &  (-3.39, -1.92) & -2.62 &  (-2.89, -2.35) \\
+2000-2010 & all &              64 &          11 &          42 &                  -0.093 &  (-0.141, -0.044) & -0.181 &   (-0.231, -0.13) &                    -1.00 &  (-1.74, -0.27) & -1.98 &  (-2.36, -1.61) \\
 \bottomrule
 \end{tabular}}
 \end{center}
 \end{table}
+
 
 
 \begin{table}
@@ -461,6 +461,7 @@ Period & Seasons &           total & sign.(obs.) & sign.(mod.) &                
 \end{center}
 \end{table}
 
+
 \begin{table}
 \caption{\label{tab:pm25_stat} Average absolute and relative changes in \PM[25]}
 \begin{center}
@@ -484,19 +485,17 @@ Period & Seasons &           total & sign.(obs.) & sign.(mod.) &                
 \end{table}
 
 
-For the whole period, 36 and 18 sites with satisfactory data coverage have been included in the trend analysis respectively for \PM[10] and \PM[2.5]. The annual series of \PM[10] and \PM[2.5] clearly show a general concentration decrease from 2000 to 2019. In general, the model reproduces quite well observed year-to-year changes in \PM[10] and \PM[2.5], including enhanced PM levels due to meteorological conditions e.g. in 2003 (dry hot summer \citep{EMEP:PM2005}) and 2011 (dry year in Western/Central/Southern Europe \citep{EMEP:PM2013}).
+For the whole period, 36 and 18 sites with satisfactory data coverage have been included in the trend analysis respectively for \PM[10] and \PM[2.5]. The annual series of \PM[10] and \PM[2.5] clearly show a general concentration decrease from 2000 to 2019. In general, the model underestimates the concentrations, but reproduces quite well observed year-to-year changes in \PM[10] and \PM[2.5], including enhanced PM levels due to meteorological conditions e.g. in 2003 (dry hot summer \citep{EMEP:PM2005}) and 2011 (dry year in Western/Central/Southern Europe \citep{EMEP:PM2013}).
 
-Summarizing overall results, the average \PM[10] and \PM[2.5] trends, derived from observational data and model simulations, are decreasing for the 2000-2019 period (and for all considered here periods). In relative terms, \PM[2.5] average decreasing trend was larger than that for \PM[10]. The PM trends can be explained by decreases in the concentrations of the individual components due to emission reductions, with \PM[10] trends experiencing larger disturbances due to natural contribution in the coarse fraction. We find a good correspondence between observed and model simulated trends in PM concentrations at the considered sites. A more detailed discussion of PM trends follows below.
-In the period of 2000-2019, the average observed \PM[10] trends are -0.37 \ug $yr^{-1}$, or -1.86 \% $yr^{-1}$ in relative terms. The corresponding \PM[10] trends from model simulations are -0.28 \ug $yr^{-1}$ and -1.91 \% $yr^{-1}$. For \PM[2.5], the average trends are -0.31 and -0.25 \ug $yr^{-1}$ respectively from the observations and model simulations, and the relative decrease of \PM[2.5] is -2.51 \% $yr^{-1}$, both observed and modelled. 
+Summarizing trend results for the 2000-2019 period, the average \PM[10] and \PM[2.5] trends, derived from observational data and model simulations, are decreasing. Significant trends have been estimated from observational data for 80 \% of sites for \PM[10] and 97 \% of sites for \PM[2.5]; the model simulates significant trends for more sites, namely 97 and 100 \% respectively. During this 20-year period, \PM[10] concentrations decreased by 36 \%, while an even greater decrease by 48 \% is estimated for \PM[2.5] concentrations, from both observational data and model simulations. We find a good correspondence between observed and model simulated trends in PM concentrations at the considered sites. A more detailed discussion of PM trends is given below.
 
-
-Significant trends have been derived from the observational data for 80 \% of sites for \PM[10] and 97 \% of sites for \PM[2.5]; the model simulates significant trends for more sites, namely 97 and 100 \% respectively.  
+For the period of 2000-2019, the average observed \PM[10] trends are -0.37 \ug $yr^{-1}$, or -1.86 \% $yr^{-1}$ in relative terms. The corresponding \PM[10] trends from model simulations are -0.28 \ug $yr^{-1}$ and -1.91 \% $yr^{-1}$. For \PM[2.5], the average trends are -0.31 and -0.25 \ug $yr^{-1}$ respectively from the observations and model simulations, and the relative decrease of \PM[2.5] is -2.51 \% $yr^{-1}$, both observed and modelled. The reduction of anthropogenic emissions during this period is a major cause for the decreasing average concentrations of PM, with \PM[10] trends experiencing larger disturbances due to natural contribution in the coarse fraction. 
 
 Figure \ref{fig:pm_trends} reveals a considerably larger variation of observed trends between the sites in comparison to modelled trend values, \textcolor{blue}{with modelled median (and mean) trends lying within 25-75\% interquartile range (IQR) of the observed ones. Modelled mean and median trends are in general closer to each other than in the observational data, implying more sites-outliers.} The model simulated the largest \PM[10] and \PM[2.5] 2000-2019 trends, both absolute and relative,  for the summer season, followed by the spring, whereas the observation results are less conclusive in this respect. However, both the observations and the model identify PM significant trends for more stations for the spring and summer seasons than for the winter-autumn. 
 
-Thus, for the period 2000-2019, the observations show a decrease of \PM[10] and \PM[2.5] concentrations by 36 and 48 \% respectively, which is in a perfect agreement with modelled decreases by 36 and 48 \% respectively. PM is a complex pollutant, consisting of aerosol species both emitted directly and formed from gaseous precursors. Therefore, the reductions both in primary PM emissions, as well as \sox, \noii, \nhiii and NMVOC emissions are contribute to decrease PM concentrations. In the western parts of EMEP (EU \&UK \&EFTA), where the considered sites are located, the emissions of primary \PM[10] and \PM[2.5] were reduced by 32 and 35 \%, respectively, from 2000 to 2019. The largest in the same period, was reduction in \sox emissions (81 \%), resulting in 61 \% observed decrease of \soiv (70 \% according to the model). Though \noii was reduced by 48 \%, given the moderate reduction by 12 \% in \nhiii emissions and the availability of free \nhiii due to the reduced formation of ammonium sulphate, the observed decrease in \noiii concentrations was only 38 \% (44 \% by the model). The corresponding changes from 2000 to 2019 in \nhiv were 50 and 48 \%.
+PM is a complex pollutant, consisting of aerosol species both emitted directly and formed from gaseous precursors. Therefore, the reductions both in primary PM emissions, as well as \sox, \noii, \nhiii and NMVOC emissions are contribute to decrease PM concentrations. In the western parts of EMEP (EU \&UK \&EFTA), where the considered sites are located, the emissions of primary \PM[10] and \PM[2.5] were reduced by 32 and 35 \%, respectively, from 2000 to 2019. The largest in the same period, was reduction in \sox emissions (81 \%), resulting in 61 \% observed decrease of \soiv (70 \% according to the model). Though \noii was reduced by 48 \%, given the moderate reduction by 12 \% in \nhiii emissions and the availability of free \nhiii due to the reduced formation of ammonium sulphate, the observed decrease in \noiii concentrations was only 38 \% (44 \% by the model). The corresponding changes from 2000 to 2019 in \nhiv were 50 and 48 \%.
 
-For the period 2005-2019 (starting from the reference year of Gothenburg Protocol), more sites with data coverage were totally available for this \PM[10] and \PM[2.5] trend analysis, i.e. 53 and 35 respectively, but significant trends have been observed and modelled for a smaller fraction of the sites with respect to the 2000-2019 period \textcolor{blue}{(partly due to a shorter period length)}.
+\textcolor{blue}{For the period 2005-2019 (starting from the reference year of Gothenburg Protocol), more sites with data coverage were totally available for this \PM[10] and \PM[2.5] trend analysis, i.e. 53 and 35 respectively, but significant trends have been observed and modelled for a smaller fraction of the sites with respect to the 2000-2019 period (partly due to a shorter period length)}.
 
 
 
