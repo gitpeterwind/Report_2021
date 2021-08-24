@@ -37,7 +37,7 @@ more detail in Sects.~\ref{sec:updateOverview}-\ref{sec:updateOther}.
 \section{Overview of changes} 
 \label{sec:updateOverview}
 
-
+The major changes can be summarised:
 
 \begin{itemize}
 \item The default emissions system in the model was changed to a 19-sector system denoted GNFR-CAMS; -- see Sect.~\ref{ssec:gnfr}.  % c21/4
@@ -45,7 +45,7 @@ more detail in Sects.~\ref{sec:updateOverview}-\ref{sec:updateOther}.
 \item Introduced new soil-NO, DMS and aircraft emissions, from CAMS-81 project
 (Sect.~\ref{sec:updateEmis}). 
 
-\item Modified fine/coarse split of sea-salt (Sect.~\ref{ssec:updateSS}).
+\item Modified fine/coarse split of sea-salt (Sect.~\ref{ssec:updateSS}) and particulate nitrate (ect.~\ref{sec:updateOther}).
 
 \item
 Emissions speciation. New default and country-specific emission
@@ -53,18 +53,12 @@ speciations for \pmfine have been implemented.  See
 Sect.~\ref{ssec:emissplits}.
 
 \item
-New country-based monthly timefactors were produced for countries outside of Europe. See ect.~\ref{ssec:monthlyFacs}.
+New country-based monthly timefactors were produced for countries outside of Europe. See Sect.~\ref{ssec:monthlyFacs}.
 
 \item Revised methods for vertical diffusion (Kz) and Hmix (Sect.~\ref{sec:updateKz}).
 
 \item
 Upgraded Local Fractions capabilities (Sect.~\ref{sec:updateLF}).
-
-\item Changed fraction of coarse nitrate included in PM25 stuff (Sect.~\ref{sec:updateOther}). -- Dave
-%\item revised wet-radius calculations (Sect.~\ref{sec:updateOther}). --Dave
-
-%\item The EMEP model's chemical pre-processing system and associated box-model (GenChem, boxChem) have been released as open-source.  See Sect.~\ref{sec:GChem}.
-
 
 \item
 Numerous small changes to make the code more flexible and/or to
@@ -120,13 +114,13 @@ B &      02 &   3 &  3 &   2 &  Industry  & 3, 4 \\
 C &      03 &   2 &  2 &   3 &  Other Stationary Combustion & 2 \\
 %D &      04 &   4 &  4 &   4 &  Fugitive & \QUERY{EXPLAIN/CHECK??}  \\
 %dev:
-D &      04 &   5 &  5 &   4 &  Fugitive & \QUERY{as in dev 16/8/CHECK??}  \\
+D &      04 &   5 &  5 &   4 &  Fugitive & \\ %as in dev 16/8/21
 E &      05 &   6 &  2 &   5 &  Solvents & 6 \\
 F &      06 &   7 &  2 &   6 &  Road Transport & 7 \\
 G &      07 &   8 &  8 &   7 &  Shipping & 8  \\ % dev 16/8
 H &      08 &   8 &  7 &   8 &  Aviation & 8  \\
 I &      09 &   8 &  2 &   9 &  Offroad & 8  \\
-J &     10 &   9 &  6 &  10 &  Waste & \QUERY{EXPLAIN/CHECK?} \\
+J &     10 &   9 &  6 &  10 &  Waste & 9 \\
 K &     11 &  10 &  2 &  11 &  Agri - Livestock & 10 \\
 L &     12 &  10 &  2 &  12 &  Agri - Other & 10 \\
 M &     13 &   5 &  5 &  13 &  Other & 11 \\
@@ -214,7 +208,7 @@ the European region.
 
 An important issue arose during the construction  of this inventory - the risk of double-counting
 soil-NO emissions, since some anthropogenic  emission inventories include and 
-some exclude these.
+some exclude emissions from agricultural soils.
 Indeed, within the LRTAP Convention,
 most countries mainly report NOx emissions due to agricultural activities
 using the EMEP/EEA Emissions Inventory Guidebook
@@ -239,11 +233,11 @@ official GNFR L data, but but add biome, N-dep and pulse emissions from CAMS-GLO
 ECLIPSE v5 and v6 inventories, and for CAMS-GLOB and CAMS-REG. In
 some cases the CAMS-GLOB-SOIL \Nfert emissions should be used, but
 in other cases not. In the EMEP model this choice is governed
-by the config\_emep.nml variable \verb|USES%SOILNOX_METHOD |, which can
-be set to either `Total', or `NoFert'.
+by the config\_emep.nml variable \verb|USES%SOILNOX_METHOD|, which can
+be set to either `Total', or `NoFert'. 
 
 
-\COMMENT{Will add some words on impact of new soil emissions later.}
+%\COMMENT{SKIP:Will add some words on impact of new soil emissions later.}
 
 \subsection{DMS emissions}
 \label{ssec:DMS}
@@ -353,10 +347,9 @@ The default calculation of PBL is updated to the HmixMethod JcRb\_t2m. Compared 
 \section{Local Fractions}
 \label{sec:updateLF}
 
-The Local Fractions method \citep{wind-2020} is a framework that allows to track thousands of sources in a single run at a low computational cost. It is fully implemented for primary particles, but also reduced nitrogen compounds can be treated. The tracking of other species is less accurate, but progress is being made to eventually include a correct description for all species.
+The Local Fractions method \citep{wind-2020} is a framework that allows the tracking of thousands of sources in a single run at a low computational cost. It is fully implemented for primary particles, but also reduced nitrogen compounds can be treated. The tracking of other species is less accurate, but progress is being made to eventually include a correct description for all species.
 
 Since last year, the range of applications of the Local Fractions has been extended.
-
 The sources can be defined by either a list of countries or group of countries, as small squares surrounding the receptor grid (with user defined range and square sizes), or as regions defined as "masks" given in a NetCDF file.
 Wet and dry deposition (separately) per source country can now also be computed.
 
@@ -374,9 +367,8 @@ A number of smaller changes have been made:
   \item[Pollen emissions] Although the effect of pollen on \PM[2.5] concentrations is negligible, it is an important allergen. Therefore, it has been included as part of the model forecast capabilities. Optional birch, olive, ragweed and grass pollen emissions based on \citet{Sofiev-2015,Sofiev-2017} here included on rv4.34, and later expanded to include alder and mugwort pollen emissions. 
   \item[Timezones] A global map of time-zones was produced to enable more accurate calculations for global-scale modelling. The new system also estimates summer and winter times where appropriate. (The previous system used simple longitude methods to estimate local tinme, and had no accounting for summer/winter time.) 
   \item[Shipping emissions] Shipping emissions now spread as 20\% below 20m, 80\% between 20-90m; 
-  \item[RH-2m]
-          NWP model rh2m now used in place of earlier sub-grid calculation. This simplification was made since temperature and heat flux data also had no sub-grid calculation. % 9/2
-  \item[RH limits] RH limits (giving maximum values) were added to the Gerber-calculations of aerosol size: 99\% for rural aerosol, and 99.99\% for sea-salt, following \citet{Gerber1985}. 
+    \item[RH limits] RH limits (giving maximum values) were added to the Gerber-calculations of aerosol size: 99\% for rural aerosol, and 99.99\% for sea-salt, following \citet{Gerber1985}. This change prevents excessive buildup of surface area in certain conditions.
+  \item[RH-2m] NWP model rh2m now used in place of earlier sub-grid calculation. This simplification was made since temperature and heat flux data also had no sub-grid calculation. % 9/2
 \end{description}
 
 
@@ -519,4 +511,4 @@ Notes: (a) R2018 refers to EMEP Status report 1/2018, etc.
 \bibliographystyle{copernicus}         % change bibliography-name after each
 \renewcommand\bibname{References}      % bibliographystyle command!
 \addcontentsline{toc}{section}{References}
-\bibliography{Refs,EMEP_Reports,uEMEP,RefsUpdates}
+\bibliography{Refs,EMEP_Reports,uEMEP,RefsUpdates,RefsEmis}
