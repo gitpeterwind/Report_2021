@@ -237,28 +237,32 @@ A new option to calculate biogenic emissions of dimethyl sulphide (DMS) has been
 At each location and timestep, the model calculates the Schmidt number ($Sc$) from the sea surface temperature ($SST$, given in \textdegree C) with the 4th-degree formula of \citet{Wanninkhof2014}:
 \\
 \\
-$Sc=2855.7 -177.63\  SST + 6.0438\  SST^2 - 0.11645\  SST^3 + 0.00094743\ SST^4$ 
+\begin{equation}
+Sc=2855.7 -177.63\  SST + 6.0438\  SST^2 - 0.11645\  SST^3 + 0.00094743\ SST^4
+\end{equation}
 \\
 \\
 The transfer velocity $K_{w}$ (given in cm hour$^{-1}$) is then calculated  from the Schmidt number and the 10-meter wind speed $u_{10}$ (given in m~s$^{-1}$) with the formula of \citet{Nightingale2000}:
 \\
 \\
-$K_w=(0.222\  u_{10}^2 +0.333\ u_{10}) \sqrt{\frac{600}{Sc}} $
+\begin{equation}
+K_w=(0.222\  u_{10}^2 +0.333\ u_{10}) \sqrt{\frac{600}{Sc}}
+\end{equation}
 \\
 \\
 Following \citet{Leonor:DMS2} we assume that 66\% of the DMS in air is converted into \ce{SO2}. The DMS emission is thus implemented in the model as an \ce{SO2} flux as:
 \\
 \\
-%\begin{verbatim}
-F_{SO$_2$}=0.66*$O\_{DMS}$*Kw/3600*0.01*g*roa/p*Av  
-%\end{verbatim}
+\begin{equation}
+F_{SO_2} = 0.66\ O_{\textrm{DMS}}\ (K_{w}\ 0.01\ /3600)\ g\ \rho\ A\ / p  
+\end{equation}
 \\
 \\
-where $O\_{DMS]$ is the surface water DMS concentration (in nanomol L$^{-1}$),
+where $O_{\textrm{DMS}}$ is the surface water DMS concentration (in nanomol L$^{-1}$),
 $g$ is standard gravity (9.807 m s$^{-2}$),
-$roa$ is the ambient density of air (kg m$^{-3}$),
+$\rho$ is the ambient density of air (kg m$^{-3}$),
 $p$ is ambient air pressure,
-and $Av$ is Avogradro's number (6.023e+23 mol$^{-1}$).
+and A is Avogadro's number (6.023e+23 mol$^{-1}$).
 
 The options to calculate the Schmidt number and transfer velocity, and also to use the older climatology of \citet{Kettle1999}, are still available in the EMEP model.
 
