@@ -1,12 +1,10 @@
 \chapter[Model updates]{Updates to the EMEP MSC-W model, 2020--2021}
 \label{ch:ModelUpdates}
 
-%% authors? added all names seen in Log.changes
-
 {\bf{David Simpson, Michael Gauss, Qing Mu, Svetlana Tsyro, Alvaro Valdebenito and Peter Wind}}
 \vspace{30pt}
 
-%\old{TODO}
+
 
 This chapter summarises the changes made to the EMEP MSC-W  model
 since \citet{R2020:ModDev}, and along with changes discussed in
@@ -72,7 +70,7 @@ In addition to these changes, articles on GenChem (EMEP's chemical pre-processin
 \section{Updates in Emission Systems}
 \label{sec:updateEmis}
 
-\subsection{New basis for emission sectors: GNFR\_CAMS}
+\subsection{New model basis for emission sectors: GNFR\_CAMS}
 \label{ssec:gnfr}
 
 %\COMMENT{Text/Table from gmdPaper}
@@ -91,12 +89,11 @@ enables for example four road traffic sectors, F1--F4, with e.g. F1
 Such emission sectors are characterised in the model by
 release heights, timefactors and species-splits (e.g. NOx to NO and
 \ce{NO2}, or NMVOC to individual VOC surrogates) for each sector, with each
-characteristic defined by a mapping index. The user-guide gives more details about
-the usage of these indices, and potential to define own emission sectors.
+characteristic defined by a mapping index. 
 
+It should be noted that this 19-sector system is designed as a practical super-set of likely emission sectors present in emission files, and the  user is free to use GNFR, SNAP or other inventories when running the model. The user-guide gives more details about the usage of different emission options, use of the mapping indices, and the potential to define own emission sectors.
 Table~\ref{tab:GNFRsectors} summarises the new GNFR\_CAMS sectors,
 and the mapping indices used.
-%\COMMENT{Add index explanation in SI table?}
 
 
 \begin{table}
@@ -149,15 +146,6 @@ the period 2000-2018.  The basic methodology merges methods from
 literature \citep[especially][]{SteinkampLawrence2011}, and some
 simplifications which reflect lack of  availability of some key data.
 
-%In YL95 and SL11, background biome emission factors ($A_{biome}$)  were modified by estimates of locally available nitrogen ($N_{avail}$),
-%which consists mainly of agricultural inputs of N (N from fertilizer, manure, hereafter \Nfert), or atmospheric deposition
-%of reactive nitrogen (hereafter \Ndep), and a pulse factor, \Fp. For this work we prefer to calculate the contributions of
-%\Nfert, \Ndep and \Fp separately, so we have:
-
-%Emissions are provided as total values and also with separate data for soil
-%NO emissions from background biome values, and  those induced by fertilizers/manure, pulsing effects, and atmospheric
-%deposition, so that users can include, exclude or modify each component if wanted.
-
 The CAMS-GLOB-SOIL v2.2 NOx inventory
 provides estimate of soil NO emissions from four categories:
 
@@ -192,7 +180,6 @@ the European region.
 
 \begin{figure}
   \centering
-   %\includegraphics*[width=0.7*\textwidth]{\HFIGS/PlotRegionalTimeSeriesMonthly_EUR_YLnSMI_Mar2021.png}
    \includegraphics*[width=10cm]{FIGS_UPDATES/PlotRegionalTimeSeriesMonthly_EUR_YLnSMI_Mar2021.png}
   \parbox{10cm}{
   \caption{CAMS-GLOB-SOIL: monthly above canopy NO emissions (\ngN)  calculated for the year 2010
@@ -201,8 +188,7 @@ the European region.
   }
 \end{figure}
 
-% from  gmdSI from /home/davids/Documents/ARTICLES/2021/GmdSoilNO
-% CHECK also gmdSI from /home/davids/Work/EU_Projects/CAMS/CAMS81/D81_3_3_1_jun2021
+
 
 \subsubsection{Risk of double-counting?}
 
@@ -276,7 +262,7 @@ The options to calculate the Schmidt number and transfer velocity, and also to u
  LTO (landing/take-off) emission data are, as before, taken from CEIP, i.e. based on aircraft emissions officially reported by countries for up to 3000 feet above the surface. However, the high distribution in the EMEP model has been slightly revised. We assume that, in approximation, half of the LTO emissions (from CEIP) occur below 50 meters above the surface, while the other half is evenly distributed over the height range between 50 meters and about 3000 feet.
  Furthermore, aircraft emissions at higher altitudes than 3000 feet are now based on a new dataset (CAMS-GLOB-AIR, \citet{GranierCAMS2019}), given separately for all years from 2000 to 2019, with monthly variation and a spatial resolution of 0.5$^\circ$\,$\times$\,0.5$^\circ$\,$\times$\,610\,m. This dataset has been provided through the Copernicus Atmosphere Monitoring Service and can be downloaded from the Atmosphere Data Store of ECMWF (\url{https://ads.atmosphere.copernicus.eu/}).
 
-In the EMEP model, CAMS-GLOB-AIR emissions between 0 and 610m (2000 ft) above the surface are not used, and half of the CAMS-GLOB-AIR emissions between 610 and 1220m are evenly distributed over the model layers corresponding to that height range. The assumption behind this approch is that emissions up to 3000 feet should already be fully included in the CEIP (LTO) emissions. Above 1220m (4000ft), CAMS-GLOB-AIR emissions are used in full, and interpolated to the relevant model grid during model runtime.
+In the EMEP model, CAMS-GLOB-AIR emissions between 0 and 610m (2000 ft) above the surface are not used, and half of the CAMS-GLOB-AIR emissions between 610 and 1220m are evenly distributed over the model layers corresponding to that height range. The assumption behind this approach is that emissions up to 3000 feet should already be fully included in the CEIP (LTO) emissions. Above 1220m (4000ft), CAMS-GLOB-AIR emissions are used in full, and interpolated to the relevant model grid during model runtime.
 
 The option of using the old QUANTIFY data (\url{www.pa.op.dlr.de/quantify}) instead of CAMS-GLOB-AIR for non-LTO emissions is still available in the EMEP model.
 
@@ -308,7 +294,7 @@ In many previous studies we have distinguished estimated wood-burning and
 fossil-fuel emissions, but for the runs presented in this report we
 have made the simpler distinction between GNFR category C (mainly
 residential emissions), and other GNFR sectors.  We denote this
-split the `rnr' (residential-non-residential) split, and have slighly
+split the `rnr' (residential-non-residential) split, and have slightly
 modified the EmChem19a chemical mechanism to cope with the addition
 of `remPPM' from GNFR C.
 
@@ -354,6 +340,14 @@ The sources can be defined by either a list of countries or group of countries, 
 Wet and dry deposition (separately) per source country can now also be computed.
 
 
+\begin{figure}
+  \centering
+    \includegraphics*[width=10cm]{FIGS_UPDATES/PlotIAMpods.png}
+  \parbox{10cm}{
+  \caption{Comparison of POD3 values for the new generic IAM\_CROP category compared to the IAM\_CR used previously. Statistics refer to grid-cells where either category had non-zero POD3 values.
+    \label{fig:PODcomp}}
+  }
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Other}
@@ -362,23 +356,28 @@ Wet and dry deposition (separately) per source country can now also be computed.
 A number of smaller changes have been made:
 
 \begin{description}
-  \item[fracPM25] A fraction of coarse nitrate particulate mass has been allocated to the \PM[2.5] fraction in order to represent the fact that some of the particles from the coarse fraction have diameters of less than 2.5~\um. The value of this fraction was previously 27\% \citep{Simpson:EMEP2012}. In the latest version this fraction was reduced to 13\%, in order to better account for the differences between mass-median and aerodynamic diameters.
-  \item[IAM\_CROP] A new generic crop type has been introduced for integrated assessment modelling outputs. This is an updated version of the previously used IAM\_CR species \citep{Simpson:EMEP2012}, in which the phenology factor (\fphen) has been set to 1.0 across the ozone flux accumulation period. (The IAM\_CR parameters gave a reduction in \fphen towards the end of the period.)
-  \item[Pollen emissions] Although the effect of pollen on \PM[2.5] concentrations is negligible, it is an important allergen. Therefore, it has been included as part of the model forecast capabilities. Optional birch, olive, ragweed and grass pollen emissions based on \citet{Sofiev-2015,Sofiev-2017} here included on rv4.34, and later expanded to include alder and mugwort pollen emissions. 
-  \item[Timezones] A global map of time-zones was produced to enable more accurate calculations for global-scale modelling. The new system also estimates summer and winter times where appropriate. (The previous system used simple longitude methods to estimate local tinme, and had no accounting for summer/winter time.) 
-  \item[Shipping emissions] Shipping emissions now spread as 20\% below 20m, 80\% between 20-90m; 
+  \item[fracPM25] A fraction of coarse nitrate particulate mass has been allocated to the \PM[2.5] fraction in order to represent the fact that some of the particles from the coarse fraction have aerodynamic diameters of less than 2.5~\um. The value of this fraction was previously 27\% \citep{Simpson:EMEP2012}. In the latest version this fraction was reduced to 13\%, in order to better account for the differences between mass-median and aerodynamic diameters.
+  
+  \item[IAM\_CROP] A new generic crop type has been introduced for integrated assessment modelling outputs. This is an updated version of the previously used IAM\_CR species \citep{Simpson:EMEP2012}, in which the phenology factor (\fphen) has been set to 1.0 across the ozone flux accumulation period. The IAM\_CR parameters gave a reduction in \fphen towards the end of the period, and hence lower POD than the new category gives (c.f.Fig~\ref{fig:PODcomp}).
+  
+  \item[Pollen emissions] Although the effect of pollen on \PM[2.5] concentrations is negligible, it is an important allergen. Therefore, it has been included as part of the model forecast capabilities. Optional birch, olive, ragweed and grass pollen emissions based on \citet{Sofiev-2015,Sofiev-2017} were included in version rv4.34, and later expanded to include alder and mugwort pollen emissions. 
+  
+  \item[Timezones] A global map of time-zones was produced to enable more accurate calculations for global-scale modelling. The new system also estimates summer and winter times where appropriate. (The previous system used simple longitude methods to estimate local time, and had no accounting for summer/winter time.) 
+  
+  \item[Shipping emissions] Shipping emissions now spread as 20\% below 20m, 80\% between 20-90m. 
+  
     \item[RH limits] RH limits (giving maximum values) were added to the Gerber-calculations of aerosol size: 99\% for rural aerosol, and 99.99\% for sea-salt, following \citet{Gerber1985}. This change prevents excessive buildup of surface area in certain conditions.
+    
   \item[RH-2m] NWP model rh2m now used in place of earlier sub-grid calculation. This simplification was made since temperature and heat flux data also had no sub-grid calculation. % 9/2
 \end{description}
 
 
-% revised wet-radius calculations --Dave
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{table}
 \begin{footnotesize}
 \caption{Summary of major EMEP MSC-W model versions from 2012--2020.
-Extends Table S1 of \citealt{Simpson:EMEP2012},
+Extends Table S1 of \citealt{Simpson:EMEP2012}.
 }
 \label{tab:Updates}
 \centering
