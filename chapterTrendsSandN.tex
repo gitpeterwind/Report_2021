@@ -39,12 +39,66 @@ Volcanic \sox emissions from passive degassing of Italian volcanoes (Etna,
 Stromboli and Vulcano) are those reported by
 Italy. \sox and PM emissions from volcanic eruptions of Icelandic volcanoes in the period 2000-2019 (Eyjafjallaj\"okull in 2010, Gr{\'{\i}}msv{\"{o}}tn in 2011  and  Bar\dh{}arbunga in 2014-2015) are reported by Iceland. 
  
-The speciation of PM emissions into emissions of EC, OM and `remPPM' (remaining PPM) components was based on ECLIPSE v6b emission data \footnote{\url{https://iiasa.ac.at/web/home/research/researchPrograms/air/ECLIPSEv6.html}}. These ECLIPSE emissions are given in 5-year intervals (2000, 2005, etc.); intermediate years were derived by linear interpolation. However, all years after 2015 used the 2016 speciation of PM emissions. The VOC speciation was based upon data fron various CAMS datasets as described in \cite{R2020:ModDev}, and NOx speciation into NO, \ce{NO2} and `shipNOx' was based upon \QUERY{Older IIASA? Who did this - what is source?}. For NOx and VOC the same (sector-based) speciations were used for all years.
+The speciation of PM emissions into emissions of EC, OM and `remPPM' (remaining PPM) components was based on ECLIPSE v6b emission data \footnote{\url{https://iiasa.ac.at/web/home/research/researchPrograms/air/ECLIPSEv6.html}}. These ECLIPSE emissions are given in 5-year intervals (2000, 2005, etc.); intermediate years were derived by linear interpolation. However, all years after 2015 used the 2016 speciation of PM emissions. The VOC speciation was based upon data from various CAMS datasets as described in \cite{R2020:ModDev}, and NOx speciation into NO, \ce{NO2} and `shipNOx' was based upon \QUERY{Older IIASA? Who did this - what is source?}. For NOx and VOC the same (sector-based) speciations were used for all years.
 Soil NOX emissions were based on the new CAMS-GLOB-SOIL v2.2 NOx inventory \citet{SimpsonDarras:2021}. Soil-NOx emissions which are related to the use of fertilizer were not taken from the CAMS-GLOB-SOIL inventory, as these are already included in the EMEP (CEIP) emissions.
 A revised set of anthropogenic emissions for all the years 2000-2019 has been used in the model calculations (including all the reported and re-reported data by June 2021), see chapter \ref{ch:emis2019}.
 
+
+\subsection{Issues with inventories used in modelling}
+
+\COMMENT{DS: Moved from ECOC section. Text in-progress...}
+
+The problems with condensable organics in EMEP emission
+inventories have been highlighted in a number of studies
+\citep{DeniervanderGon2015,R2015:SVOC,TFMM2018,R2019:SVOC,R2020:CAMSREF2,R2020:SVOC},
+with an expert meeting convened on this subject in 2020 by MSC-W
+\citep{CONDws2020}. Using the notation of \citep{CONDws2020}, we can
+write:
+
+
+\begin{equation}
+  \mbox{POA} = \mbox{FPOA} + \mbox{CPOA}
+\end{equation}
+
+where POA is the total primary (particulate) organic aerosol emission, FPOA
+is the solid (filterable)  component of POA, and CPOA is the condensable
+component of POA.
+
+It has clearly shown that some countries include, and some countries
+exclude the CPOA component from their reporting of \pmfine. Further, even
+for the same country, CPOA might be included or excluded differently for
+different sectors. In many case, countries did not have the technical
+information needed to know the extent of inclusion for specific
+sectors. Inclusion of exclusion or the extent of inclusion of CPOA has
+also changed over the years, which directly complicates trend analysis
+of emissions. \COMMENT{Can CEIP comment on this?!}
+
+Thus, PM emissions from countries which include CPOA might appear
+larger than from countries which exclude CPOA, even if both countries
+emit identical amounts of pollutants. Given that POA emissions make up a
+substantial fraction of \pmfine emissions in Europe, these uncertainties
+also make it difficult to interpret the emission trends. Countries that
+tend to exclude CPOA (such as Germany) will have their \pmfine emission
+rends more dominated by trends in S- and N- components, whereas countries
+which include CPOA (e.g. Norway) will have their trends more controlled
+by POA emissions.
+
+
+It should also be mentioned that these uncertainties regarding CPOA
+emissions also impact the EC emissions (and their trends) in the
+modelling work. Following the usual MSC-W procedures, reported emissions
+of \pmfine are split into EC, POA, and remPPM, and this splitting
+procedure typically relies upon assumed POA/EC (or often OC/EC) ratios for the different
+emission sectors. If POA is defined differently from country to country,
+and as POA/EC ratios do not typically account for these differences,
+then the assumed EC emission will also be similarly ill-defined. For this report, the
+splits used are derived from the ECLIPSE v6b time-series for 2000-2016
+(see Sect.~\ref{ssec:emissplits}). As this inventory makes heavy use of
+EMEP reported data for the European region, then the emissions of both POA and EC used in the trend analysis will be affected, as will modelled trends in these components and \pmfine.
+
+
 \section{\label{OBSTrends}{Observations}}
-The observations
+The observations used are all reported to EMEP and are openly available from the EBAS database (\url{http://ebas.nilu.no}. The time series have been selected based on statistical criteria as described in the next chapter  \ref{sec:Method} and based on the site location. Sites which are situated higher than around 2000 masl have been excluded (except DE0003 at 2007 masl is included)in addition to NO0042G since these are often above the bpundarty layer and difficult for the model to visuel inspection of,
 
 \section{\label{Method}{Method for calculation of trends}}
 Both observed and modelled trends were processed with the pyaerocom software (\url{https://github.com/metno/pyaerocom}, version XXX) for the following periods: 2000-2019, 2005-2019, 2000-2010, and 2010-2019. All observations were provided via the EBAS database. 
@@ -58,7 +112,7 @@ Model output is given on daily resolution, including the daily max O$_3$. To com
 
 The monthly time series of the collocated model and observation data were output as csv files for each individual site. The scripts used for processing the data and calculating trends are available from a GitHub repository (\url{https://github.com/metno/emep_trends_2021}). The processed data itself, including relevant station metadata and trends results, are available in a separate location which is linked to in the description of the repository.
 
-The same methodology as described by \cite{aas2019global, mortier2020} has been used to derive the trends at the individual stations. The significance of the trends is tested with the Mann-Kendall test \citep{hamed1998modified}. The related p-value is used to determine if the trend is significant or not within a confidence interval of 68 \%. The slope is calculated with the Theil-Sen estimator which is less sensitive to outliers than standard least-squares methods \citep{sen1968estimates}.
+The same methodology as described by \cite{aas2019global, mortier2020} has been used to derive the trends at the individual stations. The significance of the trends is tested with the Mann-Kendall test \citep{hamed1998modified}. The related p-value is used to determine if the trend is significant or not within a confidence interval of 68\%. The slope is calculated with the Theil-Sen estimator which is less sensitive to outliers than standard least-squares methods \citep{sen1968estimates}.
 
 An uncertainty is provided for each trend by combining the error of the slope calculation itself to the error of the residuals:
 
@@ -74,7 +128,7 @@ In order to allow for consistent comparisons, the trend is provided as a relativ
 
 \section{\label{sec:Trends_sulfur}Trends in sulfur}
 
-The SO$_x$ emissions has declined by more than 80\% (-4.3 \% yr$^{-1}$) within the western EMEP domain (EU27+UK+EFTA countries) the last two decades, and both the observed and modelled trends for all the atmospheric sulfur components show a substantial decrease (Figure~\ref{fig:SOx_trends} and Table ~\ref{tab:so2_stat} - ~\ref{tab:so4dep_stat}), in line with several studies on trends the latter years (\cite{aas2019global, Colette2012, Vivanco2018, Theobald2019, Colette2021, Banzhaf2015, torseth2012, Crippa2016}). On average the reductions in observations for the last 20 years (2000-2019) are -3.9, -3.2 and -3.1  \% yr$^{-1}$ for \soii, \soiv in aerosols and in wet deposition respectively, while the trends in model calculations are somewhat higher: -5.1, -3.8 and -4.3 \% yr$^{-1}$, respectively. The overestimation in sulfur trends by the model is seen both for relative and absolute trends for \soii, and wet deposition of \soiv while for \soiv in aerosols the absolute trend is higher in observations, but within the confidence interval to the modelled trends.
+The SO$_x$ emissions has declined by more than 80\% (-4.3\% yr$^{-1}$) within the western EMEP domain (EU27+UK+EFTA countries) the last two decades, and both the observed and modelled trends for all the atmospheric sulfur components show a substantial decrease (Figure~\ref{fig:SOx_trends} and Table ~\ref{tab:so2_stat} - ~\ref{tab:so4dep_stat}), in line with several studies on trends the latter years (\cite{aas2019global, Colette2012, Vivanco2018, Theobald2019, Colette2021, Banzhaf2015, torseth2012, Crippa2016}). On average the reductions in observations for the last 20 years (2000-2019) are -3.9, -3.2 and -3.1\% yr$^{-1}$ for \soii, \soiv in aerosols and in wet deposition respectively, while the trends in model calculations are somewhat higher: -5.1, -3.8 and -4.3\% yr$^{-1}$, respectively. The overestimation in sulfur trends by the model is seen both for relative and absolute trends for \soii, and wet deposition of \soiv while for \soiv in aerosols the absolute trend is higher in observations, but within the confidence interval to the modelled trends.
 
 
 
@@ -482,10 +536,10 @@ Period & Seasons &           total & sign.(obs.) & sign.(mod.) &                
 
 
 
-\begin{figure}[H]
-  \centering{\includegraphics[clip=,angle=90,height=3.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_PM10_2000-2019_Perc.pdf}}
+\begin{figure}  %DS[H]
+  \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_PM10_2000-2019_Perc.pdf}}\\
 %  \vspace{0.5cm}
-  \centering{\includegraphics[clip=,angle=90,height=3.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_PM25_2000-2019_Perc.pdf}}
+  \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_PM25_2000-2019_Perc.pdf}}
 \caption{Relative trends for \PM[10] and \PM[2.5] in the period of 2000-2019: EMEP modelled -- coloured contours (grey/white means non-significant trends) and observed - coloured triangles (significant) and circles (non-significant).}
 \label{fig:PMtrends}
 \end{figure}
@@ -622,5 +676,5 @@ AAE is about 133 eq ha$^{-1}$ yr$^{-1}$ (2000) and 25 eq ha$^{-1}$ yr$^{-1}$ (20
 
 
 
-%DAVE MOVED TO END OF chapterTrendsECOC.tex
+%DAVE MOVED BIB STUFF TO END OF chapterTrendsECOC.tex
 

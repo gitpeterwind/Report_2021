@@ -181,6 +181,14 @@ autumn &              15 &          1 &           0 &                  -0.098 & 
 } % end scalebox
 \end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}  %DS[H]
+  \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_EC_PM25_2010-2019_Perc.pdf}}\\
+%  \vspace{0.5cm}
+  \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_OC_PM25_2010-2019_Perc.pdf}}
+\caption{Relative trends for EC and OC in \pmfine over the period of 2010-2019: EMEP modelled -- coloured contours (grey/white means non-significant trends) and observed - coloured triangles (significant) and circles (non-significant).}
+\label{fig:ECOCtrends}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
 \includegraphics*[height=6cm,trim=1cm 0 0 0]{FIGS_TRENDS/Plot_ec_rel_summer_Model.png}%
@@ -188,7 +196,8 @@ autumn &              15 &          1 &           0 &                  -0.098 & 
 \\
 \includegraphics*[height=6cm,trim=1cm 0 0 0]{FIGS_TRENDS/Plot_ec_rel_winter_Model.png}%
 \includegraphics*[height=6cm,trim=2cm 0 2.5cm 0]{FIGS_TRENDS/Plot_ec_rel_winter_Observations.png}
-\caption{PRELIM EC trends. Left = model, right = obs. Top = summer, bottom = winter}
+\caption{PRELIM EC trends. Left = model, right = obs. Top = summer, bottom = winter.
+  \label{fig:ECarrows}}
 \end{figure}
 
 \begin{figure}
@@ -197,7 +206,8 @@ autumn &              15 &          1 &           0 &                  -0.098 & 
 \\
 \includegraphics*[height=6cm,trim=1cm 0 0 0]{FIGS_TRENDS/Plot_oc_rel_winter_Model.png}%
 \includegraphics*[height=6cm,trim=2cm 0 2.5cm 0]{FIGS_TRENDS/Plot_oc_rel_winter_Observations.png}
-\caption{PRELIM OC trends. Left = model, right = obs. Top = summer, bottom = winter}
+\caption{PRELIM OC trends. Left = model, right = obs. Top = summer, bottom = winter
+ \label{fig:OCarrows}}
 \end{figure}
 
 
@@ -327,9 +337,12 @@ Obs.  &              15 &     2 &                  0.0001 &  (-0.003, 0.0032) & 
 } % end scalebox
 \end{table}
 
-\subsection{Issues with inventories used in modelling}
+%\subsection{Issues with inventories used in modelling}
+\COMMENT{DS: MOVED section on issues due to CPOA into chapterTrendsSandN - also affects pmfine trends, and is anyway part of model setup.}
 
-\COMMENT{Dave will add text on condensables and EC/OC/remPPM splits - these will affect modelled trends, and add more caveats.}
+
+
+
 
 \subsection{Conclusion}
 \label{ss:trendsECOCconc}
@@ -383,4 +396,4 @@ fraction to get a quantitative overview of the abatable fractions.
 \bibliographystyle{copernicus}         % change bibliography-name after each
 \renewcommand\bibname{References}      % bibliographystyle command!
 \addcontentsline{toc}{section}{References}
-\bibliography{trends,Refs,EMEP_Reports,NILU,RefsUpdates}
+\bibliography{trends,Refs,EMEP_Reports,NILU,RefsUpdates,RefsEmis}
