@@ -230,6 +230,8 @@ be set to either `Total', or `NoFert'.
 \subsection{DMS emissions}
 \label{ssec:DMS}
 
+\COMMENT{Michael: can you convert equations to math style, and use equation environment to get numbering. Thanks.}
+
 A new option to calculate biogenic emissions of dimethyl sulphide (DMS) has been added to the EMEP model. It is based on the climatology of sea surface DMS concentrations published by \citet{Lana2011} and the meteorological data driving the EMEP model, and it has been used for this year's status run. 
 
 At each location and timestep, the model calculates the Schmidt number ($Sc$) from the sea surface temperature ($SST$, given in \textdegree C) with the 4th-degree formula of \citet{Wanninkhof2014}:
@@ -262,7 +264,7 @@ The options to calculate the Schmidt number and transfer velocity, and also to u
 \label{ssec:Aircraft}
 
  LTO (landing/take-off) emission data are, as before, taken from CEIP, i.e. based on aircraft emissions officially reported by countries for up to 3000 feet above the surface. However, the high distribution in the EMEP model has been slightly revised. We assume that, in approximation, half of the LTO emissions (from CEIP) occur below 50 meters above the surface, while the other half is evenly distributed over the height range between 50 meters and about 3000 feet.
- Furthermore, aircraft emissions at higher altitudes than 3000 feet are now based on a new dataset (CAMS-GLOB-AIR, \citet{GranierCAMS2019}), given separately for all years from 2000 to 2019, with monthly variation and a spatial resolution of 0.5$^\circ$\,$\times$\,0.5$^\circ$\,$\times$\,610\,m. This dataset has been provided through the Copernicus Atmosphere Monitoring Service and can be downloaded from the Atmosphere Data Store of ECMWF (\url{https://ads.atmosphere.copernicus.eu/}).
+ Furthermore, aircraft emissions at higher altitudes than 3000 feet are now based on a new dataset (CAMS-GLOB-AIR, \citealt{GranierCAMS2019}), given separately for all years from 2000 to 2019, with monthly variation and a spatial resolution of 0.5$^\circ$\,$\times$\,0.5$^\circ$\,$\times$\,610\,m. This dataset has been provided through the Copernicus Atmosphere Monitoring Service and can be downloaded from the Atmosphere Data Store of ECMWF (\url{https://ads.atmosphere.copernicus.eu/}).
 
 In the EMEP model, CAMS-GLOB-AIR emissions between 0 and 610m (2000 ft) above the surface are not used, and half of the CAMS-GLOB-AIR emissions between 610 and 1220m are evenly distributed over the model layers corresponding to that height range. The assumption behind this approach is that emissions up to 3000 feet should already be fully included in the CEIP (LTO) emissions. Above 1220m (4000ft), CAMS-GLOB-AIR emissions are used in full, and interpolated to the relevant model grid during model runtime.
 
@@ -305,24 +307,21 @@ of `remPPM' from GNFR C.
 
 New country-based monthly timefactors were produced for countries outside of Europe. These factors were derived by making country-average factors from global gridded SNAP-based data from the ECLIPSE v6b dataset. ECLIPSE factors only created for "robust" sectors (SNAP-1, 2, 3, 4, and 10), since other sectors showed either no monthly variation (e.g. traffic), or very sporadic events that are not expected to be representative for all years (e.g. shipping, or waste-burning). For SNAP-10 (agr) the NH3 data are from ECLIPSE `agr\_NH3', otherwise from `agr'.
 
- For European countries the monthly factors are
- 
- %?? Hmmm.... possible bug with ECLIPSE setting and older monthlyfacs
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Revised PBL parametrisations}
 \label{sec:updateKz}
 
-The new default calculation of eddy diffusivity coefficient \textit{Kz} (`TROENKz') follows the method described in \citet{troenkz}. Unlike the old \textit{Kz} method (JericevicKz) which does not consider the stability within the boundary layer, this new \textit{Kz} method differentiates \textit{Kz} formulation in the stable and unstable boundary layer conditions. Therefore, the new method performs reasonably well in cases of weak surface heat flux and transitions between stable and unstable cases \citep{troenkz}. However, we have not seen significant changes in modelled concentrations. The formulation of \textit{Kz} is given as below. In unstable boundary layer:
+The new default calculation of eddy diffusivity coefficient \textit{Kz} (`TROENKz') follows the method described in \citet{troenkz}. Unlike the old \textit{Kz} method (JericevicKz) which does not consider the stability within the boundary layer, this new \textit{Kz} method differentiates \textit{Kz} formulation in the stable and unstable boundary layer conditions. Therefore, the new method performs reasonably well in cases of weak surface heat flux and transitions between stable and unstable cases \citep{troenkz}. However, we have not seen significant changes in modelled concentrations. The formulation of \textit{Kz} is given as below. In the unstable boundary layer:
 \begin{equation}
     \phi_h = (1 - 16 \times \min(z, z_\mathit{surf}) \times \frac{1}{L})^{-\frac 1 2}
 \end{equation}
-while in stable boundary layer:
+while in the stable boundary layer:
 \begin{equation}
     \phi_h = 1 + 5 \times z \times \frac{1}{L}
 \end{equation}
-and \textit{Kz} is given as: 
+with \textit{Kz} given as: 
 \begin{equation}
     \mathit{Kz} = 0.4 \times \frac{u_*}{\phi_h} \times z \times (1 - \frac z h)^2
 \end{equation}
@@ -358,9 +357,10 @@ Wet and dry deposition (separately) per source country can now also be computed.
 A number of smaller changes have been made:
 
 \begin{description}
-  \item[fracPM25] A fraction of coarse nitrate particulate mass has been allocated to the \PM[2.5] fraction in order to represent the fact that some of the particles from the coarse fraction have aerodynamic diameters of less than 2.5~\um. The value of this fraction was previously 27\% \citep{Simpson:EMEP2012}. In the latest version this fraction was reduced to 13\%, in order to better account for the differences between mass-median and aerodynamic diameters.
-  
+
   \item[IAM\_CROP] A new generic crop type has been introduced for integrated assessment modelling outputs. This is an updated version of the previously used IAM\_CR species \citep{Simpson:EMEP2012}, in which the phenology factor (\fphen) has been set to 1.0 across the ozone flux accumulation period. The IAM\_CR parameters gave a reduction in \fphen towards the end of the period, and hence lower POD than the new category gives (c.f.Fig~\ref{fig:PODcomp}).
+  
+    \item[fracPM25] A fraction of coarse nitrate particulate mass has been allocated to the \PM[2.5] fraction in order to represent the fact that some of the particles from the coarse fraction have aerodynamic diameters of less than 2.5~\um. The value of this fraction was previously 27\% \citep{Simpson:EMEP2012}. In the latest version this fraction was reduced to 13\%, in order to better account for the differences between mass-median and aerodynamic diameters.
   
   \item[Pollen emissions] Although the effect of pollen on \PM[2.5] concentrations is negligible, it is an important allergen. Therefore, it has been included as part of the model forecast capabilities. Optional birch, olive, ragweed and grass pollen emissions based on \citet{Sofiev-2015,Sofiev-2017} were included in version rv4.34, and later expanded to include alder and mugwort pollen emissions. 
   
