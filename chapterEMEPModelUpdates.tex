@@ -247,16 +247,18 @@ $K_w=(0.222\  u_{10}^2 +0.333\ u_{10}) \sqrt{\frac{600}{Sc}} $
 \\
 \\
 Following \citet{Leonor:DMS2} we assume that 66\% of the DMS in air is converted into \ce{SO2}. The DMS emission is thus implemented in the model as an \ce{SO2} flux as:
-
-\begin{verbatim}
-flux(SO2)=0.66*O_DMS*Kw/3600*0.01*GRAV*roa/p*AVOG  
-\end{verbatim}
-
-where $O\_DMS$ is the sea surface DMS concentration (in nanomol L$^{-1}$),
-$GRAV$ is standard gravity (9.807 m s$^{-2}$),
+\\
+\\
+%\begin{verbatim}
+F_{SO$_2$}=0.66*$O\_{DMS}$*Kw/3600*0.01*g*roa/p*Av  
+%\end{verbatim}
+\\
+\\
+where $O\_{DMS]$ is the surface water DMS concentration (in nanomol L$^{-1}$),
+$g$ is standard gravity (9.807 m s$^{-2}$),
 $roa$ is the ambient density of air (kg m$^{-3}$),
-$p$ is ambient air pressure
-and $AVOG$ is Avogradro's number (6.023e+23 mol$^{-1}$).
+$p$ is ambient air pressure,
+and $Av$ is Avogradro's number (6.023e+23 mol$^{-1}$).
 
 The options to calculate the Schmidt number and transfer velocity, and also to use the older climatology of \citet{Kettle1999}, are still available in the EMEP model.
 
