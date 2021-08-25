@@ -43,7 +43,8 @@ The speciation of PM emissions into emissions of EC, OM and `remPPM' (remaining 
 Soil NOX emissions were based on the new CAMS-GLOB-SOIL v2.2 NOx inventory \citet{SimpsonDarras:2021}. Soil-NOx emissions which are related to the use of fertilizer were not taken from the CAMS-GLOB-SOIL inventory, as these are already included in the EMEP (CEIP) emissions.
 A revised set of anthropogenic emissions for all the years 2000-2019 has been used in the model calculations (including all the reported and re-reported data by June 2021), see chapter \ref{ch:emis2019}.
 
-\section{\label{OBSTrends}{Observations}} NILU to write
+\section{\label{OBSTrends}{Observations}}
+The observations
 
 \section{\label{Method}{Method for calculation of trends}}
 Both observed and modelled trends were processed with the pyaerocom software (\url{https://github.com/metno/pyaerocom}, version XXX) for the following periods: 2000-2019, 2005-2019, 2000-2010, and 2010-2019. All observations were provided via the EBAS database. 
@@ -478,6 +479,16 @@ Period & Seasons &           total & sign.(obs.) & sign.(mod.) &                
 \end{tabular}}
 \end{center}
 \end{table}
+
+
+
+\begin{figure}[H]
+  \centering{\includegraphics[clip=,angle=90,height=3.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_PM10_2000-2019_Perc.pdf}}
+%  \vspace{0.5cm}
+  \centering{\includegraphics[clip=,angle=90,height=3.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_PM25_2000-2019_Perc.pdf}}
+\caption{Relative trends for \PM[10] and \PM[2.5] in the period of 2000-2019: EMEP modelled -- coloured contours (grey/white means non-significant trends) and observed - coloured triangles (significant) and circles (non-significant).}
+\label{fig:PMtrends}
+\end{figure}
 
 
 For the whole period, 36 and 18 sites with satisfactory data coverage have been included in the trend analysis respectively for \PM[10] and \PM[2.5]. The annual series of \PM[10] and \PM[2.5] clearly show a general concentration decrease from 2000 to 2019. In general, the model underestimates the concentrations, but reproduces quite well observed year-to-year changes in \PM[10] and \PM[2.5], including enhanced PM levels due to meteorological conditions e.g. in 2003 (dry hot summer \citep{EMEP:PM2005}) and 2011 (dry year in Western/Central/Southern Europe \citep{EMEP:PM2013}).
