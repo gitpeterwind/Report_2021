@@ -41,10 +41,11 @@ Italy. \sox and PM emissions from volcanic eruptions of Icelandic volcanoes in t
  
 The speciation of PM emissions into emissions of EC, OM and `remPPM' (remaining PPM) components was based on ECLIPSE v6b emission data \footnote{\url{https://iiasa.ac.at/web/home/research/researchPrograms/air/ECLIPSEv6.html}}. These ECLIPSE emissions are given in 5-year intervals (2000, 2005, etc.); intermediate years were derived by linear interpolation. However, all years after 2015 used the 2016 speciation of PM emissions. The VOC speciation was based upon data from various CAMS datasets as described in \cite{R2020:ModDev}, and NOx speciation into NO, \ce{NO2} and `shipNOx' was based upon \QUERY{Older IIASA? Who did this - what is source?}. For NOx and VOC the same (sector-based) speciations were used for all years.
 Soil NOX emissions were based on the new CAMS-GLOB-SOIL v2.2 NOx inventory \citet{SimpsonDarras:2021}. Soil-NOx emissions which are related to the use of fertilizer were not taken from the CAMS-GLOB-SOIL inventory, as these are already included in the EMEP (CEIP) emissions.
-A revised set of anthropogenic emissions for all the years 2000-2019 has been used in the model calculations (including all the reported and re-reported data by June 2021), see chapter \ref{ch:emis2019}.
+A revised set of anthropogenic emissions for all the years 2000-2019 has been used in the model calculations (including all the reported and re-reported data by June 2021), see Chapter~\ref{ch:emis2019}.
 
 
 \subsection{Issues with inventories used in modelling}
+\label{ss:IssuesECOC}
 
 \COMMENT{DS: Moved from ECOC section. Text in-progress...}
 
@@ -129,14 +130,17 @@ The trends and uncertainties in these for all the individual sites are available
 
 \section{\label{sec:Trends_sulfur}Trends in sulfur}
 
-The SO$_x$ emissions has declined by more than 80\% (-4.3\% yr$^{-1}$) within the western EMEP domain (EU27+UK+EFTA countries) the last two decades, and both the observed and modelled trends for all the atmospheric sulfur components show a substantial decrease (Figure~\ref{fig:SOx_trends} and Table ~\ref{tab:so2_stat} - ~\ref{tab:so4dep_stat}), in line with several studies on trends the latter years (\cite{aas2019global, Colette2012, Vivanco2018, Theobald2019, Colette2021, Banzhaf2015, torseth2012, Crippa2016}). The spatial distribution of the relative trends (Figure~\ref{fig:SOxtrends_map}) show that the decrease has been quite homogeneous across Europe west of Russia, though somewhat higher in Spain and France and lower in Poland, and higher reductions in the primary \soii compared to  secondary \soiv.
+The SO$_x$ emissions has declined by more than 80\% (-4.3\% yr$^{-1}$) within the western EMEP domain (EU27+UK+EFTA countries) the last two decades, and both the observed and modelled trends for all the atmospheric sulfur components show a substantial decrease (Figure~\ref{fig:SOx_trends} and Table ~\ref{tab:so2_stat} - ~\ref{tab:so4dep_stat}), in line with several studies on trends the latter years (\cite{aas2019global, Colette2012, Vivanco2018, Theobald2019, Colette2021, Banzhaf2015, torseth2012, Crippa2016}). \COMMENT{WAa: Hilde, can you include a sentence why the model and emissions is overestimating?}
 
-The  greater decrease in \soii compared to secondary sulphate is due to a combination of higher oxidation rate (hence more \soii converted to \soiv) and increased dry deposition rate of \soii. The oxidation capacity of the atmosphere have increased as the emissions have decreased \cite{Dalsoren2016}, and the clouds have become less acidic due to less \soii and only slightly decrease in \nhiii, which has increased the oxidation rate of \soii to \soiv via the ozone pathway (\cite{Banzhaf2015, Redington2009}). In addition, less acidity in the environment probably leads to more efficient dry deposition of \soii (\cite{Fowler_et_al:2009}) 
+The spatial distribution of the relative trends (Figure~\ref{fig:Strends_map}) show that the decreases have been quite homogeneous across Europe west of Russia, though somewhat higher in Spain and France and lower in Poland. It has been higher reductions in the primary \soii compared to  secondary \soiv. The greater decrease in \soii compared to secondary sulphate is due to a combination of higher oxidation rate (hence more \soii converted to \soiv) and increased dry deposition rate of \soii. The oxidation capacity of the atmosphere have increased as the emissions have decreased \cite{Dalsoren2016}, and the clouds have become less acidic due to less \soii and only slightly decrease in \nhiii, which has increased the oxidation rate of \soii to \soiv via the ozone pathway (\cite{Banzhaf2015, Redington2009}). In addition, less acidity in the environment probably leads to more efficient dry deposition of \soii (\cite{Fowler_et_al:2009}) 
 
 On average the reductions in observations for the last 20 years (2000-2019) are -3.9, -3.2 and -3.1\% yr$^{-1}$ for \soii, \soiv in aerosols and in wet deposition respectively, while the trends in model calculations are somewhat higher: -5.1, -3.8 and -4.3\% yr$^{-1}$, respectively. The overestimation in sulfur trends by the model is seen both for relative and absolute trends for \soii, and wet deposition of \soiv while for \soiv in aerosols the absolute trend is higher in observations, but within the 95\% confidence interval to the modelled trends.
 
-The relative difference between the two decades are small. The changes in SO$_x$ emissions are 58\% for 2000-2010 and 55\% 2010-2019, and in observations the total changes in these two periods are between 26-43\% for the different compounds in 2010-2019 and 25-44\% for 2000-2010, while for the model 38-50\% and 42-54\%, respectively.  	
+The relative difference between the two decades are small. The changes in SO$_x$ emissions are 58\% for 2000-2010 and 55\% 2010-2019, and in observations the total changes in these two periods are between 26-43\% for the different compounds in 2010-2019 and 25-44\% for 2000-2010, while for the model 38-50\% and 42-54\%, respectively.  In the observations it seems like the wet deposition was relatively more important in the first period, while slightly opposite for the air components.	
 
+It is not big differences in the seasonal trends, especially not for the modelled trends.It is however higher absolute changes in \soii for both observations and model during the winter (\ref{fig:SOx_trends}, but the relative trends are similar for all periods.
+
+Emission reduction commitments in the Gothenburg protocol for sulphur dioxide are of 59\% from the base year of 2005 to the target year 2020, for the countries in the European Union. The reported emission reductions for the 2005-2019 period in the EU27+UK+EFTA countries are 75\%, which are reflected in the modelled results with a reduction of 74\% in \soii, 56\% in \soiv in aerosols and 63\% in wet deposition of \soiv. The observations show lower trends than the emissions (and model), with 60\% in \soii, 49\% in \soiv in aerosol and 40\% for wet deposition of \soiv. Thus the target of the Gothenburg is only met by the primary \soii. \COMMENT{WAa: Not sure of the commitments in secondary sulfate, if any. The protocol does only care about primary so2 I presume? The non linear responds is part of the calculations done for the negotiation of the protocol?}
 
 
 \begin{figure}
@@ -145,7 +149,7 @@ The relative difference between the two decades are small. The changes in SO$_x$
 	\caption{\label{fig:SOx_trends}Trends in sulfur components from 2010-2019 for EMEP observations and model. The solid line in the trend plots indicate the average annual mean concentrations for all the sites and the shaded area the 95 \% confidence interval. The box plot represent the 50,25,75 percentiles and the whiskers lie within the 1.5 inter-quartile ranges for the trends of all the sites, including those with not significant trends. In addition, the mean trends are indicated with black circles and the trend in SOx emission is indicated in the plot of \soii with secondary y-axes}
 \end{figure}
 
-\begin{figure}  %DS[H]
+\begin{figure} 
   \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_SO2_2000-2019_Perc.pdf}}\\
 %  \vspace{0.5cm}
   \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_SO4_2000-2019_Perc.pdf}}
@@ -473,7 +477,7 @@ Period & Seasons &           total & sign.(obs.) & sign.(mod.) &                
 \scalebox{0.7}{%
 \begin{tabular}{ll|ccc|cccc|cccc}
 \toprule
-          &        & \multicolumn{3}{c}{Number of sites} & \multicolumn{4}{c}{Average change (mg $mm^{2} yr^{-1})$} & \multicolumn{4}{c}{Relative change (\% $yr^{-1}$)} \\
+          &        & \multicolumn{3}{c}{Number of sites} & \multicolumn{4}{c}{Average change (\ugN $m^{2} yr^{-1}$)} & \multicolumn{4}{c}{Relative change (\% $yr^{-1}$)} \\
 Period & Seasons &           total & sign.(obs.) & sign.(mod.) &                    obs. &          conf.interval &  mod. &          conf.interval &                     obs. &         conf.interval &  mod. &        conf.interval \\
 \midrule
 2000-2019 & all &              44 &          13 &           9 &                    -7.4 &  (-11.8, -3.0) &  -4.8 &   (-8.1, -1.5) &                    -0.31 &   (-0.99, 0.37) & -0.40 &  (-0.71, -0.09) \\
@@ -577,7 +581,10 @@ directly and formed from gaseous precursors. Therefore, the reductions both in p
 \COMMENT{For the period 2005-2019 (starting from the reference year of Gothenburg Protocol), more sites with data coverage were totally available for this \PM[10] and \PM[2.5] trend analysis, i.e. 53 and 35 respectively, but significant trends have been observed and modelled for a smaller fraction of the sites with respect to the 2000-2019 period (partly due to a shorter period length)}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{\label{sec:Trends_O3}Trends in O$_3$ }
+
 Trend studies of surface ozone requires a somewhat different approach than other species since ambient ozone levels are the result of a baseline level with episodes on top. Additionally, in winter, NOx emissions tend to reduce ozone by titration. Thus, the selection of ozone metrics is decisive for the estimated trends (ref e.g. Lefohn - TOAR). A common procedure is to look at the trend in the probability distribution of ozone, e.g. by calculating trends for various percentiles of the distribution.  
 
 As explained above, the trends in six percentiles (10, 50, 75, 95, 98 and 99) of the daily maximum O$_3$ values were calculated for stations with at least 330 valid daily data each year. This corresponds to 90 \% data capture in the individual years. The 10th percentile corresponds to the 37th lowest daily maximum value while the 99th percentile corresponds to the 4th highest daily maximum. 
@@ -591,16 +598,18 @@ Figure \ref{fig:O3_boxplot} indicates that the model overestimates the decrease 
 The annual O$_3$ percentile values for the observed and modelled data during 2000-2019 are shown in Figures \ref{fig:O3_perctrends_N} and \ref{fig:O3_perctrends_S} for stations north and south of 49 \degrees N. The solid lines mark the mean of all stations while the shaded areas mark the 25th and 75th percentile of these station-based values. These results show that the modelled 10th and 50th percentiles are higher than observed whereas the observed high percentiles (95-99) are higher than modelled. The bias in the high percentiles are particularly strong for stations south of 49 \degrees N. For the 75th percentile, the absolute levels of the modelled and observed data agree very well. It is furthermore seen that the interannual variation in the higher percentiles, i.e. the change in levels from year to year, is very well reproduced by the model but with a substantial offset. 
 
 \begin{table}
-\caption{\label{tab:pm25_stat} The estimated mean values of the absolute and relative trends in O$_3$ metrics based on all stations (observed and modelled). The corresponding 95\% confidence intervals of these mean values and the number of sites with significant trends are also provided.}
+\caption{\label{tab:O3_stat} The estimated mean values of the absolute and relative trends in O$_3$ metrics based on all stations (observed and modelled). The corresponding 95\% confidence intervals of these mean values and the number of sites with significant trends are also provided.}
 \begin{center}
 \scalebox{0.65}{%
-\begin{tabular}{ll|ccc|cccc|cccc}
+\begin{tabular}{lll|ccc|cccc|cccc}
 \toprule
-          &        & \multicolumn{3}{c}{Number of sites} & \multicolumn{4}{c}{Absolute change (ppb)} & \multicolumn{4}{c}{Relative change (\% $yr^{-1}$)} \\
-Period & Parameter &           total & sign.(obs.) & sign.(mod.) &                    obs. &          conf.interval &  mod. &          conf.interval &                     obs. &         conf.interval &  mod. &        conf.interval \\
+          &    &    & \multicolumn{3}{c}{Number of sites} & \multicolumn{4}{c}{Absolute change (ppb)} & \multicolumn{4}{c}{Relative change (\% $yr^{-1}$)} \\
+Period & Area & Param &           total & obs & mod &                    obs. &          conf.interval &  mod. &          conf.interval &                     obs. &         conf.interval &  mod. &        conf.interval \\
 \midrule
-2000-2019 & 75p &  93 &  35 &  68 & -0.17 & -0.20, -0.12 & -0.18 & -0.20, -0.16 & -0.32 & -0.39, -0.25 & -0.35 & -0.38, -0.31 \\
-2000-2019 & 99p &  93 &  32 &  76 & -0.44 & -0.50, -0.37 & -0.41 & -0.44, -0.37 & -0.57 & -0.64, -0.48 & -0.61 & -0.64, -0.56 \\
+2000-2019 & N of 49N & 75p &  52 &  19 &  30 & -0.20 & (-0.19, -0.09) & -0.26 & (-0.14, -0.10) & -0.35 & (-0.40, -0.21) & -0.46 & (-0.30, -0.22) \\
+2000-2019 & N of 49N & 99p &  52 &  13 &  39 & -0.48 & (-0.48, -0.33) & -0.51 & (-0.38, -0.30) & -0.57 & (-0.68, -0.46) & -0.70 & (-0.59, -0.49) \\
+2000-2019 & S of 49N & 75p &  40 &  16 &  38 & 0.00 & (-0.26, -0.12) & 0.00 & (-0.27, -0.23) & 0.00 & (-0.46, -0.23) & 0.00 & (-0.49, -0.43) \\
+2000-2019 & S of 49N & 99p &  40 &  18 &  37 & 0.00 & (-0.58, -0.37) & 0.00 & (-0.54, -0.46) & 0.00 & (-0.71, -0.43) & 0.00 & (-0.74, -0.65) \\
 \bottomrule
 \end{tabular}}
 \end{center}
@@ -712,18 +721,93 @@ AAE is about 133 eq ha$^{-1}$ yr$^{-1}$ (2000) and 25 eq ha$^{-1}$ yr$^{-1}$ (20
 
 
 
-%DAVE MOVED BIB STUFF TO END OF chapterTrendsECOC.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
 
 \section{Trends in Elemental and Organic Carbon}
 \label{sec:trendsECOC}
 \subsection{Elemental Carbon, EC}
 \label{ss:trendsEC}
 
+Table~\ref{tab:KEX1} presents the absolute and relative changes over 2010-2019 from 15 EMEP sites, as annual values and with confidence intervals, and from both observed and modelled values. The spatial variation of these trends for summer and winter can be seen as `arrow' plots in Fig.~\ref{fig:ECarrows}, and Fig.\ref{fig:ECtrends} shows again the annual trends, but superimposed upon the modelled field of modelled EC.
+%
+A 4.5$\pm$1.5\%/yr reduction (Tab.~\ref{tab:KEX1}) 
+ \COMMENT{DS: changed "-X\%" xx reduction to just X\% reduction. Should be careful throughout...}
+in elemental carbon (EC) for 2010--2019 was
+calculated for the 15 sites assessed, which is
+quite comparable to the reduction (-5.0$\pm$0.9\%/yr)
+calculated for the eleven sites where the reduction was statistically
+significant. The reduction was rather similar considering these eleven
+sites, ranging from -4.2\%/yr to -5.8\%/yr for ten out of eleven
+sites. %, thus we see no apparent spatial pattern in the reductions
+(Fig.~\ref{fig:OCtrends}). 
+The largest reduction was seen amongst the sites with the
+highest EC levels, i.e., at Iskrba (-7\%/yr) in Slovenia and at Ispra
+(-5.8\%/yr) in the Po Valley region in Northern Italy. Notably, these
+were the only sites where a statistically significant reduction was
+observed for all seasons, being most pronounced in summer, although
+by a small margin. When considering all sites, the reduction was most
+pronounced in summer and fall (Tab.~\ref{tab:KEX1}), but the general picture is
+that there is a minor seasonal variability in the reduction of EC. It can be noted though that
+there are more sites with significant trends (p-values $<$ 0.05)  in summer than winter (Fig.\ref{fig:ECarrows}).
 
+
+
+
+\begin{table}
+ \caption{Absolute change ( \ugC/yr) and relative change (\%/yr) and
+  corresponding confidence intervals in observed and modelled annual
+  and seasonal aggregated EC concentrations at 15 sites across Europe
+  for 2010--2020. The number of sites with a significant outcome is
+  provided. \label{tab:KEX1}}
+% \begin{tabular}{lrrrrlrlrlrl}
+%\begin{center}
+\scalebox{0.65}{%
+\begin{tabular}{llcc|cccc|cccc}
+\toprule
+%\hline
+               \multicolumn{4}{c}{Number of sites} & \multicolumn{4}{c}{Average change per year (\ug $yr^{-1})$} & \multicolumn{4}{c}{Relative change per year (\% $yr^{-1}$)} \\
+ Season &           total & sign. & sign. &                   obs. &          conf.interval &  mod. &          conf.interval &                     obs. &         conf.interval &  mod. &        conf.interval \\
+       &                  & (obs.)    & (mod.)     &   &  &  & & & & & \\
+\midrule
+%\hline
+all    &              15 &         11 &          12 &                  -0.019 &  (-0.031, -0.008) & -0.014 &  (-0.021, -0.007) &                    -4.49 &  (-5.25, -3.73) & -3.81 &  (-4.59, -3.03) \\
+winter &              15 &          6 &           4 &                  -0.029 &  (-0.053, -0.006) & -0.019 &  (-0.032, -0.006) &                    -4.27 &  (-5.49, -3.06) & -3.10 &  (-4.21, -1.98) \\
+spring &              15 &          5 &           8 &                  -0.012 &  (-0.018, -0.006) & -0.013 &  (-0.018, -0.009) &                    -3.88 &  (-4.67, -3.09) & -3.86 &   (-4.92, -2.8) \\
+summer &              15 &          8 &          10 &                  -0.011 &  (-0.015, -0.007) & -0.008 &  (-0.013, -0.004) &                    -4.73 &  (-5.71, -3.74) & -3.71 &  (-4.59,  -2.82) \\
+autumn &              15 &          8 &          11 &                  -0.023 &   (-0.036, -0.01) & -0.018 &  (-0.027, -0.009) &                    -4.96 &   (-6.03, -3.9) & -4.25 &  (-5.15,  -3.35) \\
+\bottomrule
+\end{tabular}
+} % end scalebox
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% trim L L R U 
 \begin{figure}
+\includegraphics*[height=6cm,trim=3cm 0 0 0]{FIGS_TRENDS/Plot_ec_rel_summer_Model.png}%
+\includegraphics*[height=6cm,trim=3cm 0 6.5cm 0]{FIGS_TRENDS/Plot_ec_rel_summer_Observations.png}
+\\
+\includegraphics*[height=6cm,trim=3cm 0 0 0]{FIGS_TRENDS/Plot_ec_rel_winter_Model.png}%
+\includegraphics*[height=6cm,trim=3cm 0 6.5cm 0]{FIGS_TRENDS/Plot_ec_rel_winter_Observations.png}
+\caption{Relative trends for EC in \pmfine over the period of 2010-2019, from both model (left) and observations (right), and for summer (top) and winter (bottom). The magnitude of the trends is indicated by the angle made (see key), which also indicates the trend values associated with 45\degrees and 90\degrees angles. The colour indicates the p-values associated with the trends. (The style of these plots is based upon those used in the ROAR project, e.g.\citealt{MillsTOAR:2018}.) 
+  \label{fig:ECarrows}}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}  %DS[H]
+  \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_EC_PM25_2010-2019_Perc.pdf}}\\
+%  \vspace{0.5cm}
+%  \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_OC_PM25_2010-2019_Perc.pdf}}
+\caption{Relative trends for EC in \pmfine over the period of 2010-2019: EMEP modelled -- coloured contours (grey/white means non-significant trends) and observed - coloured triangles (significant) and circles (non-significant).}
+\label{fig:ECtrends}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{figure}[t]
 \includegraphics[width=16cm]{FIGS_TRENDS/ECOC_trends.png}
 \caption{Observed and modeled concentrations and trends of EC and OC at 15 EMEP
-  site across Europe for 2010--2020, showing the concentrations
+  site across Europe for 2010--2019, showing the concentrations
   (left panels) of OC (upper) and EC (lower), aggregated annual and
   seasonal relative changes (mid panels) for OC (upper) and EC (lower),
   and aggregated annual and seasonal absolute changes (right panels)
@@ -740,25 +824,94 @@ AAE is about 133 eq ha$^{-1}$ yr$^{-1}$ (2000) and 25 eq ha$^{-1}$ yr$^{-1}$ (20
 
 
 
-A 4.5$\pm$1.5\%/yr reduction 
- \COMMENT{DS: changed - xx reduction to just xx reduction. Should be careful throughout...}
-in elemental carbon (EC) for 2010--2020 was
-calculated for the 15 sites assessed (Fig.~\ref{fig:KEX1}, Tab.~\ref{tab:KEX1}),
-being quite comparable to the reduction (-5.0$\pm$0.9\%/yr)
-calculated for the eleven sites where the reduction was statistically
-significant. The reduction was rather similar considering these eleven
-sites, ranging from -4.2\%/yr to -5.8\%/yr for ten out of eleven
-sites, thus we see no apparent spatial pattern in the reductions
-(Fig.~\ref{fig:KEX2}. The largest reduction was seen amongst the sites with the
-highest EC levels, i.e., at Iskrba (-7\%/yr) in Slovenia and at Ispra
-(-5.8\%/yr) in the Po Valley region in Northern Italy. Notably, these
-were the only sites where a statistically significant reduction was
-observed for all seasons, being most pronounced in summer, although
-by a small margin. When considering all sites, the reduction was most
-pronounced in summer and fall (Tab.~\ref{tab:KEX1}), but the general picture is
-that there is a minor seasonal variability in the reduction of EC.
 
 
+
+\subsection{Organic Carbon}
+\label{ss:trendsOC}
+ 
+ Table~\ref{tab:KEX2} presents the absolute and relative changes in OC over 2010-2019 from 15 EMEP sites, as annual values and with confidence intervals, and from both observed and modelled values. The spatial variation of these trends for summer and winter can be seen as `arrow' plots in Fig.~\ref{fig:OCarrows}, and Fig.\ref{fig:OCtrends} shows again the annual trends, but superimposed upon the modelled field of modelled OC.
+ %
+A 2.4$\pm$1.6\%/yr reduction
+  in organic carbon (OC) for 2010--2020
+was calculated for the 15 sites assessed (Tab.~\ref{tab:KEX2}), but the
+downward trend was statistically significant only for Iskrba (Slovenia)
+and Ispra (Italy), which are amongst the sites with the highest OC
+loading. At these two sites, the reduction was noticeably higher 
+(-3.1\%/yr (Iskrba) and -5.9\%/yr (Ispra)) than for the mean of all sites. The
+reduction in OC appears somewhat lower at the westernmost and northernmost
+sites (Fig.\ref{fig:OCtrends}). 
+
+
+% From KE .docx. Assume 
+%\begin{figure}
+%\caption{Map showing relative change (\%/yr) in observed and modeled OC (left
+%  panel) and EC (right panel) at 15 EMEP sites across Europe. \label{fig:KEX2}}
+%\end{figure}
+
+There was a pronounced seasonal variability in the reduction observed for
+OC (Tab.~\ref{tab:KEX2}, Figs.~\ref{fig:KEX1},\ref{fig:OCarrows}). In winter, the
+ reduction (-4.2\%/yr) was equal to
+EC (-4.3\%/yr) but only statistically significant for six of the sites,
+whereas no reduction (0\%/yr) was seen in summer. Spring (-2.2\%/yr, Tab.~\ref{tab:KEX2}) and fall (3.0\%/yr) are transition seasons with reductions in between
+that of winter and summer and statistically significant reductions were
+observed only for Ispra. 
+%
+Figure~\ref{fig:OCarrows} makes it clear that there were large differences in both sign and magnitude of the summertime trends in OC, in both modelled and observed results. For the winter trends, Fig.~\ref{fig:OCarrows} shows that essentially all observed trends were reductions, whereas the modelled trends were more variable and less significant.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}
+ \caption{Absolute change ( \ugC/yr) and relative change (\%/yr) and
+   corresponding confidence intervals in observed and modeled annual
+   and seasonal aggregated OC concentrations at 15 sites across Europe
+   for 2010--2020. The number of sites with a significant outcome
+   is provided. \label{tab:KEX2}
+ }
+ 
+%\begin{center}
+\scalebox{0.7}{%
+\begin{tabular}{llcc|cccc|cccc}
+\toprule
+\multicolumn{4}{c}{Number of sites} & \multicolumn{4}{c}{Average change per year (\ug $yr^{-1})$} & \multicolumn{4}{c}{Relative change per year (\% $yr^{-1}$)} \\
+Seasons &  No. & sign. & sign. &                    obs. &          conf.interval &  mod. &          conf.interval &                     obs. &         conf.interval &  mod. &        conf.interval \\
+       &                 &  (obs.)    & (mod.)  & & & & & & & & \\
+\midrule
+all    &              15 &          2 &           1 &                  -0.077 &  (-0.132, -0.022) & -0.009 &     (-0.019, 0.0) &                    -2.40 &  (-3.23, -1.57) & -0.59 &   (-1.21, 0.03) \\
+winter &              15 &          6 &           1 &                  -0.148 &  (-0.249, -0.047) & -0.018 &  (-0.032, -0.004) &                    -4.19 &  (-5.16, -3.22) & -1.09 &  (-2.03, -0.15) \\
+spring &              15 &          1 &           0 &                  -0.067 &   (-0.104, -0.03) & -0.013 &  (-0.023, -0.003) &                    -2.18 &  (-3.68, -0.67) & -0.74 &   (-1.94, 0.47) \\
+summer &              15 &          0 &           1 &                  -0.000 &   (-0.024, 0.023) &  0.019 &   (-0.003, 0.041) &                    -0.03 &   (-1.19, 1.12) &  2.13 &    (0.44, 3.83) \\
+autumn &              15 &          1 &           0 &                  -0.098 &   (-0.16, -0.037) & -0.020 &     (-0.041, 0.0) &                    -3.03 &  (-4.43, -1.62) & -1.16 &   (-2.47, 0.15) \\
+\bottomrule
+\end{tabular}
+} % end scalebox
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure}  %DS[H]
+%  \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_EC_PM25_2010-2019_Perc.pdf}}\\
+%  \vspace{0.5cm}
+\centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_OC_PM25_2010-2019_Perc.pdf}}
+\caption{Relative trends for OC in \pmfine over the period of 2010-2019: EMEP modelled -- coloured contours (grey/white means non-significant trends) and observed - coloured triangles (significant) and circles (non-significant).}
+\label{fig:OCtrends}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}
+\includegraphics*[height=6cm,trim=3cm 0 0 0 0]{FIGS_TRENDS/Plot_oc_rel_summer_Model.png}%
+\includegraphics*[height=6cm,trim=3cm 0 6.9cm 0]{FIGS_TRENDS/Plot_oc_rel_summer_Observations.png}
+\\
+\includegraphics*[height=6cm,trim=3cm 0 0 0]{FIGS_TRENDS/Plot_oc_rel_winter_Model.png}%
+\includegraphics*[height=6cm,trim=3cm 0 6.9cm 0]{FIGS_TRENDS/Plot_oc_rel_winter_Observations.png}
+\caption{Relative trends for OC in \pmfine over the period of 2010-2019, from both model (left) and observations (right), and for summer (top) and winter (bottom). (See Fig.~\ref{fig:ECarrows} for further details.)
+ \label{fig:OCarrows}}
+\end{figure}
 
 
 \begin{table}[H]
@@ -767,19 +920,10 @@ that there is a minor seasonal variability in the reduction of EC.
 \caption{Relative trends (\%/yr) (and p-values in parentheses) calculated for Birkenes using different time-windows \label{tab:BirkenesTrends}}}
 \begin{tabular}{lcccc}
 \hline
-     &         & 2008-2018(a)& 2008-2019(b)     & 2010-2019(b)       \\
+     &         & 2008-2018$^{(a)}$& 2008-2019     & 2010-2019       \\
 \hline
  & & & & \\
-\multicolumn{5}{c}{Original using Karl Espen numbers, taken from text below} \\
-& & & & \\
-EC   & annual  & -4.2        &  -2.21 (0.034)   & -4.24 (0.012) \\
-OC   & annual  &  \QUERY{Karl Espen?}           &   0.18 (1.0)     & -0.64 (1.0)   \\
-Levo & annual  & -2.8        &  -2.48 (0.024)   & -5.2  (0.032) \\
- & & & & \\
-
-\multicolumn{5}{c}{Revised from Wenche 26/8/21} \\
- & & & & \\
-
+%\multicolumn{5}{c}{Revised from Wenche 26/8/21} \\
 EC   & annual  & -3.0 (0.043)        &  -2.21 (0.034)   & -4.24 (0.012) \\
 OC   & annual  &  -0.44 (0.876)      &   0.18 (1.0)     & -0.64 (1.0)   \\
 Levo & annual  & -2.5 (0.043)        &  -2.48 (0.024)   & -5.2  (0.032) \\
@@ -787,11 +931,12 @@ Levo & annual  & -2.5 (0.043)        &  -2.48 (0.024)   & -5.2  (0.032) \\
 \hline
 \end{tabular}\\
 \parbox{12cm}{
-\COMMENT{ISSUE:  p-values of 1 look odd.}\\
+
 Notes:
-(a) from Karl Espen's text = ACP 2021 paper
-(b) from Wenche's comparison file;
-(c) from Wenche's earlier 2010-2020 file.
+(a) Values for 2008-2018 use same procedure as for 2008-2019 and 2010-2019. Numbers
+differ slightly from results of \citet{Yttri2021}, which had -4.2\%Yr for EC and -2.8\%/yr for levoglucosan.
+\COMMENT{ISSUES: Explain more diffs from Yttro2021 and 2008-2018 trends above.\\
+p-values of 1 look odd.}\\
 }
 \end{table}
 
@@ -799,6 +944,10 @@ Notes:
 \subsection{Discussion of EC, OC trends}
 
 Before discussing the trends shown in Sect.~\ref{ss:trendsEC}-\ref{ss:trendsOC} in  more detail, it is important to note that ten years is a short period over which to assess such trends. In order to illustrate this, Table~\ref{tab:BirkenesTrends} shows trends assessed for three periods, 2008-2018, 2008-2019, and 2010-2019. 
+
+
+
+Fig.~\ref{fig:KEX1} illustrates the statistics of the reductions in EC and OC  over the period 2010-2019, and for different seasons. For EC the model is seen to capture the year to year changes very well over the ten years, and captures well the relative changes which are ca. -4\% in all seasons. Larger differences are seen in the absolute changes (which may reflect the difficulties with the EC emissions mentioned in Sect.~\ref{ss:IssuesECOC}).
 
 
 As discussed in Sect.~\ref{ss:trendsEC} there is only a minor seasonal variability in the reduction of EC. This probably reflects the minor seasonal variability in most EC sources, except from
@@ -835,65 +984,9 @@ the model predicted a reduction in EC for all sites, but for a few sites
 the model estimated a reduction that was 3--4 times larger than seen
 for the observations.
 
-\begin{table}
- \caption{Absolute change ( \ugC/yr) and relative change (\%/yr) and
-  corresponding confidence intervals in observed and modelled annual
-  and seasonal aggregated EC concentrations at 15 sites across Europe
-  for 2010--2020. The number of sites with a significant outcome is
-  provided. \label{tab:KEX1}}
-% \begin{tabular}{lrrrrlrlrlrl}
-%\begin{center}
-\scalebox{0.65}{%
-\begin{tabular}{llcc|cccc|cccc}
-\toprule
-%\hline
-               \multicolumn{4}{c}{Number of sites} & \multicolumn{4}{c}{Average change per year (\ug $yr^{-1})$} & \multicolumn{4}{c}{Relative change per year (\% $yr^{-1}$)} \\
- Season &           total & sign.(obs.) & sign.(mod.) &                   obs. &          conf.interval &  mod. &          conf.interval &                     obs. &         conf.interval &  mod. &        conf.interval \\
-\midrule
-%\hline
-all    &              15 &         11 &          12 &                  -0.019 &  (-0.031, -0.008) & -0.014 &  (-0.021, -0.007) &                    -4.49 &  (-5.25, -3.73) & -3.81 &  (-4.59, -3.03) \\
-winter &              15 &          6 &           4 &                  -0.029 &  (-0.053, -0.006) & -0.019 &  (-0.032, -0.006) &                    -4.27 &  (-5.49, -3.06) & -3.10 &  (-4.21, -1.98) \\
-spring &              15 &          5 &           8 &                  -0.012 &  (-0.018, -0.006) & -0.013 &  (-0.018, -0.009) &                    -3.88 &  (-4.67, -3.09) & -3.86 &   (-4.92, -2.8) \\
-summer &              15 &          8 &          10 &                  -0.011 &  (-0.015, -0.007) & -0.008 &  (-0.013, -0.004) &                    -4.73 &  (-5.71, -3.74) & -3.71 &  (-4.59,  -2.82) \\
-autumn &              15 &          8 &          11 &                  -0.023 &   (-0.036, -0.01) & -0.018 &  (-0.027, -0.009) &                    -4.96 &   (-6.03, -3.9) & -4.25 &  (-5.15,  -3.35) \\
-\bottomrule
-\end{tabular}
-}
-\end{table}
+MOVED FROM OC: 
 
-
-
-\subsection{Organic Carbon}
-\label{ss:trendsOC}
- 
-A 2.4$\pm$1.6\%/yr reduction
- \COMMENT{DS: changed - xx reduction to just xx reduction}
- in organic carbon (OC) for 2010--2020
-was calculated for the 15 sites assessed (Fig.~\ref{fig:KEX1}, Tab.~\ref{tab:KEX2}), but the
-downward trend was statistically significant only for Iskrba (Slovenia)
-and Ispra (Italy), which are amongst the sites with the highest OC
-loading. At these two sites, the reduction was noticeably higher 
-(-3.1\%/yr (Iskrba) and -5.9\%/yr (Ispra)) than for the mean of all sites. The
-reduction in OC appears somewhat lower at the westernmost and northernmost
-sites (Fig.\ref{fig:KEX2}). A pronounced influence of natural sources in areas
-less perturbed by anthropogenic emissions, exemplified by Scandinavia,
-is a possible explanation \citep{Bergstrom2012,Yttri2021}, although a
-less successful abatement of anthropogenic sources cannot be excluded.
-
-\begin{figure}
-
-\caption{Map showing relative change (\%/yr) in observed and modeled OC (left
-  panel) and EC (right panel) at 15 EMEP sites across Europe. \label{fig:KEX2}}
-\end{figure}
-
-There was a pronounced seasonal variability in the reduction observed for
-OC ((Fig.~\ref{fig:KEX1}, Tab.~\ref{tab:KEX2}). In winter, the
- reduction (-4.2\%/yr) was equal to
-EC (-4.3\%/yr) but only statistically significant for six of the sites,
-whereas no reduction (0\%/yr) was seen in summer. Spring (-2.2\%/yr)
-and fall (3.0\%/yr) are transition seasons with reductions in between
-that of winter and summer and statistically significant reductions were
-observed only for Ispra. Unlike EC, OC has a substantial influence from
+Unlike EC, OC has a substantial influence from
 natural sources, biogenic secondary organic aerosol (BSOA) and primary
 biological aerosol particles (PBAP), which prevail in the growing season,
 and which is not subject to abatement and thus is a major driver of
@@ -917,63 +1010,11 @@ reproducing the seasonality in trend seen for the observations. A decrease
 in observed OC was calculated for all sites, whereas the model calculated
 an increase, typically <0.5\%/yr, for four of the sites.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{table}
- \caption{Absolute change ( \ugC/yr) and relative change (\%/yr) and
-   corresponding confidence intervals in observed and modeled annual
-   and seasonal aggregated OC concentrations at 15 sites across Europe
-   for 2010--2020. The number of sites with a significant outcome
-   is provided. \label{tab:KEX2}
- }
- 
-%\begin{center}
-\scalebox{0.65}{%
-\begin{tabular}{llcc|cccc|cccc}
-\toprule
-\multicolumn{4}{c}{Number of sites} & \multicolumn{4}{c}{Average change per year (\ug $yr^{-1})$} & \multicolumn{4}{c}{Relative change per year (\% $yr^{-1}$)} \\
-Seasons &  No. & sign.(obs.) & sign.(mod.) &                    obs. &          conf.interval &  mod. &          conf.interval &                     obs. &         conf.interval &  mod. &        conf.interval \\
-\midrule
-all    &              15 &          2 &           1 &                  -0.077 &  (-0.132, -0.022) & -0.009 &     (-0.019, 0.0) &                    -2.40 &  (-3.23, -1.57) & -0.59 &   (-1.21, 0.03) \\
-winter &              15 &          6 &           1 &                  -0.148 &  (-0.249, -0.047) & -0.018 &  (-0.032, -0.004) &                    -4.19 &  (-5.16, -3.22) & -1.09 &  (-2.03, -0.15) \\
-spring &              15 &          1 &           0 &                  -0.067 &   (-0.104, -0.03) & -0.013 &  (-0.023, -0.003) &                    -2.18 &  (-3.68, -0.67) & -0.74 &   (-1.94, 0.47) \\
-summer &              15 &          0 &           1 &                  -0.000 &   (-0.024, 0.023) &  0.019 &   (-0.003, 0.041) &                    -0.03 &   (-1.19, 1.12) &  2.13 &    (0.44, 3.83) \\
-autumn &              15 &          1 &           0 &                  -0.098 &   (-0.16, -0.037) & -0.020 &     (-0.041, 0.0) &                    -3.03 &  (-4.43, -1.62) & -1.16 &   (-2.47, 0.15) \\
-\bottomrule
-\end{tabular}
-} % end scalebox
-\end{table}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}  %DS[H]
-  \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_EC_PM25_2010-2019_Perc.pdf}}\\
-%  \vspace{0.5cm}
-  \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_OC_PM25_2010-2019_Perc.pdf}}
-\caption{Relative trends for EC and OC in \pmfine over the period of 2010-2019: EMEP modelled -- coloured contours (grey/white means non-significant trends) and observed - coloured triangles (significant) and circles (non-significant).}
-\label{fig:ECOCtrends}
-\end{figure}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{figure}
-\includegraphics*[height=6cm,trim=1cm 0 0 0]{FIGS_TRENDS/Plot_ec_rel_summer_Model.png}%
-\includegraphics*[height=6cm,trim=2cm 0 2cm 0]{FIGS_TRENDS/Plot_ec_rel_summer_Observations.png}
-\\
-\includegraphics*[height=6cm,trim=1cm 0 0 0]{FIGS_TRENDS/Plot_ec_rel_winter_Model.png}%
-\includegraphics*[height=6cm,trim=2cm 0 2.5cm 0]{FIGS_TRENDS/Plot_ec_rel_winter_Observations.png}
-\caption{PRELIM EC trends. Left = model, right = obs. Top = summer, bottom = winter.
-  \label{fig:ECarrows}}
-\end{figure}
-
-\begin{figure}
-\includegraphics*[height=6cm,trim=1cm 0 0 0]{FIGS_TRENDS/Plot_oc_rel_summer_Model.png}%
-\includegraphics*[height=6cm,trim=2cm 0 2cm 0]{FIGS_TRENDS/Plot_oc_rel_summer_Observations.png}
-\\
-\includegraphics*[height=6cm,trim=1cm 0 0 0]{FIGS_TRENDS/Plot_oc_rel_winter_Model.png}%
-\includegraphics*[height=6cm,trim=2cm 0 2.5cm 0]{FIGS_TRENDS/Plot_oc_rel_winter_Observations.png}
-\caption{PRELIM OC trends. Left = model, right = obs. Top = summer, bottom = winter
- \label{fig:OCarrows}}
-\end{figure}
-
-
+A pronounced influence of natural sources in areas
+less perturbed by anthropogenic emissions, exemplified by Scandinavia,
+is a possible explanation \citep{Bergstrom2012,Yttri2021}, although a
+less successful abatement of anthropogenic sources cannot be excluded.
 
 %%%%%%%%%%%%%%%%%%
 
@@ -1098,8 +1139,6 @@ Obs.  &              15 &     2 &                  0.0001 &  (-0.003, 0.0032) & 
 } % end scalebox
 \end{table}
 
-%\subsection{Issues with inventories used in modelling}
-\COMMENT{DS: MOVED section on issues due to CPOA into chapterTrendsSandN - also affects pmfine trends, and is anyway part of model setup.}
 
 
 
