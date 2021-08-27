@@ -625,18 +625,25 @@ Figure \ref{fig:O3_boxplot} indicates that the model overestimates the decrease 
 The annual O$_3$ percentile values for the observed and modelled data during 2000-2019 are shown in Figures \ref{fig:O3_perctrends_N} and \ref{fig:O3_perctrends_S} for stations north and south of 49 \degrees N. The solid lines mark the mean of all stations while the shaded areas mark the 25th and 75th percentile of these station-based values. These results show that the modelled 10th and 50th percentiles are higher than observed whereas the observed high percentiles (95-99) are higher than modelled. The bias in the high percentiles are particularly strong for stations south of 49 \degrees N. For the 75th percentile, the absolute levels of the modelled and observed data agree very well. It is furthermore seen that the interannual variation in the higher percentiles, i.e. the change in levels from year to year, is very well reproduced by the model but with a substantial offset. 
 
 \begin{table}
-\caption{\label{tab:O3_stat} The estimated mean values of the absolute and relative trends in O$_3$ metrics based on all stations (observed and modelled). The corresponding 95\% confidence intervals of these mean values and the number of sites with significant trends are also provided.}
+\caption{\label{tab:O3_stat} The estimated mean values of the absolute and relative trends in O$_3$ metrics based on stations north and south of 49 \degrees N (observed and modelled). The corresponding 95\% confidence intervals of these mean values and the number of sites with significant trends are also provided.} Results for the 75th and 99th percentile as well as teh SOMO35, AOT40 
 \begin{center}
 \scalebox{0.65}{%
 \begin{tabular}{lll|ccc|cccc|cccc}
 \toprule
           &    &    & \multicolumn{3}{c}{Number of sites} & \multicolumn{4}{c}{Absolute change (ppb)} & \multicolumn{4}{c}{Relative change (\% $yr^{-1}$)} \\
-Period & Area & Param &           total & obs & mod &                    obs. &          conf.interval &  mod. &          conf.interval &                     obs. &         conf.interval &  mod. &        conf.interval \\
+Period & Area & Parameter &           total & obs & mod &                    obs. &          conf.interval &  mod. &          conf.interval &                     obs. &         conf.interval &  mod. &        conf.interval \\
 \midrule
-2000-2019 & N of 49N & 75p &  52 &  19 &  30 & -0.20 & (-0.19, -0.09) & -0.26 & (-0.14, -0.10) & -0.35 & (-0.40, -0.21) & -0.46 & (-0.30, -0.22) \\
-2000-2019 & N of 49N & 99p &  52 &  13 &  39 & -0.48 & (-0.48, -0.33) & -0.51 & (-0.38, -0.30) & -0.57 & (-0.68, -0.46) & -0.70 & (-0.59, -0.49) \\
-2000-2019 & S of 49N & 75p &  40 &  16 &  38 & 0.00 & (-0.26, -0.12) & 0.00 & (-0.27, -0.23) & 0.00 & (-0.46, -0.23) & 0.00 & (-0.49, -0.43) \\
-2000-2019 & S of 49N & 99p &  40 &  18 &  37 & 0.00 & (-0.58, -0.37) & 0.00 & (-0.54, -0.46) & 0.00 & (-0.71, -0.43) & 0.00 & (-0.74, -0.65) \\
+2000-2019 & N of 49N & 75p &  52 &  19 &  30 & -0.15 & (-0.19, -0.10) & -0.13 & (-0.14, -0.10) & -0.31 & (-0.40, -0.21) & -0.26 & (-0.30, -0.22) \\
+2000-2019 & N of 49N & 99p &  52 &  13 &  39 & -0.41 & (-0.48, -0.33) & -0.34 & (-0.37, -0.30) & -0.58 & (-0.68, -0.47) & -0.54 & (-0.59, -0.49) \\
+2000-2019 & N of 49N & SOMO35 &  55 &   9 &  33 & -18.29 & (-26.3, -11.2) & -17.92 & (-21.1, -14.7) & -0.54 & (-1.41, 0.021) & -0.85 & (-1.02, -0.70) \\
+2000-2019 & N of 49N & AOT40c &  55 &  12 &  42 & -71.63 & (-91.2, -52.4) & -153.35 & (-175., -132.) & -1.35 & (-2.03, -0.73) & -2.10 & (-2.32, -1.88) \\
+2000-2019 & N of 49N & AOT40f &  55 &   9 &  43 & -121.11 & (-156., -85.5) & -220.10 & (-250., -191.) & -1.10 & (-1.86, -0.47) & -1.75 & (-1.92, -1.56) \\
+\\
+2000-2019 & S of 49N & 75p &  40 &  16 &  38 & -0.20 & (-0.27, -0.13) & -0.26 & (-0.27, -0.23) & -0.35 & (-0.46, -0.21) & -0.46 & (-0.49, -0.43) \\
+2000-2019 & S of 49N & 99p &  40 &  18 &  37 & -0.48 & (-0.59, -0.36) & -0.51 & (-0.54, -0.46) & -0.57 & (-0.71, -0.43) & -0.70 & (-0.74, -0.65) \\
+2000-2019 & S of 49N & SOMO35 &  35 &  14 &  31 & -36.74 & (-54.9, -18.6) & -40.59 & (-45.3, -36.2) & -0.77 & (-1.27, -0.28) & -1.12 & (-1.23, -1.01) \\
+2000-2019 & S of 49N & EUAOT40c &  35 &  13 &  33 & -190.26 & (-247., -128.) & -286.65 & (-313., -260.) & -1.49 & (-1.97, -1.02) & -1.98 & (-2.17, -1.80) \\
+2000-2019 & S of 49N & EUAOT40f &  35 &  16 &  31 & -312.64 & (-422., -196.) & -480.46 & (-537., -425.) & -1.36 & (-1.87, -0.85) & -1.74 & (-1.94, -1.55) \\
 \bottomrule
 \end{tabular}}
 \end{center}
@@ -780,7 +787,7 @@ that there is a minor seasonal variability in the reduction of EC. It can be not
 there are more sites with significant trends (p-values $<$ 0.05)  in summer than winter (Fig.\ref{fig:ECarrows}).
 
 Fig.~\ref{fig:KEX1} illustrates the statistics of the reductions in EC  over the period 2010-2019, and for different seasons. For EC the model is seen to capture the year to year changes very well over the ten years, and captures well the relative changes which are ca. -4\% in all seasons. Larger differences are seen in the absolute changes (which may reflect the difficulties with the EC emissions mentioned in Sect.~\ref{ss:IssuesECOC}).
-
+These points about model-measurement comparison for EC are discussed further in Sect.~\ref{ss:DiscECOC}.
 
 \begin{table}
  \caption{Absolute change ( \ugC/yr) and relative change (\%/yr) and
@@ -880,8 +887,8 @@ sites (Fig.\ref{fig:OCtrends}).
 
 There was a pronounced seasonal variability in the reduction observed for
 OC (Tab.~\ref{tab:KEX2}, Figs.~\ref{fig:KEX1},\ref{fig:OCarrows}). In winter, the
- reduction (-4.2\%/yr) was equal to
-EC (-4.3\%/yr) but only statistically significant for six of the sites,
+ reduction (-4.2\%/yr) was equal to that for
+EC (-4.3\%/yr, but only statistically significant for six of the sites,
 whereas no reduction (0\%/yr) was seen in summer. Spring (-2.2\%/yr, Tab.~\ref{tab:KEX2}) and fall (3.0\%/yr) are transition seasons with reductions in between
 that of winter and summer and statistically significant reductions were
 observed only for Ispra. 
@@ -890,6 +897,15 @@ Figure~\ref{fig:OCarrows} makes it clear that there were large differences in bo
 
 
 Fig.~\ref{fig:KEX1} illustrates the statistics of the reductions in OC  over the period 2010-2019, and for different seasons. For OC the model substantially underpredicts the yearly concentrations over the whole period (see also Tab.~\ref{tab:KEX2}), and also underpredicts the trends. There is substantial seasonal variation though. Observed reductions in winter (DJF) of -4.2\%/yr are are not reproduced by the model at all (-1.1\%/yr), though even in winter the observed trends were only significant for six of the 15 sites. In summer the observed trends are very small but negative (-0.03\%/yr), whereas the model suggests positive trends of 2.1\%/yr. As noted above (c.f. Fig.~\ref{fig:OCarrows}), the summer trends are very different for individual sites, even with respect to the sign of the change, and one cannot assign much significance to the changes. 
+
+The model calculated a
+reduction in OC of -0.6\%/yr considering all sites, which was noticeably
+less than for the observations (-2.4\%/yr) (c.f. Tab.~\ref{tab:KEX2}). The model also underpredicted
+the decrease calculated for the observations for each season, thereby
+reproducing the seasonality in trend seen for the observations. A decrease
+in observed OC was calculated for all sites, whereas the model calculated
+an increase, typically <0.5\%/yr, for four of the sites. These points about model-measurement comparison for OC are discussed further in Sect.~\ref{ss:DiscECOC}.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -945,6 +961,7 @@ autumn &              15 &          1 &           0 &                  -0.098 & 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Discussion of EC, OC trends}
+\label{ss:DiscECOC}
 
 Before discussing the trends shown in Sect.~\ref{ss:trendsEC}-\ref{ss:trendsOC} in  more detail, it is important to note that ten years is a short period over which to assess such trends. In order to illustrate this, Table~\ref{tab:BirkenesTrends} shows trends assessed for three periods, 2008-2018, 2008-2019, and 2010-2019, all using the same methodology. It is seen that the magnitude of the trends can differ substantially depending on the time-window. For EC the values range from -2.2\%/yr to \mbox{-4.24\%/yr}, and for levoglucosan from -2.5\%/yr to -5.2\%/yr, with all values satisfying the p-value$<$0.05 significance test. Trend values for OC vary even more, but these trends were insignificant for all periods. Although we expect some of these trends to reflect changes in emissions, meteorological variation will also play a large role, especially in causing the high sensitivity of the calculated trends to small changes in the time window chosen.
 
@@ -1032,39 +1049,46 @@ for the observations.}
 
  
 
-Unlike EC, the observed seasonal trends for OC (c.f. Fig.~\ref{fig:KEX1} are very variable, with strong (ca. 4\%) reductions in the winter months (both DJF and SON), and essentially no change in summertime.
-
+Unlike EC, the observed seasonal trends for OC (c.f. Fig.~\ref{fig:KEX1} are very variable, with strong (ca. 4\%) reductions in the winter months (both DJF and SON), and apparently no change in summertime. As already noted, the individual sites show a great variation in even the sign of the calculated trends, though statistically the trends are not significant (c.f.Fig.~\ref{fig:OCarrows}. The lack of clear trend in summertime is not surprising. 
 OC has a substantial influence from
 natural sources, biogenic secondary organic aerosol (BSOA) and primary
-biological aerosol particles (PBAP), which prevail in the growing season,
-and which is not subject to abatement and thus is a major driver of
-the seasonality seen for the trend. Thus, anthropogenic OC emissions
-are likely best represented by winter-time data. Increased emissions
-from domestic heating are seen all over Europe in the heating season
-\citep[e.g.][]{Yttri2019} when the contribution from natural sources
-is low, and is generally assumed to be poorly abated, particularly
-for residential wood burning. Notably, the winter-time reduction in OC
-was similar to that of EC considering all sites, and at the Birkenes
+biological aerosol particles (PBAP), which prevail in the growing season \citep[e.g.][]{Gelencser:CARB,Yttri2019}.
+These biogenic emissions are not subject to abatement, but are very sensitive to meteorology, and thus summer-time OC trends are strongly influenced by year-to-year changes in meteorological conditions.
+
+Anthropogenic OC emissions
+are likely best represented by winter-time data, and in DJF the observed trend of -4\%/yr for OC is rather similar to that found for EC (Tab.~\ref{tab:KEX2}). As
+for EC, domestic heating is an important emission source 
+%Increased emissions from domestic heating are seen
+all over Europe in the heating season
+\citep[e.g.][]{Yttri2019}, but especially where RWC is utilised.
+%when the contribution from natural sources
+%is low, and is generally assumed to be poorly abated, particularly
+%or residential wood burning. Notably, the winter-time reduction in OC
+%was similar to that of EC considering all sites, and a
+At the Birkenes
 Observatory the winter-time reduction in OC (-4.1\%/yr) was only somewhat
-lower than for EC (-6.4\%/yr) and levoglucosan (-4.6\%/yr), suggesting
+lower than for EC (-6.4\%/yr) and levoglucosan (-4.6\%/yr).
+\COMMENT{
+  Karl Espen - where are these numbers coming from? Different to those in Tab.~\ref{tab:BirkenesTrends}
+}
+These results also suggest
 that abatement of residential wood burning emissions has been quite
 effective for Europe in general, taking into account the considerations
 made about the length of the time series and the Birkenes Observatory as
-an indicator of European emissions (Sect.~\ref{ss:trendsEC}).  The model calculated a
-reduction in OC of -0.6\%/yr considering all sites, which was noticeably
-less than for the observations (-2.4\%/yr). The model also underpredicted
-the decrease calculated for the observations for each season, thereby
-reproducing the seasonality in trend seen for the observations. A decrease
-in observed OC was calculated for all sites, whereas the model calculated
-an increase, typically <0.5\%/yr, for four of the sites.
+an indicator of European emissions (Sect.~\ref{ss:trendsEC}).  
 
+The underprediction of the OC levels in wintertime seen in Figs.~\ref{fig:KEX1} should not be taken as a indication that the EMEP model itself is wrong, but is rather at leasy partly the result of the issues with missing `condensable' organics (Sect.~\ref{ss:IssuesECOC}). It has been demonstrated elsewhere that model results improve substantially when condensables are included \citep{DeniervanderGon2015,R2019:SVOC,R2020:SVOC}. Unfortunately we do not yet have a time-series of condensable organic emissions with which to perform trend analysis, but we hope to address that within the context of a new MSC-W led project funded by the Nordic Council of Ministers.
 
+\SKIP{
 A pronounced influence of natural sources in areas
 less perturbed by anthropogenic emissions, exemplified by Scandinavia,
 is a possible explanation \citep{Bergstrom2012,Yttri2021}, although a
 less successful abatement of anthropogenic sources cannot be excluded.
+}
 
 %%%%%%%%%%%%%%%%%%
+
+\COMMENT{Dave got to here so far (12:40 Friday). Will continue later..}
 
 \subsection{OC and EC fractions of PM}
 \label{ss:OCECfrac}
@@ -1129,7 +1153,7 @@ OC/\pmfine.
 
 The relative contribution of carbonaceous aerosol, OM (OM = OC $\times$
 1.4 for Ispra and 1.7 for the other sites)
-\QUERY{DS: could be $>$2!} and EC, to the \pmfine mass concentration along with the major
+ and EC, to the \pmfine mass concentration along with the major
 SIA species illustrates the importance of the OM fraction for a further
 reduction in \pmfine mass concentration (Fig.~\ref{fig:KEX4}). As a first step,
 the natural and the anthropogenic fraction of the carbonaceous aerosol
