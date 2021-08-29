@@ -95,15 +95,14 @@ It should be noted that this 19-sector system is designed as a practical super-s
 Table~\ref{tab:GNFRsectors} summarises the new GNFR\_CAMS sectors,
 and the mapping indices used.
 
-
-\begin{table}
+\small{
+\begin{longtable}{lrrrrlc}
 \caption{The `GNFR\_CAMS' 19-sector system, and mapping indices for release heights, timefactors and species-splits,
  which is now
  default in EMEP model. \label{tab:GNFRsectors}
-}
-\begin{tabular}{lrrrrlc}
+}\\
 \hline
-code & No  & \multicolumn{3}{c}{Index}      & sector & SNAP \\ \cline{3-5}
+code & No  & \multicolumn{3}{c}{Index}      & sector & SNAP\\ \cline{3-5}
      &         & timefac  & height & emissplit  &        & equivalent \\
 \hline
 A &      01 &   1 &  1 &   1 &  Public Power  &  1 \\
@@ -128,11 +127,9 @@ F2 &    17 &   7 &  2 &  17 &  Road Transport - Exhaust Diesel& 7   \\
 F3 &    18 &   7 &  2 &  18 &  Road Transport - Exhaust LPGgas & 7  \\
 F4 &    19 &   7 &  2 &  19 &  Road Transport - NonExhaust Other& 7   \\
 \hline
-\end{tabular}
-\end{table}
-
-\clearpage
-
+\end{longtable}}
+%\clearpage
+\normalsize
 
 \subsection{Soil NO emissions}
 \label{ssec:soilNO}
@@ -159,14 +156,12 @@ that  0.7\% of the N-inputs are re-emitted as NO.)
     a dry period
 \end{description}
 
-In developing CAMS-GLOB-SOIL , we  expressed the total soil emission fluxes as the sum
-of these terms:
+In developing CAMS-GLOB-SOIL, we expressed the total soil emission fluxes as the sum of these terms:
 
 \begin{equation}
   \Fs = \Fb  + \Ff + \Fd + \Fp
   \label{eqn:Fs}
 \end{equation}
-
 
 Where \Fn then is the sum of the \Fb, \Fd, and \Fp terms, and where the
 flux terms have units \ngN. The calculations of \Fb, \Ff, \Fd and \Fp
@@ -326,7 +321,7 @@ with \textit{Kz} given as:
 \begin{equation}
     \mathit{Kz} = 0.4 \times \frac{u_*}{\phi_h} \times z \times (1 - \frac z h)^2
 \end{equation}
-in which $z$ is the height from surface, $h$ is boundary layer depth, $z_\mathit{surf}$ is the height of surface layer which is assumed to be 10\% of the boundary layer depth $h$,  $L$ is the Monin-bukhov length \citep{Garratt}, and $u_*$ is friction velocity.
+in which $z$ is the height from surface, $h$ is boundary layer depth, $z_\mathit{surf}$ is the height of surface layer which is assumed to be 10\% of the boundary layer depth $h$,  $L$ is the Monin-obukhov length \citep{Garratt}, and $u_*$ is friction velocity.
 
 The default calculation of PBL is updated to the HmixMethod JcRb\_t2m. Compared with the old HmixMethod JcRb, the new one uses temperature at 2 m instead of temperature at the middle of the lowest grid cell to formulate PBL in the stable conditions. For unstable conditions, the new formulation is the same as the JcRb method. The differences in concentrations are unnoticeable between the two methods, but this update is more accurate according to the original reference paper \citep{JcRb}.  
 
@@ -341,16 +336,6 @@ Since last year, the range of applications of the Local Fractions has been exten
 The sources can be defined by either a list of countries or group of countries, as small squares surrounding the receptor grid (with user defined range and square sizes), or as regions defined as "masks" given in a NetCDF file.
 Wet and dry deposition (separately) per source country can now also be computed.
 
-
-\begin{figure}
-  \centering
-    \includegraphics*[width=10cm]{FIGS_UPDATES/PlotIAMpods.png}
-  \parbox{10cm}{
-  \caption{Comparison of POD3 values for the new generic IAM\_CROP category compared to the IAM\_CR used previously. Statistics refer to grid-cells where either category had non-zero POD3 values.
-    \label{fig:PODcomp}}
-  }
-\end{figure}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Other}
 \label{sec:updateOther}
@@ -360,7 +345,16 @@ A number of smaller changes have been made:
 \begin{description}
 
   \item[IAM\_CROP] A new generic crop type has been introduced for integrated assessment modelling outputs. This is an updated version of the previously used IAM\_CR species \citep{Simpson:EMEP2012}, in which the phenology factor (\fphen) has been set to 1.0 across the ozone flux accumulation period. The IAM\_CR parameters gave a reduction in \fphen towards the end of the period, and hence lower POD than the new category gives (c.f.Fig~\ref{fig:PODcomp}).
-  
+ 
+ \begin{figure}
+  \centering
+    \includegraphics*[width=10cm]{FIGS_UPDATES/PlotIAMpods.png}
+  \parbox{10cm}{
+  \caption{Comparison of POD3 values for the new generic IAM\_CROP category compared to the IAM\_CR used previously. Statistics refer to grid-cells where either category had non-zero POD3 values.
+    \label{fig:PODcomp}}
+  }
+\end{figure}
+ 
     \item[fracPM25] A fraction of coarse nitrate particulate mass has been allocated to the \PM[2.5] fraction in order to represent the fact that some of the particles from the coarse fraction have aerodynamic diameters of less than 2.5~\um. The value of this fraction was previously 27\% \citep{Simpson:EMEP2012}. In the latest version this fraction was reduced to 13\%, in order to better account for the differences between mass-median and aerodynamic diameters.
   
   \item[Pollen emissions] Although the effect of pollen on \PM[2.5] concentrations is negligible, it is an important allergen. Therefore, it has been included as part of the model forecast capabilities. Optional birch, olive, ragweed and grass pollen emissions based on \citet{Sofiev-2015,Sofiev-2017} were included in version rv4.34, and later expanded to include alder and mugwort pollen emissions. 
