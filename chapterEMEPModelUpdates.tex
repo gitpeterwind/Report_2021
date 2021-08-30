@@ -301,7 +301,7 @@ of `remPPM' from GNFR C.
 \subsection{Monthly timefactors for global modelling.}
 \label{ssec:monthlyFacs}
 
-New country-based monthly timefactors were produced for countries outside of Europe. These factors were derived by making country-average factors from global gridded SNAP-based data from the ECLIPSE v6b dataset. ECLIPSE factors only created for "robust" sectors (SNAP-1, 2, 3, 4, and 10), since other sectors showed either no monthly variation (e.g. traffic), or very sporadic events that are not expected to be representative for all years (e.g. shipping, or waste-burning). For SNAP-10 (agr) the NH3 data are from ECLIPSE `agr\_NH3', otherwise from `agr'.
+New country-based monthly timefactors were produced for countries outside of Europe. The\hyp{}se factors were derived by making country-average factors from global gridded SNAP-based data from the ECLIPSE v6b dataset. ECLIPSE factors only created for "robust" sectors (SNAP-1, 2, 3, 4, and 10), since other sectors showed either no monthly variation (e.g. traffic), or very sporadic events that are not expected to be representative for all years (e.g. shipping, or waste-burning). For SNAP-10 (agr) the NH3 data are from ECLIPSE `agr\_NH3', otherwise from `agr'.
 
 
 
@@ -456,10 +456,10 @@ rv4.8   &  Public domain (Oct. 2015); ShipNOx introduced.
 rv4.7   & Used for reporting, summer 2015;
          New calculations of aerosol surface area; 
          New gas-aerosol uptake and \ce{N2O5} hydrolysis rates; 
-         Added 3-D calculations pf aerosol extinction and AODs;
+         Added 3-D calculations of aerosol extinction and AODs;
          Emissions - new flexible mechanisms for interpolation and merging sources;
          Global - monthly emissions from ECLIPSE project;
-         Global -  LAI changes from LPJ-GUESS model;
+         Global - LAI changes from LPJ-GUESS model;
          WRF meteorology \citep{SkamarockKlemp2008} can now
      be used directly in EMEP model. & R2015 \\
 %        &                                                &\\
@@ -468,8 +468,8 @@ rv4.6   & Used for Euro-Delta SOA runs                   & R2015  \\
        & Revised boundary condition treatments % & \\  % Vertical profiles
        ; ISORROPIA capability added & \\
 %       &                                                &\\
-rv4.5  & Sixth open-source (Sep 2014);                    
-        Improved dust, sea-salt, SOA modelling          % &      \\
+rv4.5  & Sixth open-source (Sep 2014)
+       ; Improved dust, sea-salt, SOA modelling          % &      \\
        ; AOD and extinction coefficient calculations  updated %& \\
        ; Data assimilation system added % & \\
        ; Hybrid vertical coordinates replace earlier sigma % & \\
