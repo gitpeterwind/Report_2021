@@ -613,14 +613,12 @@ Summarizing trend results for the 2000-2019 period, the average \PM[10] and \PM[
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\clearpage
 \section{\label{sec:Trends_O3}Trends in O$_3$ }
 
 Trend studies of surface ozone requires a somewhat different approach than other species since ambient ozone levels are the result of a substantial baseline level with episodes on top. Whereas NOx leads to ozone formation in the summer season it could cause depletion of ozone by titration in winter. Thus, the effect of man-made emissions of ozone precursors as NOx (in combination with VOCs) is to change the distribution of hourly and daily ozone concentrations during a year with high ozone levels in the summer half year and low ozone levels in the winter half year. Furthermore, the extent of these perturbations is significantly determined by the weather conditions and thereby by the ongoing climate change. Harmful levels of surface ozone is closely linked to high-pressure situations with elevated temperatures and strong solar radiation.
 
-Thus, the selection of ozone metrics is decisive for the estimated trends (ref e.g. Lefohn - TOAR). The annual mean concentration used for evaluating other species is of little interest when studying ozone. A common procedure is to look at the trend in the probability distribution of ozone, e.g. by calculating trends for various percentiles of the distribution.  
-
-[Ref: Lefohn, A.S., Malley, C.S., Smith, L., Wells, B., Hazucha, M., Simon, H., Naik, V., Mills, G., Schultz, M.G., Paoletti, E., De Marco, A., Xu, X., Zhang, L., Wang, T., Neufeld, H.S., Musselman, R.C., Tarasick, D., Brauer, M., Feng, Z., Tang, H., Kobayashi, K., Sicard, P., Solberg, S., Gerosa, G., 2018. Tropospheric ozone assessment report: Global ozone metrics for climate change, human health, and crop/ecosystem research. Elementa: Science of the Anthropocene 6, 27. https://doi.org/10.1525/elementa.279]
+Thus, the selection of ozone metrics is decisive for the estimated trends \citep[e.g.][]{LefohnTOAR2018}. The annual mean concentration used for evaluating other species is of little interest when studying ozone. A common procedure is to look at the trend in the probability distribution of ozone, e.g. by calculating trends for various percentiles of the distribution.  
 
 As explained above, the trends in six percentiles (10, 50, 75, 95, 98 and 99) of the daily maximum O$_3$ values were calculated for stations with at least 330 valid daily data each year. This corresponds to 90 \% data capture in the individual years. The 10th percentile corresponds to the 37th lowest daily maximum value while the 99th percentile corresponds to the 4th highest daily maximum. 
 
@@ -646,9 +644,8 @@ Figures \ref{fig:O3_aot40croptrends} and \ref{fig:O3_aot40foresttrends} show a c
 
 Summary statistics for the observed and modelled trends during 2000-2019 for the 75th and 99th percentiles as well as SOMO35, AOT40 for crops and AOT40 for forests are given in Table~\ref{tab:O3_stat} for sites north and south of 49 \degrees N. These data show the mean trend (as absolute values and relative to 2000 in percent) as calculated by the Theil-Sen's slope. The slopes for the percentiles were calculated by the pyaerocom tool as explained above while the slopes for SOMO35 and AOT40 were calculated by the R libraries 'Kendall' and 'zyp'. 
 
-In addition to the mean trends, the confidence intervals for these mean values are also given. The confidence intervals were computed by standard bootstrapping techniques (Davison and Hinkley, 1997) using the R library 'boot' (basic bootstrap method with 1000 resamples). Various bootstrap method were tested out and compared to direct calculations of the confidence intervals based on the sample mean and sample standard deviation. These comparisons showed that the various methods produced very similar estimates of the confidence intervals for the mean values and thus we conclude that the confidence intervals for the means are fairly robust. These confidence intervals could be used to judge if the mean observed trends differ from the mean modelled trends.
+In addition to the mean trends, the confidence intervals for these mean values are also given. The confidence intervals were computed by standard bootstrapping techniques \citep{DavisonHinkley:1997} using the R library 'boot' (basic bootstrap method with 1000 resamples). Various bootstrap method were tested out and compared to direct calculations of the confidence intervals based on the sample mean and sample standard deviation. These comparisons showed that the various methods produced very similar estimates of the confidence intervals for the mean values and thus we conclude that the confidence intervals for the means are fairly robust. These confidence intervals could be used to judge if the mean observed trends differ from the mean modelled trends.
 
-[ref: Davison, A.C., Hinkley, D.V., 1997. Bootstrap Methods and their Application, Cambridge Series in Statistical and Probabilistic Mathematics. Cambridge University Press, Cambridge. https://doi.org/10.1017/CBO9780511802843]
 
 
 First of all, it is interesting to note that downward trends are found for all the five metrics both north and south of 49 \degrees N and for both observed and modelled data. This is a strong signal that there has been a real reduction in these ozone metrics during the 2000-2019 period. Furthermore, for sites north of 49 \degrees N, the results indicate that there are no significant difference between the observed and modelled trends in the 75th and 99th percentiles. For sites south of 49 \degrees N the mean absolute trends agree very well for the observed and modelled data, but the relative changes in the observations are clearly lower than the modelled changes (reflecting that the model underpredicts the absolute level of the high percentiles). It could be noted that the number of statistically significant trends are considerably lower for the observed data compared to the modelled ones. 
@@ -1119,7 +1116,7 @@ OC/\pmfine.
 \end{figure}
 
 
-The relative contribution of carbonaceous aerosol, OM (OM = OC $\times$
+The relative contribution of carbonaceous aerosol, OM (assuming OM = OC $\times$
 1.4 for Ispra and 1.7 for the other sites)
  and EC, to the \pmfine mass concentration along with the major
 SIA species illustrates the importance of the OM fraction for a further
@@ -1128,8 +1125,7 @@ the natural and the anthropogenic fraction of the carbonaceous aerosol
 must be separated, then further into abatable categories. Separation of
 eBC into biomass burning/solid fuel (\EBCbb) and fossil fuel/liquid fuel
 (\EBCff) is possible using data from the multi wavelength aethalometer,
-currently available at $<$25 EMEP/ACTRIS sites across Europe \citep{Platt20XX}
-\QUERY{Refs: EMEP, 2020; EMEP, 2019; EMEP, 2014}. An obvious next
+currently available at $<$25 EMEP/ACTRIS sites across Europe \citep{Yttri:2014,Platt:2020a,Platt:2020b,Platt20XX}. An obvious next
 step is to implement such analysis as part of regular monitoring,
 making it possible to validate not only model performance, but also the
 effort made in reducing carbonaceous aerosol from fossil fuel and biomass
@@ -1182,7 +1178,7 @@ Obs.  &              15 &     2 &                  0.0001 &  (-0.003, 0.0032) & 
 
 
 
-\subsection{Trends in EC and OC, conclusion}
+\subsection{Trends in EC and OC, conclusions}
 \label{ss:trendsECOCconc}
 
 \COMMENT{DS to KE: I suggest simplifying the conclusions, making the main points but avoiding the detailed numbers (which have proved sensitive to time-windows). I'll write new text first, leaving the old below, so you can see my suggestions and we can agree...}
@@ -1190,12 +1186,12 @@ Obs.  &              15 &     2 &                  0.0001 &  (-0.003, 0.0032) & 
 
 \COMMENT{NEW TEXT:\\}
 
-For EC and OC we have calculated observed and modelled trends for 15 sites across Europe for the period 2010--2019. It should be noted that this 10-year period is rather short for the calculation of robust trends (and we show that slightly different time-windows produce different statistics), and typically only a limited number of sites showed trends that were statistically significant. However, some features of the trend analysis seem rather consistent, and we summarise the main points here. 
+For EC and OC we have calculated observed and modelled trends for 15 sites across Europe for the period 2010--2019. It should be noted that this 10-year period is rather short for the calculation of robust trends (and we show that slightly different time-windows produce different statistics), and typically only a limited number of sites showed trends that were statistically significant even for a specific time-window. However, some features of the trend analysis seem rather consistent, and we summarise the main points here. 
 
 A reduction (of ca. 4.5~\%/yr) in observed EC was found across 15 sites across Europe for the  period 
 2010--2019. The reduction in levoglucosan at the site Birkenes in southern Norway (which is significantly impacted by long-range transport of pollution from continental Europe) was found to be over 5\% also (though this number was very sensitive to the time-window), which suggests that emissions from residential wood combustion were reduced significantly over this period; this is also consistent with reported changes in the GNFR C emissions. However, observed EC reduction levels were rather similar in all seasons, which suggests that emissions abatement of EC has been successful across a range of emission sources. 
 
-In the winter season (DJF), reductions in observed EC and OC were very similar, with -4.3~\%/yr and -4.2~\%/yr respectively. Given that the winter OC concentrations are mainly determined by primary emissions and with minimal SOA contributions, this consistency of EC and OC reductions is also consistent with reductions in wintertime sources. Trends in observed OC in other seasons were however very mixed, with some stations showing increases, and others decreases, and with little statistical significance. This variability in station-to-station OC trends in other seasons reflects increasing contributions from SOA formation, which are sensitive to meteorological factors and biogenic emissions.
+In the winter season (DJF), reductions in observed EC and OC were very similar, with \mbox{-4.3~\%/yr} and -4.2~\%/yr respectively. Given that the winter OC concentrations are mainly determined by primary emissions and with minimal SOA contributions, this consistency of EC and OC reductions is also consistent with reductions in wintertime sources. Trends in observed OC in other seasons were however very mixed, with some stations showing increases, and others decreases, and with little statistical significance. This variability in station-to-station OC trends in other seasons reflects increasing contributions from SOA formation, which are sensitive to meteorological factors and biogenic emissions.
 
 The modelled trends in EC (reduction of ca. 4~\%/yr) were rather similar to the observed trends, also across all seasons, and the station-mean EC concentrations themselves were well reproduced by the model across the 10 year period. 
 For OC the model substantially underpredicts the yearly concentrations over the whole period, and also underpredicts the trends.  
@@ -1268,12 +1264,10 @@ although effort is needed to separate its natural and anthropogenic
 fraction to get a quantitative overview of the abatable fractions.\\
 
 
-\COMMENT{PUT TEXT FOR EXECUTIVE SUMMARY here and I can move it later:}\\
+\COMMENT{NEW AND PRELIM! TEXT FOR EXECUTIVE SUMMARY here and I can move it later:}\\
 
-The observed trends in annual EC and wintertime OC (ca. 4~\%/yr) suggest that abatement measures
-are having some success in reducing these components and PM in general. The reductions in levoglocosan also suggest a reduction in RWC emissions .....
-Problems with condensables impact EC and especially OC ....
-bla bla
+For EC and OC we have calculated observed and modelled trends for 15 sites across Europe for the period 2010--2019. A reduction (of ca. 4.5~\%/yr) in observed EC was found, and a similar reduction was found for OC in the winter months (when OC is expected to be most sensitive to primary emissions rather than SOA formation). These trends suggest that abatement measures are having some success in reducing both EC and OC in Europe, especially in wintertime.  The model reproduced modelled EC values and trends quite well, but underpredicted OC, both in terms of absolute values and trends. This underprediction is at least partly due to the omission of condensable organics in the reported emissions from some countries. 
+%
 The carbonaceous fraction appears particularly important for a
 further reduction in the observed \pmfine mass concentration in Europe,
 although effort is needed to separate its natural and anthropogenic
