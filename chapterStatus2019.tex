@@ -71,6 +71,8 @@ All the data are available from the EBAS database (\url{http://ebas.nilu.no/}) a
 120 sites reported measurements of inorganic ions in precipitation and/or main components in air. However, not all of these measurements were co-located, as illustrated in Figure~\ref{fig:EMEP-measurement-network}. There were 73 sites with measurements in both air and precipitation.  Ozone was measured at 138 EMEP sites. The number of sites is marginally lower than in 2018.
 
 There were 78 sites measuring either PM$_{10}$ or PM$_{2.5}$ mass. 50 of these sites measured both size fractions, as recommended in the EMEP Monitoring strategy \citep{MonStrat2019}. The stations measuring EMEP level 2 variables are shown in Figure~\ref{fig:levell2-sites} in Chapter \ref{sec:Compliance-with-monitoring}, along with a discussion on compliance with the monitoring obligations and the development of the programme during the last decade.
+
+
 \section{Setup for EMEP MSC-W model runs}
 \label{Mod_2019}
 
@@ -116,7 +118,7 @@ runs. The horizontal resolution is \resZO, with 20 vertical layers
 
 The ozone observed at a surface station is the net result of various physio-chemical processes: surface dry deposition and uptake in vegetation, titration by nearby \nox emissions, regional photochemical ozone formation and atmospheric transport of background ozone levels, each of which may have seasonal and diurnal systematic variations. Episodes with elevated levels of ozone are observed during the summer half year when certain meteorological situations (dry, sunny, cyclonic stable weather) promote the formation of ozone over the European continent. 
 
-There were four main ozone episodes in Europe in 2019 that occurred around days 23-28 in each of the months April, June, July and August and at a varying degree in different parts of the continent. Extreme levels of ozone even exceeding EU's alert threshold of 240 \ug were observed in several countries as explained in more detail below.
+There were four main ozone episodes in Europe in 2019 that occurred around days 23-28 in each of the months April, June, July and August and at a varying degree in different parts of the continent. Details for the first three of these episodes are discussed below. Extreme levels of ozone even exceeding EU's alert threshold of 240 \ug were observed in several countries as explained in more detail below.
 
 The April episode was linked to a blocking high pressure located over western parts of Russia and Belarus, setting up southeasterly winds bringing warm and dry continental air masses northwards particularly to the Baltic countries, Scandinavia and parts of the UK. At 25 April Northern Norway registered the second highest surface ozone level (82 ppb) since the start of the monitoring in 1990. Likely, agricultural fires in East Europe (Ukraine and Russia) contributed to the peak ozone levels. The modelled and observed daily maximum ozone levels for 24 April are shown in Figure~\ref{fig:O3_20190424}. 
 
@@ -207,12 +209,12 @@ Europe, increasing to 5-15 \ug in the mid-latitudes and further south,
 \PM[10]. Figure~\ref{fig:PMin2019} displays fairly homogeneous modelled levels of regional background PM over most of Central and Western Europe,
 with \PM[10] in excess of 20 \ug in the Po Valley and on Cyprus. The observations also show \PM[10] concentrations above 20 \ug in Slovakia. \PM[2.5] concentrations are below 10 \ug over most of EMEP domain (except the south/southeast most regions), or otherwise between 10 and 15 \ug in  parts of Benelux, Poland, Hungary and some of Balkan countries). The only site with observed annual mean \PM[10] above 15 \ug (namely 16.3 \ug) was Hungarian K-Puszta. Furthermore, the model calculates high PM for the regions east of the Caspian Sea (parts of Kazakhstan, Uzbekistan, Turkmenistan) and over the southern Mediterranean, with annual mean concentrations in excess of 50 \ug. These high PM concentrations are due to windblown dust from the arid soils and deserts of Central Asia, though the accurateness of the calculated values still cannot be verified due to the lack of observations in these regions.
 
-There is good agreement between the modelled and observed
+There is a good agreement between the modelled and observed
 distributions of annual mean \PM[10] and \PM[2.5], with correlation
-coefficients of 0.65 and 0.7, respectively. Overall, the model
-underestimates the observed annual mean of \PM[10] by 17\% and
-\PM[2.5] by 16\%. \textcolor{blue}{CHECK with and Refer to AeroVal....A comprehensive model evaluation is provided in~\cite{WEB2020:PM}.}
-%From BIC rerun: biases -12 and -13\%, correlation 0.60 and 0.72 for \PM[10] and \PM[2.5]
+coefficients of 0.60 and 0.72, respectively. Overall, the model
+underestimates the observed annual mean of \PM[10] by 12\% and
+\PM[2.5] by 13\% (see also Table \ref{tab:tableOldFashioned} in \ref{ch:appx_modeleval}). \textcolor{blue}{CHECK with and Refer to AeroVal....}
+
 
 Overall, the year of 2019 was quite moderate with respect to PM air pollution in Europe, which was due to dominating meteorological conditions that year. It was relatively warm across the EMEP area (Figure~\ref{fig:metyear-avMET}), in particular in the cold half-year (Figure~\ref{fig:temp-avMET}). Mild winter conditions would mean less need for residential heating, resulting in lower emissions from this sector. Moreover, stagnant air conditions (with temperature inversion, low wind speed and thin mixing layer), typically causing elevated pollution levels, are less frequent in warm winters. Also, the spring/summer period was relatively warm (except from Russia, Kazakhstan, Finland, most of Sweden, Spain and Portugal). During those months, the higher temperatures would enhance evaporation of semi-volatile inorganic and organic aerosols (SIA and SOA), though the more efficient oxidation contributes to secondary aerosol formation. Furthermore, the year 2019 was relatively dry over most of Europe (except in the south and parts of Scandinavia), in EECCA countries, and most of Russia (except from the northern regions), as shown in Figure~\ref{fig:metyear-avMET}. However, the amount of precipitation was also relatively large in the cold half-year in Denmark, France, the UK and parts of Germany (Figure~\ref{fig:prec-avMET}). As documented in ~\citet{CAMS2020}, the wet end of the year in western and southern Europe was the most prominent feature of precipitation in 2019, with 
 November being particularly extreme, both in terms of the total rainfall amounts and the number of days with heavy rainfall. As wet scavenging is the main PM removal mechanism, this, combined with the mild winter temperatures, resulted in the lower levels of PM pollution in winter 2019 over most of Europe.   
@@ -224,7 +226,7 @@ November being particularly extreme, both in terms of the total rainfall amounts
 \label{fig:PManomin2019}
 \end{figure}
 
-Figure~\ref{fig:PManomin2019} presents the relative anomalies of mean \PM[10] and \PM[2.5] concentrations in 2019 relative to 2000-2018 averages simulated with the same model version, used for 2019 reporting. It shows that the PM pollution in 2019 was rather moderate, with annual mean concentrations being 5-20\% lower than the 2000-2018 averages over most of the EMEP domain, and 20-30\% lower compared to the 18-year average in Central Europe for \PM[10], and over an even larger area also covering most of Europe (except Northern Europe) and northern Russia for \PM[2.5]. Only along NW/N coasts in Fennoscandia and some south-eastern regions (parts of Turkey, the Caucasus region and Central Asian countries), \PM[10] and \PM[2.5] levels in 2019 were higher relative to the 2000-2018 averages. 
+Figure~\ref{fig:PManomin2019} presents the relative anomalies of mean \PM[10] and \PM[2.5] concentrations in 2019 relative to 2000-2018 averages, based on the 2000-2019 trend runs performed with the EMEP MSC-W model using a consistent emission data-set based on officially submitted data, as documented in Chapter \ref{ch:Trends}. In order to look at the sole effect of meteorological conditions on PM pollution, also 2019 run used here is based on the reported emissions and thus different from the 2019 Status run (in which TNO's emissions for residential combustion are used, as documented in Section \ref{Mod_2019}). Figure~\ref{fig:PManomin2019} shows that the PM pollution in 2019 was relatively moderate, with annual mean concentrations being 5-20\% lower than the 2000-2018 averages over most of the EMEP domain, and 20-35\% lower compared to the 18-year average in Central Europe and over vast areas in the N/NE of Russia. Only along NW/N coasts in Fennoscandia, parts of Spain and some south-eastern regions (parts of Turkey, the Caucasus region and Central Asian countries), \PM[10] and \PM[2.5] levels in 2019 were higher relative to the 2000-2018 averages. 
 
 
 \subsubsection[PM exceedances]{Exceedances of EU limit values and WHO Air Quality Guidelines in 2018}
@@ -320,7 +322,7 @@ For sulphur, many hot spots are found in the south-eastern part of the domain. I
 Oxidised nitrogen depositions are highest in northern Germany, the Netherlands, Belgium, Poland and northern Italy. These countries also have high depositions of reduced nitrogen, as do parts of the United Kingdom, France and Belgium in western Europe, and Turkey, Georgia, Armenia, Azerbaijan, Kyrgyzstan, Uzbekistan and Tajikistan in the east. 
 
 In Figure \ref{wdeps} wet depositions of nitrogen and sulphur compounds are compared to measurements at EMEP sites for 2019. Overall, the bias of the model with respect to measurements is around 
--34\% to +19\% (XXX Check numbers when Hans have made web site), but higher for individual sites. A more detailed comparison between model and measurements for the year 2019 can be found at WEBADDRESS XXXX((((OLD:in \cite{WEB2020:SN} )).
+-32\% to +19\% (Appendix~\ref{ch:appx_modeleval}), but higher for individual sites. A more detailed comparison between model and measurements for the year 2019 can be found at \url{https://aeroval.met.no/evaluation.php?project=emep&exp_name=2021-reporting}.
 
 \begin{figure}[H]
   \centering
