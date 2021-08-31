@@ -166,10 +166,10 @@ This integral is evaluated over time, from the
 start of the growing season (SGS), to the end (EGS).
 
 For the generic crop and forest species, the suffix $gen$ can be
-applied, e.g. POD$_{Y, gen}$ (or \AFSTDF) is used for forests.
+applied, e.g. POD$_{Y, gen}$ is used for forests.
 POD was introduced in 2009 as an easier and  more descriptive term for the
-accumulated ozone flux. The definitions of AFst and POD are identical
-however, and are discussed further in \citet{R2010:Fluxes}. See
+accumulated ozone flux (\AFstY was used previously). The definitions of POD are 
+discussed further in \citet{R2010:Fluxes}. See
 also \citet{MillsGCB2011,MillsAE2011} and \citet{MillsGCB2018a}.
 
 
@@ -183,28 +183,26 @@ AOT40 = \int \max(O_3 - 40 \mbox{\, ppb}, 0.0) \, dt
 
 where the {\tt max} function ensures that only ozone values exceeding 40
 ppb are included.  The integral is taken over time, namely the
-relevant growing season for the vegetation concerned. The
+relevant growing season for the vegetation concerned, and in some daytime period. The
 corresponding unit are ppb.hours (abbreviated to ppb.h).  The usage
 and definitions of AOT40 have changed over the years though, and also
 differ between UNECE and the EU.
 \cite{MappingManual:Veg} give the latest definitions for UNECE work, and
 describes carefully how AOT40 values are best estimated for local
 conditions (using information on real growing seasons for example),
-and specific types of vegetation.  Further, since O$_3$ concentrations
-can have strong vertical gradients, it is important to specify the
-height of the O$_3$ concentrations used. In previous EMEP work we have
-made use of modelled O$_3$ from 1~m or 3~m height, the former being
-assumed close to the top of the vegetation, and the latter being
-closer to the height of O$_3$ observations.  In the Mapping Manual
-\cite[]{MappingManual:Veg} there is an increased emphasis on
+and specific types of vegetation.  In the EU approaches \ce{O3} concentrations are taken directly from observations (at typically ca. 3~m height), or grid-average 3~m modelled values, for the AOT40 calculations. In the Mapping Manual
+\cite[]{MappingManual:Veg} approaches, there is a strong emphasis on
 estimating AOT40 using ozone levels at the top of the vegetation
-canopy.
+canopy. Since O$_3$ concentrations can have strong vertical gradients, this approach leads to lower AOT40 estimates than with the EU approach.
 
-Although the EMEP MSC-W model now generates a number of AOT-related outputs,
-in accordance with the recommendations of \cite{MappingManual:Veg}
-we will concentrate in this report on two definitions:
+The EMEP MSC-W model now generates a number of AOT-related outputs,
+in accordance with the recommendations of \cite{MappingManual:Veg}, but in this report we will concentrate in this report on four definitions, derived from either `EU' approach or `UNECE' approaches:
 
 \begin{description}
+   \item[AOT40c] - AOT40 calculated using EU criteria, from modelled (3~m) or observed ozone, for the assumed crop growing season of May--July. Here we use the EU definitions of day hours as 08:00--20:00.
+   
+   \item[AT40f] - AOT40 calculated  using EU criteria from modelled 3~m ozone, or observed ozone, for the assumed forest growing season of April--September. Here we use the EU definitions of day hours as 08:00--20:00.
+   
    \item[\aotucf] %\item[AOT40$_f^{uc}$]
      - AOT40 calculated for
    forests using estimates of O$_3$ at forest-top ($uc$:
@@ -219,14 +217,14 @@ we will concentrate in this report on two definitions:
    growing season of May-July, and a default crop-height of 1~m.
 \end{description}
 
-In all cases only daylight hours are included, and for practical
-reasons we define daylight for the model outputs as the time when the
+For \aotucf and \aotucc only daylight hours are included, and for practical
+reasons we define daylight in the  model outputs as the time when the
 solar zenith angle is equal to or less than 89\degrees. (The proper
 UNECE definition uses clear-sky global radiation exceeding 50 W
 m$^{-2}$ to define daylight, whereas the EU AOT definitions use day
 hours from 08:00-20:00.).
-In the comparison of modelled and observed \aotucf in chapter \ref{ch:chapterStatus}, we have used the EU AOT definitions of day
-hours from 08:00-20:00.
+
+In practice, it is very difficult to convert measured \ce{O3} from an EMEP observation site to the UNECE AOT40 values, since there are no data with which is to estimate the vertical gradient to get to upper-canopy \ce{O3}. Therefore, in the comparison of modelled and observed AOT40s in chapter \ref{ch:chapterStatus} and \ref{ch:Trends}, we have used the EU AOT definitions, since this approach is readily applicable to observed as well as modelled values. We do, however, present source-receptor calculations for the UNECE metrics \aotucf and \aotucc in Chapter~\ref{ch:appx_sr2019}.
 
 The AOT40 levels reflect interest in long-term ozone exposure which is
 considered important for vegetation - critical levels of 3~000~ppb.h
