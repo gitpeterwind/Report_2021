@@ -114,7 +114,9 @@ Model output is given on daily resolution, including the daily max O$_3$. To com
 
 The monthly time series of the collocated model and observation data were output as csv files for each individual site. The scripts used for processing the data and calculating trends are available from a GitHub repository (\url{https://github.com/metno/emep_trends_2021}). The processed data itself, including relevant station metadata and trends results, are available in a separate location which is linked to in the description of the repository.
 
-The same methodology as described by \cite{aas2019global, mortier2020} has been used to derive the trends at the individual stations. The significance of the trends is tested with the Mann-Kendall test \citep{hamed1998modified}. The related p-value is used to determine if the trend is significant or not within a confidence interval of 68\%. The slope is calculated with the Theil-Sen estimator which is less sensitive to outliers than standard least-squares methods \citep{sen1968estimates}.
+Some of the trend calculations have not been done using the pyaerocom software. I.e. the trends in EC and OC have been calculated using the python pyMannKendall package \citep{Hussain2019}, the gridded modelled trends using an IDL package, while SOMO30 and AOT40 trends by the Mann Kendall package in R.
+
+The same methodology as described by \cite{aas2019global, mortier2020} has been used to derive the trends at the individual stations. The significance of the trends is tested with the Mann-Kendall test \citep{hamed1998modified}. The related p-value is used to determine if the trend is significant or not within a confidence interval of 68\%. A p-value less than 0.05 is defined as statistically significant. The slope is calculated with the Theil-Sen estimator which is less sensitive to outliers than standard least-squares methods \citep{sen1968estimates}.
 
 An uncertainty is provided for each trend by combining the error of the slope calculation itself to the error of the residuals:
 
@@ -126,7 +128,6 @@ where $\Delta m$ is the Theil-Sen estimator 95\% confidence interval, $y(start)$
 
 In order to allow for consistent comparisons, the trend is provided as a relative trend (\%/yr) with respect to the first year of the time period.
 
-\COMMENT{WAa: I have written something on aggregation of trends. Maybe more is needed.  We should probably explain the statistics done by NILU (thus not pyaerocom). Maybe we need to upload the statistics on the Github repository}
 The trends and their uncertainties for all the individual sites are available from the mentioned GitHub repository. In the following sections aggregated trends are presented. These have been calculated making averages of the Sen slopes or relative trends for all the sites, also those with not significant trends. It should be noted that the 95\% confidence intervals given for the average trends not necessarily indicate the robustness in the trend value, especially when there are few sites with significant trends.
 
 
@@ -768,7 +769,7 @@ These points about model-measurement comparison for EC are discussed further in 
 \begin{tabular}{llcc|cccc|cccc}
 \toprule
 %\hline
-               \multicolumn{4}{c}{Number of sites} & \multicolumn{4}{c}{Average Change (\ug $yr^{-1})$} & \multicolumn{4}{c}{Relative change (\% $yr^{-1}$)} \\
+               \multicolumn{4}{c}{Number of sites} & \multicolumn{4}{c}{Absolute change (\ug $yr^{-1})$} & \multicolumn{4}{c}{Relative change (\% $yr^{-1}$)} \\
  Season &           Total & Sign. & Sign. &                   obs. &          Conf.interval &  Mod. &          Conf.interval &                     Obs. &         Conf.interval &  Mod. &        Conf.interval \\
        &                  & (Obs.)    & (Mod.)     &   &  &  & & & & & \\
 \midrule
@@ -888,7 +889,7 @@ an increase, typically <0.5~\%/yr, for four of the sites. These points about mod
 \scalebox{0.7}{%
 \begin{tabular}{llcc|cccc|cccc}
 \toprule
-\multicolumn{4}{c}{Number of sites} & \multicolumn{4}{c}{Average change per year (\ug $yr^{-1})$} & \multicolumn{4}{c}{Relative change per year (\% $yr^{-1}$)} \\
+\multicolumn{4}{c}{Number of sites} & \multicolumn{4}{c}{Absolute change (\ug $yr^{-1})$} & \multicolumn{4}{c}{Relative change (\% $yr^{-1}$)} \\
 Seasons &  No. & sign. & sign. &                    obs. &          conf.interval &  mod. &          conf.interval &                     obs. &         conf.interval &  mod. &        conf.interval \\
        &                 &  (obs.)    & (mod.)  & & & & & & & & \\
 \midrule
@@ -987,7 +988,7 @@ Figure~\ref{fig:gnfrCtrends} shows that for some countries, for example France, 
 The issues with condensable organics (Sect.~\ref{ss:IssuesECOC}) impact these estimates of \pmfine emissions and their trends also, and Figure~\ref{fig:gnfrCtrends} is a good illustration of this. France is a country which includes condensables, and Germany is one that does not \citep{CONDws2020}. This difference is a major reason for the magnitude of the French GNFR C emissions compared to those of the more highly populated Germany. 
 
 
-%caution should be made drawing firm conclusions from such short time series as those %presented here\COMMENT{ Yes!}, illustrated by the different reductions calculated for %levoglucosan for 2008--2018 and for 2010--2019.
+
 
 We can note that \citet{Yttri2021} also found a statistically significant trend of similar magnitude and sign
 (-4.2~\%/yr)  for EC for 2010--2019 as for 2001--2018
@@ -1003,7 +1004,8 @@ the model-calculated reduction equaled that based on observations,
 whereas it was lower for the other seasons. As for the observations,
 the model predicted a reduction in EC for all sites, but for a few sites
 the model estimated a reduction that was 3--4 times larger than seen
-for the observations.}
+for the observations.
+}   % END SKIP
 
 \begin{figure}
     \centering
