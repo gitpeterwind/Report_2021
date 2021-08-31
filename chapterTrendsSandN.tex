@@ -9,7 +9,7 @@
 At its thirty-ninth session (Geneva, 9–13 December 2019), the Executive Body launched the review of the Protocol to Abate Acidification, Eutrophication and Ground-level Ozone (the Gothenburg Protocol) as amended in 2012. In order to assess  the progress made towards achieving the environmental and health objectives of the Protocol, a
 list of questions was given to the subsidiary bodies of the Air Convention. Several of these questions were related to the trends of air pollution in Europe. 
 
-In this chapter, we present an assessment of the trends in air pollution in Europe for the period 2000-2019 based on long term observational data from the EMEP network as well as EMEP MSC-W model calculations. We analyze trends in air quality for ozone, sulphur dioxide, particulate matter (and their species; sulphate, nitrate, ammonium, elemental carbon and organic carbon), oxidized and reduced nitrogen as well as wet deposition of sulphur and nitrogen species. In addition, we present trends in some indicators of health and vegetation risk (SOMO35, exceedances of WHO Air Quality Guidelines (AQG) values for PM$_{2.5}$, AOT40 for forests and crops, exceedances of critical loads for acidification and eutrophication for every 5th year since 2000).
+In this chapter, we present an assessment of the trends in air pollution in Europe for the period 2000-2019 based on long term observational data from the EMEP network as well as EMEP MSC-W model calculations. We analyze trends in air quality for ozone, sulphur dioxide, particulate matter (and their species; sulphate, nitrate, ammonium, elemental carbon and organic carbon), oxidized and reduced nitrogen as well as wet deposition of sulphur and nitrogen species. In addition, we present trends in some indicators of health and vegetation risk (SOMO35, exceedances of WHO Air Quality Guidelines (AQG) values for PM$_{2.5}$ and PM$_{10}$, AOT40 for forests and crops, exceedances of critical loads for acidification and eutrophication for every 5th year since 2000).
 \QUERY{Sverre to say why we did not cover VOC}
 
 Unfortunately, the EMEP observational network is dominated by sites in western Europe and has hardly any coverage in the EECCA and western Balkan area. Therefore, the assessment discussed in this chapter is only valid for a part of the EMEP domain. As discussed in chapter \ref{ch:emis2019}, the development of emissions in the western and eastern part of the EMEP domain follow different patterns, with clear decreases of all pollutants in the western countries  but more stable (albeit gradually decreasing for most pollutants) in the eastern part of the domain over the 2000-2019 period. Thus, the trends in the eastern part of the EMEP domain are expected to be different than those presented here for the western part of the domain. Note however, that the uncertainties related to emissions and their trends in the eastern countries are large (see chapter \ref{ch:emis2019}).
@@ -40,7 +40,11 @@ Volcanic \sox emissions from passive degassing of Italian volcanoes (Etna,
 Stromboli and Vulcano) are those reported by
 Italy. \sox and PM emissions from volcanic eruptions of Icelandic volcanoes in the period 2000-2019 (Eyjafjallaj\"okull in 2010, Gr{\'{\i}}msv{\"{o}}tn in 2011  and  Bar\dh{}arbunga in 2014-2015) are reported by Iceland. 
  
-The speciation of PM emissions into emissions of elemental carbon (EC), promary organic aerosol (POA) OM and `remPPM' (remaining PPM) components was based on ECLIPSE v6b emission data \footnote{\url{https://iiasa.ac.at/web/home/research/researchPrograms/air/ECLIPSEv6.html}}. These ECLIPSE emissions are given in 5-year intervals (2000, 2005, etc.); intermediate years were derived by linear interpolation. However, all years after 2015 used the 2016 speciation of PM emissions. The VOC speciation was based upon data from various CAMS datasets as described in \cite{R2020:ModDev}, and NOx speciation into NO, \ce{NO2} and `shipNOx' was based upon \QUERY{Older IIASA? Who did this - what is source?}. For NOx and VOC the same (sector-based) speciations were used for all years.
+The speciation of PM emissions into emissions of elemental carbon (EC), primary organic aerosol (POA), and `remPPM' (remaining PPM) components was based on ECLIPSE v6b emission data \footnote{\url{https://iiasa.ac.at/web/home/research/researchPrograms/air/ECLIPSEv6.html}}. These ECLIPSE emissions are given in 5-year intervals (2000, 2005, etc.); intermediate years were derived by linear interpolation. However, all years after 2015 used the 2016 speciation of PM emissions. The VOC speciation was based upon data from various CAMS datasets as described in \cite{R2020:ModDev}. NOx speciations (into NO, \ce{NO2} and `shipNOx') were as used in previous reports.
+\SKIP{
+and NOx speciation into NO, \ce{NO2} and `shipNOx' was based upon Older IIASA? Who did this - what is source?
+} % END SKIP
+For NOx and VOC the same (sector-based) speciations were used for all years.
 Soil NO$_x$ emissions were based on the new CAMS-GLOB-SOIL v2.2 NO$_x$ inventory \citet{SimpsonDarras:2021}. Soil-NO$_x$ emissions which are related to the use of fertilizer were not taken from the CAMS-GLOB-SOIL inventory, as these are already included in the EMEP (CEIP) emissions.
 A revised set of anthropogenic emissions for all the years 2000-2019 has been used in the model calculations (including all the reported and re-reported data by June 2021), see Chapter~\ref{ch:emis2019}.
 
@@ -48,13 +52,11 @@ A revised set of anthropogenic emissions for all the years 2000-2019 has been us
 \subsection{Issues with inventories used in modelling}
 \label{ss:IssuesECOC}
 
-\COMMENT{DS: Moved from ECOC section. Text in-progress...}
-
 The problems with condensable organics in EMEP emission
 inventories have been highlighted in a number of studies
 \citep{DeniervanderGon2015,R2015:SVOC,TFMM2018,R2019:SVOC,R2020:CAMSREF2,R2020:SVOC},
 with an expert meeting convened on this subject in 2020 by MSC-W
-\citep{CONDws2020}. Using the notation of \citep{CONDws2020}, we can
+\citep{CONDws2020}, and have resulted in the REF2 and REF2.1 emissions discussed in Sect.~\ref{sec:EmisSVOC}. Using the notation of \citep{CONDws2020}, we can
 write:
 
 
@@ -71,9 +73,9 @@ exclude the CPOA component from their reporting of \pmfine emissions. Further, e
 for the same country, CPOA might be included or excluded differently for
 different sectors. In many case, countries did not have the technical
 information needed to know the extent of inclusion for specific
-sectors. Inclusion of exclusion or the extent of inclusion of CPOA has
+sectors. Inclusion or exclusion, or the extent of inclusion of CPOA, has
 also changed over the years, which directly complicates trend analysis
-of emissions. \COMMENT{Can CEIP comment on this?!}
+of emissions.
 
 Thus, PM emissions from countries which include CPOA might appear
 larger than from countries which exclude CPOA, even if both countries
@@ -103,7 +105,7 @@ EMEP reported data for the European region, then the emissions of both POA and E
 The observations used have all been reported to EMEP and are openly available from the EBAS database (\url{http://ebas.nilu.no}). The time series have been selected based on statistical criteria as described in section  \ref{Method}. Sites which are situated higher than 2000 m.a.s.l. have been excluded (except DE0003R at 2007 m.a.s.l.) in addition to NO0042G at 474 m.a.s.l. These sites are often measuring above the boundary layer, which is not well represented by a model with a resolution of \resZO. For EC and OC, only observations using the reference method EUSAAR-2 \citep{Cavalli:EUSAAR} has been selected and due to lack of long consistent time series, statistics are only done for the last decade for these compounds. Further, visual inspection of the time series revealed some data sets with very high annual variability and inconsistent development. This can be due to contamination of the samples, change in methods or in the surroundings. Some of these time series have been excluded. Some sites which have moved a very short distance during the time period has been combined into one times series, i.e.: FI0017R and FI0018R, NO0001R and NO0002R, SE0002R and SE0014R, SE0011R and SE0020R. An overview of all the sites that has been used for the different components and periods are found in Table \ref{tab:sites_trend} in Appendix \ref{ch:appx_trends}
 
 \section{\label{Method}{Method for calculation of trends}}
-Both observed and modelled trends were processed with the pyaerocom software (\url{https://github.com/metno/pyaerocom}, version XXX) for the following periods: 2000-2019, 2005-2019, 2000-2010, and 2010-2019. All observations were provided via the EBAS database. 
+Both observed and modelled trends were processed with the pyaerocom software (\url{https://github.com/metno/pyaerocom}) for the following periods: 2000-2019, 2005-2019, 2000-2010, and 2010-2019. All observations were provided via the EBAS database. 
 
 In order to compute trends, for each station and variable, time series data was merged in time to cover the respective time period for the trends.
 Since the provided temporal resolution can change over time for a given site, the lowest common resolution was identified and higher resolution data were down-sampled to that resolution during the merging process. For temporal re-sampling, a conservative scheme was used requiring ca 75\% coverage in a hierarchical manner, that is, at least 18 hourly measurement values to retrieve a daily mean, and at least 21 daily values to retrieve a monthly mean. Trends are computed based on yearly averages, as described in more details below. To retrieve the yearly averages, at least one monthly value is required per season. In addition to trends based on yearly averages, seasonal trends are computed as well for all variables but O$_{3}$ which is focusing on the summer maximum using percentiles (details below). In addition to this conservative re-sampling scheme, a second analysis was done using 25\% coverage constraint instead of 75\% coverage. Finally, a minimum number of yearly averages was required to be available for the trends computation depending on the length of the period, corresponding to ca 75\% (e.g. 14 yearly values for the period 2000-2019).
@@ -112,7 +114,7 @@ For O$_3$, the re-sampling was done differently, that is, daily max values were 
 
 Model output is given on daily resolution, including the daily max O$_3$. To compute the model trends, the model output for each variable was collocated in space and time with the observations. Collocation in space was done by picking the nearest model grid to each station. Collocation in time was done by first re-sampling both model and observation data to the lowest common temporal resolution, then invalidating the model output at times when observations are missing, and finally calculating the monthly mean of both. Precipitation (reported in units of mm) was collocated in time based on monthly aggregates, which were calculated independently for model and observations.
 
-The monthly time series of the collocated model and observation data were output as csv files for each individual site. The scripts used for processing the data and calculating trends are available from a GitHub repository (\url{https://github.com/metno/emep_trends_2021}). The processed data itself, including relevant station metadata and trends results, are available in a separate location which is linked to in the description of the repository.
+The monthly time series of the collocated model and observation data were output as csv files for each individual site. The scripts used for processing the data and calculating trends are available from a GitHub repository (\url{https://github.com/metno/emep_trends_2021}). The processed data itself, including relevant station metadata and trends results, are available in a separate location which is linked to in the description of the repository. The time series  comparing the modelled and observed trends at the individual sites are plotted and are available at the TFMM web page: \url{https://projects.nilu.no/ccc/tfmm/timeseries_GPrev/}
 
 Some of the trend calculations have not been done using the pyaerocom software. I.e. the trends in EC and OC have been calculated using the python pyMannKendall package \citep{Hussain2019}, the gridded modelled trends using an IDL package, while SOMO30 and AOT40 trends by the Mann Kendall package in R.
 
@@ -126,7 +128,7 @@ An uncertainty is provided for each trend by combining the error of the slope ca
 
 where $\Delta m$ is the Theil-Sen estimator 95\% confidence interval, $y(start)$ is the value of the regression line at the first year of the period, $m$ is the value of the Theil-Sen slope and $\Delta r$ is the averaged error on the residuals computed based on the difference between the linear trend and the yearly mean values of the regional time series.
 
-In order to allow for consistent comparisons, the trend is provided as a relative trend (\%/yr) with respect to the first year of the time period.
+In order to allow for consistent comparisons, the trend is provided as a relative trend (\%/yr) with respect to the first year of the time period, i.e. the intercept of the time series.
 
 The trends and their uncertainties for all the individual sites are available from the mentioned GitHub repository. In the following sections aggregated trends are presented. These have been calculated making averages of the Sen slopes or relative trends for all the sites, also those with not significant trends. It should be noted that the 95\% confidence intervals given for the average trends not necessarily indicate the robustness in the trend value, especially when there are few sites with significant trends.
 
@@ -135,7 +137,7 @@ The trends and their uncertainties for all the individual sites are available fr
 
 The SO$_x$ emissions have declined by more than 80\% (-4.3\% yr$^{-1}$) within part of the EMEP domain (EU27+UK+EFTA countries) the last two decades, and both the observed and modelled trends for all the atmospheric sulfur components show a substantial decrease (Figure~\ref{fig:SOx_trends} and Table ~\ref{tab:so2_stat} - ~\ref{tab:so4dep_stat}), in line with several studies on trends published lately (\cite{aas2019global,TFMM2016, Vivanco2018, Theobald2019, Colette2021, Banzhaf2015, torseth2012, Crippa2016}). A majority of the time series show significant trends for the 20 year period for all the compounds (Table ~\ref{tab:so2_stat} - ~\ref{tab:so4dep_stat}).
 
-The spatial distribution of the relative trends (Figure~\ref{fig:Strends_map}) show that the decreases have been quite homogeneous across Europe west of Russia, though somewhat higher in Spain and France and lower in Poland. It has been higher reductions in the primary \soii compared to  secondary \soiv. The greater decrease in \soii compared to secondary sulphate is due to a combine effect of higher oxidation rate (hence more \soii converted to \soiv) and increased dry deposition rate of \soii. The oxidation capacity of the atmosphere have increased as the emissions have decreased \cite{Dalsoren2016}, and the clouds have become less acidic due to less \soii and only slightly decrease in \nhiii, which has increased the oxidation rate of \soii to \soiv via the ozone pathway (\cite{Banzhaf2015, Redington2009}). In addition, less acidity in the environment probably leads to more efficient dry deposition of \soii (\cite{Fowler_et_al:2009}) 
+The spatial distribution of the relative trends (Figure~\ref{fig:Strends_map}) show that the decreases in sulfur air concentrations and wet deposition have been quite homogeneous across Europe west of Russia, though somewhat higher in Spain and France and lower in Poland. It has been higher reductions in the primary \soii compared to  secondary \soiv. The greater decrease in \soii compared to secondary sulphate is due to a combine effect of higher oxidation rate (hence more \soii converted to \soiv) and increased dry deposition rate of \soii. The oxidation capacity of the atmosphere have increased as the emissions have decreased \cite{Dalsoren2016}, and the clouds have become less acidic due to less \soii and only slightly decrease in \nhiii, which has increased the oxidation rate of \soii to \soiv via the ozone pathway (\cite{Banzhaf2015, Redington2009}). In addition, less acidity in the environment probably leads to more efficient dry deposition of \soii (\cite{Fowler_et_al:2009}) 
 
 On average the reductions in observations for the last 20 years (2000-2019) are -3.9, -3.2 and -3.1\% yr$^{-1}$ for \soii, \soiv in aerosols and in wet deposition respectively, while the trends in model calculations are somewhat higher: -5.1, -3.8 and -4.3\% yr$^{-1}$, respectively. The overestimation in sulfur trends by the model is seen both for relative and absolute trends for \soii, and wet deposition of \soiv while for \soiv in aerosols the absolute trend is higher in observations, but within the 95\% confidence interval to the modelled trends.  \COMMENT{WAa: Hilde, can you include a sentence why the model and emissions is overestimating?}
 \COMMENT{Hilde: It is not clear why the trends calculated by the model is larger than the trends in observations. However, it is worth noting that also the trends in reported emissions are larger than the trends in the different sulphur components in observations. The mismatch between the calculated trends and the observed trends are particularly large for Eastern Spain and parts of Eastern Europe. These differences between the calculated trends, the trends in emissions and the trends in observations might potentially indicate that the emission reductions reported by the countries are somewhat optimistic for some countries. However, firm conclusions is difficult to draw as we do not monitor the full sulphur budget (e.g. dry deposition of sulphur is lacking). Furthermore, changes in emissions distribution that are not correctly accounted for or missing processes in the model could also play a role. }
@@ -144,7 +146,7 @@ The relative difference between the two decades are small. The changes in SO$_x$
 
 It is not big differences in the seasonal trends, especially not for the modelled trends.It is however higher absolute changes in \soii for both observations and model during the winter (\ref{fig:SOx_trends}, but the relative trends are similar for all periods.
 
-Emission reduction commitments in the Gothenburg protocol for sulphur dioxide are of 59\% from the base year of 2005 to the target year 2020, for the countries in the European Union. The reported emission reductions for the 2005-2019 period in the EU27+UK+EFTA countries are 75\%, which are reflected in the modelled results with a reduction of 74\% in \soii, 56\% in \soiv in aerosols and 63\% in wet deposition of \soiv. The observations show lower trends than the emissions (and model), with 60\% in \soii, 49\% in \soiv in aerosol and 40\% for wet deposition of \soiv. Thus the target of the Gothenburg protocol is met by the observed and modelled primary \soii.
+For the period of 2005-2019 (starting with the reference year of the Gothenburg protocol, the reported emission reductions for the 2005-2019 period in the EU27+UK+EFTA countries are 75\%, which are reflected in the modelled results with a reduction of 74\% in \soii, 56\% in \soiv in aerosols and 63\% in wet deposition of \soiv. The observations show lower trends than the emissions (and model), with 60\% in \soii, 49\% in \soiv in aerosol and 40\% for wet deposition of \soiv.
 
 
 
@@ -245,7 +247,7 @@ The agreement between the trends calculated from observations and from the model
 
 
 
-The trends in wet deposition of oxidized nitrogen reflects the long range transported oxidized nitrogen (e.g. NO$_x$ that has been converted to nitric acid and particulate nitrate and then washed out by rain) and is less sensitive to local changes. Also the trends for wet deposition of nitrate are lower in the observations than in the model calculations (and emissions of NO$_x$) for the 2000-2019 period. Whilst the average trend in observations is -1.4\% yr$^{-1}$ (total of -26\%), the model calculates the trend at the same sites to be -2.1 \% yr$^{-1}$ (total of -40\%), close to the trends in emissions from the western EMEP domain (-48\%). The difference between the trend in observations (and emissions?) are largest during the first period, similar to the results for NO$_2$. However, the model overestimates nitrate wet deposition somewhat up to around 2010, and are then shifted downward and in very good agreement with observations for the years after. Note that the number of sites with significant trends for the shorter periods are small, and thus the results encumbered with more uncertainty.
+The trends in wet deposition of oxidized nitrogen reflects the long range transported oxidized nitrogen (e.g. NO$_x$ that has been converted to nitric acid and particulate nitrate and then washed out by rain) and is less sensitive to local changes. Also the trends for wet deposition of nitrate are lower in the observations than in the model calculations (and emissions of NO$_x$) for the 2000-2019 period. Whilst the average trend in observations is -1.4\% yr$^{-1}$ (total of -26\%), the model calculates the trend at the same sites to be -2.1 \% yr$^{-1}$ (total of -40\%), close to the trends in emissions from the western EMEP domain (-48\%). The difference between the trend in observations are largest during the first period, similar to the results for NO$_2$. However, the model overestimates nitrate wet deposition somewhat up to around 2010, and are then shifted downward and in very good agreement with observations for the years after. Note that the number of sites with significant trends for the shorter periods are small, and thus the results encumbered with more uncertainty.
 
 For particulate nitrate, nitric acid and their sum the results are more complex. The number of sites are few (especially for nitric acid, with only 6 sites), the coverage of Europe more scattered and the quality of the measurements is worse. 
 
@@ -398,13 +400,13 @@ Figure~\ref{fig:Nred_trends} shows an overview of the annual and seasonal trends
 
 Indeed, both observations and model calculations find very few significant trends in wet deposition of reduced nitrogen. Out of 47 sites with long term measurements at EMEP background sites, only 14 (8) are significant for the observations (model). The average change in the observations for 2000 to 2019 is -0.14\% yr$^{-1}$, with a confidence interval from -0.1\% yr$^{-1}$ to +0.52\% yr$^{-1}$, while the model show an average trend of -0.4\% yr$^{-1}$ and a confidence interval of -0.7\% yr$^{-1}$ to -0.1\% yr$^{-1}$. For the shorter time periods (2000-2010 and 2010-2019) there are even fewer sites with significant trends (see Table~\ref{tab:nh4dep_stat}).
 
-Total ammonium (NH$_3$ + NH$_4$)) in air show a more negative trend in observations (model) of about -1.45\% yr$^{-1}$ (-1.33\% yr$^{-1}$) and with a larger fraction of the sites having significant trends. This trend is larger than the reduction in ammonia emissions for EU27+UK+EFTA countries (-12\%), in total 27\% (25\%) in observations (model calculations) for 2000-2019.
+Total ammonium (NH$_3$ + NH$_4$) in air show larger negative changes in observations (model) of about -1.45\% yr$^{-1}$ (-1.33\% yr$^{-1}$) and with a larger fraction of the sites having significant trends. This trend is larger than the reduction in ammonia emissions for EU27+UK+EFTA countries (-12\%), in total 27\% (25\%) in observations (model calculations) for 2000-2019.
 
 The trend for ammonium aerosols is even more negative, -2.61 and -2.51 \% yr$^{-1}$ in observations and model calculations, respectively.
 
-Very few sites have long term time series of ammonia in air (8 sites), and very few of the trends calculated are significant. However, on average, the trends observed and calculated are positive: +1.55 and +1.28 \% yr$^{-1}$ in observations and model calculations, respectively, with all values within the confidence interval being positive.
+Very few sites have long term time series of ammonia in air (8 sites), and very few of the trends calculated are significant. However, on average, the changes observed and calculated are positive: +1.55 and +1.28 \% yr$^{-1}$ in observations and model calculations, respectively, with all values within the confidence interval being positive.
 
-This large difference between the trends of the different reduced nitrogen components can be explained by the interaction of ammonia with the sulphur and nitrogen components. When ammonia is released into the air, it reacts with secondary sulphate originating from the SO$_x$ emissions and forms particulate ammonium sulphates. If more ammonia is available, it reacts with nitric acid in an equilibrium reaction to form particulate ammonium nitrate. During the years from 2000 onwards, large reductions in SO$_x$ and NO$_x$ emissions have taken place, and thus less sulphate and nitric acid is available for forming ammonium particles. Therefore, a smaller fraction of NH$_3$ is converted to aerosol ammonium, and the decrease in particulate ammonium is strongly linked to the decrease in sulphate and nitrate. It is therefore to be expected that the trend in ammonium aerosol (-2.6\% yr$^{-1}$, observations) lies somewhere between the trend in particulate sulphate (-3.21, observations) and nitrate (-2.01\% yr$^{-1}$, observations). 
+This large difference between the trends of the different reduced nitrogen components can be explained by the interaction of ammonia with the sulphur and nitrogen components. When ammonia is released into the air, it reacts with secondary sulphate originating from the SO$_x$ emissions and forms particulate ammonium sulphates. If more ammonia is available, it reacts with nitric acid in an equilibrium reaction to form particulate ammonium nitrate. During the years from 2000 onwards, large reductions in SO$_x$ and NO$_x$ emissions have taken place, and thus less sulphate and nitric acid is available for forming ammonium particles. Therefore, a smaller fraction of NH$_3$ is converted to aerosol ammonium, and the decrease in particulate ammonium is strongly linked to the decrease in sulphate and nitrate. It is therefore to be expected that the trend in ammonium aerosol (-2.6\% yr$^{-1}$, observations) lies somewhere between the trend in particulate sulphate (-3.21\% yr$^{-1}$, observations) and nitrate (-2.01\% yr$^{-1}$, observations). 
 
 When less ammonia is converted to ammonium, the (very small) decrease in ammonia emissions is compensated by a larger part of ammonia residing in gas phase, and no decrease in ammonia (very few significant trends) are detected.
 
@@ -414,7 +416,7 @@ For the sum of ammonia and ammonium, the two opposite trends of ammonia (no tren
 
 The analysis done for the shorter time periods (2000-2010 and 2010-2019) confirms the findings discussed above. It is worth to note that the agreement between the trends calculated from model calculations and the observation are excellent for the different reduced nitrogen components, which indicates that the EMEP MSC-W model does a very good job in reproducing the non-linear interactions between sulphur, oxidized nitrogen and reduced nitrogen and how it has evolved during the past 20 years.
 
-In summary, the observations and the model calculations confirms that very small reductions of ammonia emissions have been achieved during the 2000-2019 period. However, the contribution of ammonia emission to aerosols have been largely reduced during this period, due to the impact of SO$_x$ and NO$_x$ emission reductions.
+In summary, the observations and the model calculations confirm that very small reductions of ammonia emissions have been achieved during the 2000-2019 period. However, the contribution of ammonia emission to aerosols have been largely reduced during this period, due to the impact of SO$_x$ and NO$_x$ emission reductions.
 
 
 
@@ -613,6 +615,15 @@ directly and formed from gaseous precursors.Therefore, the reductions both in pr
 
 Summarizing trend results for the 2000-2019 period, the average \PM[10] and \PM[2.5] trends, derived from observational data and model simulations, are decreasing. Significant trends have been estimated from observational data for 78 \% of sites for \PM[10] and 84 \% of sites for \PM[2.5]; the model simulates significant trends for more sites, namely 97 and 100 \% respectively. During this 20-year period, observed \PM[10] concentrations decreased by 35 \%  (36 \% from model simulations) on average at the considered sites. The average observed decrease of \PM[2.5] is 46 \%  (48 \% estimated by the model). We find quite a good correspondence between observed and model simulated trends in PM concentrations. 
 
+Figure \ref{fig:pmExc_trends} shows.....
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.74\paperwidth]{FIGS_TRENDS/PM_exceedences_2001-2019.png}
+	\caption{\label{fig:pmExc_trends} Trends in \PM[10]  and \PM[2.5] exceedances of WHO AQGs between 2001 and 2019, as observed and modelled with the EMEP MSC-W model}
+\end{figure}
+
+
 \COMMENT{For the period 2005-2019 (starting from the reference year of Gothenburg Protocol), more sites with data coverage were totally available for this \PM[10] and \PM[2.5] trend analysis, i.e. 53 and 35 respectively, but significant trends have been observed and modelled for a smaller fraction of the sites with respect to the 2000-2019 period (partly due to a shorter period length)}
 
 
@@ -620,39 +631,41 @@ Summarizing trend results for the 2000-2019 period, the average \PM[10] and \PM[
 \clearpage
 \section{\label{sec:Trends_O3}Trends in O$_3$ }
 
-Trend studies of surface ozone requires a somewhat different approach than other species since ambient ozone levels are the result of a substantial baseline level with episodes on top. Whereas NOx leads to ozone formation in the summer season it could cause depletion of ozone by titration in winter. Thus, the effect of man-made emissions of ozone precursors as NOx (in combination with VOCs) is to change the distribution of hourly and daily ozone concentrations during a year with high ozone levels in the summer half year and low ozone levels in the winter half year. Furthermore, the extent of these perturbations is significantly determined by the weather conditions and thereby by the ongoing climate change. Harmful levels of surface ozone is closely linked to high-pressure situations with elevated temperatures and strong solar radiation.
+Trend studies of surface ozone requires a somewhat different approach than other species since ambient ozone levels are the result of a substantial baseline level with episodes on top. 
+ Whereas NOx often leads to ozone formation in rural areas in the summer season, it can cause depletion of ozone by titration in and downwind of urban areas, especially in winter.
+Thus, the effect of man-made emissions of ozone precursors as NOx (in combination with VOCs) is to change the distribution of hourly and daily ozone concentrations during a year with high ozone levels in the summer half year and low ozone levels in the winter half year. Furthermore, the extent of these perturbations is significantly determined by the weather conditions and thereby by the ongoing climate change. Harmful levels of surface ozone are closely linked to high-pressure situations with elevated temperatures and strong solar radiation.
 
-Thus, the selection of ozone metrics is decisive for the estimated trends \citep[e.g.][]{LefohnTOAR2018}. The annual mean concentration used for evaluating other species is of little interest when studying ozone. A common procedure is to look at the trend in the probability distribution of ozone, e.g. by calculating trends for various percentiles of the distribution.  
+Thus, the selection of ozone metrics is decisive for the estimated trends \citep[e.g.][]{LefohnTOAR2018}. The annual mean concentration used for evaluating other species is of little interest when studying ozone. A common procedure is to look at the trend in the probability distribution of ozone, e.g. by calculating trends for various percentiles of the distribution \citep[e.g.][]{SimpsonCOSUST2014}.  
 
-As explained above, the trends in six percentiles (10, 50, 75, 95, 98 and 99) of the daily maximum O$_3$ values were calculated for stations with at least 330 valid daily data each year. This corresponds to 90 \% data capture in the individual years. The 10th percentile corresponds to the 37th lowest daily maximum value while the 99th percentile corresponds to the 4th highest daily maximum. 
+As explained above, the trends in six percentiles (10, 50, 75, 95, 98 and 99) of the daily maximum O$_3$ values were calculated for stations with at least 330 valid daily data each year. This corresponds to 90~\% data capture in the individual years. The 10th percentile corresponds to the 37th lowest daily maximum value while the 99th percentile corresponds to the 4th highest daily maximum. 
 
-Figure \ref{fig:O3_boxplot} shows the calculated Sen's slopes for these six percentiles for the period 2000-2019 for EMEP sites north and south of 49 \degrees N based on observed and modelled data. Both significant and non-significant slopes were included, but stations above 1200 m altitude were not included in the trend statistics. The reason for differing the altitude criteria for trend calculations vs that for evaluating the 2019 levels as discussed in Ch 2.4 (1200 m vs 500 m) was that the latter is more focused on individual daily data whereas the trends are based on aggregated statistics (annual data). 
+Figure \ref{fig:O3_boxplot} shows the calculated Sen's slopes for these six percentiles for the period 2000--2019 for EMEP sites north and south of 49\degrees N based on observed and modelled data. Both significant and non-significant slopes were included, but stations above 1200~m altitude were not included in the trend statistics. The reason for differing the altitude criteria for trend calculations vs that for evaluating the 2019 levels as discussed in Ch 2.4 (1200~m vs 500~m) was that the latter is more focused on individual daily data whereas the trends are based on aggregated statistics (annual data). 
 
 For both the observed and modelled data the trends show an increase in the 10th percentile and with a gradually stronger decrease in the higher percentiles. This is as expected when the emission of precursors (NOx) is reduced with time. The increase in the 10th percentile is explained by reduced titration by NOx while the the decreasing trend in the highest percentiles is explained by reduced photochemical formation of ozone in summer. The net result of these trends is a narrowing of the distribution of O$_3$ concentrations. 
 
-Figure \ref{fig:O3_boxplot} indicates that the model overestimates somewhat the decrease of the high percentiles (95-99) for stations south of 49 \degrees N while it agrees very well with the observations for the high percentiles for stations N of 49 \degrees N. This is an important finding since these percentiles are the main indicators for surface ozone pollution events. Figure \ref{fig:O3_boxplot} furthermore shows that the spread in the observed data is significantly larger than the spread in modelled data which is as expected. A grid model will inevitably reduce local geographical differences and produce smoothed concentrations fields. 
+Figure \ref{fig:O3_boxplot} indicates that the model overestimates somewhat the decrease of the high percentiles (95-99) for stations south of 49\degrees N while it agrees very well with the observations for the high percentiles for stations N of 49\degrees N. This is an important finding since these percentiles are the main indicators for surface ozone pollution events. Figure \ref{fig:O3_boxplot} furthermore shows that the spread in the observed data is significantly larger than the spread in modelled data which is as expected. A grid model will inevitably reduce local geographical differences and produce smoothed concentrations fields. 
 
-For the 10th percentile, the model overestimates the increase both north and south of 49 \degrees N. It is not obvious what this overestimation is due to. It could reflect that NOx in winter is not reduced as much as the emissions and model assume, or it could e.g. reflect deficiencies in the model description of atmospheric vertical stability and exchange of pollutants in winter. 
+For the 10th percentile, the model overestimates the increase both north and south of \mbox{49\degrees~N}. It is not obvious what this overestimation is due to. It could reflect that NOx in winter is not reduced as much as the emissions and model assume, or it could e.g. reflect deficiencies in the model description of atmospheric vertical stability and exchange of pollutants in winter. 
 
 The relative trends shown in Figure \ref{fig:O3_boxplot} are based on the Sen's slopes and use the value of these trend lines the first year (i.e. in 2000) as the reference for the modelled and observed data separately. The results given in Figure \ref{fig:O3_boxplot} thus show the estimated relative changes without any reference to the absolute levels of the modelled and observed data. 
 
-The trends in the absolute levels are given in Figures \ref{fig:O3_perctrends_N} and \ref{fig:O3_perctrends_S}. Annual O$_3$ percentile values for the observed and modelled data during 2000-2019 are shown in Figures \ref{fig:O3_perctrends_N} and \ref{fig:O3_perctrends_S} for stations north and south of 49 \degrees N, respectively. The solid lines mark the mean of all stations while the shaded areas mark the 25th and 75th percentile of these station-based values. All stations below 1200 m asl and with at least 15 years of data were included. 
+The trends in the absolute levels are given in Figures \ref{fig:O3_perctrends_N} and \ref{fig:O3_perctrends_S}. Annual O$_3$ percentile values for the observed and modelled data during 2000-2019 are shown in Figures \ref{fig:O3_perctrends_N} and \ref{fig:O3_perctrends_S} for stations north and south of 49\degrees N, respectively. The solid lines mark the mean of all stations while the shaded areas mark the 25th and 75th percentile of these station-based values. All stations below 1200 m asl and with at least 15 years of data were included. 
 
-These results show that the modelled 10th and 50th percentiles are higher than the observations whereas the observed high percentiles (95-99) are higher than modelled. The bias in the high percentiles are particularly strong for stations south of 49 \degrees N. For the 75th percentile, the absolute levels of the modelled and observed data agree very well. 
+These results show that the modelled 10th and 50th percentiles are higher than the observations whereas the observed high percentiles (95-99) are higher than modelled. The bias in the high percentiles are particularly strong for stations south of 49\degrees N. For the 75th percentile, the absolute levels of the modelled and observed data agree very well. 
 
 The interannual variation in the higher percentiles, i.e. the change in levels from year to year, is however very well reproduced by the model. Peak years as 2003 and 2006 in both regions as well as 2015 in the south and 2018 and 2019 in the north is reproduced by the model but with a substantial offset. This implies that the episodes leading to the peak values are captured by the model but that the ozone levels during the episodes are underestimated. 
 
-Trends in ozone metrics linked to harmful effects on vegetation (AOT40) and on human health (SOMO35) are shown in Figures \ref{fig:O3_aot40croptrends} - \ref{fig:O3_somo35trends} for sites north and south of 49 \degrees N, respectively. The absolute levels of these metrics are very sensitive to the baseline O$_3$ concentration level which is close to the 35-40 ppb range. Thus, comparisons between modelled and observed data could be difficult. 
+Trends in ozone metrics linked to harmful effects on vegetation (AOT40) and on human health (SOMO35) are shown in Figures \ref{fig:O3_aot40croptrends} - \ref{fig:O3_somo35trends} for sites north and south of 49\degrees N, respectively. The absolute levels of these metrics are very sensitive to the baseline O$_3$ concentration level which is close to the 35-40 ppb range. Thus, comparisons between modelled and observed data could be difficult. 
 
 Figures \ref{fig:O3_aot40croptrends} and \ref{fig:O3_aot40foresttrends} show a clear underestimation by the model compared to the observed data, in particular for the southern sites. Both the modelled and observed data do however indicate a marked decreasing trend during 2000-2019. For SOMO35 (\ref{fig:O3_somo35trends}), the model calculations agree very well with the observed data, both with respect to the absolute levels and the trends. For the southern sites, a slight uderestimation is seen in the peak years (2003 and 2018) though. 
 
-Summary statistics for the observed and modelled trends during 2000-2019 for the 75th and 99th percentiles as well as SOMO35, AOT40 for crops and AOT40 for forests are given in Table~\ref{tab:O3_stat} for sites north and south of 49 \degrees N. These data show the mean trend (as absolute values and relative to 2000 in percent) as calculated by the Theil-Sen's slope. The slopes for the percentiles were calculated by the pyaerocom tool as explained above while the slopes for SOMO35 and AOT40 were calculated by the R libraries 'Kendall' and 'zyp'. 
+Summary statistics for the observed and modelled trends during 2000-2019 for the 75th and 99th percentiles as well as SOMO35, AOT40 for crops and AOT40 for forests are given in Table~\ref{tab:O3_stat} for sites north and south of 49\degrees N. These data show the mean trend (as absolute values and relative to 2000 in percent) as calculated by the Theil-Sen's slope. The slopes for the percentiles were calculated by the pyaerocom tool as explained above while the slopes for SOMO35 and AOT40 were calculated by the R libraries 'Kendall' and 'zyp'. 
 
 In addition to the mean trends, the confidence intervals for these mean values are also given. The confidence intervals were computed by standard bootstrapping techniques \citep{DavisonHinkley:1997} using the R library 'boot' (basic bootstrap method with 1000 resamples). Various bootstrap method were tested out and compared to direct calculations of the confidence intervals based on the sample mean and sample standard deviation. These comparisons showed that the various methods produced very similar estimates of the confidence intervals for the mean values and thus we conclude that the confidence intervals for the means are fairly robust. These confidence intervals could be used to judge if the mean observed trends differ from the mean modelled trends.
 
 
 
-First of all, it is interesting to note that downward trends are found for all the five metrics both north and south of 49 \degrees N and for both observed and modelled data. This is a strong signal that there has been a real reduction in these ozone metrics during the 2000-2019 period. Furthermore, for sites north of 49 \degrees N, the results indicate that there are no significant difference between the observed and modelled trends in the 75th and 99th percentiles. For sites south of 49 \degrees N the mean absolute trends agree very well for the observed and modelled data, but the relative changes in the observations are clearly lower than the modelled changes (reflecting that the model underpredicts the absolute level of the high percentiles). It could be noted that the number of statistically significant trends are considerably lower for the observed data compared to the modelled ones. 
+First of all, it is interesting to note that downward trends are found for all the five metrics both north and south of 49\degrees N and for both observed and modelled data. This is a strong signal that there has been a real reduction in these ozone metrics during the 2000-2019 period. Furthermore, for sites north of 49\degrees N, the results indicate that there are no significant difference between the observed and modelled trends in the 75th and 99th percentiles. For sites south of 49\degrees N the mean absolute trends agree very well for the observed and modelled data, but the relative changes in the observations are clearly lower than the modelled changes (reflecting that the model underpredicts the absolute level of the high percentiles). It could be noted that the number of statistically significant trends are considerably lower for the observed data compared to the modelled ones. 
 
 For SOMO35 and AOT40 the number of sites with significant trends in the observations are rather low and substantially lower than the number of statistically significant modelled trends. For all three metrics the model calculates stronger mean reductions than observed. For SOMO35 north of 49 \degrees N, the mean observed and modelled absolute trends are very close, but the modelled relative trend is somewhat larger than observed.
 
@@ -660,7 +673,7 @@ For SOMO35 and AOT40 the number of sites with significant trends in the observat
 
 
 \begin{table}
-\caption{\label{tab:O3_stat} The estimated mean values of the absolute and relative trends in O$_3$ metrics based on stations north and south of 49 \degrees N (observed and modelled). The corresponding 95\% confidence intervals of these mean values and the number of sites with significant trends are also provided. Results are given for the 75th and 99th percentile as well as SOMO35, EU definition of AOT40 for crops (AOT40c), and EU definition for forests (AOT40f). Note that the number of sites 'obs' and 'mod' refer to the number of sites with significant slopes (p<0.05) whereas the man values include all sites irrespective of the significance.}
+\caption{\label{tab:O3_stat} The estimated mean values of the absolute and relative trends in O$_3$ metrics based on stations north and south of 49\degrees N (observed and modelled). The corresponding 95\% confidence intervals of these mean values and the number of sites with significant trends are also provided. Results are given for the 75th and 99th percentile as well as SOMO35, EU definition of AOT40 for crops (AOT40c), and EU definition for forests (AOT40f). Note that the number of sites 'obs' and 'mod' refer to the number of sites with significant slopes (p<0.05) whereas the man values include all sites irrespective of the significance.}
 \begin{center}
 \scalebox{0.65}{%
 \begin{tabular}{lll|ccc|cccc|cccc}
@@ -690,37 +703,37 @@ Period & Area & Parameter &           total & obs & mod &                    obs
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.74\paperwidth]{FIGS_TRENDS/O3_boxpl.png}
-	\caption{\label{fig:O3_boxplot}Boxplot of trends in annual percentiles of daily max O$_3$ from 2000-2019 for EMEP observations and model calculations for stations north (left) and south (right) of 49 \degrees N. The boxes mark the 25 and the 75 percentiles with the median given as a thin line inside. The upper whisker extends from the hinge to the highest value that is within 1.5*IQR of the hinge, where IQR is the inter-quartile range, or distance between the first and third quartiles. The lower whisker extends from the hinge to the lowest value within 1.5*IQR of the hinge. Data beyond the end of the whiskers are outliers and plotted as points. The mean values are shown as black circles. Both significant and non-significant trend values were included. Only sites below 1200 m asl and with at least 15 years of data are included.}
+	\caption{\label{fig:O3_boxplot}Boxplot of trends in annual percentiles of daily max O$_3$ from 2000--2019 for EMEP observations and model calculations for stations north (left) and south (right) of 49\degrees N. The boxes mark the 25 and the 75 percentiles with the median given as a thin line inside. The upper whisker extends from the hinge to the highest value that is within 1.5*IQR of the hinge, where IQR is the inter-quartile range, or distance between the first and third quartiles. The lower whisker extends from the hinge to the lowest value within 1.5*IQR of the hinge. Data beyond the end of the whiskers are outliers and plotted as points. The mean values are shown as black circles. Both significant and non-significant trend values were included. Only sites below 1200 m asl and with at least 15 years of data are included.}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.74\paperwidth]{FIGS_TRENDS/alltrends_north_49_2000_2019_1200m.png}
-	\caption{\label{fig:O3_perctrends_N}Trends in annual percentiles of daily max O$_3$ from 2000-2019 for EMEP observations and model calculations for sites north of 49 \degrees N: The solid line indicates the mean, and the shaded area marks the 25th and 75th percentile. Only sites below 1200 m asl and with at least 15 years of data are included.}
+	\caption{\label{fig:O3_perctrends_N}Trends in annual percentiles of daily max O$_3$ from 2000--2019 for EMEP observations and model calculations for sites north of 49\degrees N: The solid line indicates the mean, and the shaded area marks the 25th and 75th percentile. Only sites below 1200 m asl and with at least 15 years of data are included.}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.74\paperwidth]{FIGS_TRENDS/alltrends_south_49_2000_2019_1200m.png}
-	\caption{\label{fig:O3_perctrends_S}Trends in annual percentiles of daily max O$_3$ from 2000-2019 for EMEP observations and model calculations for sites south of 49 \degrees N: The solid line indicates the mean, and the shaded area marks the 25th and 75th percentile. Only sites below 1200 m asl and with at least 15 years of data are included.}
+	\caption{\label{fig:O3_perctrends_S}Trends in annual percentiles of daily max O$_3$ from 2000--2019 for EMEP observations and model calculations for sites south of 49\degrees N: The solid line indicates the mean, and the shaded area marks the 25th and 75th percentile. Only sites below 1200 m asl and with at least 15 years of data are included.}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.74\paperwidth]{FIGS_TRENDS/EUAOT40_Crops_2000_2019_1200m.png}
-	\caption{\label{fig:O3_aot40croptrends} Trends in 3-months AOT40 (May-July) for crops from 2000-2019 for EMEP observations and model calculations for sites north (left) and south (right) of 49 \degrees N: The solid line indicates the mean, and the shaded area marks the 25th and 75th percentile. Only sites below 1200 m asl and with at least 15 years of data are included.}
+	\caption{\label{fig:O3_aot40croptrends} Trends in 3-months AOT40 (May-July) for crops from 2000--2019 for EMEP observations and model calculations for sites north (left) and south (right) of 49\degrees N: The solid line indicates the mean, and the shaded area marks the 25th and 75th percentile. Only sites below 1200 m asl and with at least 15 years of data are included.}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.74\paperwidth]{FIGS_TRENDS/EUAOT40_Forests_2000_2019_1200m.png}
-	\caption{\label{fig:O3_aot40foresttrends}Trends in 6-months AOT40 (Apr-Sep) for forests from 2000-2019 for EMEP observations and model calculations for sites north (left) and south (right) of 49 \degrees N: The solid line indicates the mean, and the shaded area marks the 25th and 75th percentile. Only sites below 1200 m asl and with at least 15 years of data are included.}
+	\caption{\label{fig:O3_aot40foresttrends}Trends in 6-months AOT40 (Apr-Sep) for forests from 2000--2019 for EMEP observations and model calculations for sites north (left) and south (right) of 49\degrees N: The solid line indicates the mean, and the shaded area marks the 25th and 75th percentile. Only sites below 1200 m asl and with at least 15 years of data are included.}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.74\paperwidth]{FIGS_TRENDS/SOMO35_2000_2019_1200m.png}
-	\caption{\label{fig:O3_somo35trends}Trends in SOMO35 from 2000-2019 for EMEP observations and model calculations for sites north (left) and south (right) of 49 \degrees N: The solid line indicates the mean, and the shaded area marks the 25th and 75th percentile. Only sites below 1200 m asl and with at least 15 years of data are included.}
+	\caption{\label{fig:O3_somo35trends}Trends in SOMO35 from 2000-2019 for EMEP observations and model calculations for sites north (left) and south (right) of 49\degrees N: The solid line indicates the mean, and the shaded area marks the 25th and 75th percentile. Only sites below 1200 m asl and with at least 15 years of data are included.}
 \end{figure}
 
 
@@ -733,7 +746,7 @@ Period & Area & Parameter &           total & obs & mod &                    obs
 \label{ss:trendsEC}
 
 Table~\ref{tab:KEX1} presents the absolute and relative changes over 2010-2019 from 15 EMEP sites, as annual values, and with confidence intervals, and from both observed and modelled values. The spatial variation of these trends for summer and winter can be seen as `arrow' plots in Fig.~\ref{fig:ECarrows}, and Fig.\ref{fig:ECtrends} shows again the annual trends, but superimposed upon the field of modelled EC.
-Fig.~\ref{fig:KEX1} illustrates the statistics of the reductions in EC over the period 2010-2019, and for different seasons. 
+Fig.~\ref{fig:KEX1} illustrates the statistics of the reductions in EC over the period 2010--2019, and for different seasons. 
 
 %
 Considering first the observed trends in elemental carbon (EC) for 2010--2019, a  reduction (-4.5$\pm$1.5~\%/yr, Tab.~\ref{tab:KEX1}) 
@@ -754,7 +767,7 @@ pronounced in summer and fall (Tab.~\ref{tab:KEX1},Fig.~\ref{fig:KEX1}), but the
 that there is a minor seasonal variability in the reduction of EC. It can be noted though that
 there are more sites with significant trends (p-values $<$ 0.05)  in summer than winter (Fig.\ref{fig:ECarrows}).
 
-Fig.~\ref{fig:KEX1} illustrates the statistics of the reductions in EC  n both observed and model results over the period 2010-2019, and for different seasons. For EC the model is seen to capture the year to year changes very well over the ten years, and captures well the relative changes which are ca. -4~\%/yr in all seasons. Larger differences are seen in the absolute changes (which may reflect the difficulties with the EC emissions mentioned in Sect.~\ref{ss:IssuesECOC}).
+Fig.~\ref{fig:KEX1} illustrates the statistics of the reductions in EC  n both observed and model results over the period 2010-2019, and for different seasons. For EC, the model is seen to capture the year to year changes very well over the ten years, and captures well the relative changes which are ca. -4~\%/yr in all seasons. Larger differences are seen in the absolute changes (which may reflect the difficulties with the EC emissions mentioned in Sect.~\ref{ss:IssuesECOC}).
 These points about model-measurement comparison for EC are discussed further in Sect.~\ref{ss:DiscECOC}.
 
 \begin{table}
@@ -801,7 +814,7 @@ Autumn &              15 &          8 &          11 &                  -0.023 & 
   \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_EC_PM25_2010-2019_Perc.pdf}}\\
 %  \vspace{0.5cm}
 %  \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_OC_PM25_2010-2019_Perc.pdf}}
-\caption{Relative trends for EC in \pmfine over the period of 2010-2019: EMEP modelled -- coloured contours (grey/white means non-significant trends) and observed - coloured triangles (significant) and circles (non-significant).}
+\caption{Relative trends for EC in \pmfine over the period of 2010--2019: EMEP modelled -- coloured contours (grey/white means non-significant trends) and observed - coloured triangles (significant) and circles (non-significant).}
 \label{fig:ECtrends}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -853,7 +866,7 @@ There was a pronounced seasonal variability in the reduction observed for
 OC (Tab.~\ref{tab:KEX2}, Figs.~\ref{fig:KEX1},\ref{fig:OCarrows}). In winter, the
  reduction (-4.2~\%/yr) was equal to that for
 EC (-4.3~\%/yr, but only statistically significant for six of the sites,
-whereas no reduction (0~\%/yr) was seen in summer. Spring (-2.2~\%/yr, Tab.~\ref{tab:KEX2}) and fall (3.0~\%/yr) are transition seasons with reductions in between
+whereas no reduction (0~\%/yr) was seen in summer. Spring (-2.2~\%/yr, Tab.~\ref{tab:KEX2}) and fall (-3.0~\%/yr) are transition seasons with reductions in between
 that of winter and summer and statistically significant reductions were
 observed only for Ispra. 
 %
@@ -931,7 +944,7 @@ autumn &              15 &          1 &           0 &                  -0.098 & 
 \subsection{Discussion of EC, OC trends}
 \label{ss:DiscECOC}
 
-Before discussing the trends shown in Sect.~\ref{ss:trendsEC}-\ref{ss:trendsOC} in  more detail, it is important to note that ten years is a short period over which to assess such trends. In order to illustrate this, Table~\ref{tab:BirkenesTrends} shows trends assessed for three periods, 2008-2018, 2008-2019, and 2010-2019, all using the same methodology. It is seen that the magnitude of the trends can differ substantially depending on the time-window. For EC the values range from -2.2~\%/yr to \mbox{-4.24~\%/yr}, and for levoglucosan from -2.5~\%/yr to -5.2~\%/yr, with all values satisfying the p-value$<$0.05 significance test. Trend values for OC vary even more, but these trends were insignificant for all periods. Although we expect some of these trends to reflect changes in emissions, meteorological variation will also play a large role, especially in causing the high sensitivity of the calculated trends to small changes in the time window chosen.
+Before discussing the trends shown in Sect.~\ref{ss:trendsEC}-\ref{ss:trendsOC} in  more detail, it is important to note that ten years is a short period over which to assess such trends. In order to illustrate this, Table~\ref{tab:BirkenesTrends} shows trends assessed for three periods, 2008-2018, 2008-2019, and 2010-2019, all using the same methodology. It is seen that the magnitude of the trends can differ substantially depending on the time-window. For EC the values range from -2.2~\%/yr to \mbox{-4.2~\%/yr}, and for levoglucosan from -2.5~\%/yr to -5.2~\%/yr, with all values satisfying the p-value$<$0.05 significance test. Trend values for OC vary even more, but these trends were insignificant for all periods. Although we expect some of these trends to reflect changes in emissions, meteorological variation will also play a large role, especially in causing the high sensitivity of the calculated trends to small changes in the time window chosen.
 
 
 \begin{table}[H]
