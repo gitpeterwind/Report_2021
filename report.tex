@@ -30,6 +30,7 @@
 %FAILED \usepackage{subcaption}                % DS supercedes subfigure. Used in Condensables
 %\usepackage{rotating}
 \usepackage{array}                     % length \extrarowhheight fuer Tabellen
+\newcolumntype{H}{@{}>{\lrbox0}l<{\endlrbox}}   % to skip columns
 %\usepackage{supertabular}             % long tabels, pagewise
 \usepackage{longtable}                 % long table, complete
 \usepackage{threeparttable}
@@ -335,9 +336,9 @@
 %%%%%%%%%%%%%%%%% Compile ONLY selected Chapters %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\includeonly{acknow}
-%\includeonly{chapterStatus2019,chapterTrendsSandN,chapterAPPX_ModelEval}
+%\includeonly{chapterTrendsSandN,chapterAPPX_ModelEval}
 %\includeonly{chapterMeasurementDevelopments}
-%\includeonly{chapterEmis2019}
+%\includeonly{chapterStatus2019,chapterEmis2019}
 
 %Please:if you use includeonly on overleaf, just do it temporary and set it back after you have compiled (since others will only see 'your chapter')
 
