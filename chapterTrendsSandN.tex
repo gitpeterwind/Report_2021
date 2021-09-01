@@ -1,11 +1,12 @@
 \chapter[Trends]{Trends in observations and EMEP MSC-W model calculations 2000-2019}
 \label{ch:Trends}
 
-{\bf{Wenche Aas, Hilde Fagerli, Karl Espen Yttri, Svetlana Tsyro, Sverre Solberg, David Simpson, Jonas Gliss, Augustin Mortier, Eivind Grøtting Wærsted, Hans Brenna, Anne Hjellbrekke, Jan Griesfeller, Agnes Ny\'{\i}ri, Thomas Scheuschner}}\\
+{\bf{Wenche Aas, Hilde Fagerli, Karl Espen Yttri, Svetlana Tsyro, Sverre Solberg, David Simpson, Jonas Gli{\ss}, Augustin Mortier, Eivind Grøtting Wærsted, Hans Brenna, Anne Hjellbrekke, Jan Griesfeller, Agnes Ny\'{\i}ri, Thomas Scheuschner}}\\
 
 
 
 \section{\label{sec:Trends_introduction}Introduction and background}
+
 At its thirty-ninth session (Geneva, 9–13 December 2019), the Executive Body launched the review of the Protocol to Abate Acidification, Eutrophication and Ground-level Ozone (the Gothenburg Protocol) as amended in 2012. In order to assess the progress made towards achieving the environmental and health objectives of the Protocol, a
 list of questions was given to the subsidiary bodies of the Air Convention. Several of these questions were related to the trends of air pollution in Europe. 
 
@@ -110,7 +111,7 @@ The observations used have all been reported to EMEP and are openly available fr
 
 \section{\label{sec:Method}{Method for calculation of trends}}
 
-Both observed and modelled trends were processed with the pyaerocom software (\url{https://github.com/metno/pyaerocom}) for the following periods: 2000--2019, 2005--2019, 2000--2010, and 2010--2019. All observations were provided via the EBAS database. 
+Both observed and modelled trends were processed with the pyaerocom software (\url{https://github.com/metno/pyaerocom}) for the following periods: 2000--2019, 2005--2019, 2000--2010, and 2010--2019. The periods were chosen in order to represent the last 2 decades and to indicate individual changes in each of the 2 decades, particularly also because more observations became available in the recent years. The 2005--2019 period was chosen as 2005 is the base year of the Gothenburg Protocol. All observations were provided via the EBAS database. 
 
 Since the provided temporal resolution can change over time for a given site, the lowest common resolution was identified and higher resolution data were down-sampled to that resolution during the merging process. For temporal re-sampling, we required ca. 75\% coverage in a hierarchical manner; that is, at least 18 hourly measurement values to retrieve a daily mean, and at least 21 daily values to retrieve a monthly mean. Trends are computed based on yearly averages, as described in more detail below. To retrieve the yearly averages, at least one monthly value is required per season. In addition to trends based on yearly averages, seasonal trends are computed as well for all variables except for O$_{3}$ which is focused on the annual percentiles of the the daily maximum concentrations (details below). 
 
@@ -122,9 +123,7 @@ Model output in daily resolution was used for the trend analysis, including the 
 
 The monthly time series of the co-located model and observation data were output as csv files for each individual site. The scripts used for processing the data and calculating trends are available from a GitHub repository (\url{https://github.com/metno/emep_trends_2021}). The processed data itself, including relevant station metadata and trends results, are available in a separate location which is linked to in the description of the repository. The time series  comparing the modelled and observed trends at the individual sites are available as plots at the TFMM web page: \url{https://projects.nilu.no/ccc/tfmm/timeseries_GPrev/}
 
-Some of the trend calculations have not been done using the pyaerocom software. The trends in EC and OC have been calculated using the python pyMannKendall package \citep{Hussain2019}, the gridded modelled trends using an NCL package (\url{https://www.ncl.ucar.edu/Document/Functions/Built-in/trend_manken.shtml}), while SOMO35 and AOT40 trends used the R packages 'Kendall' \citep{McLeod_2011} for the Mann-Kendall calculations and 'zyp' \citep{Bronaugh_Werner_2019} for the calculation of Sen's slopes. The confidence intervals for the mean values (of SOMO35 and AOT40) were calculated by the R package 'boot' \citep{Canty_Ripley_2021}.
-
-The same methodology as described by \citet{aas2019global} and \citet{mortier2020} has been used to derive the trends at the individual stations. The significance of the trends is tested with the Mann-Kendall test \citep{hamed1998modified}. The related p-value is used to determine if the trend is significant or not within a confidence interval of 68\%. A p-value less than 0.05 is defined as statistically significant. The slope is calculated with the Theil-Sen estimator which is less sensitive to outliers than standard least-squares methods \citep{sen1968estimates}.
+In order to compute the trends for the model and observation time series at the individual sites, the same methodology as described by \citet{aas2019global} and \citet{mortier2020} has been used. The significance of the trends is tested with the Mann-Kendall test \citep{hamed1998modified}. The related p-value is used to determine if the trend is significant or not. A p-value less than 0.05 is defined as statistically significant (corresponding to $2\sigma$ confidence). The slope is calculated with the Theil-Sen estimator which is less sensitive to outliers than standard least-squares methods \citep{sen1968estimates}.
 
 An uncertainty is provided for each trend by combining the error of the slope calculation itself to the error of the residuals:
 
@@ -132,11 +131,16 @@ An uncertainty is provided for each trend by combining the error of the slope ca
  Uncertainty = \sqrt{{\left (\frac{\Delta m}{y(start)}\right )}^{2} + {\left ( \frac{m \cdot \Delta r}{y(start)^2}\right )}^{2} }
 \end{equation}
 
-where $\Delta m$ is the Theil-Sen estimator 95\% confidence interval, $y(start)$ is the value of the regression line at the first year of the period, $m$ is the value of the Theil-Sen slope and $\Delta r$ is the averaged error on the residuals computed based on the difference between the linear trend and the yearly mean values of the regional time series.
+where $\Delta m$ is the Theil-Sen estimator 68\% confidence interval, $y(start)$ is the value of the regression line at the first year of the period, $m$ is the value of the Theil-Sen slope and $\Delta r$ is the uncertainty of $y(start)$ which is estimated based on the average magnitude of the fit residual.
+
+%uncertainty in averaged error on the residuals computed based on the difference between the linear trend and the yearly mean values of the regional time series.
 
 In order to allow for consistent comparisons, the trend is provided as a relative trend (\%/yr) with respect to the first year of the time period, i.e. the intercept of the time series.
 
+Some of the trend calculations have not been done using the pyaerocom software. The trends in EC and OC have been calculated using the python pyMannKendall package \citep{Hussain2019}, the gridded modelled trends using an NCL package (\url{https://www.ncl.ucar.edu/Document/Functions/Built-in/trend_manken.shtml}), while SOMO35 and AOT40 trends used the R packages 'Kendall' \citep{McLeod_2011} for the Mann-Kendall calculations and 'zyp' \citep{Bronaugh_Werner_2019} for the calculation of Sen's slopes. The confidence intervals for the mean values (of SOMO35 and AOT40) were calculated by the R package 'boot' \citep{Canty_Ripley_2021}.
+
 The trends and their uncertainties for all the individual sites are available from the mentioned GitHub repository. In the following sections aggregated trend values are presented. These values were calculated by taking the averages of the Sen slopes or the relative trends for all the sites, including those with non-significant trends. In addition, confidence intervals for these mean values were calculated. It should be noted that these 95\% confidence intervals for the average trends will be less accurate when the number of sites with significant trends is low. 
+
 
 %not necessarily indicate the robustness in the trend value, especially when there are %few sites with significant trends.
 
@@ -446,7 +450,7 @@ mod. & conf.interval & obs. & conf.interval & mod. & conf.interval \\
 \end{table}
 
 
-\clearpage
+%\clearpage
 
 \section{\label{sec:Trends_reduced nitrogen }Trends in reduced nitrogen}
 
@@ -684,7 +688,7 @@ Autumn &              15 &          8 &          11 &                  -0.023 & 
 \\
 \includegraphics*[height=6cm,trim=3cm 0 0 0]{FIGS_TRENDS/Plot_ec_rel_winter_Model.png}%
 \includegraphics*[height=6cm,trim=3cm 0 6.5cm 0]{FIGS_TRENDS/Plot_ec_rel_winter_Observations.png}
-\caption{Relative trends for EC in \pmfine over the period of 2010--2019, from both model (left) and observations (right), and for summer (top) and winter (bottom). The magnitude of the trends is indicated by the angle made (see key), which also indicates the trend values associated with 45\degrees and 90\degrees angles. The colour indicates the p-values associated with the trends. (The style of these plots is based upon those used in the ROAR project, e.g.\citealt{MillsTOAR:2018}.) 
+\caption{Relative trends for EC in \pmfine over the period of 2010--2019, from both model (left) and observations (right), and for summer (top) and winter (bottom). The magnitude of the trends is indicated by the angle made (see key), which also indicates the trend values associated with 45\degrees and 90\degrees angles. The colour indicates the p-values associated with the trends. (The style of these plots is based upon those used in the TOAR project, e.g.~\citealt{ChangK-L:2017,MillsTOAR:2018}.)
   \label{fig:ECarrows}}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -693,26 +697,29 @@ Autumn &              15 &          8 &          11 &                  -0.023 & 
   \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_EC_PM25_2010-2019_Perc.pdf}}\\
 %  \vspace{0.5cm}
 %  \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_OC_PM25_2010-2019_Perc.pdf}}
-\caption{Relative trends for EC in \pmfine over the period of 2010--2019: EMEP modelled -- coloured contours (grey/white means non-significant trends) and observed - coloured triangles (significant) and circles (non-significant).}
-\label{fig:ECtrends}
+\caption{As Fig.~\ref{fig:Strends_map}, but for EC in \pmfine, and the period 2010--2019.
+%Relative trends for EC in \pmfine over the period of 2010--2019: EMEP modelled -- %coloured contours (grey/white means non-significant trends) and observed - coloured %triangles (significant) and circles (non-significant).}
+\label{fig:ECtrends}}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{figure}[t]
 \includegraphics[width=16cm]{FIGS_TRENDS/ECOC_trends.png}
-\caption{Observed and modelled concentrations and trends of EC and OC at 15 EMEP
-  site across Europe for 2010--2019, showing the concentrations
-  (left panels) of OC (upper) and EC (lower), aggregated annual and
-  seasonal relative changes (mid panels) for OC (upper) and EC (lower),
-  and aggregated annual and seasonal absolute changes (right panels)
-  for OC (upper) and EC (lower). The solid line in the left panel shows
-  the average annual mean for all sites and the shaded area the 95\%
-  confidence interval. The box plots in the mid and right panels show
-  the 25th and 75th percentiles (boxes), the median (horizontal lines),
-  whereas the whiskers represent the interquartile ranges $\times$
-  1.5 and the squares the outliers. Black markers within the box are
-  the means.\label{fig:KEX1}
+\caption{As Fig.~\ref{fig:SOx_trends}, but for OC in \pmfine (top) and EC in \pmfine (bottom), for 15 EMEP sites for the period 2010--2019.
+%Observed and modelled concentrations and trends of EC and OC at 15 EMEP
+%  site across Europe for 2010--2019, showing the concentrations
+%  (left panels) of OC (upper) and EC (lower), aggregated annual and
+%  seasonal relative changes (mid panels) for OC (upper) and EC (lower),
+%  and aggregated annual and seasonal absolute changes (right panels)
+%  for OC (upper) and EC (lower). The solid line in the left panel shows
+%  the average annual mean for all sites and the shaded area the 95\%
+%  confidence interval. The box plots in the mid and right panels show
+%  the 25th and 75th percentiles (boxes), the median (horizontal lines),
+%  whereas the whiskers represent the interquartile ranges $\times$
+%  1.5 and the squares the outliers. Black markers within the box are
+%  the means.
+\label{fig:KEX1}
 }
 \end{figure}
 
@@ -760,18 +767,20 @@ Fig.~\ref{fig:KEX1} illustrates the statistics of the reductions in OC  over the
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{table}
- \caption{Absolute change ( \ugC/yr) and relative change (\%/yr) and
-   corresponding confidence intervals in observed and modelled annual
-   and seasonal aggregated OC concentrations at 15 sites across Europe
-   for 2010--2019. The number of sites with a significant outcome
-   is provided. \label{tab:KEX2}
+ \caption{As Tab~\ref{tab:so2_stat}, but for OC, and period 2010--2019.
+ %Absolute change ( \ugC/yr) and relative change (\%/yr) and
+ %  corresponding confidence intervals in observed and modelled annual
+ %  and seasonal aggregated OC concentrations at 15 sites across Europe
+ %  for 2010--2019. The number of sites with a significant outcome
+ %  is provided. 
+ \label{tab:KEX2}
  }
  
 %\begin{center}
 \scalebox{0.69}{%
 \begin{tabular}{llcc|cccc|cccc}
 \toprule
-\multicolumn{4}{c}{Number of sites} & \multicolumn{4}{c}{Absolute change (\ug $yr^{-1})$} & \multicolumn{4}{c}{Relative change (\% $yr^{-1}$)} \\
+\multicolumn{4}{c}{Number of sites} & \multicolumn{4}{c}{Absolute change (\ugC~yr$^{-1})$} & \multicolumn{4}{c}{Relative change (\%~yr$^{-1}$)} \\
 Seasons & Tot. & sign. & sign. & obs. & conf.interval &  
 mod. & conf.interval & obs. & conf.interval & mod. & conf.interval \\
        &       & obs. & mod. &       &              & 
@@ -798,7 +807,7 @@ autumn &              15 &          1 &           0 &                  -0.098 & 
 \\
 \includegraphics*[height=6cm,trim=3cm 0 0 0]{FIGS_TRENDS/Plot_oc_rel_winter_Model.png}%
 \includegraphics*[height=6cm,trim=3cm 0 6.9cm 0]{FIGS_TRENDS/Plot_oc_rel_winter_Observations.png}
-\caption{Relative trends for OC in \pmfine over the period of 2010--2019, from both model (left) and observations (right), and for summer (top) and winter (bottom). (See Fig.~\ref{fig:ECarrows} for further details.)
+\caption{As Fig.~\ref{fig:ECarrows}, but for OC in \pmfine.
  \label{fig:OCarrows}}
 \end{figure}
 
@@ -808,8 +817,9 @@ autumn &              15 &          1 &           0 &                  -0.098 & 
 %  \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_EC_PM25_2010-2019_Perc.pdf}}\\
 %  \vspace{0.5cm}
 \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_OC_PM25_2010-2019_Perc.pdf}}
-\caption{Relative trends for OC in \pmfine over the period of 2010--2019: EMEP modelled -- coloured contours (grey/white means non-significant trends) and observed - coloured triangles (significant) and circles (non-significant).}
-\label{fig:OCtrends}
+\caption{As Fig.~\ref{fig:ECtrends}, but for OC in \pmfine.
+%Relative trends for OC in \pmfine over the period of 2010--2019: EMEP modelled -- %coloured contours (grey/white means non-significant trends) and observed - coloured %triangles (significant) and circles (non-significant).}
+\label{fig:OCtrends}}
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -899,7 +909,7 @@ for the observations.
 
  
 
-Unlike EC, the observed seasonal trends for OC (c.f. Fig.~\ref{fig:KEX1} are very variable, with strong (ca. 4~\%) reductions in the winter months (both DJF and SON), and apparently no change in summertime. As already noted, the individual sites show a great variation in even the sign of the calculated trends, though statistically the trends are not significant (c.f.Fig.~\ref{fig:OCarrows}. The lack of clear trend in summertime is not surprising. 
+Unlike EC, the observed seasonal trends for OC (c.f. Fig.~\ref{fig:KEX1}) are very variable, with strong (ca. 4~\%) reductions in the winter months (both DJF and SON), and apparently no change in summertime. As already noted, the individual sites show a great variation in even the sign of the calculated trends, though statistically the trends are not significant (c.f.Fig.~\ref{fig:OCarrows}). The lack of clear trend in summertime is not surprising. 
 OC has a substantial influence from
 natural sources, biogenic secondary organic aerosol (BSOA) and primary
 biological aerosol particles (PBAP), which prevail in the growing season \citep[e.g.][]{Gelencser:CARB,Yttri2019}.
@@ -920,7 +930,7 @@ made about the length of the time series and the Birkenes Observatory as
 an indicator of European emissions (Sect.~\ref{ss:trendsEC}).  
 
 
-The underprediction of the OC levels in wintertime seen in Figs.~\ref{fig:KEX1} should not be taken as a indication that the EMEP model itself is wrong, but is rather at least partly the result of the issues with missing `condensable' organics (Sect.~\ref{ss:IssuesECOC}). It has been demonstrated elsewhere that model results improve substantially when condensables are included \citep{DeniervanderGon2015,R2019:SVOC,R2020:SVOC}. Unfortunately, we do not yet have a time-series of condensable organic emissions with which to perform trend analysis, but we hope to address that within the context of a new MSC-W led project funded by the Nordic Council of Ministers.
+The underprediction of the OC levels in wintertime seen in Figs.~\ref{fig:KEX1} should not be taken as an indication that the EMEP model itself is wrong, but is rather at least partly the result of the issues with missing `condensable' organics (Sect.~\ref{ss:IssuesECOC}). It has been demonstrated elsewhere that model results improve substantially when condensables are included \citep{DeniervanderGon2015,R2019:SVOC,R2020:SVOC}. Unfortunately, we do not yet have a time-series of condensable organic emissions with which to perform trend analysis, but we hope to address that within the context of a new MSC-W led project funded by the Nordic Council of Ministers.
 
 
 %%%%%%%%%%%%%%%%%%
@@ -950,7 +960,7 @@ As focused abatement of anthropogenic secondary inorganic aerosol (SIA)
 precursors have reduced ambient SIA levels substantially (Sects.~\ref{sec:Trends_sulfur}--\ref{sec:Trends_reduced nitrogen }), 
 other, non-SIA fractions are likely to contribute an increasing fraction
 of PM. For the EC fraction of \pmfine, however, there was a reduction,  -2.4$\pm$1.1~\%/yr, 
-for 2010--2019 (Fig.~\ref{fig:OCECfrac}, Tab.~\ref{tab:KEX3}), showing that EC has been
+for 2010--2019 (Fig.~\ref{fig:KEX1}, Tab.~\ref{tab:KEX3}), showing that EC has been
 more efficiently abated than the overall PM mass concentration. The model
 calculated a comparable reduction (-1.7$\pm$1.3~\%/yr) for the EC/\pmfine ratio
 but predicted a minor increase at two of the sites, which was not seen for
@@ -998,7 +1008,7 @@ SIA species illustrates the importance of the OM fraction for a further
 reduction in wintertime \pmfine mass concentration (Fig.~\ref{fig:KEX4}). As a first step,
 the natural and the anthropogenic fraction of the carbonaceous aerosol
 must be separated, then further into abatable categories. Separation of
-eBC \citep[equivalent BC][]{Petzold2013} into biomass burning/solid fuel (\EBCbb) and fossil fuel/liquid fuel
+eBC \citep[equivalent BC, ][]{Petzold2013} into biomass burning/solid fuel (\EBCbb) and fossil fuel/liquid fuel
 (\EBCff) is possible using data from the multi wavelength aethalometer,
 currently available at $>$25 EMEP/ACTRIS sites across Europe \citep{Yttri:2014,Platt:2020a,Platt:2020b,Platt20XX}. An obvious next
 step is to implement such analysis as part of regular monitoring,
@@ -1027,8 +1037,8 @@ of OM.
 \multicolumn{7}{c}{EC/\pmfine (2010--2019)} \\
   &  &  &  &  &  &  \\
   \hline
-     \multicolumn{3}{c}{Number of sites} & \multicolumn{2}{l}{Absolute change (\ugC/yr)} & \multicolumn{2}{l}{Relative change (\%/yr)} \\
-{} &           total & sign. &                     abs &       Conf. interv. &                      \%/y &   Conf. interv. \\
+     \multicolumn{3}{c}{Number of sites} & \multicolumn{2}{l}{Absolute change (\ugC~yr$^{-1}$)} & \multicolumn{2}{l}{Relative change (\%~yr$^{-1}$)} \\
+{} &           total & sign. &                     abs &       Conf. interv. &                      \%/yr &   Conf. interv. \\
 %How   &                 &       &                         &                     &                          &                 \\
 \hline  % midrule
 Model &              15 &     5 &                 -0.0006 &  (-0.0009, -0.0004) &                    -1.71 &   (-2.32, -1.1) \\
@@ -1040,8 +1050,8 @@ Obs.  &              15 &     4 &                 -0.0009 &  (-0.0012, -0.0006) 
    &  &  &  &  &  &  \\
 % \begin{tabular}{lrrrlrl}
 \toprule
-   \multicolumn{3}{c}{Number of sites} & \multicolumn{2}{l}{Absolute change (\ugC/yr)r} & \multicolumn{2}{l}{Relative change (\%/yr)} \\
-{} &           total & sign. &                     abs &     Conf. interv. &                      \%/y &  Conf. interv. \\
+   \multicolumn{3}{c}{Number of sites} & \multicolumn{2}{l}{Absolute change (\ugC~yr$^{-1}$)} & \multicolumn{2}{l}{Relative change (\%~yr$^{-1}$}) \\
+{} &           total & sign. &                     abs &     Conf. interv. &                      \%/yr &  Conf. interv. \\
 %How   &                 &       &                         &                   &                          &                \\
 \hline  % midrule
 Model &              15 &     7 &                  0.0029 &   (0.0018, 0.004) &                     2.35 &     (1.3, 3.4) \\
@@ -1081,25 +1091,13 @@ impact on the general lack of decrease observed for the OC fraction of
 \pmfine. These observations points to a continuous change in the aerosol
 chemical composition and in the relative source composition across
 Europe. It is clear that organic aerosol comprises a major fraction of \pmfine, but major efforts are needed to separate and understand its natural and anthropogenic components, in order to get a quantitative overview of the abatable fractions.
-\SKIP{
-The carbonaceous fraction appears particularly important for a
-further reduction in the observed \pmfine mass concentration in Europe,
-although effort is needed to separate its natural and anthropogenic
-fraction to get a quantitative overview of the abatable fractions.
-} % END SKIP
-\\
-\bigskip
-
-
-
-
 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\clearpage
+%\clearpage
 
 \section{\label{sec:Trends_PM }Trends in \PM[10] and \PM[2.5] }
 
@@ -1111,12 +1109,16 @@ Figure~\ref{fig:pm_trends} and Tables \ref{tab:pm10_stat} - \ref{tab:pm25_stat} 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.74\paperwidth]{FIGS_TRENDS/PM_trends.png}
-	\caption{\label{fig:pm_trends}Trends in \PM[10]  and \PM[2.5] from 2010--2019 for EMEP observations and model: left panels - annual timeseries (the solid line indicates the average annual mean trend for all sites, the shaded area shows the 95 \% confidence interval); middle and right panels - relative and absolute trends for all the sites, with both significant and not significant trends (the boxes represent the 50th, 25th, 75th percentiles, the whiskers lie within the 1.5 inter-quartile ranges, the mean trends are indicated with black circles}
+	\caption{\label{fig:pm_trends}
+		As Fig.~\ref{fig:SOx_trends}, but for \pmten (top) and \pmfine (bottom).}
+%	Trends in \PM[10]  and \PM[2.5] from 2010--2019 for EMEP observations and model: %left panels - annual timeseries (the solid line indicates the average annual mean %trend for all sites, the shaded area shows the 95 \% confidence interval); middle %and right panels - relative and absolute trends for all the sites, with both %significant and not significant trends (the boxes represent the 50th, 25th, 75th %percentiles, the whiskers lie within the 1.5 inter-quartile ranges, the mean trends %are indicated with black circles}
 \end{figure}
 
 
 \begin{table}[h]
-\caption{\label{tab:pm10_stat} Absolute and relative change and corresponding 95\% confidence intervals in observed and modelled annual and seasonal aggregated concentration of \PM[10] for the different time periods. The number of sites with a significant outcome is provided.}
+\caption{\label{tab:pm10_stat} 
+As Tab.~\ref{tab:so2_stat}, but for \pmten.}
+%Absolute and relative change and corresponding 95\% confidence intervals in observed %and modelled annual and seasonal aggregated concentration of \PM[10] for the %different time periods. The number of sites with a significant outcome is provided.}
 \begin{center}
 \scalebox{0.67}{%
 \begin{tabular}{ll|ccc|cccc|cccc}
@@ -1194,7 +1196,7 @@ Figure \ref{fig:pm_trends} reveals a considerably larger variation of observed t
 PM is a complex pollutant, consisting of aerosol species both emitted
 directly and formed from gaseous precursors. Therefore, changes both in primary PM emissions, as well as \sox, \noii, \nhiii and NMVOC emissions cause changes in PM concentrations. 
 
-During the 2000--2019 period, \soiv, \noii and \nhiv decreased on average by 3.2, 2.0 and 2.6~\%/yr respectively, derived from the long term EMEP observations and by 3.8, 2.5 and 2.6~\%/yr from the model simulations. Those reductions in SIA concentrations contributed substantially to the \PM[10] and \PM[2.5] decreases. In the western parts of the EMEP domain (EU, UK \& EFTA), where the considered sites are located, the emissions of primary \PM[10] and \PM[2.5] were reduced by 32 and 35 \%, respectively, from 2000 to 2019. Carbonaceous aerosols comprise a major part of PM emissions, especially of primary \PM[2.5].
+During the 2000--2019 period, \soiv, \noii and \nhiv decreased on average by 3.2, 2.0 and 2.6~\%/yr respectively, derived from the long term EMEP observations and by 3.8, 2.5 and 2.6~\%/yr from the model simulations. Those reductions in SIA concentrations contributed substantially to the \PM[10] and \PM[2.5] decreases. In the western parts of the EMEP domain (EU, UK \& EFTA), where the considered sites are located, the emissions of primary \PM[10] and \PM[2.5] were reduced by 32 and 35 \%, respectively, from 2000 to 2019. Carbonaceous aerosols, elemental carbon and primary organic aerosol, comprise a major part of PM emissions, especially of primary \PM[2.5].
 
 %HF: The below not necessary, as it is discussed in detail in S and N sections. Suggest to take it out and include new section above/below to include results from other sections
 %The largest in the same period was the reduction in \sox emissions (81 \%), resulting in 61 \% observed decrease of \soiv (70 \% according to the model). Following the reduction of \noii emissions by 48 \%, observed \noiii concentrations decreased slightly less, i.e. by 38 \% (44 \% according to the model). This was partly due to a rather moderate reduction by 12 \% in \nhiii emissions and the availability of free \nhiii due to the reduced formation of ammonium sulfate. 
@@ -1202,7 +1204,7 @@ During the 2000--2019 period, \soiv, \noii and \nhiv decreased on average by 3.2
  
  Due to the lack of consistent observational data for carbonaceous aerosols in the 2000s, the trends of elemental (EC) and organic (OC) carbon (in the \PM[2.5] size fraction only) have only been analysed for a 2010--2019 period (see discussion in Sect.~\ref{sec:trendsECOC}). 
  %HF Something on OC/EC trends + total
- During this 10-year period, a substantial decrease (around 4.5~\%/yr) was observed for EC, while the average decrease for OC was smaller (2.4~\%/yr). A similar to EC decrease was found for wintertime OC concentrations, where the trends in summertime OC were much less clear. Thus, decreases of both secondary inorganic aerosols as well as primary and secondary organic compounds have contributed to the decreases in PM concentrations.
+ During this 10-year period, a substantial decrease (around 4.5~\%/yr) was observed for EC, while the average decrease for OC was smaller (2.4~\%/yr). A similar to EC decrease was found for wintertime OC concentrations, whereas the trends in summertime OC were much less clear. Thus, decreases of both secondary inorganic aerosols as well as primary  (probably due to larger contribution of biogenic SOA) and secondary organic compounds have contributed to the decreases in PM concentrations.
  
  Some examples of the changes in the chemical composition of \PM[2.5] from 2000(2002) to 2019 are given in Figure \ref{fig:KEX4}.
  %for the four of the sites with enough measurements for deriving the mass balance. 
