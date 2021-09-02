@@ -1,5 +1,6 @@
 \chapter[Model updates]{Updates to the EMEP MSC-W model, 2020--2021}
 \label{ch:ModelUpdates}
+%DS changed to Ch~X.X notation 2/9
 
 {\bf{David Simpson, Michael Gauss, Qing Mu, Svetlana Tsyro, Alvaro Valdebenito and Peter Wind}}
 \vspace{30pt}
@@ -38,25 +39,25 @@ more detail in Sects.~\ref{sec:updateOverview}-\ref{sec:updateOther}.
 The major changes can be summarised:
 
 \begin{itemize}
-\item The default emissions system in the model was changed to a 19-sector system denoted GNFR-CAMS -- see Sect.~\ref{ssec:gnfr}.  % c21/4
+\item The default emissions system in the model was changed to a 19-sector system denoted GNFR-CAMS -- see Ch~\ref{ssec:gnfr}.  % c21/4
 
 \item Introduced new soil-NO, DMS and aircraft emissions, from CAMS-81 project
-(Sect.~\ref{sec:updateEmis}). 
+(Ch~\ref{sec:updateEmis}). 
 
-\item Modified fine/coarse split of sea-salt (Sect.~\ref{ssec:updateSS}) and particulate nitrate (Sect.~\ref{sec:updateOther}).
+\item Modified fine/coarse split of sea-salt (Ch~\ref{ssec:updateSS}) and particulate nitrate (Ch~\ref{sec:updateOther}).
 
 \item
 Emissions speciation. New default and country-specific emission
 speciations for \pmfine have been implemented.  See
-Sect.~\ref{ssec:emissplits}.
+Ch~\ref{ssec:emissplits}.
 
 \item
-New country-based monthly timefactors were produced for countries outside of Europe. See Sect.~\ref{ssec:monthlyFacs}.
+New country-based monthly timefactors were produced for countries outside of Europe. See Ch~\ref{ssec:monthlyFacs}.
 
-\item Revised methods for vertical diffusion (Kz) and Hmix (Sect.~\ref{sec:updateKz}).
+\item Revised methods for vertical diffusion (Kz) and Hmix (Ch~\ref{sec:updateKz}).
 
 \item
-Upgraded Local Fractions capabilities (Sect.~\ref{sec:updateLF}).
+Upgraded Local Fractions capabilities (Ch~\ref{sec:updateLF}).
 
 \item
 Numerous small changes to make the code more flexible and/or to
@@ -389,13 +390,13 @@ Extends Table S1 of \citealt{Simpson:EMEP2012}.
 \hline
 Version & Update                                        & Ref$^{(a)}$   \\
 \hline
-v4.42  &  19-sector emissions system (GNFR-CAMS) introduced; %  - see Sect.~\ref{ssec:gnfr};  % c21/4
+v4.42  &  19-sector emissions system (GNFR-CAMS) introduced; %  - see Ch~\ref{ssec:gnfr};  % c21/4
 Emissions for soil NO, DMS, and aircraft updated using results from
  CAMS81 project; % 16/5
  Modified various parameters concerning fine/coarse fractions for sea-salt and nitrate; Added RH limits on Gerber functions;
  `rnr' emission split and EmChem19r introduced;
            Revised global monthly emission factors produced (and use of global time.zone map);  % 16/5
-           Changed default Kz  and Hmix schemes (Sect.~\ref{sec:updateKz}); 
+           Changed default Kz  and Hmix schemes (Ch~\ref{sec:updateKz}); 
          upgraded local fraction methods; cleaned up various config options. 
         & This report \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -416,10 +417,10 @@ Emissions for soil NO, DMS, and aircraft updated using results from
 %SKIP BUG fix on aircraft emissions  27/4
 % 21/4
 %rv4.39 &
-% GNFR-CAMS is now the default emissions system - see Sect.~\ref{ssec:gnfr};  % c21/4
+% GNFR-CAMS is now the default emissions system - see Ch~\ref{ssec:gnfr};  % c21/4
 %          Uses global time-zone map;   % 19/3
 %          Revised global monthly factor;  % 19/3 though updated in rv4.41
-%          New Kz method introduced (Sect.~\ref{ssec:PBL});
+%          New Kz method introduced (Ch~\ref{ssec:PBL});
 %          NWP model rh2m now used in place of earlier sub-grid calculation; % 9/2
 %          Upgrade of local fractions methodology;  % 7/11/2020
 %        & \\
@@ -443,7 +444,7 @@ rv4.17  & Public domain (Feb. 2018);
 rv4.16  & New radiation scheme (Weiss\&Norman); Added dry and wet deposition for \ce{N2O5};
          (Used for  \citealt{Stadtler2018,MillsGCB2018b}) & R2018   \\
 rv4.15  & EmChem16 scheme; % & R2017; % \\
-%    Sect.\ref{sec:GNFR}--\ref{ss:Splits} & R2016  \\
+%    Ch\ref{sec:GNFR}--\ref{ss:Splits} & R2016  \\
 %
 %rv4.14  & Updated chemical scheme & R2017       \\
 %% rv4.13 + CRI was used in McFiggans. Difficult to describe combo
