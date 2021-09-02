@@ -5,20 +5,21 @@
 \cleardoublepage
 \chapter[2019 Model Evaluation]{Model Evaluation}
 \label{ch:appx_modeleval}
+%DS small chanhges 2/9
 
 %The purpose of this appendix is to make readers of this report better
 %aware of our web resources (evaluation report/supplementary material)
 %\vspace{30pt}
 
 The EMEP MSC-W model is regularly evaluated against various kinds of measurements, including ground-based, airborne and satellite measurements.
-As the main application of the EMEP MSC-W model within the LRTAP Convention is to assess the status of air quality on regional scales and to quantify long-range transboundary air pollution, the emphasis of the evaluation performed for the EMEP status reports has traditionally been put on the EMEP measurement sites.
+As the main application of the model within the LRTAP Convention is to assess the status of air quality on regional scales and to quantify long-range transboundary air pollution, the emphasis of the evaluation performed for the EMEP status reports has traditionally been put on the EMEP measurement sites.
 
 However, a more detailed evaluation against measurements from both the EMEP network and the European Environment Agency's (EEA) Air Quality e-Reporting Database can now be found at the AeroVal webpage that has been developed recently for the evaluation
 of EMEP MSC-W model output:\\
 \\
 \url{https://aeroval.met.no/evaluation.php?project=emep}\\
 \\
-On that page the user can select the set of measurement data, the
+On this page, the user can select the set of measurement data, the
 station or country of interest, and view a large number of statistical
 parameters (bias, correlation, root mean square error, etc.). AeroVal is flexible and allows using all available observations, including irregular and non-standard-frequency measurements.
 \\
@@ -55,9 +56,17 @@ To allow for comparison of this year's model performance with earlier evaluation
 
 % in 2021 (for reporting 2019), the numbers in this table were taken from:
 % /lustre/storeB/project/fou/kl/emep/ModelRuns/2021_REPORTING/VERIFICATION/STATISTICS/Res_EMEP01_rv4.42_2019_REF2_1_rnr_h500_outliers_comday
-
+\caption{Comparison of model results and observations for 2019. Annual
+averages over all EMEP sites with measurements.  N$_{stat}$= number of stations,
+wd=wet deposition (integrated over the year and stations), cp= concentration
+in precipitation, Corr. = spatial correlation coefficient, RMSE = root mean
+square error, IOA = index of agreement. The requirement for being included
+  is that at least 5 sites are available, that measurements be available for 75\% of all days in 2019, except
+  for the components marked with $\star$, where observational data covers
+  the whole year of 2019, but with measurements 3-5 times a month.}
+\label{tab:tableOldFashioned}
 \begin{center}
-\begin{tabular}{c|ccccccc}
+\begin{tabular}{l|ccccccc}
 \hline\hline
 Component  & N$_{stat}$ &Obs. & Mod. &Bias (\%) & RMSE & Corr.& IOA\\
 \hline
@@ -415,17 +424,9 @@ Na+ in \PM[10] (\ug)
 
 \end{tabular}
 
-\vspace{0.2cm}
+%\vspace{0.2cm}
 
-\caption{Comparison of model results and observations for 2019. Annual
-averages over all EMEP sites with measurements.  N$_{stat}$= number of stations,
-wd=wet deposition (integrated over the year and stations), cp= concentration
-in precipitation, Corr. = spatial correlation coefficient, RMSE = root mean
-square error, IOA = index of agreement. The requirement for being included
-  is that measurements be available for 75\% of all days in 2019, except
-  for the components marked with $\star$, where observational data covers
-  the whole year of 2019, but with measurements 3-5 times a month.}
-\label{tab:tableOldFashioned}
+
 \end{center}
 \end{table}
 
