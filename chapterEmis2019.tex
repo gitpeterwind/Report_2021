@@ -30,9 +30,9 @@ PM\footnote{``Particulate matter'' (PM) is an air pollutant
   consisting of a mixture of particles suspended in the air. These
   particles differ in their physical properties (such as size and
   shape) and chemical composition. Particulate matter refers to:\\  
-(i) ``PM$_{2.5}$'', or particles with an aerodynamic diameter equal to or
+(i) ``\PM[2.5]'', or particles with an aerodynamic diameter equal to or
   less than 2.5 micrometers ($\mu$m);\\ 
-(ii) ``PM$_{10}$'', or particles with an aerodynamic diameter equal to or
+(ii) ``\PM[10]'', or particles with an aerodynamic diameter equal to or
   less than 10 $\mu$m.} and voluntary BC) and associated activity data. Projection data, gridded data and information on large point sources (LPS) 
 have to be reported to the EMEP Centre on Emission Inventories and Projections (CEIP) every four years.
 
@@ -115,12 +115,12 @@ To improve the quality of the input data for air quality models, and following a
 
 CEIP in co-operation with TNO prepared a list of Parties where it could be assumed with a good degree of certainty that the condensable component is mostly included in PM emissions for GNFR sector C. The analysis focused on small scale combustion. This analysis was based on (a) the calculation of Implied Emission Factors (emission divided by the reported activity data), (b) the fuel mix of the Party, (c) the information provided in the Informative Inventory Report and (d) in a few cases direct information from Parties (received via e-mail).
 
-The analysis resulted in a list of Parties where the conclusion was that the PM emission data reported by the Party should be used as the condensable component seemed to be included. For other Parties the TNO REF2 data were used. In a few cases data that had been gap-filled by CEIP was used for the respective Party no REF2 estimate was available (see table~\ref{tab:CEIP1}).
+The analysis resulted in a list of Parties where the conclusion was that the PM emission data reported by the Party should be used as the condensable component seemed to be included. For other Parties the TNO REF2.1 data are used. The REF2.1 dataset is described below in Section~\ref{sec:ref2.1}. In a few cases data that had been gap-filled by CEIP was used for the respective Party where no REF2.1 estimate was available (see Table~\ref{tab:CEIP1}). In this report, the emission dataset which combines REF2.1 estimates for PM$_{2.5}$ from GNFR~C with EMEP estimates are referred to as EMEPwREF2.1C dataset (see Appendix~\ref{ch:appx_emis_2019}). 
 
 
 
 \begin{table}
-  \caption{Data source for PM emission in GNFR C used in EMEP modelling in 2021.}
+  \caption{Data source for PM emissions in GNFR C used in the EMEP staus runs and source-receptor calculations in 2021 (EMEPwREF2.1C dataset).}
 \centering
 {\includegraphics*[viewport=120 275 550 760,clip,width=0.8\textwidth]{FIGS_CEIP/Table1.pdf}}
 \label{tab:CEIP1}  
@@ -130,7 +130,7 @@ Parties were asked to include a table with information on the inclusion of the c
 recommended structure for IIRs\footnote{\url{https://www.ceip.at/reporting-instructions } }. Twenty-three Parties provided information on the inclusion of the condensable component in PM$_{10}$ and PM$_{2.5}$ emission factors\footnote{Status as of 15 May 2021}. This reporting is a first step towards a better understanding of reported PM data. The information that Parties provided on whether the condensable component is included in PM emissions was quite heterogeneous. The status of inclusion or exclusion is best known for emissions from the energy sector and road transport, for which many Parties submitted information. 
 
 \subsection{REF2.1 emissions and improvements compared to last year's REF2 emissions}
-
+\label{sec:ref2.1}
 
 The REF2 emission inventory provides a bottom-up database of PM emissions (both PM$_{10}$ and PM$_{2.5}$) from small combustion activities (GNFR category C), taking into account activity data and consistent emission factors that include condensables, for both wood and solid fuel combustion. It was originally developed for the year 2010 \citep{DeniervanderGon2015}. Residential emissions vary from year to year, because of technological developments in the sector (replacement of stoves and boilers) but also because of the heating demand due to fluctuating temperatures. To take this into account, an alternative REF2 was developed for 2015 which was also used as an input to EMEP modelling in 2020. These REF2 emission data and their usage in the EMEP modelling work in 2020 are described in  \citet{R2020:CAMSREF2} and \citet{R2020:SVOC}. This version was developed by scaling the original REF2 for 2010 to the year 2015 by using the trend in the official reported data for PM$_{2.5}$ from GNFR~C for that particular year. The idea behind this approach was that by scaling in this way both the technological changes within each country as well as the annual fluctuation in heating demand are included. It is desirable but difficult to separate these effects because the detailed underlying country data are not available. Countries report emissions only by source sector and for the sum of all fuels; activity data or emissions by appliance type are not available.
 
@@ -142,13 +142,13 @@ The 5 selected countries were chosen because of feedback received or discussions
 \begin{figure}[h]
 \centering
 {\includegraphics*[viewport=1 1 740 400,clip,scale=0.45]{FIGS_CEIP/Fig3.pdf}}
-\caption{Results for REF2 for 2010 (original), 2015 (after scaling, used in EMEP 2020) and REF2.1 for 2015 (after scaling + adjustment for 5 countries, used in EMEP 2021).}
+\caption{Results for REF2 for 2010 (original), 2015 (after scaling, used in EMEP 2020) and REF2.1 for 2015 (after scaling + adjustment for 5 countries, used in EMEP 2021). Unit: Gg.}
 \label{fig:CEIP3}
 \end{figure}
 
 
-Figure~\ref{fig:CEIP3} shows the different REF2 emission estimates. The year 2010 is the original REF2 estimate, while 2015\_scaled represents the scaled REF2 to the year 2015 using the official reported data (used in the 2020 EMEP modelling). The estimate 2015\_scaled\_adjusted is the updated version described here, where for 5 selected countries in the original REF2 data have been revised based on new information (REF2.1).
-From the figure, it can be seen that the 2015 emissions are lower than 2010 for almost all countries. This is p-artly the result of technological advancements in countries (replacement of older stoves with new ones), but also largely related to the fact that 2010 was a relatively cold year in Europe, hence with higher emissions from the residential sector compared to other years. The figure also shows that for the five countries that have been adjusted in the latest update, in each case the REF2.1 emissions including condensables is corrected downward. This adjusted REF2.1 is, however, still considerably higher than reported emission for each of these countries.
+Figure~\ref{fig:CEIP3} shows the different REF2 emission estimates for PM$_{2.5}$ from GNFR~C. The year 2010 is the original REF2 estimate, while 2015\_scaled represents the scaled REF2 to the year 2015 using the official reported data (used in the 2020 EMEP modelling). The estimate 2015\_scaled\_adjusted is the updated version described here, where for 5 selected countries in the original REF2 data have been revised based on new information (REF2.1).
+From the figure, it can be seen that the 2015 emissions are lower than 2010 for almost all countries. This is partly the result of technological advancements in countries (replacement of older stoves with new ones), but also largely related to the fact that 2010 was a relatively cold year in Europe, hence with higher emissions from the residential sector compared to other years. The figure also shows that for the five countries that have been adjusted in the latest update, in each case the REF2.1 emissions including condensables is corrected downward. This adjusted REF2.1 is, however, still considerably higher than reported emission for each of these countries.
 
 \section{Gothenburg Protocol targets}
 \label{sec:GP}
