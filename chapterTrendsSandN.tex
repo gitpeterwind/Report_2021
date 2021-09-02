@@ -14,7 +14,7 @@ In this Chapter, we present an assessment of the trends in air pollution in Euro
 
 Comparison of trends in measured and modelled VOCs is not included in this report. The main reasons are the lack of established procedures for doing such a comparison as well as the lack of proper monitoring sites with sufficient data capture and sufficient homogeneity in the monitoring during the 2000-2019 period. The topic of VOC trends will be investigated in more detail in the near future. 
 
-Unfortunately, the EMEP observational network is dominated by sites in the western part of the EMEP domain and has hardly any coverage in the EECCA (Eastern Europe, Caucasus and Central Asia) countries. Therefore, the assessment discussed in this chapter is only valid for a part of the EMEP domain. As discussed in Chapter \ref{ch:emis2019}, the development of emissions in the western and eastern part of the EMEP domain follows different patterns, with clear decreases of all pollutants in the western countries but more stable (albeit gradually decreasing for most pollutants) in the eastern part of the domain over the 2000-2019 period. Thus, the trends in the eastern part of the EMEP domain are expected to be different than those presented here for the western part. Note, however, that the uncertainties related to emissions and their trends in the eastern countries are large (see Chapter~\ref{ch:emis2019}). It should also be pointed out that for the different components analyzed, the number of observational sites available and the geographical coverage differs. Thus the trends for the different components are not fully consistent. 
+Unfortunately, the EMEP observational network is dominated by sites in the western parts of the EMEP domain and has hardly any coverage in the EECCA (Eastern Europe, Caucasus and Central Asia) countries. Therefore, the assessment discussed in this chapter is only valid for a part of the EMEP domain. As discussed in Chapter \ref{ch:emis2019}, the development of emissions in the western and eastern part of the EMEP domain follows different patterns, with clear decreases of all pollutants in the western countries but more stable (albeit gradually decreasing for most pollutants) in the eastern part of the domain over the 2000-2019 period. Thus, the trends in the eastern part of the EMEP domain are expected to be different than those presented here for the western part. Note, however, that the uncertainties related to emissions and their trends in the eastern countries are large (see Chapter~\ref{ch:emis2019}). It should also be pointed out that for the different components analyzed, the number of observational sites available and the geographical coverage differ. Thus the trends for the different components are not fully consistent. 
 %HF while looking at the results for different components, one should take into consideration the different number and geographical coverage of sites included (and sometimes the period studied).
 
 
@@ -30,9 +30,9 @@ Unfortunately, the EMEP observational network is dominated by sites in the weste
 
 The EMEP MSC-W model version rv4.42 has been used to perform model runs for years from 2000 through 2019. The horizontal resolution is \resZO, with 20 vertical layers (the lowest with a height of approximately 50 meters).
  Meteorology, emissions, boundary conditions and forest fires for the respective years have been used as input. Meteorological data have been
- derived from ECMWF-IFS(cy40r1) simulations for the years 2000 to 2018 and a ECMWF-IFS(cy46r1) simulation for 2019 (see Section~\ref{sec:meteo}). 
+ derived from ECMWF-IFS(cy40r1) simulations for the years 2000 to 2018 and from a ECMWF-IFS(cy46r1) simulation for 2019 (see Section~\ref{sec:meteo}). 
  The boundary conditions for the main gaseous and aerosol species were based on climatological observed values with prescribed trends in trans-Atlantic fluxes, while ozone levels have been corrected based on measurements at Mace
-Head/UK. The boundary conditions for natural particles of
+Head in Ireland \citep[c.f.][]{Simpson:EMEP2012}. The boundary conditions for natural particles of
 sea salt and mineral dust were the same as in the status run, namely 5-year monthly average
 concentrations, derived from EMEP MSC-W global runs, kept invariable over the calculation
 period.
@@ -50,7 +50,7 @@ and NOx speciation into NO, \ce{NO2} and `shipNOx' was based upon Older IIASA? W
 } % END SKIP
 For NOx and VOC the same (sector-based) speciations were used for all years.
 Soil NO$_x$ emissions were based on the new CAMS-GLOB-SOIL v2.2 NO$_x$ inventory \citet{SimpsonDarras:2021}. Soil-NO$_x$ emissions which are related to the use of fertilizer were not taken from the CAMS-GLOB-SOIL inventory, as these are already included in the EMEP (CEIP) emissions.
-A revised set of anthropogenic emissions for all the years 2000-2019 has been used in the model calculations (including all the reported and re-reported data by June 2021), see Chapter~\ref{ch:emis2019}.
+A revised set of anthropogenic emissions for all the years 2000--2019 has been used in the model calculations (including all the reported and re-reported data by June 2021), see Chapter~\ref{ch:emis2019}.
 
 
 \subsection{Issues with inventories used in modelling}
@@ -75,10 +75,10 @@ component of POA.
 It has clearly shown that some countries include, and some countries
 exclude the CPOA component from their reporting of \pmfine emissions. Further, even
 for the same country, CPOA might be included or excluded differently for
-different sectors. In many case, countries did not have the technical
+different sectors. In many cases, countries did not have the technical
 information needed to know the extent of inclusion for specific
 sectors. Inclusion or exclusion, or the extent of inclusion of CPOA, has
-also changed over the years, which directly complicates trend analysis
+also changed over the years, which directly complicates trend analyses
 of emissions.
 
 Thus, PM emissions from countries which include CPOA might appear
@@ -100,7 +100,7 @@ procedure typically relies upon assumed POA/EC (or often OC/EC) ratios for the d
 emission sectors. If POA is defined differently from country to country,
 and as POA/EC ratios do not typically account for these differences,
 then the assumed EC emission will also be similarly ill-defined. For this report, the
-splits used are derived from the ECLIPSE v6b time-series for 2000-2016
+splits used are derived from the ECLIPSE v6b time-series for 2000--2016
 (see Sect.~\ref{ssec:emissplits}). As this inventory makes heavy use of
 EMEP reported data for the European region, then the emissions of both POA and EC used in the trend analysis will be affected, as will modelled trends in these components and \pmfine.
 
@@ -133,8 +133,6 @@ An uncertainty is provided for each trend by combining the error of the slope ca
 
 where $\Delta m$ is the Theil-Sen estimator 68\% confidence interval, $y(start)$ is the value of the regression line at the first year of the period, $m$ is the value of the Theil-Sen slope and $\Delta r$ is the uncertainty of $y(start)$ which is estimated based on the average magnitude of the fit residual.
 
-%uncertainty in averaged error on the residuals computed based on the difference between the linear trend and the yearly mean values of the regional time series.
-
 In order to allow for consistent comparisons, the trend is provided as a relative trend (\%/yr) with respect to the first year of the time period, i.e. the intercept of the time series.
 
 Some of the trend calculations have not been done using the pyaerocom software. The trends in EC and OC have been calculated using the python pyMannKendall package \citep{Hussain2019}, the gridded modelled trends using an NCL package (\url{https://www.ncl.ucar.edu/Document/Functions/Built-in/trend_manken.shtml}), while SOMO35 and AOT40 trends used the R packages 'Kendall' \citep{McLeod_2011} for the Mann-Kendall calculations and 'zyp' \citep{Bronaugh_Werner_2019} for the calculation of Sen's slopes. The confidence intervals for the mean values (of SOMO35 and AOT40) were calculated by the R package 'boot' \citep{Canty_Ripley_2021}.
@@ -153,7 +151,7 @@ Tables~\ref{tab:so2_stat}--\ref{tab:so4dep_stat}), in line with several studies 
 
 The spatial distribution of the relative trends (Figure~\ref{fig:Strends_map}) shows that the decreases in sulfur air concentrations and wet deposition have been quite homogeneous across Europe west of Russia, though somewhat higher in Spain and France and lower in Poland. There have been higher reductions in the primary component \soii compared to  secondary \soiv. The greater decrease in \soii compared to secondary sulfate is likely due to a combine effect of higher oxidation rate (hence more \soii converted to \soiv) and increased dry deposition rate of \soii. One possible explanation is that the oxidation capacity of the atmosphere may have increased as the emissions have decreased \citep{Dalsoren2016}. This would give less acidic clouds due to less \soii and only slight decreases in \nhiii, which has increased the oxidation rate of \soii to \soiv via the ozone pathway \citep{Banzhaf2015, Redington2009}. In addition, less acidity in the environment probably leads to more efficient dry deposition of \soii \citep{Fowler_et_al:2009}. 
 
-The average observed trends for the last 20 years (2000--2019) are -3.9, -3.2 and -3.1\% yr$^{-1}$ for \soii, \soiv in aerosols and \soiv in wet deposition respectively, while the trends in model calculations are somewhat greater: -5.1, -3.8 and -4.3\% yr$^{-1}$, respectively. The overestimation in sulfur trends by the model is seen both for relative and absolute trends for \soii, and wet deposition of \soiv while for \soiv in aerosols the absolute trend is higher in observations, but within the 95\% confidence interval of the modelled trends.  
+The average observed trends for the last 20 years (2000--2019) are -3.9, -3.2 and -3.1\% yr$^{-1}$ for \soii, \soiv in aerosols and \soiv in wet deposition, respectively, while the trends in model calculations are somewhat greater: -5.1, -3.8 and -4.3\% yr$^{-1}$, respectively. The overestimation in sulfur trends by the model is seen both for relative and absolute trends for \soii, and wet deposition of \soiv while for \soiv in aerosols the absolute trend is higher in observations, but within the 95\% confidence interval of the modelled trends.  
 
 It is not clear why the trends calculated by the model are larger than the trends in observations. However, it is worth noting that also the trends in reported emissions are larger than the trends in the different sulfur components in observations. The mismatch between the calculated trends and the observed trends are particularly large for Eastern Spain and parts of Eastern Europe. These differences between the modelled trends, the trends in emissions and the trends in observations might potentially indicate that the emission reductions reported by the countries are somewhat optimistic for some countries. However, firm conclusions are difficult to draw as we do not monitor the full sulfur budget (e.g. dry deposition of sulfur is lacking). Furthermore, changes in emissions distribution that are not correctly accounted for or missing processes in the model could also play a role.
 
@@ -164,7 +162,7 @@ The relative trends across the different seasons are similar.
 However, there are larger absolute changes in \soii for both observations and model calculations during the winter (Fig.~\ref{fig:SOx_trends}).%, but the relative trends are similar for all periods.
 %WAa OK!
 
-For the period of 2005--2019 (starting with the reference year of the Gothenburg protocol, the reported emission reductions for the 2005--2019 period in the EU27+UK+EFTA countries are 75\%, which are reflected in the modelled results with reductions of 74\% in \soii, 56\% in \soiv in aerosols and 63\% in wet deposition of \soiv. The observations show smaller reductions than the emissions (and model), with 60\% in \soii, 49\% in \soiv in aerosol and 40\% for wet deposition of \soiv.
+For the period of 2005--2019 (starting with the reference year of the Gothenburg protocol), the reported emission reductions in the EU27+UK+EFTA countries are 75\%, which is reflected in the modelled results with reductions of 74\% in \soii, 56\% in \soiv in aerosols and 63\% in wet deposition of \soiv. The observations show smaller reductions than the emissions (and the model), with 60\% in \soii, 49\% in \soiv in aerosol and 40\% for wet deposition of \soiv.
 
 
 
@@ -181,7 +179,7 @@ For the period of 2005--2019 (starting with the reference year of the Gothenburg
   \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_SO4_2000-2019_Perc.pdf}}
   %  \vspace{0.5cm}
   \centering{\includegraphics[clip=,angle=90,height=6.1cm,viewport=175 67 448 754]{FIGS_TRENDS/RelTrend_WDEP_SOX_2000-2019_Perc.pdf}}
-\caption{Relative trends for \soii, \soiv in aerosols and wet deposition of \soiv in the period of 2000--2019: EMEP modelled -- coloured contours (grey/white means non-significant trends) and observed - coloured triangles (significant) and circles (non-significant).}
+\caption{Relative trends for \soii, \soiv in aerosols and wet deposition of \soiv in the period of 2000--2019: EMEP modelled are shown as coloured contours (grey/white means non-significant trends) and observed by coloured triangles (significant) and circles (non-significant).}
 \label{fig:Strends_map}
 \end{figure}
 
@@ -267,27 +265,27 @@ mod. & conf.interval & obs. & conf.interval & mod. & conf.interval \\
 \clearpage
 \section{\label{sec:Trends_oxidised_nitrogen }Trends in oxidised nitrogen}
 
-During the last decades, the total emissions of NO$_x$ have declined significantly in Europe, leading to reductions in \ce{NO2} concentrations, total nitrate (nitric acid plus particulate nitrate) in air and oxidized nitrogen wet deposition at EMEP background sites. This is found both for the EMEP MSC-W model calculations and for observations. Similar results have been presented in \citet{Theobald2019} for wet deposition of oxidized nitrogen for the 1990--2010 period and in \citet{Banzhaf2015} for total nitrate for 1990--2009. \citet{torseth2012} also find decreasing trends in nitrogen dioxide, total nitrate and nitrate in precipitations 1990--2009 in EMEP observations. A more recent study, analyzing the period 2000--2017 \citep{Colette2021} and including Airbase and most EMEP observations, also find decreasing trends in \ce{NO2}.
+During the last decades, the total emissions of NO$_x$ have declined significantly in Europe, leading to reductions in \ce{NO2} concentrations, total nitrate (nitric acid plus particulate nitrate) in air and oxidized nitrogen wet deposition at EMEP background sites. This is found both for the EMEP MSC-W model calculations and for observations. Similar results have been presented in \citet{Theobald2019} for wet deposition of oxidized nitrogen for the 1990--2010 period and in \citet{Banzhaf2015} for total nitrate for 1990--2009. \citet{torseth2012} also find decreasing trends in nitrogen dioxide, total nitrate and nitrate in precipitations 1990--2009 in EMEP observations. A more recent study, analyzing the period 2000--2017 \citep{Colette2021} and including Airbase and most EMEP observations, also finds decreasing trends in \ce{NO2}.
 
 Figure~\ref{fig:NOx_trends} shows an overview of the annual and seasonal trends in oxidised nitrogen compounds from 2000 to 2019. Tables~\ref{tab:no2_stat} to \ref{tab:no3dep_stat} show absolute and relative changes in the different oxidized nitrogen compounds.
 
-From 2000--2019, the reductions have been on average -1.2\%~yr$^{-1}$ for \ce{NO2} concentrations at EMEP background sites (total -24\%). As NO$_2$ has a short lifetime, the trend in NO$_2$ is expected to reflect the trend in (local) emissions of NOx. During the 2000--2019 period, NO$_x$ emissions within the western EMEP domain (EU27+UK+EFTA countries), where the dominant part of the long term EMEP observations are situated, decreased by -48\%. EMEP/MSC-W model calculations follows the reported emission reductions closely (average reductions of -2.2\%~yr$^{-1}$, or in total -42\%). 
-The agreement between the trends calculated from observations and from the model (and emissions) agree well for the last period (2010--2019), with trends around -2.6\% yr$^{-1}$, whilst the trend in the first period is substantially lower in the observations than in the model calculations (and emissions). From Figure~\ref{fig:NOx_trends} it can be seen that the agreement between observations and model calculations is excellent until around 2008, but that in the year 2009 and onwards the model (and emissions) is shifted down relative to the observations. Similar results have been found in \citep{Colette2021}.
+From 2000--2019, the reductions have been on average -1.2\%~yr$^{-1}$ for \ce{NO2} concentrations at EMEP background sites (total -24\%). As NO$_2$ has a short lifetime, the trend in NO$_2$ is expected to reflect the trend in (local) emissions of NOx. During the 2000--2019 period, NO$_x$ emissions within the western EMEP domain (EU27+UK+EFTA countries), where the dominant part of the long term EMEP observations are situated, decreased by -48\%. EMEP MSC-W model calculations follow the reported emission reductions closely (average reductions of -2.2\%~yr$^{-1}$, or in total -42\%). 
+The trends calculated from observations and from the model (and emissions) agree well for the last period (2010--2019), with trends around -2.6\% yr$^{-1}$, whilst the trend in the first period is substantially lower in the observations than in the model calculations (and emissions). From Figure~\ref{fig:NOx_trends} it can be seen that the agreement between observations and model calculations is excellent until around 2008, but that in the year 2009 and onwards the model (and emissions) is shifted down relative to the observations. Similar results have been found in \citep{Colette2021}.
 
 The trends in wet deposition of oxidized nitrogen reflect changes in long range transported oxidized nitrogen (e.g. NO$_x$ that has been converted to nitric acid and particulate nitrate and then washed out by rain) and are less sensitive to local changes. Also the trends for wet deposition of nitrate are lower in the observations than in the model calculations (and emissions of NO$_x$) for the 2000--2019 period. Whilst the average trend in observations is -1.4\% yr$^{-1}$ (total of -26\%), the model calculates the trend at the same sites to be -2.3 \% yr$^{-1}$ (total of -45\%), close to the trends in emissions from the western EMEP domain (-48\%). %The difference between the trend in observations are largest during the first period, similar to the results for NO$_2$.
-However, the model overestimates nitrate wet deposition somewhat up to around 2010, and are then shifted downward and in good agreement with observations for the years after. Note that the number of sites with significant trends for the shorter periods are small, and thus the results encumbered with more uncertainty.
+However, the model overestimates nitrate wet deposition somewhat until around 2010, and is then shifted downward and in good agreement with observations for the years after. Note that the number of sites with significant trends for the shorter periods is small, and thus the results encumbered with more uncertainty.
 
 
-For particulate nitrate, nitric acid and their sum, the results are more complex. The number of sites are few (especially for nitric acid, with only 6 sites), the coverage of Europe more scattered and the gas/aerosol partitioning to nitrate and nitric acid are methodological biased\citep{EMEP2014}.
+For particulate nitrate, nitric acid and their sum, the results are more complex. The number of sites are few (especially for nitric acid, with only 6 sites), the coverage of Europe more scattered, and the gas/aerosol partitioning to nitrate and nitric acid is methodologically biased\citep{EMEP2014}.
 %quality of the measurements is worse. 
 
 The modelled trends for 2000 to 2019 are all around -2 to -2.5\% per year for particulate nitrate, nitric acid and their sum - aligned with the results of NO$_2$, wet deposition of oxidized nitrogen and the emissions. The observations show a somewhat smaller negative trend of around -1.6\% yr$^{-1}$ for the sum and around -2\% yr$^{-1}$ both for particulate nitrate and nitric acid. For the shorter periods, the number of sites with significant trends are very small, both in the model calculations and the observations, and thus the results more uncertain.
-However, for all the three observations, the trend in the first period (2000--2010) is smaller than the trend in the second period, whilst the model show a rather similar trend for the sum, and larger trends in the first period for the separate components.
+However, for all the three observations, the trend in the first period (2000--2010) is smaller than the trend in the second period, whilst the model shows a rather similar trend for the sum, and larger trends in the first period for the separate components.
 
 
-In Figure~\ref{fig:OXNtrends}, the trends for the individual sites are visualized on a map on top of the EMEP MSC-W model calculations. For NO$_2$ and wet deposition of oxidized nitrogen, the trends in the observations on the eastern part of the domain are smaller and to a larger extent non significant, whilst the trends in the EMEP MSC-W model calculations are in general larger and more often significant. The reasons for these discrepancies are not clear, but could be related to problems/inaccuracies in emission reporting and their trends, processes that are not (well enough) taken into account or in the observations themselves.
+In Figure~\ref{fig:OXNtrends}, the trends for the individual sites are visualized on a map on top of the EMEP MSC-W model calculations. For NO$_2$ and wet deposition of oxidized nitrogen, the trends in the observations on the eastern part of the domain are smaller and to a larger extent non significant, whilst the trends in the EMEP MSC-W model calculations are in general larger and more often significant. The reasons for these discrepancies are not clear, but could be related to problems/inaccuracies in emission reporting and their trends, processes that are not (well enough) taken into account, or in the observations themselves.
 
-In summary we find that oxidized nitrogen in air and precipitation has been decreasing since 2000. However, the decrease in the observations (-24\% for \noii and -26\% for wet deposition of oxidized nitrogen) are smaller than in model calculations (-42\% for \noii and -45\% for wet deposition of oxidized nitrogen) and emissions (-48\% for EU27+UK+EFTA). 
+In summary we find that oxidized nitrogen in air and precipitation has been decreasing since 2000. However, the decrease in the observations (-24\% for \noii and -26\% for wet deposition of oxidized nitrogen) is smaller than in model calculations (-42\% for \noii and -45\% for wet deposition of oxidized nitrogen) and emissions (-48\% for EU27+UK+EFTA). 
 
 
 \begin{figure}[h]
@@ -454,30 +452,30 @@ mod. & conf.interval & obs. & conf.interval & mod. & conf.interval \\
 
 \section{\label{sec:Trends_reduced nitrogen }Trends in reduced nitrogen}
 
-Ammonia emissions from agricultural activities have been only slightly reduced for the western EMEP domain since 2000 (-12\% in EU27+UK+EFTA countries). In the EMEP domain as a whole, ammonia emissions have increased by 12\% since 2000 (see Chapter \ref{ch:emis2019}).
+Ammonia emissions from agricultural activities have only been slightly reduced for the western EMEP domain since 2000 (-12\% in EU27+UK+EFTA countries). In the EMEP domain as a whole, ammonia emissions have increased by 12\% since 2000 (see Chapter \ref{ch:emis2019}).
 
-With such small changes in emissions, clearly it is very difficult to detect any trends in the observations -- considering also that the meteorological variability introduces year to year changes of the same magnitude as the expected trends.
+With such small changes in emissions it is very difficult to detect any trends in the observations -- considering also that the meteorological variability introduces year to year changes of the same magnitude as the expected trends.
 Note that previous studies  \citep[e.g.][]{torseth2012,Theobald2019} have found decreasing trends for reduced nitrogen. However, those studies analyzed earlier periods (e.g. 1980--2009 or 1990--2009), where the reported ammonia emissions decreased more.
 
 Figure~\ref{fig:Nred_trends} shows an overview of the annual and seasonal trends in reduced nitrogen compounds from 2000 to 2019. Figure~\ref{fig:RDNtrends} visualizes the trends in different reduced nitrogen compounds from observations on top of modelled trends on a European map. Tables~\ref{tab:tnh4_stat} to \ref{tab:nh4dep_stat} show absolute and relative changes in the different reduced nitrogen compounds.
 
 
-Indeed, both observations and model calculations find very few significant trends in wet deposition of reduced nitrogen. Out of 44 sites with long term measurements at EMEP background sites, only 13 are significant for the observations and 9 for the model. The average change in the observations for 2000 to 2019 is -0.31\% yr$^{-1}$, with a confidence interval from -0.99\% yr$^{-1}$ to +0.37\% yr$^{-1}$, while the model show an average trend of -0.4\% yr$^{-1}$ and a confidence interval of -0.7\% yr$^{-1}$ to -0.1\% yr$^{-1}$. For the shorter time periods (2000--2010 and 2010--2019) there are even fewer sites with significant trends (see Table~\ref{tab:nh4dep_stat}).
+Indeed, both observations and model calculations find very few significant trends in wet deposition of reduced nitrogen. Out of 44 sites with long term measurements at EMEP background sites, only 13 are significant for the observations and 9 for the model. The average change in the observations for 2000 to 2019 is -0.31\% yr$^{-1}$, with a confidence interval from -0.99\% yr$^{-1}$ to +0.37\% yr$^{-1}$, while the model shows an average trend of -0.4\% yr$^{-1}$ and a confidence interval of -0.7\% yr$^{-1}$ to -0.1\% yr$^{-1}$. For the shorter time periods (2000--2010 and 2010--2019) there are even fewer sites with significant trends (see Table~\ref{tab:nh4dep_stat}).
 
-Total ammonium (NH$_3$ + NH$_4$) in air show larger negative changes in observations of about -1.45\% yr$^{-1}$, and for the model -1.36\% yr$^{-1}$, and with a larger fraction of the sites having significant trends. This trend is larger than the reduction in ammonia emissions for EU27+UK+EFTA countries (-12\%), in total 27\% in observations and 26\% in model calculations for 2000--2019.
+Total ammonium (NH$_3$ + NH$_4$) in air shows larger negative changes in observations of about -1.45\% yr$^{-1}$, and for the model -1.36\% yr$^{-1}$, and with a larger fraction of the sites having significant trends. This trend is larger than the reduction in ammonia emissions for EU27+UK+EFTA countries (-12\%), in total 27\% in observations and 26\% in model calculations for 2000--2019.
 
 The trend for ammonium aerosols is even more negative, -2.61 \% yr$^{-1}$, both in observations and model calculations.
 
 Very few sites have long term time series of ammonia in air (8 sites), and very few of the trends calculated are significant. However, on average, the changes observed and calculated are positive: +1.55 and +1.54 \% yr$^{-1}$ in observations and model calculations, respectively, with all values within the confidence interval being positive.
 
 
-This large difference between the trends of the different reduced nitrogen components can be explained by the interaction of ammonia with the sulfur and nitrogen components. When ammonia is released into the air, it reacts with secondary sulfate originating from the SO$_x$ emissions and forms particulate ammonium sulfates. If more ammonia is available, it reacts with nitric acid in an equilibrium reaction to form particulate ammonium nitrate. During the years from 2000 onwards, large reductions in SO$_x$ and NO$_x$ emissions have taken place, and thus less sulfate and nitric acid is available for forming ammonium particles. Therefore, a smaller fraction of NH$_3$ is converted to aerosol ammonium, and the decrease in particulate ammonium is strongly linked to the decrease in sulfate and nitrate. It is therefore to be expected that the trend in ammonium aerosol (-2.6\% yr$^{-1}$, observations) lies somewhere between the trend in particulate sulfate (-3.2\% yr$^{-1}$, observations) and nitrate (-2.0\% yr$^{-1}$, observations). 
+This large difference between the trends of the different reduced nitrogen components can be explained by the interaction of ammonia with the sulfur and nitrogen components. When ammonia is released into the air, it reacts with secondary sulfate originating from the SO$_x$ emissions and forms particulate ammonium sulfate. If more ammonia is available, it reacts with nitric acid in an equilibrium reaction to form particulate ammonium nitrate. During the years from 2000 onwards, large reductions in SO$_x$ and NO$_x$ emissions have taken place, and thus less sulfate and nitric acid is available for forming ammonium particles. Therefore, a smaller fraction of NH$_3$ is converted to aerosol ammonium, and the decrease in particulate ammonium is strongly linked to the decrease in sulfate and nitrate. It is therefore to be expected that the trend in ammonium aerosol (-2.6\% yr$^{-1}$, observations) lies somewhere between the trend in particulate sulfate (-3.2\% yr$^{-1}$, observations) and nitrate (-2.0\% yr$^{-1}$, observations). 
 
-When less ammonia is converted to ammonium, the (very small) decrease in ammonia emissions is compensated by a larger part of ammonia residing in gas phase, and no decrease in ammonia (very few significant trends) are detected.
+When less ammonia is converted to ammonium, the (very small) decrease in ammonia emissions is compensated by a larger part of ammonia residing in the gas phase, and no decreases in ammonia (very few significant trends) are detected.
 
 For the sum of ammonia and ammonium, the two opposite trends of ammonia (no trend or slightly positive) and ammonium (negative) results in a negative trend that is smaller than the trend for ammonium alone.
 
-The analysis done for the shorter time periods (2000--2010 and 2010--2019) confirms the findings discussed above. It is worth noting that the agreement between the trends calculated from model calculations and the observation are excellent for the different reduced nitrogen components, which indicates that the EMEP MSC-W model does a very good job in reproducing the non-linear interactions between sulfur, oxidized nitrogen and reduced nitrogen and how it has evolved during the past 20 years.
+The analysis done for the shorter time periods (2000--2010 and 2010--2019) confirms the findings discussed above. It is worth noting that the agreement between the trends calculated from model calculations and the observation is excellent for the different reduced nitrogen components, which indicates that the EMEP MSC-W model does a very good job in reproducing the non-linear interactions between sulfur, oxidized nitrogen and reduced nitrogen and how this has evolved during the past 20 years.
 
 In summary, the observations and the model calculations confirm that very small reductions of ammonia emissions have been achieved during the 2000--2019 period. However, the contribution of ammonia emission to aerosols have been largely reduced during this period, due to the impact of SO$_x$ and NO$_x$ emission reductions.
 
@@ -617,7 +615,7 @@ mod. & conf.interval & obs. & conf.interval & mod. & conf.interval \\
 
 
 
-\clearpage
+%\clearpage
 \section{Trends in Elemental and Organic Carbon}
 \label{sec:trendsECOC}
 \subsection{Elemental Carbon, EC}
@@ -636,14 +634,14 @@ significant. The reduction was rather similar considering these eleven
 sites, ranging from -4.2~\%/yr to -5.8~\%/yr for ten out of eleven
 sites. %, thus we see no apparent spatial pattern in the reductions
 The largest reduction was seen amongst the sites with the
-highest EC levels, i.e., at Iskrba (-7~\%/yr) in Slovenia and at Ispra
+highest EC levels, i.e. at Iskrba (-7~\%/yr) in Slovenia and at Ispra
 (-5.8~\%/yr) in the Po Valley region in Northern Italy (Fig.~\ref{fig:ECtrends}). Notably, these
 were the only sites where a statistically significant reduction was
 observed for all seasons, being most pronounced in summer, although
 by a small margin. When considering all sites, the reduction was most
-pronounced in summer and autumn (Tab.~\ref{tab:KEX1},Fig.~\ref{fig:KEX1}), but the general picture is
+pronounced in summer and autumn (Tab.~\ref{tab:KEX1}, Fig.~\ref{fig:KEX1}), but the general picture is
 that there is a minor seasonal variability in the reduction of EC. It can be noted though that
-there are more sites with significant trends (p-values $<$ 0.05)  in summer than winter (Fig.\ref{fig:ECarrows}).
+there are more sites with significant trends (p-values $<$ 0.05) in summer than in winter (Fig.\ref{fig:ECarrows}).
 
 
 Fig.~\ref{fig:KEX1} illustrates the statistics of the reductions in EC in both observed and model results over the period 2010--2019, and for different seasons. For EC, the model is seen to capture the year to year changes very well over the ten years, and captures well the relative changes which are ca. -4~\%/yr in all seasons. Larger differences are seen in the absolute changes (which may reflect the difficulties with the EC emissions mentioned in Sect.~\ref{ss:IssuesECOC}).
@@ -823,7 +821,7 @@ autumn &              15 &          1 &           0 &                  -0.098 & 
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Discussion of EC, OC trends}
+\subsection{Discussion of EC and OC trends}
 \label{ss:DiscECOC}
 
 Before discussing the trends shown in Sect.~\ref{ss:trendsEC}-\ref{ss:trendsOC} in  more detail, it is important to note that ten years is a short period over which to assess such trends. In order to illustrate this, Table~\ref{tab:BirkenesTrends} shows trends assessed for three periods, 2008--2018, 2008--2019, and 2010--2019, all using the same methodology. It is seen that the magnitude of the trends can differ substantially depending on the time-window. For EC the values range from -2.2~\%/yr to \mbox{-4.2~\%/yr}, and for levoglucosan from -2.5~\%/yr to -5.2~\%/yr, with all values satisfying the p-value$<$0.05 significance test. Trend values for OC vary even more, but these trends were insignificant for all periods. Although we expect some of these trends to reflect changes in emissions, meteorological variation will also play a large role, especially in causing the high sensitivity of the calculated trends to small changes in the time window chosen.
@@ -868,15 +866,15 @@ levoglucosan observed at the Birkenes Observatory for 2010--2019, which is
 greater than the -4.2~\%/yr change calculated for EC.
 %, which might suggest that abatement of carbonaceous aerosol from biomass burning has been equally successful as that of EC from fossil fuel sources. This 
 This finding seems to contradict the conclusion made
-by \citet{Yttri2021}, but the differences in trends using different time-windows (c.f.Tab.~\ref{tab:BirkenesTrends}) suggests it is difficult to draw firm conclusions about these changes.
+by \citet{Yttri2021}, but the differences in trends using different time-windows (c.f.Tab.~\ref{tab:BirkenesTrends}) suggest that it is difficult to draw firm conclusions about these changes.
 
 
 
 As the biomass burning emissions observed at the
-Birkenes Observatory is largely long-range transported from Continental
+Birkenes Observatory are largely long-range transported from Continental
 Europe and Western Russia \citep{Yttri2021}, our findings for Birkenes
 are likely to be representative for a larger part of Europe. However,
-changing footprints  for the Birkenes site may also affect both the trends and
+changing footprints for the Birkenes site may also affect both the trends and
 the relative contributions of biomass burning and residential wood combustion (RWC).
 Figure~\ref{fig:gnfrCtrends} shows that for some countries, for example France, GNFR C \pmfine emissions have been in constant decline throughout the 2000s. Declines are seen in other countries from around 2010 onwards also, and most of these (arbitrarily chosen) countries show reduction of ca.~4~\%/yr. Thus, abatemement of RWC emissions seem to be progressing for many countries within the Birkenes footprint area, though the magnitude of the contribution from different countries will of course vary from year to year.
 
@@ -904,7 +902,7 @@ for the observations.
     \centering
     \includegraphics[width=12cm,trim=0 0 0 1.5cm,clip]{FIGS_TRENDS/PlotEmisTrends_PM2_5.png}
     \parbox{12cm}{
-    \caption{Trends in \pmfine emissions from the GNFR C emission sector (mainly residential heating). Values in parentheses give relative trends (here linear regression slopes), for the periods 2000-2019 and 2010--2019.
+    \caption{Trends in \pmfine emissions from the GNFR C emission sector (mainly residential heating). Values in parentheses give relative trends (here linear regression slopes), for the periods 2000--2019 and 2010--2019.
     \label{fig:gnfrCtrends}}}
 \end{figure}
 
@@ -1208,7 +1206,6 @@ During the 2000--2019 period, \soiv, \noii and \nhiv decreased on average by 3.2
  Due to the lack of consistent observational data for carbonaceous aerosols in the 2000s, the trends of elemental (EC) and organic (OC) carbon (in the \PM[2.5] size fraction only) have only been analysed for a 2010--2019 period (see discussion in Sect.~\ref{sec:trendsECOC}). 
  %HF Something on OC/EC trends + total
  During this 10-year period, a substantial decrease (around 4.5~\%/yr) was observed for EC, while the average decrease for OC was smaller (2.4~\%/yr). A similar to EC decrease was found for wintertime OC concentrations, whereas the trends in summertime OC were much less clear. Thus, decreases of both secondary inorganic aerosols as well as primary  (probably due to larger contribution of biogenic SOA) and secondary organic compounds have contributed to the decreases in PM concentrations.
- 
  Some examples of the changes in the chemical composition of \PM[2.5] from 2000(2002) to 2019 are given in Figure \ref{fig:KEX4}.
  %for the four of the sites with enough measurements for deriving the mass balance. 
 
@@ -1222,7 +1219,7 @@ Figure \ref{fig:pmExc_trends} presents the changes in the number of sites at whi
 
 %Thus, a stricter criteria than the 75\% data coverage over the time period, used for the trend assessment, was applied.
 
-Figure \ref{fig:pmExc_trends} indicates that the number of sites with exceedances of WHO AQG decrease for both \PM[10] and \PM[2.5] in the observations, although these results cannot be considered very robust as the number of sites with exceedances is small. The model results also show a decrease in the number of sites with exceedances for \PM[2.5], whereas it in general fails to reproduce the exceedances for \PM[10]. One reason for that is that the model underestimation of observed \PM[10] is typically larger than \PM[2.5]. Besides, the geography of the sites with observations available for this study was rather different, i.e. mostly Central European sites were included for \PM[10], while \PM[2.5] sites were dominated by Spanish ones and also included the very polluted site Ispra in the Po Valley. As discussed above, the model manages to reproduce PM exceedances better in Southern Europe, whereas it tends to underestimate those in Central Europe.  
+Figure \ref{fig:pmExc_trends} indicates that the number of sites with exceedances of WHO AQG decrease for both \PM[10] and \PM[2.5] in the observations, although these results cannot be considered very robust as the number of sites with exceedances is small. The model results also show a decrease in the number of sites with exceedances for \PM[2.5], whereas the model in general fails to reproduce the exceedances for \PM[10]. One reason for that is that the model underestimation of observed \PM[10] is typically larger than \PM[2.5]. Besides, the geographical location of the sites with observations available for this study was rather different, i.e. mostly Central European sites were included for \PM[10], while \PM[2.5] sites were dominated by Spanish ones and also included the very polluted site Ispra in the Po Valley. As discussed above, the model manages to reproduce PM exceedances better in Southern Europe, whereas it tends to underestimate those in Central Europe.  
 
 
 %\COMMENT{HF: A lot of details below, I suggest some new text above}
